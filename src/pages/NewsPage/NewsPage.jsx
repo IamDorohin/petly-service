@@ -8,9 +8,9 @@ import moment from 'moment/moment'
 
 const NewsPage = () => {
     const [filter, setFilter] = useState('');
-    let visibleContacts = {};
+    let visibleNews = {};
     if (news) {
-    visibleContacts = news.filter(item =>
+    visibleNews = news.filter(item =>
         item.title.toLowerCase().includes(filter) || item.description.toLowerCase().includes(filter)
     ).sort((a, b) => moment(b.date, 'DD.MM.YY') - moment(a.date, 'DD.MM.YY'));
     };
@@ -25,7 +25,7 @@ const NewsPage = () => {
 
         <NewsGrid>
             {news &&
-        visibleContacts.map(item => {
+        visibleNews.map(item => {
             return (
                 <NewsCard
                     title={item.title}
