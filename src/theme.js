@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
-  customBreakpoints: {
+  breakpoints: {
     values: {
       mobileResponsive: 320,
       mobileAdaptive: 480,
