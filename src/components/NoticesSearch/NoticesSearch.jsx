@@ -1,14 +1,36 @@
+import { useState } from 'react'
+
 import { SearchContainer, Title, Form, Input, Button } from "./NoticesSearch.styled"
 import SearchIcon from '@mui/icons-material/Search';
-// import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 
 const NoticesSearch = () => {
+    const [focus, setFocus] = useState(null)
+    const [value, setValue] = useState("");
+
+     const handleInputFocus = (event) => {
+    setFocus(true);
+    };
+
+    const handleChange = (event) => {
+    setValue(event.target.value);
+    };
+    
+     const onChangeBtnOff = (event) => {
+    setValue("");
+    setFocus(false);
+    
+    };
+    
+   
+
     return (
         <SearchContainer>
             <Title>Find your favorite pet</Title>
-            <Form>
-                <Input type="text" placeholder="Search" />
+            <Form  onFocus={handleInputFocus}>
+                <Input type="text" placeholder="Search" value={value} onChange={handleChange} />
+                {!focus  ? (
                 <Button type="submit">
                   <SearchIcon
                       sx={{
@@ -18,8 +40,8 @@ const NoticesSearch = () => {
                       }}
                   />
                 </Button>
-                
-                {/* <Button type="submit">
+                ) : (
+                <Button  onClick={onChangeBtnOff}>
                   <HighlightOffIcon
                       sx={{
                        width: 24,
@@ -27,8 +49,8 @@ const NoticesSearch = () => {
                       color: '#111111',
                       }}
                   />
-                 </Button> */}
-
+                 </Button> 
+                 )}
            </Form>
         </SearchContainer>
        

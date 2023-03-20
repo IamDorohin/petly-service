@@ -1,7 +1,7 @@
 
 import AddIcon from '@mui/icons-material/Add';
 
-import { CategoriesList, NavLinkStyled, AddButton } from 'components/NoticesCategoriesNav/NoticesCategoriesNav.styled'
+import { CategoriesList, NavLinkStyled, AddButton, TitleAddBtn, ContainerAddBtn, CategoriesContainer, OverallContainer } from 'components/NoticesCategoriesNav/NoticesCategoriesNav.styled'
 
 
 const NoticesCategoriesNav = (props) => {
@@ -19,8 +19,9 @@ const NoticesCategoriesNav = (props) => {
   ];
 
     return (
-        <>
-            
+      <>
+    <OverallContainer>
+      <CategoriesContainer>
        <CategoriesList>
                 {publicCategories.map(item => (
             //   <Button>
@@ -35,15 +36,7 @@ const NoticesCategoriesNav = (props) => {
           ))}
             </CategoriesList>
 
-            <AddButton>
-                <AddIcon
-          sx={{
-            width: 32,
-            height: 32,
-            color: '#ffffff',
-          }}
-        />
-            </AddButton>
+            
 
         <CategoriesList>
           {token !== null &&
@@ -58,6 +51,22 @@ const NoticesCategoriesNav = (props) => {
                             // </Button>
             ))}
         </CategoriesList>
+</CategoriesContainer>
+        
+        <ContainerAddBtn>
+            <TitleAddBtn> Add pet </TitleAddBtn>
+            <AddButton type='submit'>
+                <AddIcon
+          sx={{
+            width: 32,
+            height: 32,
+            color: '#ffffff',
+          }}
+        />
+            </AddButton>
+          </ContainerAddBtn>
+          
+          </OverallContainer>
             </>
     )
     
