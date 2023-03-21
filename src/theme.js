@@ -51,7 +51,7 @@ export const theme = createTheme({
   },
   customFontSizes: [12, 14, 16, 18, 20, 24, 28, 32, 36, 48, 68],
   customFontWeight: {
-    normalS: '400',
+    normalS: 400,
     normalM: 500,
     bold: 700,
   },
