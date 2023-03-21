@@ -1,11 +1,12 @@
-import {SearchInput} from './Search.styled'
-
+import {SearchInput, Button, Container} from './Search.styled'
+import SearchIcon from '@mui/icons-material/Search';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 export default function NewsSearch({ saveFilter, filter }) {
     const handleFilter = e => {
     saveFilter(e.target.value);
   };
 
-    return <div>
+    return <Container>
         <SearchInput
             type='text'
             value={filter}
@@ -13,5 +14,14 @@ export default function NewsSearch({ saveFilter, filter }) {
             placeholder = 'Search'
         />
         
-    </div>
+        {filter === '' && <Button component="button">
+        <SearchIcon/>
+        </Button>}
+        {filter !== '' && <Button component="button" onClick={()=> {saveFilter('')}}>
+        <HighlightOffIcon/>
+      </Button>}
+        
+        
+        
+    </Container>
 }
