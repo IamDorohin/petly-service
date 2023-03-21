@@ -6,7 +6,7 @@ export const theme = createTheme({
       mobileResponsive: 320,
       mobileAdaptive: 480,
       tablet: 768,
-      desktop: 1200,
+      desktop: 1280,
     },
   },
   customColors: {
