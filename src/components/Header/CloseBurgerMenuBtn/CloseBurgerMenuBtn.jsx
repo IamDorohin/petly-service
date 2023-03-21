@@ -1,5 +1,5 @@
 import { StyledImg, StyledImgContainer } from './CloseBurgerMenuBtn.styled';
-import close from '../../../img/close.png';
+import close from '../../../img/header-hero/close.png';
 
 export const CloseBurgerMenuBtn = ({ onClick }) => {
   return (

@@ -8,11 +8,9 @@ export const StyledNavList = styled.ul`
   flex-direction: column;
   gap: 40px;
   align-items: center;
-
   @media (min-width: 768px) {
     gap: 60px;
   }
-
   @media (min-width: 1300px) {
     flex-direction: row;
     gap: 80px;
@@ -29,21 +27,17 @@ export const StyledLink = styled(NavLink)`
   font-weight: 500;
   color: rgba(24, 28, 39, 1);
   text-decoration: none;
-
   &:hover,
   &:focus {
     color: rgba(245, 146, 86, 1);
   }
-
   &.active {
     color: rgba(245, 146, 86, 1);
     font-weight: 500;
   }
-
   @media (min-width: 768px) {
     font-size: 500;
   }
-
   @media (min-width: 1300px) {
     font-size: 20px;
 

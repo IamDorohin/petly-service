@@ -6,7 +6,6 @@ export const StyledImgContainer = styled.div`
   @media (min-width: 768px) {
     width: 94px;
   }
-
   @media (min-width: 1300px) {
     margin-right: 80px;
   }

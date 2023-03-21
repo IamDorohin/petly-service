@@ -1,5 +1,5 @@
 import { StyledImg, StyledImgContainer } from './Logo.styled';
-import logo from '../../../img/logo.png';
+import logo from '../../../img/header-hero/logo.png';
 
 export const Logo = () => {
   return (

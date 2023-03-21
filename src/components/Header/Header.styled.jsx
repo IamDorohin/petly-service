@@ -5,13 +5,11 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding-top: 16px;
-
   @media (min-width: 768px) {
     padding-top: 24px;
     justify-content: baseline;
   }
-
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     padding-top: 20px;
   }
 `;
@@ -19,8 +17,7 @@ export const StyledHeader = styled.header`
 export const StyledMenuContainer = styled.div`
   margin-left: auto;
   margin-right: 25px;
-
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     margin-right: 0;
   }
 `;
@@ -33,8 +30,8 @@ export const MainContainer = styled.div`
     width: 768px;
     padding: 0 32px;
   }
-  @media (min-width: 1300px) {
-    width: 1300px;
+  @media (min-width: 1280px) {
+    width: 1280px;
     padding: 0 16px;
   }
 `;

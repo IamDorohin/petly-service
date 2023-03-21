@@ -19,7 +19,6 @@ export const StyledIcon = styled(RiAccountCircleFill)`
 
 export const StyledButton = styled(Link)`
   display: flex;
-
   font-size: 14px;
   font-weight: 500;
   line-height: 1.36;
@@ -30,17 +29,14 @@ export const StyledButton = styled(Link)`
   background-color: rgba(245, 146, 86, 1);
   text-decoration: none;
   max-width: 144px;
-
   &:hover,
   &:focus {
     background-color: #f7853f;
   }
-
   @media (min-width: 768px) {
     font-size: 20px;
     max-width: 181px;
   }
-
   @media (min-width: 1300px) {
     padding: 10px 28px;
   }

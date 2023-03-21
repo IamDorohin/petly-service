@@ -11,7 +11,6 @@ export const StyledContainer = styled.div`
   left: 0;
   z-index: 1;
   padding: 16px 20px;
-
   @media (min-width: 768px) {
     padding: 24px 32px;
   }
@@ -22,7 +21,6 @@ export const StyledHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 46px;
-
   @media (min-width: 768px) {
     margin-bottom: 88px;
   }

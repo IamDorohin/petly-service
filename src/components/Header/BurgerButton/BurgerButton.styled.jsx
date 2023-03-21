@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const StyledImgContainer = styled.div`
   width: 40px;
-
   cursor: pointer;
 `;
 

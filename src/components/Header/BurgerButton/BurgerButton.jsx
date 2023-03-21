@@ -1,5 +1,5 @@
 import { StyledImg, StyledImgContainer } from './BurgerButton.styled';
-import burger from '../../../img/burger.png';
+import burger from '../../../img/header-hero/burger.png';
 
 export const BurgerButton = ({ onClick }) => {
   return (
