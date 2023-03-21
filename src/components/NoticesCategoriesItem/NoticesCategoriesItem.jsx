@@ -1,4 +1,5 @@
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import {
     NoticesItem,
@@ -6,11 +7,13 @@ import {
     ImageText,
     Image,
     ImageContainer,
-    DescriptonContainer,
+    GlobalContainer,
     DescriptoinTitle,
     DescriptionList,
     DescriptionItem,
     DescriptionText,
+    DescriptionBtn,
+    DeleteBtn,
 } from 'components/NoticesCategoriesItem/NoticesCategoriesItem.styled'
 
 const NoticesCategoriesItem = () => {
@@ -18,6 +21,7 @@ const NoticesCategoriesItem = () => {
     return (
         <>
             <NoticesItem>
+                <GlobalContainer>
               <ImageContainer>
                 <Image src={'https://dummyimage.com/290'} alt=""/> 
                 <ImageText> sell </ImageText>
@@ -31,9 +35,9 @@ const NoticesCategoriesItem = () => {
                   />
                 </LikeBtn>
              </ImageContainer>
-            </NoticesItem>
             
-            <DescriptonContainer>
+            
+            
                 <DescriptoinTitle> Любое название</DescriptoinTitle>
                 <DescriptionList>
 
@@ -50,11 +54,29 @@ const NoticesCategoriesItem = () => {
                     <DescriptionItem>
                         <DescriptionText> Age: </DescriptionText>
                         Возраст
+                        </DescriptionItem> 
+                        
+           {/* PRICE - for sell only              */}
+                     <DescriptionItem>
+                        <DescriptionText> Price: </DescriptionText>
+                        $
                     </DescriptionItem> 
 
-                </DescriptionList>
+                    </DescriptionList>
 
-            </DescriptonContainer>
+                    <DescriptionBtn> Learn More</DescriptionBtn>
+                    <DeleteBtn> Delete 
+                        <DeleteIcon
+                            sx={{
+                  width: 20,
+                 height: 20,
+                 color: '#F59256',
+                  }}
+                        />
+                    </DeleteBtn>
+
+            </GlobalContainer>
+            </NoticesItem>
 
             <NoticesItem>2й ЛИ </NoticesItem>
             </>

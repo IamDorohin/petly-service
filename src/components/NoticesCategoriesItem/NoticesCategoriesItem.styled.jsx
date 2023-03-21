@@ -3,11 +3,31 @@ import styled from 'styled-components';
 export const NoticesItem = styled.li`
 list-style: none;
 `
+
+export const GlobalContainer = styled.div`
+width: 280px;
+height: 606px;
+
+
+@media screen and (min-width: 768px ){
+   width: 336px;
+
+};
+@media screen and (min-width: 1199px ){
+   width: 288px;
+
+}
+`
+
 export const ImageContainer = styled.div`
 position: relative;
 width: 280px;
+height: 288px;
+
 `
-export const Image = styled.img``
+export const Image = styled.img`
+
+`
 
 export const ImageText = styled.p`
     width: 158px;
@@ -45,14 +65,66 @@ export const LikeBtn = styled.button`
     border: none;
 `
 
-export const DescriptonContainer = styled.div``
 
-export const DescriptoinTitle = styled.h3``
 
-export const DescriptionList = styled.ul``
+export const DescriptoinTitle = styled.h3`
+margin: 20px;
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 1.35;
+letter-spacing: -0.01em;
 
-export const DescriptionItem = styled.li``
+color: #111111;
+`
 
-export const DescriptionText = styled.span``
+export const DescriptionList = styled.ul`
+list-style: none;
+margin-bottom: 50px;
+`
 
-export const DescriptionBtn = styled.button``
+export const DescriptionItem = styled.li`
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 1.375;
+`
+
+export const DescriptionText = styled.span`
+display: inline-block;
+    min-width: 90px;
+`
+
+export const ButtonStyles = `
+margin: 0 20px 12px 20px;
+  width: 248px;
+    padding: 8px 28px;
+   background: #ffffff;
+  border: 2px solid #f59256;
+  border-radius: 40px;
+  font-family: "Manrope";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+  letter-spacing: 0.04em;
+  color: #f59256;
+  &&:hover {
+    border-color: #ff6101;
+    color: #ff6101;
+    cursor: pointer;
+  };
+`;
+
+export const DescriptionBtn = styled.button`
+ ${ButtonStyles};
+`
+
+export const DeleteBtn = styled.button`
+    ${ButtonStyles};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    `
