@@ -4,22 +4,24 @@ export const NoticesItem = styled.li`
 list-style: none;
 position: relative;
 width: 280px;
-height: 606px;
-`
-
-export const GlobalContainer = styled.div`
-width: 100%;
-
-
+/* height: 606px; */
+height: auto;
+margin-bottom: 32px;
 
 @media screen and (min-width: 768px ){
    width: 336px;
+   margin-right: 32px;
 
 };
 @media screen and (min-width: 1280px ){
    width: 288px;
 
 }
+`
+
+export const GlobalContainer = styled.div`
+width: 100%;
+
 `
 
 // export const ImageContainer = styled.div`

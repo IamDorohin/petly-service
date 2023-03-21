@@ -9,7 +9,7 @@ const NoticesCategoriesItem = () => {
         <>
             <SC.NoticesItem>
                 <SC.GlobalContainer>
-              {/* <SC.ImageContainer> */}
+              
                 <SC.Image src={'https://dummyimage.com/250'} alt=""/> 
                 <SC.ImageText> sell </SC.ImageText>
                 <SC.LikeBtn>
@@ -21,10 +21,8 @@ const NoticesCategoriesItem = () => {
                   }}
                   />
                 </SC.LikeBtn>
-             {/* </SC.ImageContainer> */}
-            
-            
-            
+                     
+                        
                 <SC.DescriptoinTitle> Любое название</SC.DescriptoinTitle>
                 <SC.DescriptionList>
 

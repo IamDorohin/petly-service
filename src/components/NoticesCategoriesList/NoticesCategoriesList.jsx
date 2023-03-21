@@ -6,7 +6,10 @@ const NoticesCategoriesList = () => {
 
     return (
         <Ul>
-        <NoticesCategoriesItem />
+            <NoticesCategoriesItem />
+            <NoticesCategoriesItem />
+            <NoticesCategoriesItem />
+            <NoticesCategoriesItem />
         </Ul>
     )
 }
