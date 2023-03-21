@@ -1,9 +1,10 @@
 export { default as authBackgroundMobile } from './bg-auth-mobile-min.png';
 export { default as authBackgroundTablet } from './bg-auth-tablet-min.png';
 export { default as authBackgroundLaptop } from './bg-auth-laptop-min.png';
-export { default as homeBg1Mobile } from './bg1-home-mobile-min.png';
-export { default as homeBg1Tablet } from './bg1-home-tablet-min.png';
-export { default as homeBg1Laptop } from './bg1-home-laptop-min.png';
+export { default as dogHomeSearchLaptop } from './dog-home-laptop-search-min.png';
+export { default as dogHomeLaptop } from './dog-home-laptop-min.png';
+export { default as dogHomeTablet } from './dog-home-tablet-min.png';
+export { default as dogHomeMobile } from './dog-home-mobile-min.png';
 export { default as homeBg2Laptop } from './bg2-home-laptop-min.png';
 export { default as homeBg2Tablet } from './bg2-home-tablet-min.png';
 export { default as homeBg2Mobile } from './bg2-home-mobile-min.png';
