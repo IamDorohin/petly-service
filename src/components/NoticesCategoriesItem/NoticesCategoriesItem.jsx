@@ -9,8 +9,8 @@ const NoticesCategoriesItem = () => {
         <>
             <SC.NoticesItem>
                 <SC.GlobalContainer>
-              <SC.ImageContainer>
-                <SC.Image src={'https://dummyimage.com/290'} alt=""/> 
+              {/* <SC.ImageContainer> */}
+                <SC.Image src={'https://dummyimage.com/250'} alt=""/> 
                 <SC.ImageText> sell </SC.ImageText>
                 <SC.LikeBtn>
                   <FavoriteBorderIcon
@@ -21,7 +21,7 @@ const NoticesCategoriesItem = () => {
                   }}
                   />
                 </SC.LikeBtn>
-             </SC.ImageContainer>
+             {/* </SC.ImageContainer> */}
             
             
             
@@ -65,7 +65,7 @@ const NoticesCategoriesItem = () => {
             </SC.GlobalContainer>
             </SC.NoticesItem>
 
-            <SC.NoticesItem>2й ЛИ </SC.NoticesItem>
+            
             </>
     )
 }

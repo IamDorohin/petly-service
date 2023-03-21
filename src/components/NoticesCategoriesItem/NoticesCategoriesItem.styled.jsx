@@ -2,31 +2,34 @@ import styled from 'styled-components';
 
 export const NoticesItem = styled.li`
 list-style: none;
+position: relative;
+width: 280px;
+height: 606px;
 `
 
 export const GlobalContainer = styled.div`
-width: 280px;
-height: 606px;
+width: 100%;
+
 
 
 @media screen and (min-width: 768px ){
    width: 336px;
 
 };
-@media screen and (min-width: 1199px ){
+@media screen and (min-width: 1280px ){
    width: 288px;
 
 }
 `
 
-export const ImageContainer = styled.div`
-position: relative;
-width: 280px;
-height: 288px;
-
-`
+// export const ImageContainer = styled.div`
+// /* position: relative;
+// width: 280px;
+// height: 288px; */
+// width: 100%;
+// `
 export const Image = styled.img`
-
+width: 100%;
 `
 
 export const ImageText = styled.p`

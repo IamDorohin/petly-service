@@ -1,12 +1,13 @@
 import NoticesCategoriesItem from 'components/NoticesCategoriesItem/NoticesCategoriesItem'
+import { Ul }  from 'components/NoticesCategoriesList/NoticesCategoriesList.styled'
 
 const NoticesCategoriesList = () => {
     
 
     return (
-        <ul>
+        <Ul>
         <NoticesCategoriesItem />
-        </ul>
+        </Ul>
     )
 }
 

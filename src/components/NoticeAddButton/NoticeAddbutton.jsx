@@ -12,7 +12,8 @@ const NoticeAddButton = () => {
             height: 32,
             color: '#ffffff',
           }}
-        />
+                />
+                <SC.TitleAddBtnForMobile> Add pet </SC.TitleAddBtnForMobile>
             </SC.AddButton>
           </SC.ContainerAddBtn>
 

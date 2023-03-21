@@ -19,39 +19,38 @@ const NoticesCategoriesNav = (props) => {
     return (
       <>
     <SC.OverallContainer>
-      <SC.CategoriesContainer>
+      {/* <SC.CategoriesContainer> */}
        <SC.CategoriesList>
                 {publicCategories.map(item => (
-            //   <Button>
+          <SC.CategoriesItem>
             <SC.NavLinkStyled
               to={`/notices/${Object.values(item)}${location.search}`}
-              state
+              
               key={Object.keys(item)}
             >
               {Object.keys(item)}
-            </SC.NavLinkStyled>
-                        // </Button>
-          ))}
-            </SC.CategoriesList>
-
-            
-
-        <SC.CategoriesList>
-          {token !== null &&
+                    </SC.NavLinkStyled>
+                    
+                     
+         </SC.CategoriesItem>         
+                ))}
+              
+              {token !== null &&
                     privateCategories.map(item => (
-                // <Button>
+                <SC.CategoriesItem>
               <SC.NavLinkStyled
                 to={`/notices/${Object.values(item)}${location.search}`}
                 key={Object.keys(item)}
               >
                 {Object.keys(item)}
                             </SC.NavLinkStyled>
-                            // </Button>
+                            </SC.CategoriesItem>
             ))}
-        </SC.CategoriesList>
-</SC.CategoriesContainer>
-        
-          
+            </SC.CategoriesList>
+
+                  
+{/* </SC.CategoriesContainer> */}
+                 
                  
           </SC.OverallContainer>
             </>
