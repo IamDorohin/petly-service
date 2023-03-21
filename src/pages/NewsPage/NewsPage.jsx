@@ -5,6 +5,8 @@ import NewsSearch from '../../components/Generic/Search'
 import NewsGrid from '../../components/News/NewsGrid'
 import NewsCard from '../../components/News/NewsCard'
 import moment from 'moment/moment'
+import {NewsContainer} from './NewsPage,styled'
+
 
 const NewsPage = () => {
     const [filter, setFilter] = useState('');
@@ -15,7 +17,8 @@ const NewsPage = () => {
     ).sort((a, b) => moment(b.date, 'DD.MM.YY') - moment(a.date, 'DD.MM.YY'));
     };
 
-    return <div>
+    return <NewsContainer>
+
         <NewsTitle>News</NewsTitle>
 
         <NewsSearch
@@ -28,18 +31,19 @@ const NewsPage = () => {
         visibleNews.map(item => {
             return (
                 <NewsCard
+                    key={item.title}
                     title={item.title}
                     url={item.url}
                     description={item.description}
                     date = {item.date}
-                    key={item.id}
+                    
                 />
             );
         })}
         </NewsGrid>
 
         
-    </div>
+    </NewsContainer>
 };
 
 export default NewsPage;
