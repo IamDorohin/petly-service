@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import news from '../../data/news'
-import NewsTitle from '../../components/Generic/Title'
+import Title from '../../components/Generic/Title'
 import NewsSearch from '../../components/Generic/Search'
 import NewsGrid from '../../components/News/NewsGrid'
 import NewsCard from '../../components/News/NewsCard'
 import moment from 'moment/moment'
-import {NewsContainer} from './NewsPage,styled'
+import {NewsContainer} from './NewsPage.styled'
 
 
 const NewsPage = () => {
@@ -19,7 +19,7 @@ const NewsPage = () => {
 
     return <NewsContainer>
 
-        <NewsTitle>News</NewsTitle>
+        <Title>News</Title>
 
         <NewsSearch
             saveFilter={setFilter}
