@@ -1,31 +1,18 @@
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import {
-    NoticesItem,
-    LikeBtn,
-    ImageText,
-    Image,
-    ImageContainer,
-    GlobalContainer,
-    DescriptoinTitle,
-    DescriptionList,
-    DescriptionItem,
-    DescriptionText,
-    DescriptionBtn,
-    DeleteBtn,
-} from 'components/NoticesCategoriesItem/NoticesCategoriesItem.styled'
+import * as SC from 'components/NoticesCategoriesItem/NoticesCategoriesItem.styled'
 
 const NoticesCategoriesItem = () => {
 
     return (
         <>
-            <NoticesItem>
-                <GlobalContainer>
-              <ImageContainer>
-                <Image src={'https://dummyimage.com/290'} alt=""/> 
-                <ImageText> sell </ImageText>
-                <LikeBtn>
+            <SC.NoticesItem>
+                <SC.GlobalContainer>
+              <SC.ImageContainer>
+                <SC.Image src={'https://dummyimage.com/290'} alt=""/> 
+                <SC.ImageText> sell </SC.ImageText>
+                <SC.LikeBtn>
                   <FavoriteBorderIcon
                    sx={{
                   width: 28,
@@ -33,39 +20,39 @@ const NoticesCategoriesItem = () => {
                  color: '#F59256',
                   }}
                   />
-                </LikeBtn>
-             </ImageContainer>
+                </SC.LikeBtn>
+             </SC.ImageContainer>
             
             
             
-                <DescriptoinTitle> Любое название</DescriptoinTitle>
-                <DescriptionList>
+                <SC.DescriptoinTitle> Любое название</SC.DescriptoinTitle>
+                <SC.DescriptionList>
 
-                    <DescriptionItem>
-                        <DescriptionText> Breed: </DescriptionText>
+                    <SC.DescriptionItem>
+                        <SC.DescriptionText> Breed: </SC.DescriptionText>
                         Порода
-                    </DescriptionItem> 
+                    </SC.DescriptionItem> 
 
-                    <DescriptionItem>
-                        <DescriptionText> Place: </DescriptionText>
+                    <SC.DescriptionItem>
+                        <SC.DescriptionText> Place: </SC.DescriptionText>
                         Город
-                    </DescriptionItem> 
+                    </SC.DescriptionItem> 
 
-                    <DescriptionItem>
-                        <DescriptionText> Age: </DescriptionText>
+                    <SC.DescriptionItem>
+                        <SC.DescriptionText> Age: </SC.DescriptionText>
                         Возраст
-                        </DescriptionItem> 
+                        </SC.DescriptionItem> 
                         
            {/* PRICE - for sell only              */}
-                     <DescriptionItem>
-                        <DescriptionText> Price: </DescriptionText>
+                     <SC.DescriptionItem>
+                        <SC.DescriptionText> Price: </SC.DescriptionText>
                         $
-                    </DescriptionItem> 
+                    </SC.DescriptionItem> 
 
-                    </DescriptionList>
+                    </SC.DescriptionList>
 
-                    <DescriptionBtn> Learn More</DescriptionBtn>
-                    <DeleteBtn> Delete 
+                    <SC.DescriptionBtn> Learn More</SC.DescriptionBtn>
+                    <SC.DeleteBtn> Delete 
                         <DeleteIcon
                             sx={{
                   width: 20,
@@ -73,12 +60,12 @@ const NoticesCategoriesItem = () => {
                  color: '#F59256',
                   }}
                         />
-                    </DeleteBtn>
+                    </SC.DeleteBtn>
 
-            </GlobalContainer>
-            </NoticesItem>
+            </SC.GlobalContainer>
+            </SC.NoticesItem>
 
-            <NoticesItem>2й ЛИ </NoticesItem>
+            <SC.NoticesItem>2й ЛИ </SC.NoticesItem>
             </>
     )
 }

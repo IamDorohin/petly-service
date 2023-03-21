@@ -1,7 +1,5 @@
 
-// import AddIcon from '@mui/icons-material/Add';
-import NoticeAddButton from 'components/NoticeAddButton/NoticeAddbutton'
-import { CategoriesList, NavLinkStyled, CategoriesContainer, OverallContainer } from 'components/NoticesCategoriesNav/NoticesCategoriesNav.styled'
+import * as SC from 'components/NoticesCategoriesNav/NoticesCategoriesNav.styled'
 
 
 const NoticesCategoriesNav = (props) => {
@@ -20,54 +18,42 @@ const NoticesCategoriesNav = (props) => {
 
     return (
       <>
-    <OverallContainer>
-      <CategoriesContainer>
-       <CategoriesList>
+    <SC.OverallContainer>
+      <SC.CategoriesContainer>
+       <SC.CategoriesList>
                 {publicCategories.map(item => (
             //   <Button>
-            <NavLinkStyled
+            <SC.NavLinkStyled
               to={`/notices/${Object.values(item)}${location.search}`}
               state
               key={Object.keys(item)}
             >
               {Object.keys(item)}
-            </NavLinkStyled>
+            </SC.NavLinkStyled>
                         // </Button>
           ))}
-            </CategoriesList>
+            </SC.CategoriesList>
 
             
 
-        <CategoriesList>
+        <SC.CategoriesList>
           {token !== null &&
                     privateCategories.map(item => (
                 // <Button>
-              <NavLinkStyled
+              <SC.NavLinkStyled
                 to={`/notices/${Object.values(item)}${location.search}`}
                 key={Object.keys(item)}
               >
                 {Object.keys(item)}
-                            </NavLinkStyled>
+                            </SC.NavLinkStyled>
                             // </Button>
             ))}
-        </CategoriesList>
-</CategoriesContainer>
+        </SC.CategoriesList>
+</SC.CategoriesContainer>
         
-          <NoticeAddButton />
-        {/* <ContainerAddBtn>
-            <TitleAddBtn> Add pet </TitleAddBtn>
-            <AddButton type='submit'>
-                <AddIcon
-          sx={{
-            width: 32,
-            height: 32,
-            color: '#ffffff',
-          }}
-        />
-            </AddButton>
-          </ContainerAddBtn> */}
           
-          </OverallContainer>
+                 
+          </SC.OverallContainer>
             </>
     )
     

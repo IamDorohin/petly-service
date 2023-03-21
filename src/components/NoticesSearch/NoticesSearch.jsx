@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { SearchContainer, Title, Form, Input, Button } from "./NoticesSearch.styled"
+import * as SC from "./NoticesSearch.styled"
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
@@ -26,12 +26,12 @@ const NoticesSearch = () => {
    
 
     return (
-        <SearchContainer>
-            <Title>Find your favorite pet</Title>
-            <Form  onFocus={handleInputFocus}>
-                <Input type="text" placeholder="Search" value={value} onChange={handleChange} />
+        <SC.SearchContainer>
+            <SC.Title>Find your favorite pet</SC.Title>
+            <SC.Form  onFocus={handleInputFocus}>
+                <SC.Input type="text" placeholder="Search" value={value} onChange={handleChange} />
                 {!focus  ? (
-                <Button type="submit">
+                <SC.Button type="submit">
                   <SearchIcon
                       sx={{
                        width: 24,
@@ -39,9 +39,9 @@ const NoticesSearch = () => {
                       color: '#111111',
                       }}
                   />
-                </Button>
+                </SC.Button>
                 ) : (
-                <Button  onClick={onChangeBtnOff}>
+                <SC.Button  onClick={onChangeBtnOff}>
                   <HighlightOffIcon
                       sx={{
                        width: 24,
@@ -49,10 +49,10 @@ const NoticesSearch = () => {
                       color: '#111111',
                       }}
                   />
-                 </Button> 
+                 </SC.Button> 
                  )}
-           </Form>
-        </SearchContainer>
+           </SC.Form>
+        </SC.SearchContainer>
        
 )
 }
