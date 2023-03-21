@@ -66,7 +66,7 @@ const UserPage = () => {
             Edit photo
           </UserEditPhoto>
         </UserEditBlock>
-
+        {/* test */}
         {/* onFormSubmit={onFormSubmit} */}
         <Form>
           {inputs.map(input => {
