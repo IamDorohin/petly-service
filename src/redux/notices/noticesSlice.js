@@ -3,44 +3,79 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const noticesApi = createApi({
   reducerPath: 'notices',
   baseQuery: fetchBaseQuery({ baseUrl: '' }),
-  tagTypes: ['Notices'],
+  tagTypes: ['sell', 'lostfound', 'ingoodhands', 'favoriteads', 'myads'],
   endpoints: builder => ({
     getDefaultNotices: builder.query({
       query: () => `notices/sell`,
-      providesTags: ['Notices'],
+      providesTags: ['sell'],
     }),
     getNoticesByCategory: builder.query({
       query: noticesCategory => `notices/${noticesCategory}`,
-      providesTags: ['Notices'],
+      providesTags: (result, error, { noticesCategory }) => [noticesCategory],
     }),
-    deleteOwnNoticeById: builder.mutation({
-      query: noticesCategory => `notices/${noticesCategory}`,
-      providesTags: ['Notices'],
+    addFavoriteNotice: builder.mutation({
+      query: notice => ({
+        url: `notices/favoriteads`,
+        method: 'POST',
+        body: notice,
+      }),
+      invalidatesTags: ['favoriteads'],
+    }),
+    deleteFavoriteNotice: builder.mutation({
+      query: id => ({
+        url: `notices/favoriteads`,
+        method: 'DELETE',
+        body: id,
+      }),
+      invalidatesTags: ['favoriteads'],
+    }),
+    addNotice: builder.mutation({
+      query: notice => ({
+        url: ``,
+        method: 'POST',
+        body: notice,
+      }),
+      invalidatesTags: ['myads'],
+    }),
+    deleteNotice: builder.mutation({
+      query: id => ({
+        url: `notices/${id}`,
+        method: 'DELETE',
+        body: id,
+      }),
+      invalidatesTags: ['myads'],
     }),
   }),
 });
 
-export const { useGetDefaultNoticesQuery, useGetNoticesByCategoryQuery } =
-  noticesApi;
+export const {
+  useGetDefaultNoticesQuery,
+  useGetNoticesByCategoryQuery,
+  useAddFavoriteNoticeMutation,
+  useDeleteFavoriteNoticeMutation,
+  useAddNoticeMutation,
+  useDeleteNoticeMutation,
+} = noticesApi;
 
 // For commponent
+
 // const {data, error, isFetching, isError} = useGetDefaultNoticesQuery();
-
-// const { data, error, isLoading } = useGetNoticesByCategoryQuery(categoryValue, {
+// const submitHandler = async() => {
+// const { data, error, isLoading } = await useGetNoticesByCategoryQuery(categoryValue, {
 //     skip: categoryValue === '',
-
 // });
+// }
 
-// For store.js
-// import { noticesApi } from 'redux/nptices/noticesSlice'
+// const [addNotice] = useAddNoticeMutation();
+// const newAdHandler = async notice => {
+//   try {
+//     await addNotice(notice);
+//     success notification
+//   } catch (error) {
+//     error notification
+//   }
+// }
 
-// export const store = configureStore({
-//   reducer: {
-//     // Add the generated reducer as a specific top-level slice
-//     [pokemonApi.reducerPath]: pokemonApi.reducer,
-//   },
-//   // Adding the api middleware enables caching, invalidation, polling,
-//   // and other useful features of `rtk-query`.
-//   middleware: (getDefaultMiddleware) =>
-//     getDefaultMiddleware().concat(noticesApi.middleware),
-// })
+// In notice card component
+// const [deleteNotice] = useDeleteNoticeMutation();
+// Add deleteNotice in onClick button
