@@ -1,3 +1,5 @@
+import {Grid} from './NewsGrid.styles'
+
 export default function NewsGrid(props) {
-    return <ul>{props.children}</ul>
+    return <Grid>{props.children}</Grid>
 }
