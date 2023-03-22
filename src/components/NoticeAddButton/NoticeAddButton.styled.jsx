@@ -55,7 +55,7 @@ border-radius: 50%;
    z-index: 1;
    width: 80px;
    height: 80px;
-
+transition: all 250ms ease 0s;
   }
     `
 

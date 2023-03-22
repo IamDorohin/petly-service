@@ -22,12 +22,12 @@ const NoticesCategoriesNav = (props) => {
       {/* <SC.CategoriesContainer> */}
        <SC.CategoriesList>
                 {publicCategories.map(item => (
-          <SC.CategoriesItem>
+                  <SC.CategoriesItem key={Object.keys(item)}>
+                    
             <SC.NavLinkStyled
               to={`/notices/${Object.values(item)}${location.search}`}
               
-              key={Object.keys(item)}
-            >
+               >
               {Object.keys(item)}
                     </SC.NavLinkStyled>
                     
@@ -37,10 +37,10 @@ const NoticesCategoriesNav = (props) => {
               
               {token !== null &&
                     privateCategories.map(item => (
-                <SC.CategoriesItem>
+                <SC.CategoriesItem key={Object.keys(item)}>
               <SC.NavLinkStyled
                 to={`/notices/${Object.values(item)}${location.search}`}
-                key={Object.keys(item)}
+                
               >
                 {Object.keys(item)}
                             </SC.NavLinkStyled>

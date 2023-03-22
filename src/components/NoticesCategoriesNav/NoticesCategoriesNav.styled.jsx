@@ -29,10 +29,15 @@ export const CategoriesList = styled.ul`
   
 export const CategoriesItem = styled.li`
  padding: 8px 28px;
-  
+  background-color: #ffffff;
   border: 2px solid #f59256;
   border-radius: 40px;
 cursor: pointer;
+
+  &:hover {
+ background-color: #F59256;
+
+     }
 
   @media screen and (min-width: 768px) {
     padding: 10px 28px;
@@ -48,13 +53,13 @@ color: #111111;
     color: white;
     background-color: #F59256
    }
-     &:hover {
- background-color: #F59256;
+  ${CategoriesItem}:hover & {
+ 
 color: #ffffff;
      }
 
       font-family: Manrope;
-  background-color: #ffffff;
+  
  
   font-size: 14px;
   /* font-weight: 500; */
