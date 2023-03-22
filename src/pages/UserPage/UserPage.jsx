@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
 import {
+  UserContainer,
   UserBlock,
   UserTitleInfo,
   UserInfoBlock,
+  UserInfoWrapper,
+  UserFormWrapper,
   UserInfoImage,
   UserEditBlock,
   UserEditPhoto,
@@ -24,6 +27,7 @@ import {
   PetCardImg,
   PetCardDelete,
   PetCardDeleteIcon,
+  PetCardWrapper,
   PetCardDescript,
   PetCardTitle,
 } from './UserPage.style';
@@ -54,83 +58,97 @@ const UserPage = () => {
   //   const inputName = evt.target.name;
   // }
   return (
-    <UserBlock>
-      <UserTitleInfo>My information:</UserTitleInfo>
-      <UserInfoBlock>
-        <UserInfoImage src="../../../public/no-photo.jpg" alt="No photo" />
+    <UserBlock style={{ padding: '120px 0 80px 0' }}>
+      <UserContainer>
+        <UserBlock>
+          <UserTitleInfo>My information:</UserTitleInfo>
+          <UserInfoBlock>
+            <UserInfoWrapper>
+              <UserInfoImage
+                src="../../../public/no-photo.jpg"
+                alt="No photo"
+              />
 
-        <UserEditBlock>
-          <UserEditPhoto>
-            <UserEditIcon />
-            <UserEditInput type="file" accept=".jpg, .jpeg, .png" />
-            Edit photo
-          </UserEditPhoto>
-        </UserEditBlock>
-        {/* test */}
-        {/* onFormSubmit={onFormSubmit} */}
-        <Form>
-          {inputs.map(input => {
-            return (
-              <FormLabel key={input.id}>
-                <FormTitle>{input.name}</FormTitle>
-                <FormWrap>
-                  <FormInput
-                    onChange={inputChange}
-                    name={input.name.toLowerCase()}
-                  />
-                  <FormIconPen />
-                </FormWrap>
-              </FormLabel>
-            );
-          })}
-        </Form>
+              <UserEditBlock>
+                <UserEditPhoto>
+                  <UserEditIcon />
+                  <UserEditInput type="file" accept=".jpg, .jpeg, .png" />
+                  Edit photo
+                </UserEditPhoto>
+              </UserEditBlock>
+            </UserInfoWrapper>
+            {/* onFormSubmit={onFormSubmit} */}
 
-        <LogoutBtn>
-          <LogoutBtnIcon />
-          Log Out
-        </LogoutBtn>
-      </UserInfoBlock>
+            <UserFormWrapper>
+              <Form>
+                {inputs.map(input => {
+                  return (
+                    <FormLabel key={input.id}>
+                      <FormTitle>{input.name}</FormTitle>
+                      <FormWrap>
+                        <FormInput
+                          onChange={inputChange}
+                          name={input.name.toLowerCase()}
+                        />
+                        <FormIconPen />
+                      </FormWrap>
+                    </FormLabel>
+                  );
+                })}
+              </Form>
 
-      <PetCardBlock>
-        <UserTitleInfo style={{ marginBottom: '0' }}>My pets:</UserTitleInfo>
+              <LogoutBtn>
+                <LogoutBtnIcon />
+                Log Out
+              </LogoutBtn>
+            </UserFormWrapper>
+          </UserInfoBlock>
 
-        <AddPetBtn>
-          Add pet
-          <AddPetBtnIcon />
-        </AddPetBtn>
-      </PetCardBlock>
+          <PetCardBlock>
+            <UserTitleInfo style={{ marginBottom: '0' }}>
+              My pets:
+            </UserTitleInfo>
 
-      <PetCard>
-        <PetCardImg src="/public/cat.jpg" alt="You pet" />
+            <AddPetBtn>
+              Add pet
+              <AddPetBtnIcon />
+            </AddPetBtn>
+          </PetCardBlock>
 
-        <PetCardDelete>
-          <PetCardDeleteIcon />
-        </PetCardDelete>
-        <PetCardTitle>
-          Name:
-          <PetCardDescript> Jack</PetCardDescript>
-        </PetCardTitle>
+          <PetCard>
+            <PetCardImg src="/public/cat.jpg" alt="You pet" />
 
-        <PetCardTitle>
-          Date of birth:
-          <PetCardDescript> 22.04.2018</PetCardDescript>
-        </PetCardTitle>
+            <PetCardDelete>
+              <PetCardDeleteIcon />
+            </PetCardDelete>
+            <PetCardWrapper>
+              <PetCardTitle>
+                Name:
+                <PetCardDescript> Jack</PetCardDescript>
+              </PetCardTitle>
 
-        <PetCardTitle>
-          Breed:
-          <PetCardDescript> Persian cat</PetCardDescript>
-        </PetCardTitle>
+              <PetCardTitle>
+                Date of birth:
+                <PetCardDescript> 22.04.2018</PetCardDescript>
+              </PetCardTitle>
 
-        <PetCardTitle style={{ marginBottom: '0' }}>
-          Comments:
-          <PetCardDescript>
-            {' '}
-            Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet,
-            consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum
-            dolor sit amet, consectetur
-          </PetCardDescript>
-        </PetCardTitle>
-      </PetCard>
+              <PetCardTitle>
+                Breed:
+                <PetCardDescript> Persian cat</PetCardDescript>
+              </PetCardTitle>
+
+              <PetCardTitle style={{ marginBottom: '0' }}>
+                Comments:
+                <PetCardDescript>
+                  Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit
+                  amet, consectetur Lorem ipsum dolor sit amet, consectetur
+                  Lorem ipsum dolor sit amet, consectetur
+                </PetCardDescript>
+              </PetCardTitle>
+            </PetCardWrapper>
+          </PetCard>
+        </UserBlock>
+      </UserContainer>
     </UserBlock>
   );
 };
