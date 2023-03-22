@@ -3,17 +3,16 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import * as SC from 'components/NoticesCategoriesItem/NoticesCategoriesItem.styled'
 
-const NoticesCategoriesItem = (props) => {
-    // const { title, image, breed, price, age, place} = props
-const { item } = props
+const NoticesCategoriesItem = () => {
+
     return (
         
         <>
-            <SC.NoticesItem key={item.title}>
+            <SC.NoticesItem >
                 <SC.GlobalContainer>
 
                     
-                <SC.Image src={item.image} alt=""/> 
+                <SC.Image src={'https://dummyimage.com/250'} alt=""/> 
                 <SC.ImageText> sell </SC.ImageText>
                 <SC.LikeBtn>
                   <FavoriteBorderIcon
@@ -26,34 +25,34 @@ const { item } = props
                 </SC.LikeBtn>
                      
                         
-                    <SC.DescriptoinTitle> {item.title} </SC.DescriptoinTitle>
+                    <SC.DescriptoinTitle> Описание </SC.DescriptoinTitle>
                 <SC.DescriptionList>
 
                     <SC.DescriptionItem>
                         <SC.DescriptionText> Breed: </SC.DescriptionText>
-                        {item.breed}
+                        Порода
                     </SC.DescriptionItem> 
 
                     <SC.DescriptionItem>
                         <SC.DescriptionText> Place: </SC.DescriptionText>
-                        {item.place}
+                        Город
                     </SC.DescriptionItem> 
 
                     <SC.DescriptionItem>
                         <SC.DescriptionText> Age: </SC.DescriptionText>
-                        {item.age}
+                        Возраст
                         </SC.DescriptionItem> 
                         
            {/* PRICE - for sell only              */}
                      <SC.DescriptionItem>
                         <SC.DescriptionText> Price: </SC.DescriptionText>
-                        {item.price}
+                        Стоимость
                     </SC.DescriptionItem> 
 
                     </SC.DescriptionList>
 
                     <SC.DescriptionBtn> Learn More</SC.DescriptionBtn>
-                    {item.userLogin === true &&
+                    
                         <SC.DeleteBtn> Delete
                             <DeleteIcon
                                 sx={{
@@ -63,7 +62,7 @@ const { item } = props
                                 }}
                             />
                         </SC.DeleteBtn>
-                    }
+                    
             </SC.GlobalContainer>
             </SC.NoticesItem>
 
