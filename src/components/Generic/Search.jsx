@@ -1,25 +1,51 @@
-import {SearchInput, Button, Container} from './Search.styled'
+import {SearchInput, FindButton, Container, DeleteButton} from './Search.styled'
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-export default function NewsSearch({ saveFilter, filter }) {
-    const handleFilter = e => {
-    saveFilter(e.target.value);
-  };
+import React, {useState, useEffect} from 'react'
 
-    return <Container>
+
+export default function NewsSearch({ saveFilter }) {
+  const [inputData, setInputData] = useState('');
+
+    const handleFilter = e => {
+    setInputData(e.target.value);
+  };
+  const submitFilter = () => {
+      saveFilter(inputData)
+  }
+  
+  const clearFilter = () => {
+    setInputData('');
+  }
+
+   useEffect(() => {
+        const onKeyDown = e => {
+            if(e.keyCode === 13) {
+                saveFilter(inputData);
+            }
+        };
+        document.addEventListener('keydown', onKeyDown);
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+        };
+    }, [inputData, saveFilter]);
+
+    return <Container component="form">
         <SearchInput
             type='text'
-            value={filter}
-            onChange={handleFilter}
+            value={inputData}
+        onChange={handleFilter}
+        
             placeholder = 'Search'
         />
-        
-        {filter === '' && <Button component="button">
+
+        <FindButton component="button" type='submit' onClick={submitFilter}>
         <SearchIcon/>
-        </Button>}
-        {filter !== '' && <Button component="button" onClick={()=> {saveFilter('')}}>
+      </FindButton>
+      
+        {inputData !== '' && <DeleteButton component="button"  onClick={clearFilter}>
         <HighlightOffIcon/>
-      </Button>}
+      </DeleteButton>}
         
         
         

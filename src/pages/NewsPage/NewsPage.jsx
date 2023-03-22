@@ -5,7 +5,7 @@ import NewsSearch from '../../components/Generic/Search'
 import NewsGrid from '../../components/News/NewsGrid'
 import NewsCard from '../../components/News/NewsCard'
 import moment from 'moment/moment'
-import {NewsContainer} from './NewsPage.styled'
+import {NewsContainer, Section, Error} from './NewsPage.styled'
 
 
 const NewsPage = () => {
@@ -17,13 +17,13 @@ const NewsPage = () => {
     ).sort((a, b) => moment(b.date, 'DD.MM.YY') - moment(a.date, 'DD.MM.YY'));
     };
 
-    return <NewsContainer>
+    return <Section>
+        <NewsContainer>
 
         <Title>News</Title>
 
         <NewsSearch
             saveFilter={setFilter}
-            filter = {filter}
         />
 
         <NewsGrid>
@@ -42,8 +42,11 @@ const NewsPage = () => {
         })}
         </NewsGrid>
 
+        {visibleNews.length === 0 && <Error>Sorry, we have no news with this keyword. Please, try another word.</Error>}
+
         
     </NewsContainer>
+    </Section>
 };
 
 export default NewsPage;
