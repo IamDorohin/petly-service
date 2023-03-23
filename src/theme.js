@@ -36,7 +36,7 @@ export const theme = createTheme({
     round: '50%',
     primary: '40px',
     secondary: '20px',
-    findPetCard: 'border-radius: 0px 0px 40px 40px',
+    findPetCard: '0px 0px 40px 40px',
   },
   customBorders: {
     primaryButtons: '2px solid #F59256',

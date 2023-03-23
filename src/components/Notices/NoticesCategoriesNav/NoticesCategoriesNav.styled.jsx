@@ -1,10 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
-// export const OverallContainer = styled('div')(({ theme }) => ({
-//   position: 'relative',
-// }));
-
 export const CategoriesList = styled('ul')(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
@@ -24,7 +20,7 @@ export const CategoriesList = styled('ul')(({ theme }) => ({
 
 export const NavLinkStyled = styled(NavLink)(({ theme }) => ({
   textDecoration: 'none',
-  color: theme.customColors.primaryFont,
+  color: 'inherit',
   fontFamily: theme.customFontFamily.primary,
   fontSize: theme.customFontSizes[1],
   letterSpacing: theme.customLetterSpacing.m,
@@ -35,7 +31,9 @@ export const NavLinkStyled = styled(NavLink)(({ theme }) => ({
   },
 }));
 
-export const CategoriesItem = styled('li')(({ theme }) => ({
+export const CategoriesItem = styled('li', {
+  shouldForwardProp: prop => prop !== 'true',
+})(({ className, theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -47,6 +45,7 @@ export const CategoriesItem = styled('li')(({ theme }) => ({
   cursor: 'pointer',
   marginRight: '12px',
   marginBottom: '16px',
+  color: theme.customColors.primaryFont,
 
   '&:nth-of-type(3)': {
     marginRight: '0',
@@ -61,12 +60,10 @@ export const CategoriesItem = styled('li')(({ theme }) => ({
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    // padding: '10px 28px',
     height: '47px',
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    // padding: '10px 28px',
     height: '47px',
     '&:nth-of-type(3)': {
       marginRight: '12px',
@@ -76,4 +73,9 @@ export const CategoriesItem = styled('li')(({ theme }) => ({
       marginRight: '0',
     },
   },
+
+  ...(className && {
+    backgroundColor: theme.customColors.accent,
+    color: theme.customColors.cardsBackground,
+  }),
 }));

@@ -1,43 +1,39 @@
 import { styled } from '@mui/material/styles';
 
-export const NoticesItem = styled('li')(({ theme }) => ({
+export const NoticeItem = styled('li')(({ theme }) => ({
   listStyle: 'none',
   position: 'relative',
   width: '280px',
-  height: 'auto',
-  marginBottom: '32px',
   backgroundColor: theme.customColors.cardsBackground,
-  borderBottomLeftRadius: '40px',
-  borderBottomRightRadius: '40px',
-  paddingBottom: '32px',
+  marginBottom: '32px',
+  borderRadius: '0px 0px 40px 40px',
 
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+  [theme.breakpoints.between(
+    theme.breakpoints.values.tablet,
+    theme.breakpoints.values.desktop
+  )]: {
     width: '336px',
     marginRight: '32px',
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     width: '288px',
+    marginRight: '32px',
   },
 }));
 
-export const GlobalContainer = styled('div')(({ theme }) => ({
-  width: '100%',
-}));
-
-export const Image = styled('img')(({ theme }) => ({
+export const NoticeImage = styled('img')(({ theme }) => ({
   width: '100%',
   marginBottom: '20px',
 }));
 
-// export const Image = styled.img`
-//   width: 100%;
-// `;
-
-export const ImageText = styled('p')(({ theme }) => ({
+export const NoticeCategory = styled('p')(({ theme }) => ({
   position: 'absolute',
-  top: '10px',
+  margin: '0',
+  top: '20px',
+  left: '0',
   width: '158px',
+  height: '28px',
   padding: '6px 0px 7px 20px',
   borderRadius: '0px 40px 40px 0px',
   fontFamily: theme.customFontFamily.searchBar,
@@ -49,112 +45,103 @@ export const ImageText = styled('p')(({ theme }) => ({
   color: theme.customColors.translucentBlack,
 }));
 
-export const LikeBtn = styled('p')(({ theme }) => ({
+export const NoticeLikeBtn = styled('button', {
+  shouldForwardProp: prop => prop !== 'true',
+})(({ className, theme }) => ({
   position: 'absolute',
   top: '12px',
   right: '12px',
-  width: '44px',
-  height: '44px',
-  backgroundColor: theme.customColors.photoDescription,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '11px 10px',
-  cursor: 'pointer',
+
+  width: '44px',
+  height: '44px',
+  padding: '10px',
+
+  backgroundColor: theme.customColors.photoDescription,
   borderRadius: '50%',
-  border: 'none',
+  borderColor: 'transparent',
+
+  cursor: 'pointer',
+
+  '&:hover': {
+    transition: 'transform 250ms linear ',
+    transform: 'scale(1.2)',
+  },
+
+  ...(className && {
+    '& .forHoverBtn': { fill: theme.customColors.accent },
+  }),
 }));
 
-export const DescriptoinTitle = styled('p')(({ theme }) => ({
-  margin: '20px',
-  fontFamily: theme.customFontFamily.primary,
+export const NoticeDescription = styled('div')(({ theme }) => ({
+  position: 'relative',
+  width: '100%',
+  height: '318px',
+  paddingRight: '20px',
+  paddingLeft: '20px',
+  paddingBottom: '12px',
+}));
+
+export const NoticeTitle = styled('p')(({ theme }) => ({
+  margin: '0',
+  marginBottom: '20px',
   fontStyle: 'normal',
+  fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.bold,
   fontSize: theme.customFontSizes[6],
-  lineHeight: '1.35',
+  lineHeight: theme.customLineHeight[10],
   letterSpacing: theme.customLetterSpacing.s,
   color: theme.customColors.primaryFont,
 }));
 
-// export const DescriptoinTitle = styled.h3`
-//   margin: 20px;
-//   font-family: 'Manrope';
-//   font-style: normal;
-//   font-weight: 700;
-//   font-size: 28px;
-//   line-height: 1.35;
-//   letter-spacing: -0.01em;
-
-//   color: #111111;
-// `;
-export const DescriptionList = styled('ul')(({ theme }) => ({
+export const NoticeList = styled('ul')(({ theme }) => ({
   listStyle: 'none',
-  marginBottom: '50px',
+  paddingLeft: '0',
+  marginBottom: '20px',
 }));
 
-// export const DescriptionList = styled.ul`
-//   list-style: none;
-//   margin-bottom: 50px;
-// `;
-
-export const DescriptionItem = styled('li')(({ theme }) => ({
+export const NoticeListItem = styled('li')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  marginBottom: '8px',
   fontFamily: theme.customFontFamily.primary,
   fontStyle: 'normal',
   fontWeight: theme.customFontWeight.normalM,
   fontSize: theme.customFontSizes[2],
-  lineHeight: '1.375',
-}));
+  lineHeight: theme.customLineHeight[4],
 
-// export const DescriptionItem = styled.li`
-//   font-family: 'Manrope';
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 16px;
-//   line-height: 1.375;
-// `;
-
-export const DescriptionText = styled('span')(({ theme }) => ({
-  display: 'inline-block',
-  minWidth: '90px',
-}));
-
-// export const DescriptionText = styled.span`
-//   display: inline-block;
-//   min-width: 90px;
-// `;
-
-export const DescriptionBtn = styled('button')(({ theme }) => ({
-  margin: '0 20px 12px 20px',
-  width: '248px',
-  padding: '8px 28px',
-  backgroundColor: theme.customColors.cardsBackground,
-  border: '2px solid #f59256',
-  borderRadius: '40px',
-  fontFamily: theme.customFontFamily.primary,
-  fontWeight: theme.customFontWeight.normalM,
-  fontSize: theme.customFontSizes[2],
-  lineHeight: '1.37',
-  letterSpacing: theme.customLetterSpacing.m,
-  color: theme.customColors.accent,
-
-  '&:hover': {
-    borderColor: theme.customColors.deleteButton,
-    color: theme.customColors.deleteButton,
-    cursor: 'pointer',
+  '&:last-child': {
+    marginBottom: '0',
   },
 }));
 
-export const DeleteBtn = styled('button')(({ theme }) => ({
+export const NoticeListItemtitle = styled('div')(({ theme }) => ({
+  width: '50px',
+  marginRight: '40px',
+}));
+
+export const NoticeListItemDetails = styled('p')(({ theme }) => ({
+  display: 'inline-block',
+  margin: '0',
+}));
+
+export const NoticeLearnMoreBtn = styled('button', {
+  shouldForwardProp: prop => prop !== 'true',
+})(({ className, theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '14px',
-  margin: '0 20px 0 20px',
-  width: '248px',
-  padding: '8px 28px',
+  width: '240px',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  padding: '8px 0',
+  border: '2px solid',
+  borderColor: theme.customColors.accent,
+  borderRadius: theme.customBorderRadius.primary,
   backgroundColor: theme.customColors.cardsBackground,
-  border: '2px solid #f59256',
-  borderRadius: '40px',
+
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalM,
   fontSize: theme.customFontSizes[2],
@@ -167,4 +154,60 @@ export const DeleteBtn = styled('button')(({ theme }) => ({
     color: theme.customColors.deleteButton,
     cursor: 'pointer',
   },
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '248px',
+  },
+
+  ...(!className && {
+    position: 'absolute',
+    bottom: '32px',
+    left: '18px',
+
+    [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+      left: '44px',
+    },
+
+    [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+      left: '20px',
+    },
+  }),
+}));
+
+export const NoticeDeleteBtn = styled('button')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '240px',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  marginTop: '12px',
+  padding: '8px 0',
+  border: '2px solid',
+  borderColor: theme.customColors.accent,
+  borderRadius: theme.customBorderRadius.primary,
+  backgroundColor: theme.customColors.cardsBackground,
+
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalM,
+  fontSize: theme.customFontSizes[2],
+  lineHeight: '1.37',
+  letterSpacing: theme.customLetterSpacing.m,
+  color: theme.customColors.accent,
+
+  '&:hover': {
+    borderColor: theme.customColors.deleteButton,
+    color: theme.customColors.deleteButton,
+    cursor: 'pointer',
+  },
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '248px',
+  },
+}));
+
+export const NoticeDeleteBtnText = styled('p')(({ theme }) => ({
+  margin: '0',
+  padding: '0',
+  marginRight: '15px',
 }));

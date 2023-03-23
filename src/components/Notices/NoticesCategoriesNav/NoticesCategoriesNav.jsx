@@ -1,3 +1,5 @@
+import { useParams } from 'react-router-dom';
+
 import * as SC from './NoticesCategoriesNav.styled';
 
 const publicCategories = [
@@ -11,13 +13,13 @@ const privateCategories = [
 ];
 
 export const NoticesCategoriesNav = props => {
-  const { location } = props;
   const token = 'fake token';
+  const { categoryName } = useParams();
 
   return (
     <SC.CategoriesList>
       {publicCategories.map(({ id, title, endpoint }) => (
-        <SC.CategoriesItem className="forActive" key={id}>
+        <SC.CategoriesItem className={categoryName === endpoint} key={id}>
           <SC.NavLinkStyled className="forHover" to={`/notices/${endpoint}`}>
             {title}
           </SC.NavLinkStyled>
@@ -26,7 +28,7 @@ export const NoticesCategoriesNav = props => {
 
       {token !== null &&
         privateCategories.map(({ id, title, endpoint }) => (
-          <SC.CategoriesItem key={id}>
+          <SC.CategoriesItem className={categoryName === endpoint} key={id}>
             <SC.NavLinkStyled className="forHover" to={`/notices/${endpoint}`}>
               {title}
             </SC.NavLinkStyled>

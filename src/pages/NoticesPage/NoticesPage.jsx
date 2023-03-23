@@ -1,4 +1,6 @@
 import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useGetNoticesByCategoryQuery } from 'redux/notices/noticesSlice';
 
 import { NoticesSearch } from 'components/Notices/NoticesSearch/NoticesSearch';
 import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
@@ -13,7 +15,11 @@ import {
 
 const NoticesPage = () => {
   const location = useLocation();
+  const { categoryName } = useParams();
+  console.log(categoryName);
+  const { notices } = useGetNoticesByCategoryQuery(categoryName);
 
+  console.log(categoryName);
   return (
     <NoticesPageContainer>
       <Container>
@@ -22,7 +28,7 @@ const NoticesPage = () => {
           <NoticesCategoriesNav location={location} />
           <NoticeAddButton />
         </NoticesPageNavBox>
-        <NoticesCategoriesList />
+        <NoticesCategoriesList data={notices} />
       </Container>
     </NoticesPageContainer>
   );

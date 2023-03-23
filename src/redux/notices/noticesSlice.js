@@ -5,10 +5,10 @@ export const noticesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: '' }),
   tagTypes: ['sell', 'lostfound', 'ingoodhands', 'favoriteads', 'myads'],
   endpoints: builder => ({
-    getDefaultNotices: builder.query({
-      query: () => `notices/sell`,
-      providesTags: ['sell'],
-    }),
+    // getDefaultNotices: builder.query({
+    //   query: () => `notices/sell`,
+    //   providesTags: ['sell'],
+    // }),
     getNoticesByCategory: builder.query({
       query: noticesCategory => `notices/${noticesCategory}`,
       providesTags: (result, error, { noticesCategory }) => [noticesCategory],
@@ -49,7 +49,7 @@ export const noticesApi = createApi({
 });
 
 export const {
-  useGetDefaultNoticesQuery,
+  // useGetDefaultNoticesQuery,
   useGetNoticesByCategoryQuery,
   useAddFavoriteNoticeMutation,
   useDeleteFavoriteNoticeMutation,
