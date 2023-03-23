@@ -9,7 +9,9 @@ import {NewsContainer, Section, Error} from './NewsPage.styled'
 
 
 const NewsPage = () => {
+
     const [filter, setFilter] = useState('');
+
     let visibleNews = {};
     if (news) {
     visibleNews = news.filter(item =>
@@ -19,13 +21,10 @@ const NewsPage = () => {
 
     return <Section>
         <NewsContainer>
-
         <Title>News</Title>
-
         <NewsSearch
             saveFilter={setFilter}
         />
-
         <NewsGrid>
             {news &&
         visibleNews.map(item => {
@@ -41,10 +40,7 @@ const NewsPage = () => {
             );
         })}
         </NewsGrid>
-
         {visibleNews.length === 0 && <Error>Sorry, we have no news with this keyword. Please, try another word.</Error>}
-
-        
     </NewsContainer>
     </Section>
 };
