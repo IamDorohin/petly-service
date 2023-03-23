@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 
-export const Ul = styled('ul')(({ theme }) => ({
+export const CategoriesList = styled('ul')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   padding: '0',

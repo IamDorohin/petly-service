@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const noticesApi = createApi({
   reducerPath: 'notices',
   baseQuery: fetchBaseQuery({ baseUrl: '' }),
-  tagTypes: ['sell', 'lostfound', 'ingoodhands', 'favoriteads', 'myads'],
+  tagTypes: ['sell', 'lost-found', 'for-free', 'favorite', 'own'],
   endpoints: builder => ({
     // getDefaultNotices: builder.query({
     //   query: () => `notices/sell`,

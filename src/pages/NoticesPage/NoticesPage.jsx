@@ -16,8 +16,12 @@ import {
 const NoticesPage = () => {
   const location = useLocation();
   const { categoryName } = useParams();
-  console.log(categoryName);
+
   const { notices } = useGetNoticesByCategoryQuery(categoryName);
+
+  // const favoriteStatusToggle = () => {
+  //   if()
+  // }
 
   console.log(categoryName);
   return (

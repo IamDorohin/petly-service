@@ -1,10 +1,10 @@
 import { NoticesCategoriesItem } from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem';
-import { Ul } from './NoticesCategoriesList.styled';
+import { CategoriesList } from './NoticesCategoriesList.styled';
 
 export const NoticesCategoriesList = () => {
   return (
-    <Ul>
+    <CategoriesList>
       <NoticesCategoriesItem />
-    </Ul>
+    </CategoriesList>
   );
 };
