@@ -72,7 +72,6 @@ export const Title = styled('h2')(({ theme }) => ({
 export const Form = styled('form')(({ theme }) => ({
   position: 'relative',
   display: 'flex',
-  width: '100%',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     maxWidth: '608px',
@@ -90,8 +89,9 @@ export const Form = styled('form')(({ theme }) => ({
 // `;
 
 export const Input = styled('input')(({ theme }) => ({
-  width: '100%',
-  padding: '10px 15px',
+  width: '280px',
+  height: '40px',
+  padding: '10px 12px',
   borderRadius: '20px',
   border: 'none',
   backgroundColor: theme.customColors.cardsBackground,
@@ -108,6 +108,14 @@ export const Input = styled('input')(({ theme }) => ({
   '&:focus': {
     outline: 'none',
   },
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '608px',
+    height: '44px',
+    padding: '13px 14px',
+  },
+
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 
 // export const Input = styled.input`
@@ -131,10 +139,15 @@ export const Input = styled('input')(({ theme }) => ({
 
 export const Button = styled('button')(({ theme }) => ({
   position: 'absolute',
-  bottom: '6px',
+  bottom: '4px',
   right: '15px',
+  padding: '0',
   border: 'none',
   backgroundColor: 'transparent',
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    bottom: '6px',
+  },
 }));
 
 // export const Button = styled.button`

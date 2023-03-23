@@ -39,8 +39,9 @@ export const NoticesPageNavBox = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     display: 'flex',
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     marginBottom: '70px',
+    width: '100%',
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {

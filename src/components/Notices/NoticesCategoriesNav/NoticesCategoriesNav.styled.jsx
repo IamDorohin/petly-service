@@ -1,66 +1,26 @@
 import { NavLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
-export const OverallContainer = styled('div')(({ theme }) => ({
-  position: 'relative',
-}));
+// export const OverallContainer = styled('div')(({ theme }) => ({
+//   position: 'relative',
+// }));
 
-// export const OverallContainer = styled.div`
-//   position: relative;
-// `
-
-export const CategoriesList = styled('div')(({ theme }) => ({
+export const CategoriesList = styled('ul')(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
   listStyle: 'none',
   margin: '0',
   padding: '0',
-  gap: '12px',
-}));
+  marginRight: '-12px',
+  marginBottom: '-16px',
 
-// export const CategoriesList = styled.ul`
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin: 0;
-//   padding: 0;
-//   gap: 12px;
-
-//   list-style: none;
-// `;
-
-export const CategoriesItem = styled('li')(({ theme }) => ({
-  padding: '8px 28px',
-  backgroundColor: theme.customColors.accentFont,
-  border: '2px solid theme.customColors.accent',
-  borderRadius: '40px',
-  cursor: 'pointer',
-
-  '&:hover': {
-    backgroundColor: theme.customColors.accent,
-  },
-
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    padding: '10px 28px',
+  [theme.breakpoints.between(
+    theme.breakpoints.values.tablet,
+    theme.breakpoints.values.desktop
+  )]: {
+    width: '490px',
   },
 }));
-
-// export const CategoriesItem = styled.li`
-//  padding: 8px 28px;
-//   background-color: #ffffff;
-//   border: 2px solid #f59256;
-//   border-radius: 40px;
-// cursor: pointer;
-
-//   &:hover {
-//  background-color: #F59256;
-
-//      }
-
-//   @media screen and (min-width: 768px) {
-//     padding: 10px 28px;
-
-//   }
-// `
 
 export const NavLinkStyled = styled(NavLink)(({ theme }) => ({
   textDecoration: 'none',
@@ -70,42 +30,58 @@ export const NavLinkStyled = styled(NavLink)(({ theme }) => ({
   letterSpacing: theme.customLetterSpacing.m,
   lineHeight: 1.35,
 
-  '&.Mui-active': {
-    color: theme.customColors.cardsBackground,
-    backgroundColor: theme.customColors.accent,
-  },
+  // '& .active': {
+  //   color: theme.customColors.errorNotif,
 
-  '&.CategoriesItem': {
-    '&:hover': {
-      color: theme.customColors.cardsBackground,
-    },
-  },
+  //   '&.forActive': {
+  //     backgroundColor: theme.customColors.accent,
+  //   },
+  // },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     fontSize: theme.customFontSizes[4],
   },
 }));
 
-// export const NavLinkStyled = styled(NavLink)`
-//   text-decoration: none;
-//   color: #111111;
+export const CategoriesItem = styled('li')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '8px 28px',
+  height: '35px',
+  backgroundColor: theme.customColors.accentFont,
+  border: theme.customBorders.primaryButtons,
+  borderRadius: theme.customBorderRadius.primary,
+  cursor: 'pointer',
+  marginRight: '12px',
+  marginBottom: '16px',
 
-//   &.active {
-//     color: white;
-//     background-color: #f59256;
-//   }
-//   ${CategoriesItem}:hover & {
-//     color: #ffffff;
-//   }
+  '&:nth-of-type(3)': {
+    marginRight: '0',
+  },
 
-//   font-family: Manrope;
+  '&:hover': {
+    backgroundColor: theme.customColors.accent,
+    transition: 'backgroundColor 250ms ease-in-out',
+    '& .forHover': {
+      color: theme.customColors.cardsBackground,
+    },
+  },
 
-//   font-size: 14px;
-//   /* font-weight: 500; */
-//   letter-spacing: 0.04em;
-//   line-height: 1.35;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    // padding: '10px 28px',
+    height: '47px',
+  },
 
-//   @media screen and (min-width: 768px) {
-//     font-size: 20px;
-//   }
-// `;
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    // padding: '10px 28px',
+    height: '47px',
+    '&:nth-of-type(3)': {
+      marginRight: '12px',
+    },
+
+    '&:last-child': {
+      marginRight: '0',
+    },
+  },
+}));

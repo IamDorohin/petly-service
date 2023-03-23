@@ -31,8 +31,8 @@ export const NoticesSearch = () => {
           value={value}
           onChange={handleChange}
         />
-        {!focus ? (
-          <SC.Button type="submit">
+        <SC.Button type="submit">
+          {value === '' ? (
             <SearchIcon
               sx={{
                 width: 24,
@@ -40,9 +40,7 @@ export const NoticesSearch = () => {
                 color: '#111111',
               }}
             />
-          </SC.Button>
-        ) : (
-          <SC.Button onClick={onChangeBtnOff}>
+          ) : (
             <HighlightOffIcon
               sx={{
                 width: 24,
@@ -50,8 +48,8 @@ export const NoticesSearch = () => {
                 color: '#111111',
               }}
             />
-          </SC.Button>
-        )}
+          )}
+        </SC.Button>
       </SC.Form>
     </SC.SearchContainer>
   );
