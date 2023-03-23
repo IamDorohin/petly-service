@@ -2,7 +2,7 @@ import React from 'react';
 import FormikControl from 'shared/FormikControl/FormikControl';
 import Button from 'shared/FormikControl/Button';
 import { useSelector } from 'react-redux';
-import { selectIsRefreshing } from 'redux copy/auth/auth-selectors';
+import { selectIsRefreshing } from 'redux/auth/auth-selectors';
 
 const RegisterSecondStep = ({ handleBackClick, isDisabled }) => {
   const isRefreshing = useSelector(selectIsRefreshing);
