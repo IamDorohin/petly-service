@@ -1,6 +1,6 @@
 import * as api from '../../services/api/auth';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { errorToast, successToast } from 'variables/Toast';
+import { errorMUI } from 'shared/Alert';
 
 // -----
 // POST @ /users/sinup
@@ -65,7 +65,7 @@ export const logOut = createAsyncThunk(
       const result = await api.logout();
       return result;
     } catch ({ response }) {
-      errorToast('Something went wrong, please try to reload the page');
+      errorMUI('Something went wrong, please try to reload the page');
       const error = {
         status: response.status,
         message: response.data.message,
@@ -120,7 +120,7 @@ export const updateUser = createAsyncThunk(
       const data = await api.updateUserData(credentials);
       return data;
     } catch ({ response }) {
-      errorToast('Something went wrong, try to reload the page');
+      errorMUI('Something went wrong, try to reload the page');
       const error = {
         status: response.status,
         message: response.data.message,
@@ -144,7 +144,7 @@ export const updateUserAvatar = createAsyncThunk(
       const data = await api.updateUserAvatar(avatar);
       return data;
     } catch ({ response }) {
-      errorToast('Something went wrong, try to reload the page');
+      errorMUI('Something went wrong, try to reload the page');
       const error = {
         status: response.status,
         message: response.data.message,
