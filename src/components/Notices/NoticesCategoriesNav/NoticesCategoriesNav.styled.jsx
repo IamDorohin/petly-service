@@ -30,14 +30,6 @@ export const NavLinkStyled = styled(NavLink)(({ theme }) => ({
   letterSpacing: theme.customLetterSpacing.m,
   lineHeight: 1.35,
 
-  // '& .active': {
-  //   color: theme.customColors.errorNotif,
-
-  //   '&.forActive': {
-  //     backgroundColor: theme.customColors.accent,
-  //   },
-  // },
-
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     fontSize: theme.customFontSizes[4],
   },
@@ -47,7 +39,7 @@ export const CategoriesItem = styled('li')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '8px 28px',
+  padding: '0 28px',
   height: '35px',
   backgroundColor: theme.customColors.accentFont,
   border: theme.customBorders.primaryButtons,

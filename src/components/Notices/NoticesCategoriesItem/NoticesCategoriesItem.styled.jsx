@@ -7,6 +7,9 @@ export const NoticesItem = styled('li')(({ theme }) => ({
   height: 'auto',
   marginBottom: '32px',
   backgroundColor: theme.customColors.cardsBackground,
+  borderBottomLeftRadius: '40px',
+  borderBottomRightRadius: '40px',
+  paddingBottom: '32px',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '336px',
@@ -18,39 +21,13 @@ export const NoticesItem = styled('li')(({ theme }) => ({
   },
 }));
 
-// export const NoticesItem = styled.li`
-//   list-style: none;
-//   position: relative;
-//   width: 280px;
-//   height: auto;
-//   margin-bottom: 32px;
-
-//   @media screen and (min-width: 768px) {
-//     width: 336px;
-//     margin-right: 32px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     width: 288px;
-//   }
-// `;
-
 export const GlobalContainer = styled('div')(({ theme }) => ({
   width: '100%',
 }));
 
-// export const GlobalContainer = styled.div`
-//   width: 100%;
-// `;
-
-// export const ImageContainer = styled.div`
-// /* position: relative;
-// width: 280px;
-// height: 288px; */
-// width: 100%;
-// `
-
 export const Image = styled('img')(({ theme }) => ({
   width: '100%',
+  marginBottom: '20px',
 }));
 
 // export const Image = styled.img`
@@ -72,25 +49,6 @@ export const ImageText = styled('p')(({ theme }) => ({
   color: theme.customColors.translucentBlack,
 }));
 
-// export const ImageText = styled.p`
-//   width: 158px;
-//   position: absolute;
-//   top: 10px;
-//   padding: 6px 0px 7px 20px;
-//   border-radius: 0px 40px 40px 0px;
-//   font-family: 'Inter';
-//   font-weight: 500;
-//   font-size: 12px;
-//   line-height: 1.25;
-//   letter-spacing: 0.04em;
-//   background-color: rgba(255, 255, 255, 0.6);
-//   color: rgb(17, 17, 17);
-
-//   @media screen and (min-width: 768px) {
-//     font-family: Manrope;
-//   }
-// `;
-
 export const LikeBtn = styled('p')(({ theme }) => ({
   position: 'absolute',
   top: '12px',
@@ -106,23 +64,6 @@ export const LikeBtn = styled('p')(({ theme }) => ({
   borderRadius: '50%',
   border: 'none',
 }));
-
-// export const LikeBtn = styled.button`
-//   position: absolute;
-//   top: 12px;
-//   right: 12px;
-//   width: 44px;
-//   height: 44px;
-
-//   background-color: rgba(255, 255, 255, 0.6);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 11px 10px;
-//   cursor: pointer;
-//   border-radius: 50%;
-//   border: none;
-// `;
 
 export const DescriptoinTitle = styled('p')(({ theme }) => ({
   margin: '20px',
@@ -208,7 +149,7 @@ export const DeleteBtn = styled('button')(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   gap: '14px',
-  margin: '0 20px 12px 20px',
+  margin: '0 20px 0 20px',
   width: '248px',
   padding: '8px 28px',
   backgroundColor: theme.customColors.cardsBackground,
