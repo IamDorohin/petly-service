@@ -2,16 +2,38 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const noticesApi = createApi({
   reducerPath: 'notices',
-  baseQuery: fetchBaseQuery({ baseUrl: '' }),
-  tagTypes: ['sell', 'lost-found', 'for-free', 'favorite', 'own'],
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://petly-service-backend.onrender.com/api',
+    keepUnusedDataFor: 1,
+    // prepareHeaders: (headers, { getState }) => {
+    //   const token = getState().auth.token;
+    //   if (token) {
+    //     headers.set('authorization', `Bearer ${token}`);
+    //   }
+    //   return headers;
+    // },
+  }),
+  tagTypes: [
+    'serched',
+    'sell',
+    'lost-found',
+    'for-free',
+    'current',
+    'favorite',
+    'own',
+  ],
   endpoints: builder => ({
-    // getDefaultNotices: builder.query({
-    //   query: () => `notices/sell`,
-    //   providesTags: ['sell'],
-    // }),
     getNoticesByCategory: builder.query({
-      query: noticesCategory => `notices/${noticesCategory}`,
-      providesTags: (result, error, { noticesCategory }) => [noticesCategory],
+      query: noticesCategory => `/notices/category/${noticesCategory}`,
+      providesTags: (result, error, arg) => [arg],
+    }),
+    getNoticesBySearch: builder.query({
+      query: searchQuery => `/notices/category/${searchQuery}`,
+      providesTags: ['serched'],
+    }),
+    getNoticesById: builder.query({
+      query: id => `/notices/${id}`,
+      providesTags: ['current'],
     }),
     addFavoriteNotice: builder.mutation({
       query: notice => ({
@@ -23,7 +45,7 @@ export const noticesApi = createApi({
     }),
     deleteFavoriteNotice: builder.mutation({
       query: id => ({
-        url: `notices/favoriteads`,
+        url: `notices/favorite`,
         method: 'DELETE',
         body: id,
       }),
@@ -31,51 +53,28 @@ export const noticesApi = createApi({
     }),
     addNotice: builder.mutation({
       query: notice => ({
-        url: ``,
+        url: `notices/notice`,
         method: 'POST',
         body: notice,
       }),
-      invalidatesTags: ['myads'],
+      invalidatesTags: ['own'],
     }),
     deleteNotice: builder.mutation({
       query: id => ({
-        url: `notices/${id}`,
+        url: `notices/notice/${id}`,
         method: 'DELETE',
-        body: id,
       }),
-      invalidatesTags: ['myads'],
+      invalidatesTags: ['own'],
     }),
   }),
 });
 
 export const {
-  // useGetDefaultNoticesQuery,
+  useGetNoticesBySearchQuery,
   useGetNoticesByCategoryQuery,
+  useGetNoticesByIdQuery,
   useAddFavoriteNoticeMutation,
   useDeleteFavoriteNoticeMutation,
   useAddNoticeMutation,
   useDeleteNoticeMutation,
 } = noticesApi;
-
-// For commponent
-
-// const {data, error, isFetching, isError} = useGetDefaultNoticesQuery();
-// const submitHandler = async() => {
-// const { data, error, isLoading } = await useGetNoticesByCategoryQuery(categoryValue, {
-//     skip: categoryValue === '',
-// });
-// }
-
-// const [addNotice] = useAddNoticeMutation();
-// const newAdHandler = async notice => {
-//   try {
-//     await addNotice(notice);
-//     success notification
-//   } catch (error) {
-//     error notification
-//   }
-// }
-
-// In notice card component
-// const [deleteNotice] = useDeleteNoticeMutation();
-// Add deleteNotice in onClick button

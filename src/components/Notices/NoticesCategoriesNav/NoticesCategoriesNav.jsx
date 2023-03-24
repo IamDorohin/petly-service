@@ -7,12 +7,13 @@ const publicCategories = [
   { id: '2', title: 'lost/found', endpoint: 'lost-found' },
   { id: '3', title: 'in good hands', endpoint: 'for-free' },
 ];
+
 const privateCategories = [
   { id: '4', title: 'favorite ads', endpoint: 'favorite' },
   { id: '5', title: 'my ads', endpoint: 'own' },
 ];
 
-export const NoticesCategoriesNav = props => {
+export const NoticesCategoriesNav = () => {
   const token = 'fake token';
   const { categoryName } = useParams();
 
