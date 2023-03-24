@@ -1,10 +1,8 @@
 import { lazy, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from 'components/SharedLayout/SharedLayout';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Button } from '@mui/material';
-import NestedModal, { ModalXxxx } from './ModalXxxx';
-import { ModalForm } from './ModalForm/ModalForm';
-import { BasicModal } from './BasicModal/BasicModal';
+import AddPetModal from '../modals/AddPetModal/AddPetModal';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
@@ -18,21 +16,15 @@ const UserPage = lazy(() => import('pages/UserPage/UserPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  const [open, setOpen] = useState(false);
-  const showModal = () => {
-    setOpen(!open);
-  };
+  const [isAddPetModalOpen, setIsAddModalOpen] = useState(false);
 
-    
+  const openAddPetModal = () => setIsAddModalOpen(true);
+  const closeAddPetModal = () => setIsAddModalOpen(false);
+
   return (
     <div>
-      <Button onClick={showModal}>Open BasicModal</Button>;
-      {open && <NestedModal showModal={showModal} open={open} />}
-      {/* {open && (
-        <BasicModal showModal={showModal}>
-          <ModalForm />
-        </BasicModal>
-      )} */}
+      <Button onClick={openAddPetModal}>Open FirstModal</Button>
+      <AddPetModal isOpen={isAddPetModalOpen} onClose={closeAddPetModal} />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
