@@ -25,7 +25,6 @@ const NewsPage = () => {
       )
       .sort((a, b) => moment(b.date) - moment(a.date));
   }
-
   return (
     <Section>
       <NewsContainer>
