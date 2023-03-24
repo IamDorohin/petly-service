@@ -71,7 +71,7 @@ export const NoticeLikeBtn = styled('button', {
   },
 
   ...(className && {
-    '& .forHoverBtn': { fill: theme.customColors.accent },
+    '& .forHoverBtn': { color: theme.customColors.accent },
   }),
 }));
 
