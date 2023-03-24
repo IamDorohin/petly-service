@@ -7,6 +7,8 @@ export const NoticeItem = styled('li')(({ theme }) => ({
   backgroundColor: theme.customColors.cardsBackground,
   marginBottom: '32px',
   borderRadius: '0px 0px 40px 40px',
+  // boxShadow: '7px 4px 14px rgba(49, 21, 4, 0.07)',
+  boxShadow: theme.customShadow.secondary,
 
   [theme.breakpoints.between(
     theme.breakpoints.values.tablet,

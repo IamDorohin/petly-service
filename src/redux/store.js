@@ -1,3 +1,4 @@
+// import logger from 'redux-logger';
 import { configureStore } from '@reduxjs/toolkit';
 import { noticesApi } from './notices/noticesSlice';
 
@@ -8,5 +9,6 @@ export const store = configureStore({
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware(),
     noticesApi.middleware,
+    // logger,
   ],
 });

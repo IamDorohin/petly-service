@@ -4,35 +4,37 @@ import * as SC from './NoticesSearch.styled';
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export const NoticesSearch = () => {
-  const [focus, setFocus] = useState(null);
-  const [value, setValue] = useState('');
+export const NoticesSearch = ({ element, onSubmit, onChange }) => {
+  const [searchQuery, setSearchQuery] = useState(element ?? '');
 
-  const handleInputFocus = event => {
-    setFocus(true);
+  const handleSearchQueryChange = event => {
+    setSearchQuery(event.currentTarget.value.toLowerCase());
+    onChange(event.currentTarget.value.toLowerCase());
   };
 
-  const handleChange = event => {
-    setValue(event.target.value);
-  };
+  const handleSubmit = event => {
+    event.preventDefault();
 
-  const onChangeBtnOff = event => {
-    setValue('');
-    setFocus(false);
+    if (searchQuery.trim() === '') {
+      alert('Enter your search request');
+      return;
+    }
+
+    onSubmit(searchQuery);
   };
 
   return (
     <SC.SearchContainer>
       <SC.Title>Find your favorite pet</SC.Title>
-      <SC.Form onFocus={handleInputFocus}>
+      <SC.Form onSubmit={handleSubmit}>
         <SC.Input
           type="text"
           placeholder="Search"
-          value={value}
-          onChange={handleChange}
+          value={searchQuery}
+          onChange={handleSearchQueryChange}
         />
         <SC.Button type="submit">
-          {value === '' ? (
+          {searchQuery === '' ? (
             <SearchIcon
               sx={{
                 width: 24,
