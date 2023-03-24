@@ -4,7 +4,7 @@ import { AddBtn, CssTextField, FontButton } from './SecondStep.styled';
 import { ReactComponent as Vector } from './icon/Vector.svg';
 import { CantBtn, NextBtn } from './FirstStep.styled';
 
-const AddPetModalSecondStep = ({ formik, onClose }) => {
+const AddPetModalSecondStep = ({ formik, onBack }) => {
   return (
     <div>
       <Typography sx={FontButton}>Add photo and some comments</Typography>
@@ -35,7 +35,7 @@ const AddPetModalSecondStep = ({ formik, onClose }) => {
         value={formik.values.comment}
         onChange={formik.handleChange}
       />
-      <NextBtn sx={FontButton} onClick={onClose}>
+      <NextBtn sx={FontButton} onClick={onBack}>
         Back
       </NextBtn>
       <CantBtn sx={FontButton} type="submit">

@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../Modal/Modal';
 import { Formik } from 'formik';
-import AddPetModalFirstStep from './FirstStep';
-import AddPetModalSecondStep from './SecondStep';
+import AddNoticeModalFirstStep from './FirstStep';
+import AddNoticetModalSecondStep from './SecondStep';
+
+export const NOTICE_TYPES = {
+  LOST_FOUND: 1,
+  GOOD_HANDS: 2,
+  SELL: 3,
+};
 
 const initialValues = {
+  noticeType: NOTICE_TYPES.LOST_FOUND,
+  noticeTitle: '',
   namePet: '',
   dateOfBirth: '',
   breed: '',
+  sex: 'male',
+  location: '',
+  price: '',
   comment: '',
   photo: null,
 };
@@ -18,7 +29,7 @@ const STEPS = {
   SECOND: 2,
 };
 
-const AddPetModal = ({ isOpen, onClose }) => {
+const AddNoticeModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
 
   const onNextStepButtonClick = () => {
@@ -31,7 +42,7 @@ const AddPetModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Add pet">
+    <Modal isOpen={isOpen} onClose={onClose} title="Add notice">
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
@@ -43,14 +54,14 @@ const AddPetModal = ({ isOpen, onClose }) => {
         {props => (
           <form onSubmit={props.handleSubmit}>
             {step === STEPS.FIRST && (
-              <AddPetModalFirstStep
+              <AddNoticeModalFirstStep
                 formik={props}
                 onSubmit={onNextStepButtonClick}
                 onClose={onClose}
               />
             )}
             {step === STEPS.SECOND && (
-              <AddPetModalSecondStep
+              <AddNoticetModalSecondStep
                 formik={props}
                 onBack={onPrevStepButtonClick}
               />
@@ -62,4 +73,4 @@ const AddPetModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default AddPetModal;
+export default AddNoticeModal;
