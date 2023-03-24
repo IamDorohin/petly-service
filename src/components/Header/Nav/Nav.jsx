@@ -11,7 +11,6 @@ export const Nav = ({ onClick }) => {
     { text: 'Find pet', href: '/notices' },
     { text: 'Our friends', href: '/friends' },
   ];
-
   const elements = items.map(({ text, href }) => {
     return (
       <StyledNavItem key={text} onClick={onClick}>
