@@ -4,7 +4,6 @@ export const noticesApi = createApi({
   reducerPath: 'notices',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://petly-service-backend.onrender.com/api',
-    keepUnusedDataFor: 1,
     // prepareHeaders: (headers, { getState }) => {
     //   const token = getState().auth.token;
     //   if (token) {
@@ -41,7 +40,7 @@ export const noticesApi = createApi({
         method: 'POST',
         body: notice,
       }),
-      invalidatesTags: ['favoriteads'],
+      invalidatesTags: ['favorite'],
     }),
     deleteFavoriteNotice: builder.mutation({
       query: id => ({
@@ -49,7 +48,7 @@ export const noticesApi = createApi({
         method: 'DELETE',
         body: id,
       }),
-      invalidatesTags: ['favoriteads'],
+      invalidatesTags: ['favorite'],
     }),
     addNotice: builder.mutation({
       query: notice => ({
