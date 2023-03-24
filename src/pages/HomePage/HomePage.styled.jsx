@@ -29,6 +29,7 @@ export const MainContainer = styled.div`
 
 export const HomeSection = styled.section`
   position: absolute;
+  z-index: -1;
   bottom: 0;
   left: 0;
   background-image: url('${heroBgMob}');
@@ -72,7 +73,23 @@ export const HomeSection = styled.section`
   }
 `;
 
+export const Image = styled.img`
+  min-width: 320px;
+  min-height: 337px;
+  @media screen and (min-width: 768px) {
+    max-width: 645px;
+    max-height: 715px;
+    margin-left: 61px;
+    margin-right: 62px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 590px;
+    max-height: 640px;
+  }
+`;
+
 export const HomeTitle = styled.h1`
+z-index: 1;
   color: rgba(17, 17, 17, 1);
   font-weight: 700;
   font-size: 32px;
@@ -97,21 +114,6 @@ export const HomeTitle = styled.h1`
   }
 `;
 
-export const Image = styled.img`
-  min-width: 320px;
-  min-height: 337px;
-  @media screen and (min-width: 768px) {
-    max-width: 645px;
-    max-height: 715px;
-    margin-left: 61px;
-    margin-right: 62px;
-  }
-  @media screen and (min-width: 1280px) {
-    max-width: 590px;
-    max-height: 640px;
-  }
-`;
-
 export const HomeWrapp = styled.div`
   height: -webkit-fill-available;
   @media screen and (min-width: 1280px) {
@@ -121,11 +123,12 @@ export const HomeWrapp = styled.div`
 
 export const ImagesWrapper = styled.div`
   position: absolute;
-  bottom: 0;
+  z-index: -1;
+  bottom: -4px;
   left: 5%;
   @media screen and (min-width: 768px) {
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 10%;
   }
   @media screen and (min-width: 1280px) {
