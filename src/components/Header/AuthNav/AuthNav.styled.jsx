@@ -9,7 +9,7 @@ export const StyledList = styled.ul`
   display: flex;
   gap: 12px;
   align-items: center;
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     gap: 20px;
   }
 `;
@@ -39,7 +39,7 @@ export const StyledButton = styled(NavLink)`
     font-size: 20px;
     max-width: 181px;
   }
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     padding: 10px 28px;
   }
 `;

@@ -12,7 +12,7 @@ import {BurgerMenu} from './BurgerMenu/BurgerMenu';
 export const Header = () => {
   const [showBurgerMenu, setShowBurgetMenu] = useState(false);
 
-  const isDesktop = useMediaQuery({ minWidth: 1300 });
+  const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
   const toggleBurgerMenu = () => {

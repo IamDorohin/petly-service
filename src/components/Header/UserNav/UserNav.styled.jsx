@@ -37,7 +37,7 @@ export const StyledButton = styled(Link)`
     font-size: 20px;
     max-width: 181px;
   }
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     padding: 10px 28px;
   }
 `;

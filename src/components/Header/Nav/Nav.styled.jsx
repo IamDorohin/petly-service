@@ -11,7 +11,7 @@ export const StyledNavList = styled.ul`
   @media (min-width: 768px) {
     gap: 60px;
   }
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     flex-direction: row;
     gap: 80px;
   }
@@ -38,7 +38,7 @@ export const StyledLink = styled(NavLink)`
   @media (min-width: 768px) {
     font-size: 500;
   }
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     font-size: 20px;
 
     &.active {
