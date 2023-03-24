@@ -11,6 +11,8 @@ import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Box, Button, ButtonGroup, Typography } from '@mui/material';
 import { NOTICE_TYPES } from './AddNoticeModal';
+import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
+import dayjs from 'dayjs';
 
 const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
   return (
@@ -91,21 +93,13 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
           placeholder="Type name pet"
         />
       </label>
-      <label>
-        Date of birth
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoItem>
-            <CssTDatePicker
-              id="dateOfBirth"
-              type="dateOfBirth"
-              onChange={value => {
-                formik.setFieldValue('dateOfBirth', value.$d, false);
-              }}
-              label="dateOfBirth"
-            />
-          </DemoItem>
-        </LocalizationProvider>
-      </label>
+      <CalendarDatePicker
+        label="Date of birth"
+        value={formik.values.dateOfBirth}
+        onChange={value => {
+          formik.setFieldValue('dateOfBirth', dayjs(value.$d), false);
+        }}
+      />
       <label>
         Breed
         <Input

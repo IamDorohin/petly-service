@@ -9,6 +9,8 @@ import {
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
+import dayjs from 'dayjs';
 
 const AddPetModalFirstStep = ({ formik, onSubmit, onClose }) => {
   return (
@@ -23,21 +25,13 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose }) => {
           placeholder="Type name pet"
         />
       </label>
-      <label>
-        Date of birth
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoItem>
-            <CssTDatePicker
-              id="dateOfBirth"
-              type="dateOfBirth"
-              onChange={value => {
-                formik.setFieldValue('dateOfBirth', value.$d, false);
-              }}
-              label="dateOfBirth"
-            />
-          </DemoItem>
-        </LocalizationProvider>
-      </label>
+      <CalendarDatePicker
+        label="Date of birth"
+        value={formik.values.dateOfBirth}
+        onChange={value => {
+          formik.setFieldValue('dateOfBirth', dayjs(value.$d), false);
+        }}
+      />
       <label>
         Breed
         <Input

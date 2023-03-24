@@ -4,6 +4,7 @@ import Modal from '../Modal/Modal';
 import { Formik } from 'formik';
 import AddNoticeModalFirstStep from './FirstStep';
 import AddNoticetModalSecondStep from './SecondStep';
+import dayjs from 'dayjs';
 
 export const NOTICE_TYPES = {
   LOST_FOUND: 1,
@@ -15,7 +16,7 @@ const initialValues = {
   noticeType: NOTICE_TYPES.LOST_FOUND,
   noticeTitle: '',
   namePet: '',
-  dateOfBirth: '',
+  dateOfBirth: dayjs(),
   breed: '',
   sex: 'male',
   location: '',

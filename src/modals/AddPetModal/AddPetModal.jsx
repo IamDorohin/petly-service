@@ -4,10 +4,11 @@ import Modal from '../Modal/Modal';
 import { Formik } from 'formik';
 import AddPetModalFirstStep from './FirstStep';
 import AddPetModalSecondStep from './SecondStep';
+import dayjs from 'dayjs';
 
 const initialValues = {
   namePet: '',
-  dateOfBirth: '',
+  dateOfBirth: dayjs(),
   breed: '',
   comment: '',
   photo: null,
