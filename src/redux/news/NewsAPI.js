@@ -1,23 +1,22 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const NewsAPI = createApi({
   reducerPath: 'NewsAPI',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://petly-service-backend.onrender.com' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://petly-service-backend.onrender.com',
+  }),
   tagTypes: ['News'],
-  endpoints: (builder) => ({
-    getContacts: builder.query({
+  endpoints: builder => ({
+    getNews: builder.query({
       query: () => `/api/news`,
       providesTags: ['News'],
     }),
   }),
-})
+});
 
 export const { useGetNewsQuery } = NewsAPI;
 
-
-
 // import { configureStore } from '@reduxjs/toolkit'
-
 
 // export const store = configureStore({
 //   reducer: {
