@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
-
+import { Footer } from 'components/Footer/Footer';
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
@@ -15,17 +15,25 @@ const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/friends" element={<OurFriendsPage />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/notices/:categoryName" element={<NoticesPage />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/friends" element={<OurFriendsPage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/notices/:categoryName" element={<NoticesPage />} />
+          <Route path="/user" element={<UserPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+
+      <footer>
+        <Routes>
+          <Route path="/" element={<Footer />} />
+        </Routes>
+      </footer>
+    </>
   );
 };
