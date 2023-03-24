@@ -1,30 +1,58 @@
 import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-import NoticesSearch from "components/NoticesSearch/NoticesSearch";
-import NoticesCategoriesNav from "components/NoticesCategoriesNav/NoticesCategoriesNav"
-import NoticesCategoriesList from "components/NoticesCategoriesList/NoticesCategoriesList"
-import NoticeAddButton from 'components/NoticeAddButton/NoticeAddbutton'
+import { useGetNoticesBySearchQuery } from 'redux/notices/noticesSlice';
 
-import { NoticesPageContainer, NoticesPageNavBox, Container } from 'pages/NoticesPage/NoticesPage.styled'
+import { NoticesSearch } from 'components/Notices/NoticesSearch/NoticesSearch';
+import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
+import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
+import { NoticeAddButton } from 'components/Notices/NoticeAddButton/NoticeAddbutton';
+
+import {
+  NoticesPageContainer,
+  NoticesPageNavBox,
+  Container,
+} from 'pages/NoticesPage/NoticesPage.styled';
 
 const NoticesPage = () => {
-    const location = useLocation();
-    
-    return (
-        
-        <NoticesPageContainer>
-            <Container>
-                 <NoticesSearch />
+  const location = useLocation();
+  const [searchQuery, setSearchQuery] = useState('');
 
-            <NoticesPageNavBox>
-                 <NoticesCategoriesNav location={location} />
-                 <NoticeAddButton />
-            </NoticesPageNavBox>
-                <NoticesCategoriesList />
-                </Container>
-        </NoticesPageContainer>
-        
-    )
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQueryState = searchParams.get('search') ?? '';
+
+  const changeSearch = query => {
+    setSearchParams(query !== '' ? { search: query } : {});
+  };
+
+  const handleSearchQueryChange = query => {
+    setSearchQuery(query);
+  };
+
+  const { newSearchNotices } = useGetNoticesBySearchQuery(searchQuery, {
+    skip: searchQuery === '',
+    refetchOnMountOrArgChange: true,
+  });
+
+  console.log('newSearchNotices', newSearchNotices);
+
+  return (
+    <NoticesPageContainer>
+      <Container>
+        <NoticesSearch
+          element={searchQueryState}
+          onSubmit={handleSearchQueryChange}
+          onChange={changeSearch}
+        />
+        <NoticesPageNavBox>
+          <NoticesCategoriesNav location={location} />
+          <NoticeAddButton />
+        </NoticesPageNavBox>
+        <NoticesCategoriesList newSearchNotices={newSearchNotices} />
+      </Container>
+    </NoticesPageContainer>
+  );
 };
 
 export default NoticesPage;
