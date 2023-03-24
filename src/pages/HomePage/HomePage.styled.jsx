@@ -17,6 +17,7 @@ export const MainContainer = styled.div`
   margin: 0 auto;
   padding: 0 20px;
   height: -webkit-fill-available;
+
   @media (min-width: 768px) {
     width: 768px;
     padding: 0 32px;
@@ -89,7 +90,7 @@ export const Image = styled.img`
 `;
 
 export const HomeTitle = styled.h1`
-z-index: 1;
+  z-index: 1;
   color: rgba(17, 17, 17, 1);
   font-weight: 700;
   font-size: 32px;

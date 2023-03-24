@@ -5,6 +5,8 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding-top: 16px;
+  background-color: #fdf7f2;
+
   @media (min-width: 768px) {
     padding-top: 24px;
     justify-content: baseline;

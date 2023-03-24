@@ -7,7 +7,7 @@ export const NoticesPageContainer = styled('section')(({ theme }) => ({
 export const Container = styled('div')(({ theme }) => ({
   paddingTop: '42px',
   paddingRight: '20px',
-  paddingBottom: '100px',
+  paddingBottom: '60px',
   paddingLeft: '20px',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -18,7 +18,7 @@ export const Container = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '768px',
-    paddingTop: '88px',
+    // paddingTop: '88px',
     paddingRight: '32px',
     paddingBottom: '100px',
     paddingLeft: '32px',
