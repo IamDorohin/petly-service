@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-// import { useGetNoticesByCategoryQuery } from 'redux/notices/noticesSlice';
 import { NoticesCategoriesItem } from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem';
 import { CategoriesList } from './NoticesCategoriesList.styled';
 

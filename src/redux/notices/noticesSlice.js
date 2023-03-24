@@ -36,10 +36,10 @@ export const noticesApi = createApi({
       providesTags: ['current'],
     }),
     addFavoriteNotice: builder.mutation({
-      query: notice => ({
-        url: `notices/favoriteads`,
+      query: id => ({
+        url: `notices/favorite/${id}`,
         method: 'POST',
-        body: notice,
+        // body: notice,
       }),
       invalidatesTags: ['favorite'],
     }),
