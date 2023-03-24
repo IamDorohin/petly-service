@@ -26,8 +26,13 @@ export const UserBlock = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
 }));
 export const UserTitleInfo = styled('p')(({ theme }) => ({
+  width: '280px',
   display: 'block',
   margin: '0 0 18px 0',
   fontFamily: theme.customFontFamily.primary,
@@ -38,44 +43,56 @@ export const UserTitleInfo = styled('p')(({ theme }) => ({
   color: theme.customColors.homeHeroTitleFont,
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '736px',
     margin: '0 0 40px 0',
     fontSize: theme.customFontSizes[6],
     lineHeight: theme.customLineHeight[10],
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    width: '412px',
+
     margin: '0 0 24px 0',
   },
 }));
 export const UserInfoBlock = styled('div')(({ theme }) => ({
-  width: '280px',
+  maxWidth: '280px',
   backgroundColor: theme.customColors.cardsBackground,
   borderRadius: theme.customBorderRadius.secondary,
   boxShadow: theme.customShadow.primary,
-  textAlign: 'right',
   padding: '20px 0',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    width: '736px',
-    borderRadius: theme.customBorderRadius.findPetCard,
+    maxWidth: '736px',
+    borderRadius: '0px 40px 40px 0px',
     display: 'flex',
     flexDirection: 'row-reverse',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '24px 40px 24px 32px',
   },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginRight: '32px',
+    maxWidth: '412px',
+    flexDirection: 'column',
+  },
+}));
+export const UserBlockWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 
 //! wrappers
 export const UserInfoWrapper = styled('div')(({ theme }) => ({
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginBottom: '32px',
+    position: 'relative',
+  },
 }));
 export const UserFormWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 
+//! info
 export const UserInfoImage = styled('img')(({ theme }) => ({
   display: 'block',
   width: '233px',
@@ -87,7 +104,9 @@ export const UserInfoImage = styled('img')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     margin: '0 auto 8px auto',
   },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    margin: '0 auto 0 auto',
+  },
 }));
 export const UserEditBlock = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -104,7 +123,11 @@ export const UserEditBlock = styled('div')(({ theme }) => ({
     marginBottom: '0',
     marginRight: '0',
   },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    position: 'absolute',
+    right: '-64px',
+    bottom: '0',
+  },
 }));
 export const UserEditPhoto = styled('label')(({ theme }) => ({
   display: 'flex',
@@ -115,8 +138,6 @@ export const UserEditPhoto = styled('label')(({ theme }) => ({
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[0],
   lineHeight: theme.customLineHeight[4],
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 export const UserEditIcon = styled(PhotoCameraIcon)(({ theme }) => ({
   width: '20px',
@@ -135,9 +156,8 @@ export const Form = styled('form')(({ theme }) => ({
   margin: '0 12px 44px 16px',
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '380px',
-    margin: '0 0 32px 0',
+    margin: '16px 0 32px 0',
   },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 export const FormLabel = styled('label')(({ theme }) => ({
   display: 'flex',
@@ -149,7 +169,6 @@ export const FormLabel = styled('label')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     marginBottom: '14px',
   },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 export const FormTitle = styled('p')(({ theme }) => ({
   fontFamily: theme.customFontFamily.primary,
@@ -178,6 +197,8 @@ export const FormInput = styled('input')(({ theme }) => ({
 
   //! border: 'none',
   border: '1px solid tomato',
+  //! border: 'none',
+
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[0],
@@ -229,6 +250,7 @@ export const FormWrap = styled('div')({
   alignItems: 'center',
   justifyContent: 'left',
 });
+
 //! logout btn
 export const LogoutBtn = styled('button')(({ theme }) => ({
   background: 'none',
@@ -243,6 +265,7 @@ export const LogoutBtn = styled('button')(({ theme }) => ({
   fontSize: theme.customFontSizes[2],
   lineHeight: theme.customLineHeight[4],
   transition: 'opacity 250ms linear',
+  color: '#D9D9D9',
   '&:hover': {
     opacity: '0.5',
   },
@@ -255,7 +278,34 @@ export const LogoutBtnIcon = styled(LogoutIcon)(({ theme }) => ({
   width: '18px',
   height: '18px',
   marginRight: '8px',
-  color: theme.customColors.accent,
+  color: 'rgb(245, 146, 86)',
+}));
+
+//! Pet Wrapper
+export const PetBlockWrapper = styled('div')(({ theme }) => ({
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    maxWidth: '820px',
+  },
+}));
+
+//! pet card title
+export const PetTitle = styled('p')(({ theme }) => ({
+  width: '87px',
+  display: 'block',
+  margin: '0 0 32px 0',
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalM,
+  fontSize: theme.customFontSizes[4],
+  lineHeight: theme.customLineHeight[8],
+  letterSpacing: theme.customLetterSpacing.m,
+  color: theme.customColors.homeHeroTitleFont,
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '122px',
+    margin: '0 0 24px 0',
+    fontSize: theme.customFontSizes[6],
+    lineHeight: theme.customLineHeight[10],
+  },
 }));
 
 //! pet card button
@@ -266,6 +316,9 @@ export const PetCardBlock = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginTop: '0',
+  },
 }));
 export const AddPetBtn = styled('button')(({ theme }) => ({
   background: 'none',
@@ -308,12 +361,16 @@ export const PetCard = styled('div')(({ theme }) => ({
   borderRadius: theme.customBorderRadius.secondary,
   boxShadow: theme.customShadow.primary,
   padding: '16px 20px 40px 20px',
+  marginBottom: '20px',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '100%',
     borderRadius: theme.customBorderRadius.primary,
     padding: '20px',
     display: 'flex',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginBottom: '22px',
   },
 }));
 export const PetCardImg = styled('img')(({ theme }) => ({
@@ -332,7 +389,7 @@ export const PetCardImg = styled('img')(({ theme }) => ({
 export const PetCardDelete = styled(DeleteForeverIcon)(({ theme }) => ({
   cursor: 'pointer',
   position: 'absolute',
-  bottom: '212px',
+  top: '20px',
   right: '20px',
   background: 'none',
   border: 'none',
@@ -342,8 +399,6 @@ export const PetCardDelete = styled(DeleteForeverIcon)(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '44px',
     height: '44px',
-    bottom: '138px',
-    right: '20px',
     padding: '10px',
     background: theme.customColors.appBackground,
     borderRadius: theme.customBorderRadius.round,
@@ -360,8 +415,7 @@ export const PetCardWrapper = styled('div')(({ theme }) => ({
   },
 }));
 export const PetCardTitle = styled('p')(({ theme }) => ({
-  margin: '0',
-  marginBottom: '12px',
+  margin: '0 0 12px 0',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalM,
   fontSize: theme.customFontSizes[1],
