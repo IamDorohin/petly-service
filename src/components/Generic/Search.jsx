@@ -8,7 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import React, { useState, useEffect } from 'react';
 
-export default function NewsSearch({ saveFilter }) {
+export default function NewsSearch({ saveFilter, fetch }) {
   const [inputData, setInputData] = useState('');
 
   const handleFilter = e => {
@@ -19,7 +19,10 @@ export default function NewsSearch({ saveFilter }) {
   };
 
   const clearFilter = () => {
+    fetch()
     setInputData('');
+    saveFilter('');
+    
   };
 
   useEffect(() => {

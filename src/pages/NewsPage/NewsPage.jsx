@@ -10,13 +10,14 @@ import { useGetNewsQuery } from '../../redux/news/NewsAPI';
 const NewsPage = () => {
   const [filter, setFilter] = useState('');
   const {
-    currentData,
+    currentData, refetch
     // error, isLoading
   } = useGetNewsQuery();
 
   let visibleNews = {};
 
   if (currentData) {
+    
     visibleNews = currentData.data.result
       .filter(
         item =>
@@ -30,7 +31,7 @@ const NewsPage = () => {
     <Section>
       <NewsContainer>
         <Title>News</Title>
-        <NewsSearch saveFilter={setFilter} />
+        <NewsSearch saveFilter={setFilter} fetch={refetch} />
 
         {/* {error && Error component} */}
         {/* {isLoading &&  Loader component} */}
