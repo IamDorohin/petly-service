@@ -2,13 +2,18 @@ import { styled } from '@mui/material/styles'
 import Link from '@mui/material/Link';
 
 export const Card = styled('li')(({ theme }) => ({
+    position: 'relative',
+    
     textAlign: 'start',
     flexBasis: '100%',
+    
     [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    flexBasis: 'calc((100% - 30px) / 2)',
+        flexBasis: 'calc((100% - 30px) / 2)',
+        height: '300px',
     },
     [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    flexBasis: 'calc((100% - 60px) / 3)',
+        flexBasis: 'calc((100% - 60px) / 3)',
+        height: '270px',
     }
 }));
 
@@ -26,17 +31,30 @@ export const Title = styled('h2')(({ theme }) => ({
 
 export const Text = styled('p')(({ theme }) => ({
     margin: 0,
+    marginBottom: '20px',
     fontFamily: theme.customFontFamily.primary,
     fontWeight: theme.customFontWeight.normalS,
     fontSize: theme.customFontSizes[2],
     lineHeight: theme.customLineHeight[4],
     color: theme.customColors.primaryFont,
-    marginBottom: '40px',
+
+    [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    marginBottom: 0,
+    },
+
 }));
 
 export const Box = styled('div')(({ theme }) => ({
+    width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
+    
+    [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    },
+    
 }));
 
 export const Date = styled('p')(({ theme }) => ({
@@ -56,24 +74,6 @@ export const ReadMoreLink = styled(Link)(({ theme }) => ({
     lineHeight: theme.customLineHeight[4],
     color: theme.customColors.accent,
 }));
-
-// font-family: 'Manrope';
-// font-style: normal;
-// font-weight: 500;
-// font-size: 16px;
-// line-height: 22px;
-// /* identical to box height */
-
-// text-align: right;
-// text-decoration-line: underline;
-
-// /* Акцентный */
-
-// color: #F59256;
-
-
-
-// import { styled } from '@mui/material/styles'
 
 export const Line = styled('div')(({ theme }) => ({
     marginBottom: '4px',
