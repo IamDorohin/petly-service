@@ -11,6 +11,7 @@ export const Container = styled('div')(({ theme }) => ({
   paddingLeft: '20px',
   marginLeft: 'auto',
   marginRight: 'auto',
+  textAlign: 'center',
 
   [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {
     width: '320px',

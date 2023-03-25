@@ -88,6 +88,7 @@ export const NoticeDescription = styled('div')(({ theme }) => ({
 export const NoticeTitle = styled('p')(({ theme }) => ({
   margin: '0',
   marginBottom: '20px',
+  textAlign: 'start',
   fontStyle: 'normal',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.bold,

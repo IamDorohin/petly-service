@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import { useGetNoticesBySearchQuery } from 'redux/notices/noticesSlice';
 
+import Title from 'components/Generic/Title';
 import { NoticesSearch } from 'components/Notices/NoticesSearch/NoticesSearch';
 import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
@@ -43,6 +44,7 @@ const NoticesPage = () => {
   return (
     <NoticesPageContainer>
       <Container>
+        <Title>Find your favorite pet</Title>
         <NoticesSearch
           element={searchQueryState}
           onSubmit={handleSearchQueryChange}
