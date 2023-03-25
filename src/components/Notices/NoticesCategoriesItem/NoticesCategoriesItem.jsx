@@ -3,8 +3,9 @@ import {
   useGetNoticesByIdQuery,
 } from 'redux/notices/noticesSlice';
 import { HiTrash } from 'react-icons/hi';
-import { AiTwotoneHeart } from 'react-icons/ai';
-
+// import { AiTwotoneHeart } from 'react-icons/ai';
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 
 export const NoticesCategoriesItem = ({ array, onClick }) => {
@@ -21,11 +22,16 @@ export const NoticesCategoriesItem = ({ array, onClick }) => {
       <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn className={owner}>
-        <AiTwotoneHeart
-          className="forHoverBtn"
-          fill="#fff"
-          onClick={() => onClick(array)}
-        />
+        {owner ? (
+          <FavoriteIcon onClick={() => onClick(array)} />
+        ) : (
+          <FavoriteTwoToneIcon
+            className="forHoverBtn"
+            fontSize="inherit"
+            colorPrimary="#000"
+            onClick={() => onClick(array)}
+          />
+        )}
       </SC.NoticeLikeBtn>
       <SC.NoticeDescription className={owner}>
         <SC.NoticeTitle> {title} </SC.NoticeTitle>

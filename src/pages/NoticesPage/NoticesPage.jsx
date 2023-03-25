@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -17,25 +18,27 @@ import {
 
 const NoticesPage = () => {
   const location = useLocation();
+  const { categoryName } = useParams();
+
   const [searchQuery, setSearchQuery] = useState('');
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const value = searchParams.toString();
   const searchQueryState = searchParams.get('search') ?? '';
-
-  const changeSearch = query => {
-    setSearchParams(query !== '' ? { search: query } : {});
-  };
 
   const handleSearchQueryChange = query => {
     setSearchQuery(query);
+    setSearchParams(query !== '' ? { search: query } : {});
   };
 
-  const { newSearchNotices } = useGetNoticesBySearchQuery(searchQuery, {
-    skip: searchQuery === '',
-    refetchOnMountOrArgChange: true,
-  });
-
-  console.log('newSearchNotices', newSearchNotices);
+  const { data } = useGetNoticesBySearchQuery(
+    { currentCategory: categoryName, currentSearch: value },
+    {
+      skip: searchQuery === '',
+      refetchOnMountOrArgChange: true,
+    }
+  );
+  const newSearchNotices = data?.data?.notices;
 
   return (
     <NoticesPageContainer>
@@ -43,7 +46,6 @@ const NoticesPage = () => {
         <NoticesSearch
           element={searchQueryState}
           onSubmit={handleSearchQueryChange}
-          onChange={changeSearch}
         />
         <NoticesPageNavBox>
           <NoticesCategoriesNav location={location} />

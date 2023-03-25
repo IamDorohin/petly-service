@@ -4,12 +4,16 @@ import * as SC from './NoticesSearch.styled';
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export const NoticesSearch = ({ element, onSubmit, onChange }) => {
+export const NoticesSearch = ({
+  element,
+  onSubmit,
+  // onChange
+}) => {
   const [searchQuery, setSearchQuery] = useState(element ?? '');
 
   const handleSearchQueryChange = event => {
     setSearchQuery(event.currentTarget.value.toLowerCase());
-    onChange(event.currentTarget.value.toLowerCase());
+    // onChange(event.currentTarget.value.toLowerCase());
   };
 
   const handleSubmit = event => {

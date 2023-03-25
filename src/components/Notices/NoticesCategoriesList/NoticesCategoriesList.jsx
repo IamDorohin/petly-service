@@ -13,7 +13,8 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
   const { categoryName } = useParams();
   const [currentFavNotice, setCurrentFavNotice] = useState([]);
 
-  const { favNotices = [] } = useGetNoticesByCategoryQuery('favorite');
+  const { currentData: favNotices = [] } =
+    useGetNoticesByCategoryQuery('favorite');
 
   const {
     currentData: array,
@@ -21,8 +22,11 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
     isSuccess,
   } = useGetNoticesByCategoryQuery(categoryName);
 
-  const findedNotices = array?.data?.notices;
+  const findedNotices = newSearchNotices
+    ? newSearchNotices
+    : array?.data?.notices;
 
+  console.log('findedNotices', findedNotices);
   const noticesNotFound =
     error?.data?.message === 'There is no notices in this category';
 
@@ -49,25 +53,6 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
   const [deleteNotice] = useDeleteFavoriteNoticeMutation(findedNotices);
 
   return (
-    // <CategoriesList>
-    //   {newSearchNotices
-    //     ? newSearchNotices.map(notice => (
-    //         <NoticesCategoriesItem
-    //           array={notice}
-    //           key={notice._id}
-    //           onClick={favNoticesStatusHandler}
-    //         />
-    //       ))
-    //     : findedNotices.map(notice => (
-    //         <NoticesCategoriesItem
-    //           array={notice}
-    //           key={notice._id}
-    //           onClick={favNoticesStatusHandler}
-    //         />
-    //       ))}
-
-    //   {noticesNotFound && <div>Йди звідси, розбійник!</div>}
-    // </CategoriesList>
     <CategoriesList>
       {isSuccess &&
         findedNotices &&
