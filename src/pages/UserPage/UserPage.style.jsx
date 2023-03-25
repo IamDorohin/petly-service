@@ -2,7 +2,6 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import CreateIcon from '@mui/icons-material/Create';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import { styled } from '@mui/material/styles';
 
@@ -26,7 +25,15 @@ export const UserBlock = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  marginTop: '60px',
+  marginBottom: '80px',
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    marginTop: '88px',
+    marginBottom: '100px',
+  },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginTop: '58px',
+    marginBottom: '40px',
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
@@ -194,11 +201,7 @@ export const FormInput = styled('input')(({ theme }) => ({
   marginRight: 'auto',
   borderRadius: '40px',
   outline: 'none',
-
-  //! border: 'none',
-  border: '1px solid tomato',
-  //! border: 'none',
-
+  border: 'none',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[0],
@@ -227,8 +230,12 @@ export const FormIconPen = styled(CreateIcon)(({ theme }) => ({
   padding: '4px',
   marginLeft: '8px',
   borderRadius: theme.customBorderRadius.round,
-  color: theme.customColors.accent,
+  color: theme.customColors.translucentBlack,
   backgroundColor: '#FDF7F2',
+  transition: 'opacity 250ms linear',
+  '&:hover': {
+    opacity: '0.5',
+  },
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '32px',
     height: '32px',
@@ -236,14 +243,22 @@ export const FormIconPen = styled(CreateIcon)(({ theme }) => ({
     marginLeft: '0',
   },
 }));
-export const FormIconPenInclud = styled(CreateIcon)(({ theme }) => ({
+export const FormIconPenInclude = styled('div')(({ theme }) => ({
   width: '20px',
   height: '20px',
-  padding: '4px',
   marginLeft: '8px',
   borderRadius: theme.customBorderRadius.round,
-  color: theme.customColors.translucentBlack,
+  color: theme.customColors.accent,
   backgroundColor: '#FDF7F2',
+  transition: 'opacity 250ms linear',
+  '&:hover': {
+    opacity: '0.5',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '32px',
+    height: '32px',
+    marginLeft: '0',
+  },
 }));
 export const FormWrap = styled('div')({
   display: 'flex',
@@ -265,7 +280,7 @@ export const LogoutBtn = styled('button')(({ theme }) => ({
   fontSize: theme.customFontSizes[2],
   lineHeight: theme.customLineHeight[4],
   transition: 'opacity 250ms linear',
-  color: '#D9D9D9',
+  color: theme.customColors.translucentBlack,
   '&:hover': {
     opacity: '0.5',
   },
@@ -284,7 +299,26 @@ export const LogoutBtnIcon = styled(LogoutIcon)(({ theme }) => ({
 //! Pet Wrapper
 export const PetBlockWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    maxWidth: '820px',
+    maxWidth: '860px',
+  },
+}));
+//! scroll wrapper
+export const PetScrollWrapper = styled('div')(({ theme }) => ({
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    overflowY: 'scroll',
+    maxHeight: '80vh',
+    paddingRight: '10px',
+    '&::-webkit-scrollbar': {
+      width: '4px',
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: '#f593568b',
+      borderRadius: theme.customBorderRadius.secondary,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: '#f78b49',
+      borderRadius: theme.customBorderRadius.secondary,
+    },
   },
 }));
 
@@ -386,10 +420,10 @@ export const PetCardImg = styled('img')(({ theme }) => ({
     marginBottom: '0',
   },
 }));
-export const PetCardDelete = styled(DeleteForeverIcon)(({ theme }) => ({
+export const PetCardDelete = styled('div')(({ theme }) => ({
   cursor: 'pointer',
   position: 'absolute',
-  top: '20px',
+  top: '272px',
   right: '20px',
   background: 'none',
   border: 'none',
@@ -397,16 +431,13 @@ export const PetCardDelete = styled(DeleteForeverIcon)(({ theme }) => ({
   transition: 'opacity 250ms linear',
   '&:hover': { opacity: '0.5' },
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    top: '20px',
     width: '44px',
     height: '44px',
     padding: '10px',
     background: theme.customColors.appBackground,
     borderRadius: theme.customBorderRadius.round,
   },
-}));
-export const PetCardDeleteIcon = styled(DeleteForeverIcon)(({ theme }) => ({
-  width: '20px',
-  height: '20px',
 }));
 export const PetCardWrapper = styled('div')(({ theme }) => ({
   width: '100%',
