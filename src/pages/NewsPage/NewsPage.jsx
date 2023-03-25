@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Title from '../../components/Generic/Title';
-import NewsSearch from '../../components/Generic/Search';
-import NewsGrid from '../../components/News/NewsGrid';
-import NewsCard from '../../components/News/NewsCard';
+import NewsSearch from '../../components/News/NewsSearch/Search';
+import NewsGrid from '../../components/News/NewsGrid/NewsGrid';
+import NewsCard from '../../components/News/NewsCard/NewsCard';
 import moment from 'moment/moment';
 import { NewsContainer, Section, Error } from './NewsPage.styled';
 import { useGetNewsQuery } from '../../redux/news/NewsAPI';
@@ -11,6 +11,7 @@ const NewsPage = () => {
   const [filter, setFilter] = useState('');
   const {
     currentData,
+    refetch,
     // error, isLoading
   } = useGetNewsQuery();
 
@@ -30,7 +31,7 @@ const NewsPage = () => {
     <Section>
       <NewsContainer>
         <Title>News</Title>
-        <NewsSearch saveFilter={setFilter} />
+        <NewsSearch saveFilter={setFilter} fetch={refetch} />
 
         {/* {error && Error component} */}
         {/* {isLoading &&  Loader component} */}

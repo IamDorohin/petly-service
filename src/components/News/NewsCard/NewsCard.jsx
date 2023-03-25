@@ -8,7 +8,7 @@ export default function NewsCard({ title, url, description, date }) {
 
     return <Card>
         <Line></Line>
-        <Title>{title.slice(0, 45) + '...'}</Title>
+        <Title>{title.slice(0, 40) + '...'}</Title>
         <Text>{description.slice(0, 200) + '...'}</Text>
         <Box>
             <Date>{newDate}</Date>
