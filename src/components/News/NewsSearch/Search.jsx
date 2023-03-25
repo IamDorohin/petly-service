@@ -13,16 +13,20 @@ export default function NewsSearch({ saveFilter, fetch }) {
 
   const handleFilter = e => {
     setInputData(e.target.value);
+
+    if (e.currentTarget.value === '') {
+      saveFilter(inputData);
+    }
   };
+
   const submitFilter = () => {
     saveFilter(inputData);
   };
 
   const clearFilter = () => {
-    fetch()
+    fetch();
     setInputData('');
     saveFilter('');
-    
   };
 
   useEffect(() => {
@@ -45,11 +49,9 @@ export default function NewsSearch({ saveFilter, fetch }) {
         onChange={handleFilter}
         placeholder="Search"
       />
-
       <FindButton component="button" type="submit" onClick={submitFilter}>
         <SearchIcon />
       </FindButton>
-
       {inputData !== '' && (
         <DeleteButton component="button" onClick={clearFilter}>
           <HighlightOffIcon />
