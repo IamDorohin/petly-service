@@ -3,6 +3,7 @@ import {
   CantBtn,
   CssTDatePicker,
   FontButton,
+  FormBox,
   Input,
   NextBtn,
 } from './FirstStep.styled';
@@ -42,9 +43,6 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose }) => {
           placeholder="Type breed"
         />
       </label>
-      {/* <NextBtn sx={FontButton} >
-              Next
-            </NextBtn> */}
       <NextBtn sx={FontButton} onClick={onSubmit}>
         Next
       </NextBtn>

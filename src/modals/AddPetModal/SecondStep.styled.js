@@ -15,50 +15,54 @@ export const FontButton = theme => ({
 });
 
 export const AddBtn = styled(Button)`
-  display: flex;
-
-  color: #111111;
-  box-shadow: none;
-  border-radius: 20px;
-  background: #fdf7f2;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  //   margin-right: 36px;
-  //   margin-left: 36px;
-  :focus,
-  :focus,
-  :active,
-  :hover {
-    border: 2px solid #f59256;
-    background: #fdf7f2;
+  && {
+    display: flex;
+    // justify-content: center;
+    color: #111111;
     box-shadow: none;
-    // color: #ffffff;
+    border-radius: 20px;
+    background: #fdf7f2;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    //   margin-right: 0;
+    //   margin-left: 0;
+    :focus,
+    :focus,
+    :active,
+    :hover {
+      border: 2px solid #f59256;
+      background: #fdf7f2;
+      box-shadow: none;
+      color: #ffffff;
+    }
   }
 `;
 
 export const AddIcone = styled(AddIcon)`
-  width: 48px;
+&&{  width: 48px;
   height: 48px;
-  color: rgba(17, 17, 17, 0.6);
+  color: rgba(17, 17, 17, 0.6);}
 `;
 export const ModalBox = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: column;
+  && {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
 `;
 
-export const BtnNextModalBox = styled.div`
-  //   height: 530px;
-  position: absolute;
-  //   /* height: max-content; */
-  width: 280px;
-  //   width: 100%;
+// export const BtnNextModalBox = styled.div`
+//   //   height: 530px;
+//   position: absolute;
+//   //   /* height: max-content; */
+//   width: 280px;
+//   //   width: 100%;
 
-  padding: 20px;
-  left: 0;
-  //   top: 360px;
-`;
+//   padding: 20px;
+//   left: 0;
+//   //   top: 360px;
+// `;
 
 // export const TextFielde = theme => ({
 // fontFamily: 'Manrope',

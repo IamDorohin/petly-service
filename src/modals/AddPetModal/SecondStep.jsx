@@ -2,11 +2,11 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import { AddBtn, CssTextField, FontButton } from './SecondStep.styled';
 import { ReactComponent as Vector } from './icon/Vector.svg';
-import { CantBtn, NextBtn } from './FirstStep.styled';
+import { CantBtn, FormBox, NextBtn } from './FirstStep.styled';
 
 const AddPetModalSecondStep = ({ formik, onBack }) => {
   return (
-    <div>
+    <FormBox >
       <Typography sx={FontButton}>Add photo and some comments</Typography>
       <AddBtn
         sx={{ width: '208px', height: '208px' }}
@@ -41,7 +41,7 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
       <CantBtn sx={FontButton} type="submit">
         Done
       </CantBtn>
-    </div>
+    </FormBox>
   );
 };
 

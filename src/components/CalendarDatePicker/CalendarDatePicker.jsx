@@ -13,6 +13,7 @@ const CalendarDatePicker = ({ onChange, label, value }) => {
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="uk">
         <DemoItem>
           <DatePicker
+            sx={{ marginTop: '8px', marginBottom: '16px' }}
             id="dateOfBirth"
             type="dateOfBirth"
             onChange={onChange}

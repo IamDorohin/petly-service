@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // import { DatePicker } from '@mui/x-date-pickers';
 
 export const Input = styled.input`
-display:inline-block
+&&{display:inline-block
   box-sizing: border-box;
   width: 100%;
   height: auto;
@@ -20,12 +20,12 @@ display:inline-block
   padding: 11px 20px 12px 14px;
   margin-left: 0;
   :focus {
-    border: 2px solid #f59256;
+    border: 1px solid #f59256;
     outline: none;
-  }
+  }}
 `;
-export const LabelFormic = styled.label`
-  margin-bottom: 8px;
+export const LabelFormic = styled.form`
+&&{  background-color: 'red'}
   }
 `;
 
@@ -67,30 +67,32 @@ export const LabelFormic = styled.label`
 //   border: 0;
 // `;
 
-export const Forma = styled(Form)`
-  // position: relative;
-  // height: 530px
-  :last-child {
-    margin-bottom: 56px;
-  }
-`;
+// export const Forma = styled(Form)`
+//   // position: relative;
+//   // height: 530px
+//   :last-child {
+//     margin-bottom: 56px;
+//   }
+// `;
 export const NextBtn = styled(Button)`
-  width: 100%;
-  border: 2px solid #f59256;
-  border-radius: 40px;
-  background: #ffffff;
-  margin-bottom: 12px;
-  margin-top: 24px;
-  :focus,
-  :active,
-  :hover {
-    background: #f59256;
-    color: #ffffff;
+  && {
+    width: 100%;
+    border: 2px solid #f59256;
+    border-radius: 40px;
+    background-color: #ffffff;
+    margin-bottom: 12px;
+    margin-top: 24px;
+    :focus,
+    :active,
+    :hover {
+      background: #f59256;
+      color: #ffffff;
+    }
   }
 `;
 
 export const CantBtn = styled(Button)`
-  width: 100%;
+  &&{width: 100%;
   color: #111111;
   border: 2px solid #f59256;
   border-radius: 40px;
@@ -101,42 +103,42 @@ export const CantBtn = styled(Button)`
   :hover {
     background: #f59256;
     color: #ffffff;
-  }
+  }}
 `;
 
-export const modalBox = styled.div`
-  display: flex;
+export const FormBox = styled.form`
+ && { display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  flex-direction: column;
+  flex-direction: column;}
 `;
 
 export const Title = styled.h2`
-//   width: 88px;
+&&{//   width: 88px;
 //   height: 33px;
 font-weight: 500;
   display: flex;
 justify-content: center;
-}
+}}
 `;
-export const BoxDataPicker = theme => ({
-  display: 'flex',
-  alignItems: 'center',
-  border: '1px solid',
-  background: theme.customColors.appBackground,
-  borderColor: '#ffcfb1',
-  alignSelf: 'center',
-  width: '100%',
-  //   minWidth: '240px',
-  height: '40px',
-  position: 'fixed',
-  accentColor: '#3CBC81',
+// export const BoxDataPicker = theme => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   border: '1px solid',
+//   background: theme.customColors.appBackground,
+//   borderColor: '#ffcfb1',
+//   alignSelf: 'center',
+//   width: '100%',
+//   //   minWidth: '240px',
+//   height: '40px',
+//   position: 'fixed',
+//   accentColor: '#3CBC81',
 
-  borderRadius: theme.customBorderRadius.secondary,
-  '&:hover': {
-    borderColor: theme.customColors.accent,
-  },
-});
+//   borderRadius: theme.customBorderRadius.secondary,
+//   '&:hover': {
+//     borderColor: theme.customColors.accent,
+//   },
+// });
 
 export const FontButton = theme => ({
   fontFamily: theme.customFontFamily.primary,

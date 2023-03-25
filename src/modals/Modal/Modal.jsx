@@ -1,27 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { modalBox, Title } from './Modal.styled';
+import { ButtonI, modalBox, Title } from './Modal.styled';
 import CloseIcon from '@mui/icons-material/Close';
 import { Button, Box, Modal as ModalUI } from '@mui/material';
 
 const Modal = ({ isOpen, onClose, children, title }) => {
   return (
-    <ModalUI
+      <ModalUI
       open={isOpen}
       onClose={onClose}
       aria-labelledby="parent-modal-title"
       aria-describedby="parent-modal-description"
     >
       <Box
-      //   sx={modalBox}
+        sx={modalBox}
       >
         <Title>{title}</Title>
 
         {children}
 
-        {/* <Button onClick={onClose}>
+        <ButtonI onClick={onClose}>
           <CloseIcon />
-        </Button> */}
+        </ButtonI>
       </Box>
     </ModalUI>
   );

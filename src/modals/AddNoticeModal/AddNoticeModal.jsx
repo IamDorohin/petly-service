@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import AddNoticeModalFirstStep from './FirstStep';
 import AddNoticetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
+import { useAddNoticeMutation } from '../../redux/notices/noticesSlice';
 
 export const NOTICE_TYPES = {
   LOST_FOUND: 1,
@@ -32,6 +33,7 @@ const STEPS = {
 
 const AddNoticeModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
+  const [addNotice] = useAddNoticeMutation();
 
   const onNextStepButtonClick = () => {
     // validation
@@ -46,8 +48,9 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
     <Modal isOpen={isOpen} onClose={onClose} title="Add notice">
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, actions) => {
+        onSubmit={async (values, actions) => {
           console.log(values);
+          await addNotice(values);
           actions.resetForm();
           onClose();
         }}

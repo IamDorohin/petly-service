@@ -1,11 +1,49 @@
-import { Button, Typography } from '@mui/material';
+import { Button, IconButton, Typography } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import { Field, Form, Label } from 'formik';
 import styled from 'styled-components';
 // import { DatePicker } from '@mui/x-date-pickers';
 
+export const modalBox = theme => ({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '280px',
+  height: 'auto',
+  minHeight: '530px',
+  bgcolor: '#FFFFFF',
+  borderRadius: '20px',
+  boxShadow: '7px 4px 14px rgba(0, 0, 0, 0.11)',
+  p: 4,
+  [theme.breakpoints.down('mobileResponsive')]: {
+    blockSize: 'auto',
+    width: '280px',
+    minHeight: '530px',
+    padding: '40px 20px 28px 20px',
+    // backgroundColor: 'red',
+    //   height: '100%',
+  },
+  [theme.breakpoints.up('mobileAdaptive')]: {
+    blockSize: 'auto',
+    width: '280px',
+    minHeight: '530px',
+    padding: '40px 20px 28px 20px',
+  },
+  [theme.breakpoints.up('tablet')]: {
+    height: 'auto',
+    width: '608px',
+    minHeight: '570px',
+    // backgroundColor: 'yellow',
+    padding: '40px 80px 40px 80px',
+  },
+  [theme.breakpoints.up('desktop')]: {
+    // backgroundColor: 'green',
+  },
+});
+
 export const Input = styled.input`
-display:inline-block
+&& {display:inline-block
   box-sizing: border-box;
   width: 100%;
   height: auto;
@@ -22,10 +60,11 @@ display:inline-block
   :focus {
     border: 2px solid #f59256;
     outline: none;
-  }
+  }}
 `;
 export const LabelFormic = styled.label`
-  margin-bottom: 8px;
+  && {
+    margin-bottom: 8px;
   }
 `;
 
@@ -68,56 +107,60 @@ export const LabelFormic = styled.label`
 // `;
 
 export const Forma = styled(Form)`
-  // position: relative;
-  // height: 530px
-  :last-child {
-    margin-bottom: 56px;
+  && {
+    // position: relative;
+    // height: 530px
+    :last-child {
+      margin-bottom: 56px;
+    }
   }
 `;
-export const NextBtn = styled(Button)`
-  width: 100%;
-  border: 2px solid #f59256;
-  border-radius: 40px;
-  background: #ffffff;
-  margin-bottom: 12px;
-  margin-top: 24px;
-  :focus,
-  :active,
-  :hover {
-    background: #f59256;
-    color: #ffffff;
-  }
-`;
+// export const NextBtn = styled(Button)`
+// && { width: 100%;
+//   border: 2px solid #f59256;
+//   border-radius: 40px;
+//   background: #ffffff;
+//   margin-bottom: 12px;
+//   margin-top: 24px;
+//   :focus,
+//   :active,
+//   :hover {
+//     background: #f59256;
+//     color: #ffffff;
+//   }}
+// `;
 
 export const CantBtn = styled(Button)`
-  width: 100%;
-  color: #111111;
-  border: 2px solid #f59256;
-  border-radius: 40px;
-  background: #ffffff;
-  //   margin-top: 92px;
-  box-shadow: none;
-  :active,
-  :hover {
-    background: #f59256;
-    color: #ffffff;
+  && {
+    width: 100%;
+    color: #111111;
+    border: 2px solid #f59256;
+    border-radius: 40px;
+    background: #ffffff;
+    //   margin-top: 92px;
+    box-shadow: none;
+    :active,
+    :hover {
+      background: #f59256;
+      color: #ffffff;
+    }
   }
 `;
 
-export const modalBox = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: column;
-`;
+// export const modalBox = styled.div`
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: nowrap;
+//   flex-direction: column;
+// `;
 
 export const Title = styled.h2`
-//   width: 88px;
+&&{//   width: 88px;
 //   height: 33px;
 font-weight: 500;
   display: flex;
 justify-content: center;
-}
+}}
 `;
 export const BoxDataPicker = theme => ({
   display: 'flex',
@@ -196,60 +239,60 @@ export const DataPickerr = theme => ({
     borderColor: theme.customColors.accent,
   },
 });
-export const CssTDatePicker = styled(DatePicker)({
-  background: '#fdf7f2',
-  border: '1px solid rgba(245, 146, 86, 0.5)',
-  borderRadius: '20px',
-  marginBottom: '16px',
-  marginTop: '8px',
-  '&:hover': {
-    border: '2px solid rgb(245, 146, 86)',
-  },
-  '&:focus': {
-    border: '2px solid rgb(245, 146, 86)',
-  },
-  '& label.Mui-focused': {
-    color: '#fdf7f2',
-    position: 'absolut',
-    top: '10px',
-  },
-  '& label': {
-    color: '#fdf7f2',
-    position: 'absolut',
-    top: '7px',
-  },
-  '& .MuiInput-underline:after': {
-    borderBottomColor: '#F59256',
-  },
-  '& .MuiOutlinedInput-root': {
-    color: 'black',
-    // position: 'absolute',
-    width: '100%',
-    height: '40px',
-    border: '1px solid #fdf7f2',
-    borderRadius: '20px',
-    // top: '0px',
-    // left: '0px',
-    padding: '0px',
-    '& fieldset': {
-      borderColor: '#fdf7f2',
-    },
-    '&:hover fieldset': {
-      borderColor: '#fdf7f2',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#fdf7f2',
-    },
-    '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root ': {
-      color: 'red',
-    },
-    '& .MuiInputLabel-root': {
-      borderColor: 'green',
-      color: 'green',
-      display: 'none',
-    },
-  },
-});
+// export const CssTDatePicker = styled(DatePicker)({
+//   background: '#fdf7f2',
+//   border: '1px solid rgba(245, 146, 86, 0.5)',
+//   borderRadius: '20px',
+//   marginBottom: '16px',
+//   marginTop: '8px',
+//   '&:hover': {
+//     border: '2px solid rgb(245, 146, 86)',
+//   },
+//   '&:focus': {
+//     border: '2px solid rgb(245, 146, 86)',
+//   },
+//   '& label.Mui-focused': {
+//     color: '#fdf7f2',
+//     position: 'absolut',
+//     top: '10px',
+//   },
+//   '& label': {
+//     color: '#fdf7f2',
+//     position: 'absolut',
+//     top: '7px',
+//   },
+//   '& .MuiInput-underline:after': {
+//     borderBottomColor: '#F59256',
+//   },
+//   '& .MuiOutlinedInput-root': {
+//     color: 'black',
+//     // position: 'absolute',
+//     width: '100%',
+//     height: '40px',
+//     border: '1px solid #fdf7f2',
+//     borderRadius: '20px',
+//     // top: '0px',
+//     // left: '0px',
+//     padding: '0px',
+//     '& fieldset': {
+//       borderColor: '#fdf7f2',
+//     },
+//     '&:hover fieldset': {
+//       borderColor: '#fdf7f2',
+//     },
+//     '&.Mui-focused fieldset': {
+//       borderColor: '#fdf7f2',
+//     },
+//     '& .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root ': {
+//       color: 'red',
+//     },
+//     '& .MuiInputLabel-root': {
+//       borderColor: 'green',
+//       color: 'green',
+//       display: 'none',
+//     },
+//   },
+// });
 // MuiFormLabel-root - colorPrimary;
 // '& .MuiInputBase-formControl': {
 //   borderColor: 'green',
@@ -289,3 +332,37 @@ export const CssTDatePicker = styled(DatePicker)({
 //     borderColor: 'blue',
 //   },
 // },
+export const ButtonI = styled(IconButton)`
+  && {
+    color: black;
+    background: #fdf7f2;
+    backdropfilter: blur(2px);
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    :active,
+    :hover {
+      background: #f59256;
+      bordercolor: #0062cc;
+          boxShadow: 'none
+    }
+  }
+`;
+
+// export const IconButton = theme => ({
+//   color: 'black',
+//   background: 'red',
+//   backdropFilter: 'blur(2px)',
+//   width: '44px',
+//   height: '44px',
+//   position: 'absolute',
+//   right: '24px',
+//   top: '24px',
+//   '&:hover': {
+//     backgroundColor: '#F59256',
+//     borderColor: '#0062cc',
+//     boxShadow: 'none',
+//   },
+// });
