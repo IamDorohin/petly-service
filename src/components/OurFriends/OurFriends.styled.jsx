@@ -317,6 +317,7 @@ export const TextLink = styled(Link)(({ theme }) => ({
 
 
 export const FriendsModal = styled('ul')(({ theme }) => ({
+  zIndex: 10,
 boxShadow: theme.customShadow.popUp,
   padding: '12px',
   position: 'absolute',

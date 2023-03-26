@@ -31,7 +31,7 @@ const FriendsList = () => {
       {isLoading && <Loader />}
       {friends.length > 0 &&
         friends.map(friend => (
-          <Item key={friend._id} data-aos="zoom-in">
+          <Item key={friend._id} >
             <Friend friend={friend} />
           </Item>
         ))}
@@ -42,4 +42,4 @@ const FriendsList = () => {
 export default FriendsList;
 
 
-
+// data-aos="zoom-in"
