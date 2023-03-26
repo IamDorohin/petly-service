@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { NoticesCategoriesItem } from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem';
 import { CategoriesList } from './NoticesCategoriesList.styled';
+import NoResult from 'components/Generic/NoResult/NoResult';
 
 import { useState } from 'react';
 import {
@@ -13,7 +14,8 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
   const { categoryName } = useParams();
   const [currentFavNotice, setCurrentFavNotice] = useState([]);
 
-  const { favNotices = [] } = useGetNoticesByCategoryQuery('favorite');
+  const { currentData: favNotices = [] } =
+    useGetNoticesByCategoryQuery('favorite');
 
   const {
     currentData: array,
@@ -21,8 +23,11 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
     isSuccess,
   } = useGetNoticesByCategoryQuery(categoryName);
 
-  const findedNotices = array?.data?.notices;
+  const findedNotices = newSearchNotices
+    ? newSearchNotices
+    : array?.data?.notices;
 
+  console.log('findedNotices', findedNotices);
   const noticesNotFound =
     error?.data?.message === 'There is no notices in this category';
 
@@ -49,25 +54,6 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
   const [deleteNotice] = useDeleteFavoriteNoticeMutation(findedNotices);
 
   return (
-    // <CategoriesList>
-    //   {newSearchNotices
-    //     ? newSearchNotices.map(notice => (
-    //         <NoticesCategoriesItem
-    //           array={notice}
-    //           key={notice._id}
-    //           onClick={favNoticesStatusHandler}
-    //         />
-    //       ))
-    //     : findedNotices.map(notice => (
-    //         <NoticesCategoriesItem
-    //           array={notice}
-    //           key={notice._id}
-    //           onClick={favNoticesStatusHandler}
-    //         />
-    //       ))}
-
-    //   {noticesNotFound && <div>Йди звідси, розбійник!</div>}
-    // </CategoriesList>
     <CategoriesList>
       {isSuccess &&
         findedNotices &&
@@ -78,7 +64,7 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
             onClick={favNoticesStatusHandler}
           />
         ))}
-      {noticesNotFound && <div>Йди звідси, розбійник!</div>}
+      {noticesNotFound && <NoResult />}
     </CategoriesList>
   );
 };

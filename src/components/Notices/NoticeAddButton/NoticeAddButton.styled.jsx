@@ -4,7 +4,6 @@ export const ContainerAddBtn = styled('div')(({ theme }) => ({
   position: 'relative',
   margin: '0',
   padding: '0',
-  // gap: '12px',
   color: theme.customColors.homeHeroTitleFont,
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
@@ -38,7 +37,6 @@ export const TitleAddBtn = styled('p')(({ theme }) => ({
   paddingRight: '0',
   paddingBottom: '12px',
   paddingLeft: '0',
-  // width: '63px',
   fontStyle: 'normal',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
@@ -63,8 +61,14 @@ export const AddButton = styled('button')(({ theme }) => ({
   height: '80px',
   borderRadius: '50%',
   border: 'none',
+  borderColor: 'transparent',
   marginLeft: '12px',
   cursor: 'pointer',
+
+  '&:hover': {
+    transform: 'Scale(1.2)',
+    transition: 'transform 250ms ease-in-out',
+  },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     position: 'static',
@@ -82,7 +86,7 @@ export const AddButton = styled('button')(({ theme }) => ({
   },
 }));
 
-export const AddButtonContainer = styled('div')(({ theme }) => ({
+export const AddButtonThumb = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: theme.customColors.accent,
@@ -98,5 +102,10 @@ export const AddButtonContainer = styled('div')(({ theme }) => ({
 
     width: '16px',
     height: '16px',
+  },
+
+  '&:hover': {
+    transition: 'transform 250ms linear ',
+    transform: 'scale(1.2)',
   },
 }));

@@ -7,9 +7,9 @@ export const NoticeAddButton = () => {
     <SC.ContainerAddBtn>
       <SC.TitleAddBtn> Add pet </SC.TitleAddBtn>
       <SC.AddButton type="button">
-        <SC.AddButtonContainer>
-          <HiPlus size={'100%'} />
-        </SC.AddButtonContainer>
+        {/* <SC.AddButtonThumb> */}
+        <HiPlus size={'50%'} className=".forHover" color="#fff" />
+        {/* </SC.AddButtonThumb> */}
       </SC.AddButton>
     </SC.ContainerAddBtn>
   );

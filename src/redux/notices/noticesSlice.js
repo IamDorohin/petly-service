@@ -27,8 +27,10 @@ export const noticesApi = createApi({
       providesTags: (result, error, arg) => [arg],
     }),
     getNoticesBySearch: builder.query({
-      query: (currentCategory, searchParams) =>
-        `/notices/category/${currentCategory}${searchParams}`,
+      query: args => {
+        const { currentCategory, currentSearch } = args;
+        return { url: `/notices/category/${currentCategory}?${currentSearch}` };
+      },
       providesTags: ['serched'],
     }),
     getNoticesById: builder.query({

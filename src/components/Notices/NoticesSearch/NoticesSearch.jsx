@@ -4,12 +4,11 @@ import * as SC from './NoticesSearch.styled';
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export const NoticesSearch = ({ element, onSubmit, onChange }) => {
+export const NoticesSearch = ({ element, onSubmit }) => {
   const [searchQuery, setSearchQuery] = useState(element ?? '');
 
   const handleSearchQueryChange = event => {
     setSearchQuery(event.currentTarget.value.toLowerCase());
-    onChange(event.currentTarget.value.toLowerCase());
   };
 
   const handleSubmit = event => {
@@ -23,9 +22,13 @@ export const NoticesSearch = ({ element, onSubmit, onChange }) => {
     onSubmit(searchQuery);
   };
 
+  const clearFilter = () => {
+    setSearchQuery('');
+  };
+
   return (
     <SC.SearchContainer>
-      <SC.Title>Find your favorite pet</SC.Title>
+      {/* <SC.Title>Find your favorite pet</SC.Title> */}
       <SC.Form onSubmit={handleSubmit}>
         <SC.Input
           type="text"
@@ -33,7 +36,16 @@ export const NoticesSearch = ({ element, onSubmit, onChange }) => {
           value={searchQuery}
           onChange={handleSearchQueryChange}
         />
-        <SC.Button type="submit">
+        <SC.FindButton component="button" type="submit" onClick={handleSubmit}>
+          <SearchIcon />
+        </SC.FindButton>
+
+        {searchQuery !== '' && (
+          <SC.DeleteButton component="button" onClick={clearFilter}>
+            <HighlightOffIcon />
+          </SC.DeleteButton>
+        )}
+        {/* <SC.Button type="submit">
           {searchQuery === '' ? (
             <SearchIcon
               sx={{
@@ -51,7 +63,7 @@ export const NoticesSearch = ({ element, onSubmit, onChange }) => {
               }}
             />
           )}
-        </SC.Button>
+        </SC.Button> */}
       </SC.Form>
     </SC.SearchContainer>
   );

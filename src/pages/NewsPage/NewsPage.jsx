@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import Title from '../../components/Generic/Title';
-import NewsSearch from '../../components/Generic/Search';
-import NewsGrid from '../../components/News/NewsGrid';
-import NewsCard from '../../components/News/NewsCard';
+import NewsSearch from '../../components/News/NewsSearch/Search';
+import NewsGrid from '../../components/News/NewsGrid/NewsGrid';
+import NewsCard from '../../components/News/NewsCard/NewsCard';
 import moment from 'moment/moment';
-import { NewsContainer, Section, Error } from './NewsPage.styled';
+import { NewsContainer, Section } from './NewsPage.styled';
 import { useGetNewsQuery } from '../../redux/news/NewsAPI';
+import NoResult from '../../components/Generic/NoResult/NoResult';
 
 const NewsPage = () => {
   const [filter, setFilter] = useState('');
   const {
-    data,
-    // error,
-    // isLoading
+    currentData,
+    refetch,
+    // error, isLoading
   } = useGetNewsQuery();
 
   let visibleNews = {};
-  if (data) {
-    visibleNews = data
+
+  if (currentData) {
+    visibleNews = currentData.data.result
       .filter(
         item =>
           item.title.toLowerCase().includes(filter) ||
@@ -30,12 +32,12 @@ const NewsPage = () => {
     <Section>
       <NewsContainer>
         <Title>News</Title>
-        <NewsSearch saveFilter={setFilter} />
+        <NewsSearch saveFilter={setFilter} fetch={refetch} />
 
         {/* {error && Error component} */}
         {/* {isLoading &&  Loader component} */}
         <NewsGrid>
-          {data &&
+          {currentData &&
             visibleNews.map(item => {
               console.log(moment(item.date));
               return (
@@ -49,11 +51,12 @@ const NewsPage = () => {
               );
             })}
         </NewsGrid>
-        {visibleNews.length === 0 && (
-          <Error>
-            Sorry, we have no news with this keyword. Please, try another word.
-          </Error>
-        )}
+        {visibleNews.length === 0 && 
+          <NoResult match={filter} />
+          // <Error>
+          //   Sorry, we have no news with this keyword. Please, try another word.
+          // </Error>
+        }
       </NewsContainer>
     </Section>
   );

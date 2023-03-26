@@ -8,18 +8,25 @@ import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import React, { useState, useEffect } from 'react';
 
-export default function NewsSearch({ saveFilter }) {
+export default function NewsSearch({ saveFilter, fetch }) {
   const [inputData, setInputData] = useState('');
 
   const handleFilter = e => {
     setInputData(e.target.value);
+
+    if (e.currentTarget.value === '') {
+      saveFilter(inputData);
+    }
   };
+
   const submitFilter = () => {
     saveFilter(inputData);
   };
 
   const clearFilter = () => {
+    fetch();
     setInputData('');
+    saveFilter('');
   };
 
   useEffect(() => {
@@ -42,11 +49,9 @@ export default function NewsSearch({ saveFilter }) {
         onChange={handleFilter}
         placeholder="Search"
       />
-
       <FindButton component="button" type="submit" onClick={submitFilter}>
         <SearchIcon />
       </FindButton>
-
       {inputData !== '' && (
         <DeleteButton component="button" onClick={clearFilter}>
           <HighlightOffIcon />

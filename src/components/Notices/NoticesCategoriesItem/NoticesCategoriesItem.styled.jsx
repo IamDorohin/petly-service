@@ -7,7 +7,6 @@ export const NoticeItem = styled('li')(({ theme }) => ({
   backgroundColor: theme.customColors.cardsBackground,
   marginBottom: '32px',
   borderRadius: '0px 0px 40px 40px',
-  // boxShadow: '7px 4px 14px rgba(49, 21, 4, 0.07)',
   boxShadow: theme.customShadow.secondary,
 
   [theme.breakpoints.between(
@@ -89,6 +88,7 @@ export const NoticeDescription = styled('div')(({ theme }) => ({
 export const NoticeTitle = styled('p')(({ theme }) => ({
   margin: '0',
   marginBottom: '20px',
+  textAlign: 'start',
   fontStyle: 'normal',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.bold,
