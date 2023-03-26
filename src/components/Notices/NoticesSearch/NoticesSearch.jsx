@@ -1,50 +1,49 @@
 import { useState } from 'react';
-
 import * as SC from './NoticesSearch.styled';
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export const NoticesSearch = ({ element, onSubmit }) => {
-  const [searchQuery, setSearchQuery] = useState(element ?? '');
+export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
+  const [currentQuery, setCurrentQuery] = useState('');
 
   const handleSearchQueryChange = event => {
-    setSearchQuery(event.currentTarget.value.toLowerCase());
+    if (event.currentTarget.value === '') {
+      setSearchQuery('');
+    }
+    setCurrentQuery(event.currentTarget.value.toLowerCase());
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-
-    if (searchQuery.trim() === '') {
+    if (currentQuery.trim() === '') {
       alert('Enter your search request');
       return;
     }
 
-    onSubmit(searchQuery);
+    setSearchQuery(currentQuery);
   };
 
-  const clearFilter = () => {
+  const clearSearchBar = () => {
     setSearchQuery('');
   };
 
   return (
     <SC.SearchContainer>
-      {/* <SC.Title>Find your favorite pet</SC.Title> */}
       <SC.Form onSubmit={handleSubmit}>
+        {currentQuery !== '' && (
+          <SC.DeleteButton component="button" onClick={clearSearchBar}>
+            <HighlightOffIcon />
+          </SC.DeleteButton>
+        )}
         <SC.Input
           type="text"
           placeholder="Search"
-          value={searchQuery}
+          value={currentQuery}
           onChange={handleSearchQueryChange}
         />
         <SC.FindButton component="button" type="submit" onClick={handleSubmit}>
           <SearchIcon />
         </SC.FindButton>
-
-        {searchQuery !== '' && (
-          <SC.DeleteButton component="button" onClick={clearFilter}>
-            <HighlightOffIcon />
-          </SC.DeleteButton>
-        )}
         {/* <SC.Button type="submit">
           {searchQuery === '' ? (
             <SearchIcon

@@ -26,13 +26,17 @@ export const noticesApi = createApi({
       query: noticesCategory => `/notices/category/${noticesCategory}`,
       providesTags: (result, error, arg) => [arg],
     }),
-    getNoticesBySearch: builder.query({
-      query: args => {
-        const { currentCategory, currentSearch } = args;
-        return { url: `/notices/category/${currentCategory}?${currentSearch}` };
-      },
-      providesTags: ['serched'],
+    getFavoriteArr: builder.query({
+      query: () => `/notices/favorite`,
+      providesTags: ['favorite'],
     }),
+    // getNoticesBySearch: builder.query({
+    //   query: args => {
+    //     const { currentCategory, currentSearch } = args;
+    //     return { url: `/notices/category/${currentCategory}?${currentSearch}` };
+    //   },
+    //   providesTags: ['serched'],
+    // }),
     getNoticesById: builder.query({
       query: id => `/notices/${id}`,
       providesTags: ['current'],
@@ -72,7 +76,8 @@ export const noticesApi = createApi({
 });
 
 export const {
-  useGetNoticesBySearchQuery,
+  useGetFavoriteArrQuery,
+  // useGetNoticesBySearchQuery,
   useGetNoticesByCategoryQuery,
   useGetNoticesByIdQuery,
   useAddFavoriteNoticeMutation,
