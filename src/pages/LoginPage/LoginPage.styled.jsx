@@ -4,10 +4,9 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-// import { Form } from 'formik';
+
 import CircularProgress from '@mui/material/CircularProgress';
 import { InputLabel, OutlinedInput } from '@mui/material';
-// import Button from "@mui/material/Button";
 
 export const LoginSection = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
@@ -100,7 +99,6 @@ export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
 }));
 
 export const LoginInput = styled(TextField)(({ theme }) => ({
-  borderColor: theme.customBorders.accent,
   variant: 'h5',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
@@ -108,7 +106,6 @@ export const LoginInput = styled(TextField)(({ theme }) => ({
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.appBackground,
-  borderColor: theme.customBorders.accent,
 
   '& fieldset': {
     borderRadius: '40px',
@@ -127,8 +124,6 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
   fontSize: theme.customFontSizes[1],
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
-  color: theme.customColors.appBackground,
-  borderColor: theme.customBorders.accent,
 
   '& fieldset': {
     borderRadius: '40px',
@@ -142,15 +137,12 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
 export const Button = styled('button')(({ theme }) => ({
   width: '100%',
   minHeight: '100%',
-  display: 'block',
   display: 'flex',
   alignItems: 'center',
   textAlign: 'center',
   justifyContent: 'center',
   paddingTop: '8.5px',
   paddingBottom: '8.5px',
-  paddingLeft: '112.5px',
-  paddingRight: '112.5px',
   paddingLeft: '20px',
   paddingRight: '20px',
   border: '0',
