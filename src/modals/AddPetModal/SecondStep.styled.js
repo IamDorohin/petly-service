@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-// import { styled } from '@mui/material/styles';
-// import { styled } from '@mui/material/styles';
-import { Button, Input, inputBaseClasses, TextField } from '@mui/material';
+import { Button,  TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 export const FontButton = theme => ({
@@ -126,7 +124,7 @@ export const CssTextField = styled(TextField)({
   border: '1px solid rgba(245, 146, 86, 0.5)',
   borderRadius: '20px',
   background: '#fdf7f2',
-  minHeight:'40px',
+//   minHeight: '40px',
   padding: '15px',
   '& label.Mui-focused': {
     color: '#F59256',
@@ -140,11 +138,11 @@ export const CssTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       minHeight: '112px',
-      borderColor: '#fdf7f2',
+      borderColor: '#F59256',
       borderRadius: '20px',
     },
     '&:hover fieldset': {
-      borderColor: 'red',
+      borderColor: '#F59256',
     },
     '&.Mui-focused fieldset': {
       borderColor: '#F59256',
@@ -155,8 +153,9 @@ export const CssTextField = styled(TextField)({
 export const CssTextFieldTheme = theme => ({
   width: '100%',
   height: '100%',
-  minHeight: '100px',
+//   minHeight: '100px',
   mt: '8px',
+  minHeight: '40px',
   [theme.breakpoints.up('tablet')]: {
     minHeight: '107px',
     mt: '12px',

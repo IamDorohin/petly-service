@@ -1,17 +1,4 @@
-import React, { useState } from 'react';
-import {
-    ButtonBox,
-  CantBtn,
-  CssTDatePicker,
-  FierstStepDiv,
-  FontButton,
-  FormBox,
-  Input,
-  NextBtn,
-} from './FirstStep.styled';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { DemoItem } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { ButtonBox, CantBtn, FierstStepDiv, Input } from './FirstStep.styled';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
 import dayjs from 'dayjs';
 import { Box } from '@mui/system';

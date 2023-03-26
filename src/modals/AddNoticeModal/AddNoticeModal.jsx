@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Modal from '../Modal/Modal';
 import { Formik } from 'formik';
 import AddNoticeModalFirstStep from './FirstStep';
 import AddNoticetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
 import { useAddNoticeMutation } from '../../redux/notices/noticesSlice';
+// import * as yup from 'yup';
 
 export const NOTICE_TYPES = {
   LOST_FOUND: 1,
@@ -25,6 +25,14 @@ const initialValues = {
   comment: '',
   photo: null,
 };
+
+// let userSchema = yup.object({
+//   namePet: yup.string().required(),
+//   dateOfBirth: yup.number(),
+//   breed: yup.string(),
+//   comment: yup.string(),
+//   photo: yup.string(),
+// });
 
 const STEPS = {
   FIRST: 1,

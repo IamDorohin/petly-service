@@ -8,8 +8,8 @@ import {
   FontButton,
 } from './SecondStep.styled';
 import { ReactComponent as Vector } from './icon/Vector.svg';
-import { ButtonBox, CantBtn, FormBox, FormBoxTheme, NextBtn } from './FirstStep.styled';
-import { LabelFormic, LabelFormicAddComment } from '../Modal/Modal.styled';
+import { ButtonBox, CantBtn, FormBox, FormBoxTheme } from './FirstStep.styled';
+import { LabelFormicAddComment } from '../Modal/Modal.styled';
 
 const AddPetModalSecondStep = ({ formik, onBack }) => {
   return (
