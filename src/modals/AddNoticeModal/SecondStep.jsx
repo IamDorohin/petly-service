@@ -14,7 +14,7 @@ import { NOTICE_TYPES } from '../AddNoticeModal/AddNoticeModalІSchems';
 
 const AddNoticeModalSecondStep = ({ formik, onBack }) => {
   const isSellNotice = formik.values.noticeType === NOTICE_TYPES.SELL;
-  const errorsMessages = Object.values(formik.errors);
+  const errorMessages = Object.values(formik.errors);
 
   return (
     <div>
@@ -78,10 +78,12 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           onChange={formik.handleChange}
         />
       </FormLabel>
-      {errorsMessages.length !== 0 &&
-        errorsMessages.map(message => {
-          return <p key={message}>{message}</p>;
-        })}
+      <>
+        {errorMessages.length !== 0 &&
+          errorMessages.map(message => {
+            return <p key={message}>{message}</p>;
+          })}
+      </>
 
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onBack}>

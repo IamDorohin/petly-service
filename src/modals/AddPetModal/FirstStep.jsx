@@ -5,12 +5,7 @@ import { Box } from '@mui/system';
 import { Button, FormLabel } from '@mui/material';
 import { LabelFormic } from '../Modal/Modal.styled';
 
-const AddPetModalFirstStep = ({
-  formik,
-  onSubmit,
-  onClose,
-  errorsMessages,
-}) => {
+const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
   return (
     <FierstStepDiv>
       <FormLabel sx={LabelFormic}>
@@ -31,10 +26,7 @@ const AddPetModalFirstStep = ({
           formik.setFieldValue('dateOfBirth', dayjs(value.$d), false);
         }}
       />
-      {errorsMessages.length !== 0 &&
-        errorsMessages.map(message => {
-          return <p key={message}>{message}</p>;
-        })}
+
       <FormLabel sx={LabelFormic}>
         Breed
         <Input
@@ -45,6 +37,12 @@ const AddPetModalFirstStep = ({
           placeholder="Type breed"
         />
       </FormLabel>
+      <>
+        {errorMessages.length !== 0 &&
+          errorMessages.map(message => {
+            return <p key={message}>{message}</p>;
+          })}
+      </>
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onClose} variant="contained">
           Cancel

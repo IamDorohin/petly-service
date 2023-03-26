@@ -17,7 +17,7 @@ const AddNoticeModalFirstStep = ({
   formik,
   onSubmit,
   onClose,
-  errorsMessages,
+  errorMessages,
 }) => {
   return (
     <div>
@@ -103,10 +103,12 @@ const AddNoticeModalFirstStep = ({
           placeholder="Type breed"
         />
       </FormLabel>
-      {errorsMessages.length !== 0 &&
-        errorsMessages.map(message => {
-          return <p key={message}>{message}</p>;
-        })}
+      <>
+        {errorMessages.length !== 0 &&
+          errorMessages.map(message => {
+            return <p key={message}>{message}</p>;
+          })}
+      </>
       {/* <NextBtn sx={FontButton} >
               Next
             </NextBtn> */}

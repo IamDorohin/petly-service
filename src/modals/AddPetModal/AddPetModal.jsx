@@ -21,18 +21,18 @@ const STEPS = {
 
 const AddPetModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
-  const [errorsMessages, setErrorsMessages] = useState([]);
+  const [errorMessages, setErrorMessages] = useState([]);
 
   const onNextStepButtonClick = async ({ values, validateForm }) => {
     try {
       const errors = await validateForm(values);
       const errorsArray = Object.values(errors);
 
-      if (errors.length === 0) {
+      if (errorsArray.length === 0) {
         setStep(STEPS.SECOND);
       } else {
-        console.log(errors, errors.length);
-        setErrorsMessages(errorsArray);
+        console.log(errorsArray);
+        setErrorMessages(errorsArray);
       }
     } catch (err) {
       console.error(err);
@@ -63,7 +63,7 @@ const AddPetModal = ({ isOpen, onClose }) => {
                 formik={props}
                 onSubmit={() => onNextStepButtonClick(props)}
                 onClose={onClose}
-                errorsMessages={errorsMessages}
+                errorMessages={errorMessages}
               />
             )}
             {step === STEPS.SECOND && (

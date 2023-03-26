@@ -36,15 +36,13 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
   //   const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
 
   const onNextStepButtonClick = async ({ values, validateForm }) => {
-    console.log(values);
     try {
       const errors = await validateForm(values);
       const errorsArray = Object.values(errors);
 
-      if (errors.length === 0) {
+      if (errorsArray.length === 0) {
         setStep(STEPS.SECOND);
       } else {
-        console.log(errors, errors.length);
         setErrorsMessages(errorsArray);
       }
     } catch (err) {
@@ -77,7 +75,7 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
             {step === STEPS.FIRST && (
               <AddNoticeModalFirstStep
                 formik={props}
-                onSubmit={onNextStepButtonClick}
+                onSubmit={() => onNextStepButtonClick(props)}
                 onClose={onClose}
                 errorMessages={errorMessages}
               />
