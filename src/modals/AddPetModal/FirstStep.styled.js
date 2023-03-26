@@ -1,8 +1,6 @@
-import { Box, Button, FormControl, Typography } from '@mui/material';
-import { MobileDatePicker } from '@mui/x-date-pickers';
-import { Field, Form, Label } from 'formik';
+import { Button, FormControl } from '@mui/material';
+
 import styled from 'styled-components';
-// import { DatePicker } from '@mui/x-date-pickers';
 
 export const Input = styled.input`
 &&{
@@ -92,7 +90,7 @@ export const BtnGroupFierst = styled(Button)`
     align-items: center;
     letter-spacing: 0.04em;
     text-transform: none;
-    color: #111111; 
+    color: #111111;
     height: 44px;
     :focus,
     :active,
@@ -118,11 +116,11 @@ export const BoxBtnGroup = theme => ({
   gap: '8px 12px',
   mt: '20px',
   mb: '28px',
-    height: '100%',
- '& : active':{
-      background: '#f59256',
-      color: '#ffffff',
-    },
+  height: '100%',
+  '& : active': {
+    background: '#f59256',
+    color: '#ffffff',
+  },
   [theme.breakpoints.up('tablet')]: {
     width: '371px',
     gap: '12px 16px',

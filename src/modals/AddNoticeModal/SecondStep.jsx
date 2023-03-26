@@ -1,13 +1,14 @@
-import { Box, Button, FormLabel, Typography } from '@mui/material';
+import { Box, Button, FormLabel } from '@mui/material';
 import React from 'react';
 import {
   AddBtn,
   AddBtnThemeNotice,
   CssTextField,
-  FontButton,
+  CssTextFieldTheme,
+
 } from '../AddPetModal/SecondStep.styled';
 import { ReactComponent as Vector } from '../AddPetModal/icon/Vector.svg';
-import { ButtonBox, CantBtn, Input, NextBtn } from '../AddPetModal/FirstStep.styled';
+import { ButtonBox, CantBtn, Input } from '../AddPetModal/FirstStep.styled';
 import SexRadios from './SexRadios';
 import { NOTICE_TYPES } from './AddNoticeModal';
 import { LabelFormic, LabelFormicAddComment } from '../Modal/Modal.styled';
@@ -59,12 +60,22 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
       </FormLabel>
       <FormLabel sx={LabelFormicAddComment}>
         Comments
-        <Input
+        {/* <Input
           value={formik.values.comment}
           onChange={formik.handleChange}
           type="text"
           name="comment"
           placeholder="Type comments"
+        /> */}
+        <CssTextField
+          sx={CssTextFieldTheme}
+          id="outlined-multiline-flexible"
+          label="Type comments"
+          name="comment"
+          multiline
+          maxRows={4}
+          value={formik.values.comment}
+          onChange={formik.handleChange}
         />
       </FormLabel>
       <Box sx={ButtonBox}>

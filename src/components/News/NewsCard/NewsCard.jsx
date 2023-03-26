@@ -14,14 +14,22 @@ export default function NewsCard({ title, url, description, date }) {
     newDate = '--/--/----';
   }
 
-    return <Card>
-        <Line></Line>
-        <Title>{title.slice(0, 40) + '...'}</Title>
-        <Text>{description.slice(0, 200) + '...'}</Text>
-        <Box>
-            <Date>{newDate}</Date>
-            <ReadMoreLink href={url} color="inherit" target="_blank" rel='noreferrer'>Read more</ReadMoreLink>
-        </Box>
+  return (
+    <Card>
+      <Line></Line>
+      <Title>{title.slice(0, 40) + '...'}</Title>
+      <Text>{description.slice(0, 200) + '...'}</Text>
+      <Box>
+        <Date>{newDate}</Date>
+        <ReadMoreLink
+          href={url}
+          color="inherit"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Read more
+        </ReadMoreLink>
+      </Box>
     </Card>
   );
 }

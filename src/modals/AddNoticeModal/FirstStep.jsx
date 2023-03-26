@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
 import {
-    BoxBtnGroup,
+  BoxBtnGroup,
   BtnGroupFierst,
   ButtonBox,
   CantBtn,
-  CssTDatePicker,
   Input,
-  NextBtn,
 } from '../AddPetModal/FirstStep.styled';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { DemoItem } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Box, Button, ButtonGroup, FormLabel, Typography } from '@mui/material';
+
+import { Box, Button, FormLabel, Typography } from '@mui/material';
 import { NOTICE_TYPES } from './AddNoticeModal';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
 import dayjs from 'dayjs';

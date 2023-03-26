@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ButtonI, modalBox, Title } from './Modal.styled';
 import CloseIcon from '@mui/icons-material/Close';
-import { Button, Box, Modal as ModalUI, Typography } from '@mui/material';
+import { Box, Modal as ModalUI, Typography } from '@mui/material';
 
 const Modal = ({ isOpen, onClose, children, title }) => {
   return (

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Modal from '../Modal/Modal';
 import { Formik } from 'formik';
 import AddPetModalFirstStep from './FirstStep';
 import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
-import { FormControl } from '@mui/material';
+
 
 const initialValues = {
   namePet: '',
