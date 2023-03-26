@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { NoticesCategoriesItem } from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem';
 import { CategoriesList } from './NoticesCategoriesList.styled';
 import NoResult from 'components/Generic/NoResult/NoResult';
@@ -10,13 +10,12 @@ import {
   useGetFavoriteArrQuery,
 } from 'redux/notices/noticesSlice';
 
-export const NoticesCategoriesList = () => {
+export const NoticesCategoriesList = ({ searchParams }) => {
   const { categoryName } = useParams();
 
   const { data: favoriteIdArr } = useGetFavoriteArrQuery();
 
-  const [searchParams] = useSearchParams();
-  const searchQueryState = searchParams.toString() ?? '';
+  const searchQueryState = searchParams?.toString() ?? '';
 
   const endpoint =
     searchQueryState === ''

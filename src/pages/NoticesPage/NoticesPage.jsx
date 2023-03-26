@@ -20,7 +20,7 @@ import {
 const NoticesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const [_, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     if (searchQuery !== '') {
@@ -42,7 +42,7 @@ const NoticesPage = () => {
           <NoticesCategoriesNav />
           <NoticeAddButton />
         </NoticesPageNavBox>
-        <NoticesCategoriesList />
+        <NoticesCategoriesList searchParams={searchParams} />
       </Container>
     </NoticesPageContainer>
   );
