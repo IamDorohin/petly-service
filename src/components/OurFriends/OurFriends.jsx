@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TimeModal from './FriendsTimeModal';
-import { StyledFriend } from './OurFriends.styled';
+import { H3, StyledFriend, FriendsLink, FriendsBox,IMG, ImgDiv, DL, DlDiv, Button, DD, TextLink } from './OurFriends.styled';
 
 
 
@@ -14,32 +14,32 @@ const Friend = ({ friend }) => {
 
   return (
     <StyledFriend>
-      <h3>
-        <a href={url} target="_blank" rel="noreferrer">
+      <H3>
+        <FriendsLink href={url} target="_blank" rel="noreferrer">
           {title}
-        </a>
-      </h3>
+        </FriendsLink>
+      </H3>
 
-      <div>
-        {imageUrl ? <img src={imageUrl} alt="company logo" /> : <div className="empty-image" />}
-        <dl>
-          <div>
+      <FriendsBox>
+        {imageUrl ? <IMG src={imageUrl} alt="company logo" /> : <ImgDiv/>}
+        <DL>
+          <DlDiv>
             <dt>Time:</dt>
-            <dd>
+            <DD>
               {!workDays || workDays.length === 0 ? (
                 '--------------------'
               ) : (
-                <button type="button" onMouseEnter={toggleModal} onMouseLeave={toggleModal}>
+                <Button type="button" onMouseEnter={toggleModal} onMouseLeave={toggleModal}>
                   {workDays.find(day => day.isOpen === true).from} -{' '}
                   {workDays.find(day => day.isOpen === true).to}
-                </button>
+                </Button>
               )}
               {showModal && <TimeModal timeTable={workDays} />}
-            </dd>
-          </div>
+            </DD>
+          </DlDiv>
           <div>
             <dt>Adress:</dt>
-            <dd>
+            <DD>
               {!addressUrl ? (
                 !address ? (
                   '--------------------'
@@ -47,22 +47,22 @@ const Friend = ({ friend }) => {
                   `${address}`
                 )
               ) : (
-                <a href={addressUrl} target="_blank" rel="noreferrer">
+                <TextLink href={addressUrl} target="_blank" rel="noreferrer">
                   {address}
-                </a>
+                </TextLink>
               )}
-            </dd>
+            </DD>
           </div>
           <div>
             <dt>Email:</dt>
-            <dd>{!email ? '--------------------' : <a href={`mailto:${email}`}>{email}</a>}</dd>
+            <DD>{!email ? '--------' : <TextLink href={`mailto:${email}`}>{email}</TextLink>}</DD>
           </div>
           <div>
             <dt>Phone:</dt>
-            <dd>{!phone ? '--------------------' : <a href={`tel:${phone}`}>{phone}</a>}</dd>
+            <DD>{!phone ? '--------------------' : <TextLink href={`tel:${phone}`}>{phone}</TextLink>}</DD>
           </div>
-        </dl>
-      </div>
+        </DL>
+      </FriendsBox>
     </StyledFriend>
   );
 };

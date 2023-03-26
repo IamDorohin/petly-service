@@ -33,7 +33,7 @@ const friendsInitialState = {
 const friendsSlice = createSlice({
   name: 'friends',
   initialState: friendsInitialState,
-  extrareducers: {
+  extraReducers: {
     [fetchFriends.pending](state) {
       state.isLoading = true;
     },
