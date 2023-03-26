@@ -1,184 +1,191 @@
-import {
-  UserContainer,
-  UserBlock,
-  UserBlockWrapper,
-  UserTitleInfo,
-  UserInfoBlock,
-  UserInfoWrapper,
-  UserFormWrapper,
-  UserInfoImage,
-  UserEditBlock,
-  UserEditPhoto,
-  UserEditInput,
-  UserEditIcon,
-  Form,
-  LogoutBtn,
-  LogoutBtnIcon,
-  PetCardBlock,
-  PetTitle,
-  AddPetBtn,
-  AddPetBtnIcon,
-  PetCard,
-  PetBlockWrapper,
-  PetScrollWrapper,
-  PetCardImg,
-  PetCardDelete,
-  PetCardWrapper,
-  PetCardDescript,
-  PetCardTitle,
-} from './UserPage.style';
+// import {
+//   UserContainer,
+//   UserBlock,
+//   UserBlockWrapper,
+//   UserTitleInfo,
+//   UserInfoBlock,
+//   UserInfoWrapper,
+//   UserFormWrapper,
+//   UserInfoImage,
+//   UserEditBlock,
+//   UserEditPhoto,
+//   UserEditInput,
+//   UserEditIcon,
+//   Form,
+//   LogoutBtn,
+//   LogoutBtnIcon,
+//   PetCardBlock,
+//   PetTitle,
+//   AddPetBtn,
+//   AddPetBtnIcon,
+//   PetCard,
+//   PetBlockWrapper,
+//   PetScrollWrapper,
+//   PetCardImg,
+//   PetCardDelete,
+//   PetCardWrapper,
+//   PetCardDescript,
+//   PetCardTitle,
+// } from './UserPage.style';
+// import { getToken } from 'redux/auth/auth-selectors';
+// import { getCurrentProfile } from 'services/profileApi';
 
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router';
-import { HiTrash } from 'react-icons/hi2';
+// import { useState, useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { Navigate } from 'react-router';
+// import { HiTrash } from 'react-icons/hi2';
 
-import UserName from './UserInputs/UserInputName';
-import UserMail from './UserInputs/UserInputMail';
-import UserBirthday from './UserInputs/UserInputBirthday';
-import UserPhone from './UserInputs/UserInputsPhone';
-import UserCity from './UserInputs/UserInputCity';
+// import UserName from './UserInputs/UserInputName';
+// import UserMail from './UserInputs/UserInputMail';
+// import UserBirthday from './UserInputs/UserInputBirthday';
+// import UserPhone from './UserInputs/UserInputsPhone';
+// import UserCity from './UserInputs/UserInputCity';
 
-import {
-  fetchUserPets,
-  removePetCard,
-} from './../../redux/userPage/userPageOperations';
-import { selectUserPets } from './../../redux/userPage/userPageSelectors';
+// import {
+//   fetchUserPets,
+//   removePetCard,
+// } from './../../redux/userPage/userPageOperations';
+// import { selectUserPets } from './../../redux/userPage/userPageSelectors';
 
-const UserPage = () => {
-  // const user = useSelector("залогиненый юзерь");
-  const [isEdit, setIsEdit] = useState(false);
-  const dispatch = useDispatch();
+// const UserPage = () => {
+//   const token = useSelector(state => state.auth.user.token);
 
-  useEffect(() => {
-    dispatch(fetchUserPets());
-  }, [dispatch]);
+//   useEffect(() => {
+//     if (token) getCurrentProfile();
+//   }, [token]);
 
-  //! const items = useSelector(selectUserPets);
-  //! items.map()
+//   const [isEdit, setIsEdit] = useState(false);
+//   const dispatch = useDispatch();
 
-  const deletePetCard = id => {
-    return dispatch(removePetCard(id));
-  };
+//   useEffect(() => {
+//     dispatch(fetchUserPets());
+//   }, [dispatch]);
 
-  const changeImage = async event => {
-    const formData = new FormData();
-    formData.append('avatar', event.target.files[0]);
-    dispatch('сюда  вставить ф-я загрузки аватара на бэк'(formData));
-  };
+//   //! const items = useSelector(selectUserPets);
+//   //! items.map()
 
-  const handleLogout = () => {
-    dispatch('сюда  вставить ф-я выхода из аккаунта');
-    return <Navigate to="/login" />;
-  };
+//   const deletePetCard = id => {
+//     return dispatch(removePetCard(id));
+//   };
 
-  return (
-    <UserBlock>
-      <UserContainer>
-        <UserBlock>
-          <UserBlockWrapper>
-            <UserTitleInfo>My information:</UserTitleInfo>
-            <UserInfoBlock>
-              <UserInfoWrapper>
-                <UserInfoImage
-                  //! сюда вместо заглушки - src={user.img}
-                  src="../../../public/no-photo.jpg"
-                  alt="No photo"
-                />
+//   const changeImage = async event => {
+//     const formData = new FormData();
+//     formData.append('avatar', event.target.files[0]);
+//     dispatch('сюда  вставить ф-я загрузки аватара на бэк'(formData));
+//   };
 
-                <UserEditBlock>
-                  <UserEditPhoto>
-                    <UserEditIcon />
-                    <UserEditInput
-                      onChange={changeImage}
-                      type="file"
-                      name="file"
-                      accept=".jpg, .jpeg, .png"
-                    />
-                    Edit photo
-                  </UserEditPhoto>
-                </UserEditBlock>
-              </UserInfoWrapper>
-              <UserFormWrapper>
-                <Form>
-                  <UserName setIsEdit={setIsEdit} isEdit={isEdit} />
-                  <UserMail setIsEdit={setIsEdit} isEdit={isEdit} />
-                  <UserBirthday setIsEdit={setIsEdit} isEdit={isEdit} />
-                  <UserPhone setIsEdit={setIsEdit} isEdit={isEdit} />
-                  <UserCity setIsEdit={setIsEdit} isEdit={isEdit} />
-                </Form>
+//   const handleLogout = () => {
+//     dispatch('сюда  вставить ф-я выхода из аккаунта');
+//     return <Navigate to="/login" />;
+//   };
 
-                <LogoutBtn onClick={handleLogout}>
-                  <LogoutBtnIcon />
-                  Log Out
-                </LogoutBtn>
-              </UserFormWrapper>
-            </UserInfoBlock>
-          </UserBlockWrapper>
+//   return (
+//     <UserBlock>
+//       <UserContainer>
+//         <UserBlock>
+//           <UserBlockWrapper>
+//             <UserTitleInfo>My information:</UserTitleInfo>
+//             <UserInfoBlock>
+//               <UserInfoWrapper>
+//                 <UserInfoImage
+//                   //! сюда вместо заглушки - src={user.img}
+//                   src="../../../public/no-photo.jpg"
+//                   alt="No photo"
+//                 />
 
-          <PetBlockWrapper>
-            <PetCardBlock>
-              <PetTitle style={{ marginBottom: '0' }}>My pets:</PetTitle>
+//                 <UserEditBlock>
+//                   <UserEditPhoto>
+//                     <UserEditIcon />
+//                     <UserEditInput
+//                       onChange={changeImage}
+//                       type="file"
+//                       name="file"
+//                       accept=".jpg, .jpeg, .png"
+//                     />
+//                     Edit photo
+//                   </UserEditPhoto>
+//                 </UserEditBlock>
+//               </UserInfoWrapper>
+//               <UserFormWrapper>
+//                 <Form>
+//                   <UserName setIsEdit={setIsEdit} isEdit={isEdit} />
+//                   <UserMail setIsEdit={setIsEdit} isEdit={isEdit} />
+//                   <UserBirthday setIsEdit={setIsEdit} isEdit={isEdit} />
+//                   <UserPhone setIsEdit={setIsEdit} isEdit={isEdit} />
+//                   <UserCity setIsEdit={setIsEdit} isEdit={isEdit} />
+//                 </Form>
 
-              {/*//! Сюда добавить открытие модалки по клику, добавить животное */}
-              <AddPetBtn>
-                Add pet
-                <AddPetBtnIcon />
-              </AddPetBtn>
-            </PetCardBlock>
+//                 <LogoutBtn onClick={handleLogout}>
+//                   <LogoutBtnIcon />
+//                   Log Out
+//                 </LogoutBtn>
+//               </UserFormWrapper>
+//             </UserInfoBlock>
+//           </UserBlockWrapper>
 
-            <PetScrollWrapper>
-              {/*//! Список животных */}
-              {/* {items.map(
-                item => {
-                  return (
-                    <PetCard>
-                      <PetCardImg src="/public/cat.jpg" alt="You pet" />
+//           <PetBlockWrapper>
+//             <PetCardBlock>
+//               <PetTitle style={{ marginBottom: '0' }}>My pets:</PetTitle>
 
-                      <PetCardDelete
-                        type="button"
-                        onClick={() => deletePetCard(id)}
-                      >
-                        <HiTrash style={{ width: '100%', height: '100%' }} />
-                      </PetCardDelete>
+//               {/*//! Сюда добавить открытие модалки по клику, добавить животное */}
+//               <AddPetBtn>
+//                 Add pet
+//                 <AddPetBtnIcon />
+//               </AddPetBtn>
+//             </PetCardBlock>
 
-                      <PetCardWrapper>
-                        <PetCardTitle>
-                          Name:
-                          <PetCardDescript> Jack</PetCardDescript>
-                        </PetCardTitle>
+//             <PetScrollWrapper>
+//               {/*//! Список животных */}
+//               {/* {items.map(
+//                 item => {
+//                   return (
+//                     <PetCard>
+//                       <PetCardImg src="/public/cat.jpg" alt="You pet" />
 
-                        <PetCardTitle>
-                          Date of birth:
-                          <PetCardDescript> 22.04.2018</PetCardDescript>
-                        </PetCardTitle>
+//                       <PetCardDelete
+//                         type="button"
+//                         onClick={() => deletePetCard(id)}
+//                       >
+//                         <HiTrash style={{ width: '100%', height: '100%' }} />
+//                       </PetCardDelete>
 
-                        <PetCardTitle>
-                          Breed:
-                          <PetCardDescript> Persian cat</PetCardDescript>
-                        </PetCardTitle>
+//                       <PetCardWrapper>
+//                         <PetCardTitle>
+//                           Name:
+//                           <PetCardDescript> Jack</PetCardDescript>
+//                         </PetCardTitle>
 
-                        <PetCardTitle style={{ marginBottom: '0' }}>
-                          Comments:
-                          <PetCardDescript>
-                            Lorem ipsum dolor sit amet, consecteturLorem ipsum
-                            dolor sit amet, consectetur Lorem ipsum dolor sit
-                            amet, consectetur Lorem ipsum dolor sit amet,
-                            consecteturLorem ipsum dolor sit amet, consectetur
-                            Lorem ipsum dolor sit amet, consectetur
-                          </PetCardDescript>
-                        </PetCardTitle>
-                      </PetCardWrapper>
-                    </PetCard>
-                  );
-                }
-              )} */}
-            </PetScrollWrapper>
-          </PetBlockWrapper>
-        </UserBlock>
-      </UserContainer>
-    </UserBlock>
-  );
-};
+//                         <PetCardTitle>
+//                           Date of birth:
+//                           <PetCardDescript> 22.04.2018</PetCardDescript>
+//                         </PetCardTitle>
 
-export default UserPage;
+//                         <PetCardTitle>
+//                           Breed:
+//                           <PetCardDescript> Persian cat</PetCardDescript>
+//                         </PetCardTitle>
+
+//                         <PetCardTitle style={{ marginBottom: '0' }}>
+//                           Comments:
+//                           <PetCardDescript>
+//                             Lorem ipsum dolor sit amet, consecteturLorem ipsum
+//                             dolor sit amet, consectetur Lorem ipsum dolor sit
+//                             amet, consectetur Lorem ipsum dolor sit amet,
+//                             consecteturLorem ipsum dolor sit amet, consectetur
+//                             Lorem ipsum dolor sit amet, consectetur
+//                           </PetCardDescript>
+//                         </PetCardTitle>
+//                       </PetCardWrapper>
+//                     </PetCard>
+//                   );
+//                 }
+//               )} */}
+//             </PetScrollWrapper>
+//           </PetBlockWrapper>
+//         </UserBlock>
+//       </UserContainer>
+//     </UserBlock>
+//   );
+// };
+
+// export default UserPage;
