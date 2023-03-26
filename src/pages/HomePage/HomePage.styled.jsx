@@ -74,16 +74,16 @@ export const HomeSection = styled.section`
 `;
 
 export const Image = styled.img`
-  min-width: 320px;
+  max-width: 100%;
   height: calc(100vh - 250px);
   @media screen and (min-width: 768px) {
-    max-width: 645px;
+    max-width: 100%;
     height: calc(100vh - 440px);
     margin-left: 61px;
     margin-right: 62px;
   }
   @media screen and (min-width: 1280px) {
-    max-width: 590px;
+    max-width: 100%;
     height: calc(100vh - 200px);
   }
 `;
