@@ -2,7 +2,7 @@ import { ButtonBox, CantBtn, FierstStepDiv, Input } from './FirstStep.styled';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
 import dayjs from 'dayjs';
 import { Box } from '@mui/system';
-import { Button, FormLabel } from '@mui/material';
+import { Alert, Button, FormLabel } from '@mui/material';
 import { LabelFormic } from '../Modal/Modal.styled';
 
 const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
@@ -40,7 +40,11 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
       <>
         {errorMessages.length !== 0 &&
           errorMessages.map(message => {
-            return <p key={message}>{message}</p>;
+            return (
+              <Alert severity="error" autoHideDuration={2000}>
+                {message}
+              </Alert>
+            );;
           })}
       </>
       <Box sx={ButtonBox}>

@@ -33,7 +33,6 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
   const [errorMessages, setErrorsMessages] = useState([]);
   const [addNotice] = useAddNoticeMutation();
-  //   const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
 
   const onNextStepButtonClick = async ({ values, validateForm }) => {
     try {

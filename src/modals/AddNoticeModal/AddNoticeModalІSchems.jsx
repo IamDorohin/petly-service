@@ -42,7 +42,7 @@ const firstStepFieldsShape = {
 };
 
 const secondStepFieldsShape = {
-  sex: yup.string().oneOf(['male', 'female']).required('Required'),
+  sex: yup.string().oneOf(['male', 'female']).required('Sex is empty'),
   location: yup
     .string()
     .matches(regexAdress, 'Must be in format City, Region')
@@ -69,7 +69,7 @@ const secondStepFieldsShape = {
         value === null || (value && SUPPORTED_FORMATS.includes(value.type))
     )
     .nullable(),
-  comment: yup.string().min(8).max(120).required('Required'),
+  comment: yup.string().min(8).max(120).required('comment is empty'),
 };
 
 export const addNoticeFirstStepSchema = yup

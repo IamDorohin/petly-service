@@ -7,18 +7,19 @@ import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 
-export const NoticesCategoriesItem = ({ notice, onClick }) => {
-  const {
-    breed,
-    category,
-    title,
-    imgUrl,
-    location,
-    price,
-    owner,
-    // _id,
-    like,
-  } = notice;
+export const NoticesCategoriesItem = ({
+  notice,
+  onFavButtonClick,
+  setActiveNoticeId,
+  openNoticeDetailsModal,
+}) => {
+  const { breed, category, title, imgUrl, location, price, owner, _id, like } =
+    notice;
+
+  const onLearnMoreButtonClick = () => {
+    setActiveNoticeId(_id);
+    openNoticeDetailsModal();
+  };
 
   // const [deleteOwnNotice] = useDeleteNoticeMutation();
 
@@ -33,13 +34,13 @@ export const NoticesCategoriesItem = ({ notice, onClick }) => {
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
         {like ? (
-          <FavoriteIcon onClick={() => onClick(notice)} />
+          <FavoriteIcon onClick={() => onFavButtonClick(notice)} />
         ) : (
           <FavoriteTwoToneIcon
             className="forHoverBtn"
             fontSize="inherit"
             color="#000"
-            onClick={() => onClick(notice)}
+            onClick={() => onFavButtonClick(notice)}
           />
         )}
       </SC.NoticeLikeBtn>
@@ -63,7 +64,10 @@ export const NoticesCategoriesItem = ({ notice, onClick }) => {
             <SC.NoticeListItemDetails>{price}</SC.NoticeListItemDetails>
           </SC.NoticeListItem>
         </SC.NoticeList>
-        <SC.NoticeLearnMoreBtn className={owner}>
+        <SC.NoticeLearnMoreBtn
+          className={owner}
+          onClick={onLearnMoreButtonClick}
+        >
           Learn More
         </SC.NoticeLearnMoreBtn>
         {owner && (

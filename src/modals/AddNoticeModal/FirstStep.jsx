@@ -6,7 +6,7 @@ import {
   Input,
 } from '../AddPetModal/FirstStep.styled';
 
-import { Box, Button, FormLabel, Typography } from '@mui/material';
+import { Alert, Box, Button, FormLabel, Typography } from '@mui/material';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
 import dayjs from 'dayjs';
 import { LabelFormic } from '../Modal/Modal.styled';
@@ -106,7 +106,11 @@ const AddNoticeModalFirstStep = ({
       <>
         {errorMessages.length !== 0 &&
           errorMessages.map(message => {
-            return <p key={message}>{message}</p>;
+            return (
+              <Alert severity="error" autoHideDuration={2000}>
+                {message}
+              </Alert>
+            );
           })}
       </>
       {/* <NextBtn sx={FontButton} >

@@ -36,7 +36,7 @@ const secondStepFieldsShape = {
         value === null || (value && SUPPORTED_FORMATS.includes(value.type))
     )
     .nullable(),
-  comment: yup.string().min(8).max(120).required('Required'),
+  comment: yup.string().min(8).max(120).required('Comment is empty'),
 };
 
 export const addPetFirstStepSchema = yup.object().shape(firstStepFieldsShape);

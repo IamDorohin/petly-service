@@ -1,4 +1,4 @@
-import { Box, Button, FormLabel, Typography } from '@mui/material';
+import { Alert, Box, Button, FormLabel, Typography } from '@mui/material';
 import React from 'react';
 import {
   AddBtn,
@@ -46,7 +46,11 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
       <>
         {errorMessages.length !== 0 &&
           errorMessages.map(message => {
-            return <p key={message}>{message}</p>;
+            return (
+              <Alert severity="error" autoHideDuration={2000}>
+                {message}
+              </Alert>
+            );
           })}
       </>
       <Box sx={ButtonBox}>
