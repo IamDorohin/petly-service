@@ -1,10 +1,18 @@
-import { Card, Title, Text, Box, Date, ReadMoreLink, Line} from './NewsCard.styled'
+import {
+  Card,
+  Title,
+  Text,
+  Box,
+  Date,
+  ReadMoreLink,
+  Line,
+} from './NewsCard.styled';
 
 export default function NewsCard({ title, url, description, date }) {
-    let newDate = String(date).split('-').reverse().join('/');
-    if (newDate === 'null') {
-        newDate = '--/--/----'
-    }
+  let newDate = String(date).split('-').reverse().join('/');
+  if (newDate === 'null') {
+    newDate = '--/--/----';
+  }
 
     return <Card>
         <Line></Line>
@@ -15,4 +23,5 @@ export default function NewsCard({ title, url, description, date }) {
             <ReadMoreLink href={url} color="inherit" target="_blank" rel='noreferrer'>Read more</ReadMoreLink>
         </Box>
     </Card>
-};
+  );
+}

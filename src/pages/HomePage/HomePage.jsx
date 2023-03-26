@@ -1,4 +1,11 @@
-import { ImagesWrapper, Image, HomeWrapp, HomeTitle, HomeSection, MainContainer } from './HomePage.styled';
+import {
+  ImagesWrapper,
+  Image,
+  HomeWrapp,
+  HomeTitle,
+  HomeSection,
+  MainContainer,
+} from './HomePage.styled';
 
 import heroDogMob from '../../img/header-hero/hero-dog-mob.png';
 import heroDogTab from '../../img/header-hero/hero-dog-tab.png';
@@ -16,8 +23,7 @@ export default function HomePage() {
               src={heroDogDes}
               sizes="(min-width: 1280px) 590px, (min-width: 768px) 645px, 300px"
               alt="dog"
-            >
-            </Image>
+            ></Image>
           </ImagesWrapper>
         </HomeWrapp>
       </MainContainer>

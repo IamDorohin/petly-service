@@ -1,4 +1,9 @@
-import { StyledContainer, StyledButton, StyledIconContainer, StyledIcon } from './UserNav.styled';
+import {
+  StyledContainer,
+  StyledButton,
+  StyledIconContainer,
+  StyledIcon,
+} from './UserNav.styled';
 
 export default function UserNav({ onClick }) {
   return (
@@ -10,4 +15,4 @@ export default function UserNav({ onClick }) {
       </StyledButton>
     </StyledContainer>
   );
-};
+}

@@ -1,4 +1,4 @@
-import { styled } from '@mui/material/styles'
+import { styled } from '@mui/material/styles';
 import Link from '@mui/material/Link';
 
 export const Card = styled('li')(({ theme }) => ({
@@ -17,16 +17,15 @@ export const Card = styled('li')(({ theme }) => ({
     }
 }));
 
-
 export const Title = styled('h2')(({ theme }) => ({
-    margin: 0,
-    marginBottom: '16px',
-    fontFamily: theme.customFontFamily.primary,
-    fontWeight: theme.customFontWeight.bold,
-    fontSize: theme.customFontSizes[5],
-    lineHeight: theme.customLineHeight[9],
-    letterSpacing: theme.customLetterSpacing.s,
-    color: theme.customColors.primaryFont,
+  margin: 0,
+  marginBottom: '16px',
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.bold,
+  fontSize: theme.customFontSizes[5],
+  lineHeight: theme.customLineHeight[9],
+  letterSpacing: theme.customLetterSpacing.s,
+  color: theme.customColors.primaryFont,
 }));
 
 export const Text = styled('p')(({ theme }) => ({
@@ -58,36 +57,36 @@ export const Box = styled('div')(({ theme }) => ({
 }));
 
 export const Date = styled('p')(({ theme }) => ({
-    margin: 0,
-    fontFamily: theme.customFontFamily.primary,
-    fontWeight: theme.customFontWeight.normalS,
-    fontSize: theme.customFontSizes[2],
-    lineHeight: theme.customLineHeight[4],
-    color: theme.customColors.translucentBlack,
+  margin: 0,
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalS,
+  fontSize: theme.customFontSizes[2],
+  lineHeight: theme.customLineHeight[4],
+  color: theme.customColors.translucentBlack,
 }));
 
 export const ReadMoreLink = styled(Link)(({ theme }) => ({
-    margin: 0,
-    fontFamily: theme.customFontFamily.primary,
-    fontWeight: theme.customFontWeight.normalM,
-    fontSize: theme.customFontSizes[2],
-    lineHeight: theme.customLineHeight[4],
-    color: theme.customColors.accent,
+  margin: 0,
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalM,
+  fontSize: theme.customFontSizes[2],
+  lineHeight: theme.customLineHeight[4],
+  color: theme.customColors.accent,
 }));
 
 export const Line = styled('div')(({ theme }) => ({
-    marginBottom: '4px',
-    width: '70%',
-    height: '4px',
-    background: 'linear-gradient(90deg, #FF634E 0%, #FFDF48 105.44%)',
-    borderRadius: theme.customBorderRadius.primary,
-    
-    [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+  marginBottom: '4px',
+  width: '70%',
+  height: '4px',
+  background: 'linear-gradient(90deg, #FF634E 0%, #FFDF48 105.44%)',
+  borderRadius: theme.customBorderRadius.primary,
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '280px',
     height: '8px',
-    },
-    [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     width: '340px',
     height: '8px',
-    }
+  },
 }));
