@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import AddPetModalFirstStep from './FirstStep';
 import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
+import { FormControl } from '@mui/material';
 
 const initialValues = {
   namePet: '',

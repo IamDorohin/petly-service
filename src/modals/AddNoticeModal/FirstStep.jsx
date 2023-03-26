@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import {
+    BoxBtnGroup,
+  BtnGroupFierst,
+  ButtonBox,
   CantBtn,
   CssTDatePicker,
-  FontButton,
   Input,
   NextBtn,
 } from '../AddPetModal/FirstStep.styled';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Box, Button, ButtonGroup, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, FormLabel, Typography } from '@mui/material';
 import { NOTICE_TYPES } from './AddNoticeModal';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
 import dayjs from 'dayjs';
+import { LabelFormic } from '../Modal/Modal.styled';
+import { FontButton } from '../AddPetModal/SecondStep.styled';
 
 const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
   return (
@@ -21,59 +25,35 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
         Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
         consectetur
       </Typography>
-      {/* <CantBtn
-        sx={{ FontButton, '& > *': {
-            m: 1,
-          }, }}
-        onClick={onClose}
-        variant="contained"
-      >
-        lost/found
-      </CantBtn>
-      <CantBtn sx={FontButton} onClick={onClose} variant="contained">
-        in good hands
-      </CantBtn>
-      <CantBtn sx={FontButton} onClick={onClose} variant="contained">
-        sell
-      </CantBtn> */}
-      <Box
-        sx={{
-          //   display: 'flex',
-          //   flexDirection: 'column',
-          //   alignItems: 'center',
-          '& > *': {
-            m: 1,
-          },
-        }}
-      >
-        <ButtonGroup size="large" aria-label="large button group">
-          <Button
-            sx={{ width: 155 }}
+      <Box>
+        <Box sx={BoxBtnGroup}>
+          <BtnGroupFierst
+            sx={{ width: '50' }}
             onClick={() =>
               formik.setFieldValue('noticeType', NOTICE_TYPES.LOST_FOUND)
             }
           >
             Lost/found
-          </Button>
-          <Button
-            sx={{ width: 155 }}
+          </BtnGroupFierst>
+          <BtnGroupFierst
+            sx={{ width: '65%' }}
             onClick={() =>
               formik.setFieldValue('noticeType', NOTICE_TYPES.GOOD_HANDS)
             }
           >
             Hands
-          </Button>
-          <Button
-            sx={{ width: 155 }}
+          </BtnGroupFierst>
+          <BtnGroupFierst
+            // sx={{ width: '30%' }}
             onClick={() =>
               formik.setFieldValue('noticeType', NOTICE_TYPES.SELL)
             }
           >
             Sell
-          </Button>
-        </ButtonGroup>
+          </BtnGroupFierst>
+        </Box>
       </Box>
-      <label>
+      <FormLabel sx={LabelFormic}>
         Tittle of ad
         <Input
           value={formik.values.noticeTitle}
@@ -82,8 +62,8 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
           name="noticeTitle"
           placeholder="Type name pet"
         />
-      </label>
-      <label>
+      </FormLabel>
+      <FormLabel sx={LabelFormic}>
         Name pet
         <Input
           value={formik.values.namePet}
@@ -92,7 +72,7 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
           name="namePet"
           placeholder="Type name pet"
         />
-      </label>
+      </FormLabel>
       <CalendarDatePicker
         label="Date of birth"
         value={formik.values.dateOfBirth}
@@ -100,7 +80,7 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
           formik.setFieldValue('dateOfBirth', dayjs(value.$d), false);
         }}
       />
-      <label>
+      <FormLabel sx={LabelFormic}>
         Breed
         <Input
           value={formik.values.breed}
@@ -109,16 +89,18 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
           name="breed"
           placeholder="Type breed"
         />
-      </label>
+      </FormLabel>
       {/* <NextBtn sx={FontButton} >
               Next
             </NextBtn> */}
-      <NextBtn sx={FontButton} onClick={onSubmit}>
-        Next
-      </NextBtn>
-      <CantBtn sx={FontButton} onClick={onClose} variant="contained">
-        Cancel
-      </CantBtn>
+      <Box sx={ButtonBox}>
+        <Button sx={CantBtn} onClick={onClose} variant="contained">
+          Cancel
+        </Button>
+        <Button sx={CantBtn} onClick={onSubmit}>
+          Next
+        </Button>
+      </Box>
     </div>
   );
 };

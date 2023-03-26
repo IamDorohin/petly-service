@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from '@mui/material';
+import { Button, FormControl, IconButton, Typography } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import { Field, Form, Label } from 'formik';
 import styled from 'styled-components';
@@ -16,25 +16,25 @@ export const modalBox = theme => ({
   borderRadius: '20px',
   boxShadow: '7px 4px 14px rgba(0, 0, 0, 0.11)',
   p: 4,
-  [theme.breakpoints.down('mobileResponsive')]: {
+  [theme.breakpoints.up('mobileResponsive')]: {
     blockSize: 'auto',
-    width: '280px',
+    // width: '280px',
     minHeight: '530px',
-    padding: '40px 20px 28px 20px',
+    padding: '40px 20px 40px 20px',
     // backgroundColor: 'red',
     //   height: '100%',
   },
-  [theme.breakpoints.up('mobileAdaptive')]: {
-    blockSize: 'auto',
-    width: '280px',
-    minHeight: '530px',
-    padding: '40px 20px 28px 20px',
-  },
+  //   [theme.breakpoints.up('mobileAdaptive')]: {
+  //     // blockSize: 'auto',
+  //     width: '280px',
+  //     minHeight: '530px',
+  //     padding: '40px 20px 28px 20px',
+  //   },
   [theme.breakpoints.up('tablet')]: {
-    height: 'auto',
     width: '608px',
     minHeight: '570px',
-    // backgroundColor: 'yellow',
+    height: 'auto',
+    // bgcolor: 'yellow',
     padding: '40px 80px 40px 80px',
   },
   [theme.breakpoints.up('desktop')]: {
@@ -42,31 +42,71 @@ export const modalBox = theme => ({
   },
 });
 
-export const Input = styled.input`
-&& {display:inline-block
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  min-height: 40px;
-  left: 20px;
-  top: 136px;
-  background: #fdf7f2;
-  border: 1px solid rgba(245, 146, 86, 0.5);
-  border-radius: 40px;
-  margin-bottom: 16px;
-  margin-top: 8px;
-  padding: 11px 20px 12px 14px;
-  margin-left: 0;
-  :focus {
-    border: 2px solid #f59256;
-    outline: none;
-  }}
-`;
-export const LabelFormic = styled.label`
-  && {
-    margin-bottom: 8px;
-  }
-`;
+// export const Input = styled.input`
+// && {display:inline-block
+//   box-sizing: border-box;
+//   width: 100%;
+//   height: auto;
+//   min-height: 40px;
+//   left: 20px;
+//   top: 136px;
+//   background: #fdf7f2;
+//   border: 1px solid rgba(245, 146, 86, 0.5);
+//   border-radius: 40px;
+//   margin-bottom: 16px;
+//   margin-top: 8px;
+//   padding: 11px 20px 12px 14px;
+//   margin-left: 0;
+//   :focus {
+//     border: 2px solid #f59256;
+//     outline: none;
+//   }}
+//    :hover {
+//     border: 2px solid red;
+//     outline: none;
+//   }}
+// `;
+// export const LabelFormic = styled.label`
+//   && {
+//     font-family: 'Manrope';
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 18px;
+//     line-height: 26px;
+//   }
+// `;
+export const LabelFormic = theme => ({
+  display: 'block',
+  width: '100%',
+  fontFamily: 'Manrope',
+  height: '100%',
+  fontStyle: 'normal',
+  fontWeight: '500',
+  fontSize: '18px',
+  lineHeight: '26px',
+  color: 'black',
+  mt: '8px',
+  [theme.breakpoints.up('tablet')]: {
+    fontSize: '24px',
+    mb: '20px',
+  },
+});
+export const LabelFormicAddComment = theme => ({
+  display: 'block',
+  width: '100%',
+  fontFamily: 'Manrope',
+  height: '100%',
+  fontStyle: 'normal',
+  fontWeight: '500',
+  fontSize: '18px',
+  lineHeight: '26px',
+  color: 'black',
+  mt: '8px',
+  [theme.breakpoints.up('tablet')]: {
+    fontSize: '24px',
+    // mb: '20px',
+  },
+});
 
 // export const Inputt = styled(DatePicker)`
 //   box-sizing: border-box;
@@ -106,15 +146,11 @@ export const LabelFormic = styled.label`
 //   border: 0;
 // `;
 
-export const Forma = styled(Form)`
-  && {
-    // position: relative;
-    // height: 530px
-    :last-child {
-      margin-bottom: 56px;
-    }
-  }
-`;
+// export const Forma = styled(FormControl)`
+//   && {
+//       margin-top: 20px;
+//   }
+// `;
 // export const NextBtn = styled(Button)`
 // && { width: 100%;
 //   border: 2px solid #f59256;
@@ -130,22 +166,22 @@ export const Forma = styled(Form)`
 //   }}
 // `;
 
-export const CantBtn = styled(Button)`
-  && {
-    width: 100%;
-    color: #111111;
-    border: 2px solid #f59256;
-    border-radius: 40px;
-    background: #ffffff;
-    //   margin-top: 92px;
-    box-shadow: none;
-    :active,
-    :hover {
-      background: #f59256;
-      color: #ffffff;
-    }
-  }
-`;
+// export const CantBtn = styled(Button)`
+//   && {
+//     width: 100%;
+//     color: #111111;
+//     border: 2px solid #f59256;
+//     border-radius: 40px;
+//     background: #ffffff;
+//     //   margin-top: 92px;
+//     box-shadow: none;
+//     :active,
+//     :hover {
+//       background: #f59256;
+//       color: #ffffff;
+//     }
+//   }
+// `;
 
 // export const modalBox = styled.div`
 //   display: flex;
@@ -153,45 +189,73 @@ export const CantBtn = styled(Button)`
 //   flex-wrap: nowrap;
 //   flex-direction: column;
 // `;
-
-export const Title = styled.h2`
-&&{//   width: 88px;
-//   height: 33px;
-font-weight: 500;
-  display: flex;
-justify-content: center;
-}}
+export const ButtonI = styled(IconButton)`
+  && {
+    color: black;
+    background: #fdf7f2;
+    backdropfilter: blur(2px);
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    :active,
+    :hover {
+      background: #f59256;
+      bordercolor: #0062cc;
+          boxShadow: 'none
+    }
+  }
 `;
-export const BoxDataPicker = theme => ({
-  display: 'flex',
-  alignItems: 'center',
-  border: '1px solid',
-  background: theme.customColors.appBackground,
-  borderColor: '#ffcfb1',
-  alignSelf: 'center',
-  width: '100%',
-  //   minWidth: '240px',
-  height: '40px',
-  position: 'fixed',
-  accentColor: '#3CBC81',
 
-  borderRadius: theme.customBorderRadius.secondary,
-  '&:hover': {
-    borderColor: theme.customColors.accent,
+export const Title = theme => ({
+  width: '100%',
+  fontFamily: 'Manrope',
+  fontStyle: 'normal',
+  fontWeight: '500',
+  fontSize: '24px',
+  lineHeight: '33px',
+  color: '#111111',
+  textAlign: 'center',
+  mb: '20px',
+  [theme.breakpoints.up('tablet')]: {
+    fontSize: '36px',
+    lineHeight: '49px',
+    height: '52px',
+    // mb: '40px',
   },
 });
 
-export const FontButton = theme => ({
-  fontFamily: theme.customFontFamily.primary,
-  fontStyle: 'normal',
-  fontWeight: theme.customFontWeight.normalM,
-  fontSize: '16px',
-  textTransform: 'none',
-  color: theme.customColors.primaryFont,
-  textAlign: 'center',
-  //   letterSpacing: '-0.01em',
-  //   lineHeight: theme.customLineHeight(22px),
-});
+// export const BoxDataPicker = theme => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   border: '1px solid',
+//   background: theme.customColors.appBackground,
+//   borderColor: '#ffcfb1',
+//   alignSelf: 'center',
+//   width: '100%',
+//   //   minWidth: '240px',
+//   height: '40px',
+//   position: 'fixed',
+//   accentColor: '#3CBC81',
+
+//   borderRadius: theme.customBorderRadius.secondary,
+//   '&:hover': {
+//     borderColor: theme.customColors.accent,
+//   },
+// });
+
+// export const FontButton = theme => ({
+//   fontFamily: theme.customFontFamily.primary,
+//   fontStyle: 'normal',
+//   fontWeight: theme.customFontWeight.normalM,
+//   fontSize: '16px',
+//   textTransform: 'none',
+//   color: theme.customColors.primaryFont,
+//   textAlign: 'center',
+//   letterSpacing: '-0.01em',
+//   lineHeight: theme.customLineHeight(22px),
+// });
 // export const Div = styled('div')(({ theme }) => ({
 //   fontFamily: theme.customFontFamily.primary,
 //   fontStyle: 'normal',
@@ -222,23 +286,23 @@ export const FontButton = theme => ({
 //   color: theme.customColors.primaryFont,
 // });
 //  console.log(theme);
-export const DataPickerr = theme => ({
-  display: 'flex',
-  alignItems: 'center',
-  border: '1px solid',
-  background: theme.customColors.appBackground,
-  borderColor: '#ffcfb1',
-  alignSelf: 'center',
-  width: '100%',
-  height: '40px',
-  position: 'fixed',
-  accentColor: '#3CBC81',
+// export const DataPickerr = theme => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   border: '1px solid',
+//   background: theme.customColors.appBackground,
+//   borderColor: '#ffcfb1',
+//   alignSelf: 'center',
+//   width: '100%',
+//   height: '40px',
+//   position: 'fixed',
+//   accentColor: '#3CBC81',
 
-  borderRadius: theme.customBorderRadius.secondary,
-  '&:hover': {
-    borderColor: theme.customColors.accent,
-  },
-});
+//   borderRadius: theme.customBorderRadius.secondary,
+//   '&:hover': {
+//     borderColor: theme.customColors.accent,
+//   },
+// });
 // export const CssTDatePicker = styled(DatePicker)({
 //   background: '#fdf7f2',
 //   border: '1px solid rgba(245, 146, 86, 0.5)',
@@ -332,24 +396,6 @@ export const DataPickerr = theme => ({
 //     borderColor: 'blue',
 //   },
 // },
-export const ButtonI = styled(IconButton)`
-  && {
-    color: black;
-    background: #fdf7f2;
-    backdropfilter: blur(2px);
-    width: 44px;
-    height: 44px;
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    :active,
-    :hover {
-      background: #f59256;
-      bordercolor: #0062cc;
-          boxShadow: 'none
-    }
-  }
-`;
 
 // export const IconButton = theme => ({
 //   color: 'black',

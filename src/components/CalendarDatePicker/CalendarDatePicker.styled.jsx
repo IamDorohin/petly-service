@@ -5,7 +5,6 @@ export const DatePicker = styled(MobileDatePicker)({
   background: '#fdf7f2',
   borderRadius: '20px',
   width: '100%',
-  height: '40px',
   '& .MuiOutlinedInput-root': {
     fontFamily: 'Manrope',
     fontStyle: 'normal',
@@ -15,7 +14,7 @@ export const DatePicker = styled(MobileDatePicker)({
     color: 'rgba(17, 17, 17, 0.6)',
     width: '100%',
     height: '40px',
-    borderRadius: '20px',
+    borderRadius: '40px',
     padding: '0px',
     '& fieldset': {
       border: ' 1px solid rgba(245, 146, 86, 0.5)',
@@ -30,6 +29,18 @@ export const DatePicker = styled(MobileDatePicker)({
     },
     '&.Mui-focused fieldset': {
       border: ' 1px solid rgb(245, 146, 86)',
+    },
+  },
+});
+
+export const DatePickerInput = theme => ({
+  mt: '8px',
+  [theme.breakpoints.up('tablet')]: {
+    mt: '12px',
+    '& .MuiOutlinedInput-root': {
+      height: '48px',
+      borderRadius: '40px',
+      padding: '0px',
     },
   },
 });

@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DatePicker } from './CalendarDatePicker.styled';
+import { DatePicker, DatePickerInput } from './CalendarDatePicker.styled';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import 'dayjs/locale/uk';
+import { LabelFormic } from '../../modals/Modal/Modal.styled';
+import { FormLabel } from '@mui/material';
 
 const CalendarDatePicker = ({ onChange, label, value }) => {
   return (
-    <label>
+    <FormLabel sx={LabelFormic}>
       {label}
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="uk">
-        <DemoItem>
+        <DemoItem sx={{mb:'8px'}}>
           <DatePicker
-            sx={{ marginTop: '8px', marginBottom: '16px' }}
+            sx={DatePickerInput}
             id="dateOfBirth"
             type="dateOfBirth"
             onChange={onChange}
@@ -22,7 +24,7 @@ const CalendarDatePicker = ({ onChange, label, value }) => {
           />
         </DemoItem>
       </LocalizationProvider>
-    </label>
+    </FormLabel>
   );
 };
 

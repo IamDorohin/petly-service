@@ -1,18 +1,21 @@
-import { Typography } from '@mui/material';
+import { Box, Button, FormLabel, Typography } from '@mui/material';
 import React from 'react';
-import { AddBtn, CssTextField, FontButton } from './SecondStep.styled';
+import {
+  AddBtn,
+  AddBtnTheme,
+  CssTextField,
+  CssTextFieldTheme,
+  FontButton,
+} from './SecondStep.styled';
 import { ReactComponent as Vector } from './icon/Vector.svg';
-import { CantBtn, FormBox, NextBtn } from './FirstStep.styled';
+import { ButtonBox, CantBtn, FormBox, FormBoxTheme, NextBtn } from './FirstStep.styled';
+import { LabelFormic, LabelFormicAddComment } from '../Modal/Modal.styled';
 
 const AddPetModalSecondStep = ({ formik, onBack }) => {
   return (
-    <FormBox >
+    <FormBox sx={FormBoxTheme}>
       <Typography sx={FontButton}>Add photo and some comments</Typography>
-      <AddBtn
-        sx={{ width: '208px', height: '208px' }}
-        variant="contained"
-        component="label"
-      >
+      <AddBtn sx={AddBtnTheme} variant="contained" component="label">
         <Vector />
         <input
           hidden
@@ -25,22 +28,27 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           }}
         />
       </AddBtn>
-      <CssTextField
-        sx={{ width: '100%', height: '100%', minHeight: '100px' }}
-        id="outlined-multiline-flexible"
-        label="Type comments"
-        name="comment"
-        multiline
-        maxRows={4}
-        value={formik.values.comment}
-        onChange={formik.handleChange}
-      />
-      <NextBtn sx={FontButton} onClick={onBack}>
-        Back
-      </NextBtn>
-      <CantBtn sx={FontButton} type="submit">
-        Done
-      </CantBtn>
+      <FormLabel sx={LabelFormicAddComment}>
+        Comments
+        <CssTextField
+          sx={CssTextFieldTheme}
+          id="outlined-multiline-flexible"
+          label="Type comments"
+          name="comment"
+          multiline
+          maxRows={4}
+          value={formik.values.comment}
+          onChange={formik.handleChange}
+        />
+      </FormLabel>
+      <Box sx={ButtonBox}>
+        <Button sx={CantBtn} onClick={onBack}>
+          Back
+        </Button>
+        <Button sx={CantBtn} type="submit">
+          Done
+        </Button>
+      </Box>
     </FormBox>
   );
 };

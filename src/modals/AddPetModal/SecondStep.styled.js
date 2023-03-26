@@ -12,6 +12,13 @@ export const FontButton = theme => ({
   textTransform: 'none',
   color: theme.customColors.primaryFont,
   textAlign: 'center',
+  width: '100%',
+  lineHeight: '22px',
+  letterSpacing: '-0.01em',
+  [theme.breakpoints.up('tablet')]: {
+    fontSize: '20px',
+    lineHeight: '27px',
+  },
 });
 
 export const AddBtn = styled(Button)`
@@ -20,9 +27,9 @@ export const AddBtn = styled(Button)`
     // justify-content: center;
     color: #111111;
     box-shadow: none;
-    border-radius: 20px;
+
     background: #fdf7f2;
-    margin-bottom: 20px;
+
     margin-top: 20px;
     //   margin-right: 0;
     //   margin-left: 0;
@@ -37,11 +44,44 @@ export const AddBtn = styled(Button)`
     }
   }
 `;
+export const AddBtnTheme = theme => ({
+  borderRadius: '20px',
+  width: '208px',
+  height: '208px',
+  mb: '20px',
+  '&.Mui-active ': {
+    borderColor: '#F59256',
+    minHeight: '112px',
+  },
+  [theme.breakpoints.up('tablet')]: {
+    width: '182px',
+    height: '182px',
+    borderRadius: '40px',
+    mb: '40px',
+  },
+});
+export const AddBtnThemeNotice = theme => ({
+  borderRadius: '20px',
+  width: '116px',
+  height: '116px',
+  mb: '20px',
+  '&.Mui-active ': {
+    borderColor: '#F59256',
+    minHeight: '112px',
+  },
+  [theme.breakpoints.up('tablet')]: {
+    width: '140px',
+    height: '140px',
+       mb: '40px',
+  },
+});
 
 export const AddIcone = styled(AddIcon)`
-&&{  width: 48px;
-  height: 48px;
-  color: rgba(17, 17, 17, 0.6);}
+  && {
+    width: 48px;
+    height: 48px;
+    color: rgba(17, 17, 17, 0.6);
+  }
 `;
 export const ModalBox = styled.div`
   && {
@@ -82,29 +122,45 @@ export const ModalBox = styled.div`
 // });
 
 export const CssTextField = styled(TextField)({
-  //   width: '100%',
-  //   height: '100%',
-  //   minHeight: '100px',
+  marginTop: '36px',
   border: '1px solid rgba(245, 146, 86, 0.5)',
   borderRadius: '20px',
   background: '#fdf7f2',
-  marginBottom: '16px',
+  minHeight:'40px',
   padding: '15px',
   '& label.Mui-focused': {
     color: '#F59256',
   },
   '& .MuiInput-underline:after': {
-    borderBottomColor: '#fdf7f2',
+    borderBottomColor: '#F59256',
+  },
+  '& .MuiTextField': {
+    marginTop: '8px',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
+      minHeight: '112px',
       borderColor: '#fdf7f2',
+      borderRadius: '20px',
     },
     '&:hover fieldset': {
-      borderColor: '#fdf7f2',
+      borderColor: 'red',
     },
     '&.Mui-focused fieldset': {
-      borderColor: '#fdf7f2',
+      borderColor: '#F59256',
+      minHeight: '112px',
     },
   },
 });
+export const CssTextFieldTheme = theme => ({
+  width: '100%',
+  height: '100%',
+  minHeight: '100px',
+  mt: '8px',
+  [theme.breakpoints.up('tablet')]: {
+    minHeight: '107px',
+    mt: '12px',
+  },
+});
+
+// 

@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { ReactComponent as Male } from './img/VectorSexM.svg';
 import { ReactComponent as Female } from './img/Female.svg';
+import { LabelFormic } from '../Modal/Modal.styled';
 // import { BpIcon } from './Modal.styled';
 
 const BpIcon = styled('span')(({ theme }) => ({
@@ -73,15 +74,8 @@ export default function SexRadios({ formik }) {
         },
       }}
     >
-      <FormLabel
-        sx={{
-          'label:focused': {
-            backgroundColor: 'red',
-          },
-        }}
-        id="demo-customized-radios"
-      >
-        The sex
+      <FormLabel sx={LabelFormic} id="demo-customized-radios">
+        The sex:
       </FormLabel>
       <RadioGroup
         sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'unset' }}
