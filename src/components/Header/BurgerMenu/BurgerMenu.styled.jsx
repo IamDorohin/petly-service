@@ -20,9 +20,20 @@ export const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 46px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
   @media (min-width: 768px) {
+    width: 768px;
+    padding-top: 8px;
+    padding-left: 32px;
+    padding-right: 32px;
     margin-bottom: 88px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
