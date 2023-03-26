@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Button } from '@mui/material';
 import AddPetModal from '../modals/AddPetModal/AddPetModal';
-import AddNoticeModal from 'modals/AddNoticeModal/AddNoticeModal';
+import AddNoticeModal from 'modals/NoticeDetailsModal/NoticeDetailsModal';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));

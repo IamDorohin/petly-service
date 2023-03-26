@@ -7,13 +7,18 @@ import {
 } from '../AddPetModal/FirstStep.styled';
 
 import { Box, Button, FormLabel, Typography } from '@mui/material';
-import { NOTICE_TYPES } from './AddNoticeModal';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
 import dayjs from 'dayjs';
 import { LabelFormic } from '../Modal/Modal.styled';
 import { FontButton } from '../AddPetModal/SecondStep.styled';
+import { NOTICE_TYPES } from './AddNoticeModalІSchems';
 
-const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
+const AddNoticeModalFirstStep = ({
+  formik,
+  onSubmit,
+  onClose,
+  errorsMessages,
+}) => {
   return (
     <div>
       <Typography sx={FontButton}>
@@ -24,6 +29,11 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
         <Box sx={BoxBtnGroup}>
           <BtnGroupFierst
             sx={{ width: '50' }}
+            className={
+              formik.values.noticeType === NOTICE_TYPES.LOST_FOUND
+                ? 'active'
+                : null
+            }
             onClick={() =>
               formik.setFieldValue('noticeType', NOTICE_TYPES.LOST_FOUND)
             }
@@ -31,6 +41,11 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
             Lost/found
           </BtnGroupFierst>
           <BtnGroupFierst
+            className={
+              formik.values.noticeType === NOTICE_TYPES.GOOD_HANDS
+                ? 'active'
+                : null
+            }
             sx={{ width: '65%' }}
             onClick={() =>
               formik.setFieldValue('noticeType', NOTICE_TYPES.GOOD_HANDS)
@@ -40,6 +55,9 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
           </BtnGroupFierst>
           <BtnGroupFierst
             // sx={{ width: '30%' }}
+            className={
+              formik.values.noticeType === NOTICE_TYPES.SELL ? 'active' : null
+            }
             onClick={() =>
               formik.setFieldValue('noticeType', NOTICE_TYPES.SELL)
             }
@@ -85,6 +103,10 @@ const AddNoticeModalFirstStep = ({ formik, onSubmit, onClose }) => {
           placeholder="Type breed"
         />
       </FormLabel>
+      {errorsMessages.length !== 0 &&
+        errorsMessages.map(message => {
+          return <p key={message}>{message}</p>;
+        })}
       {/* <NextBtn sx={FontButton} >
               Next
             </NextBtn> */}
