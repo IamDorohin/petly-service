@@ -6,6 +6,7 @@ import { HiTrash } from 'react-icons/hi';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
+import pets from '../../../img/pets.jpg'
 
 export const NoticesCategoriesItem = ({ notice, onClick }) => {
   const {
@@ -19,6 +20,7 @@ export const NoticesCategoriesItem = ({ notice, onClick }) => {
     // _id,
     like,
   } = notice;
+  console.log(imgUrl);
 
   // const [deleteOwnNotice] = useDeleteNoticeMutation();
 
@@ -29,7 +31,8 @@ export const NoticesCategoriesItem = ({ notice, onClick }) => {
 
   return (
     <SC.NoticeItem>
-      <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+      {imgUrl && <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />}
+      {!imgUrl && <SC.NoticeImage src={pets} alt="фото домашнього улюбленця" />}
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
         {like ? (
