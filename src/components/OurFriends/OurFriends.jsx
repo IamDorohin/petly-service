@@ -50,7 +50,7 @@ const Friend = ({ friend }) => {
                 )
               ) : (
                 <TextLink href={addressUrl} target="_blank" rel="noreferrer">
-                  {address.slice(0, 20) + '...'}
+                  {address.slice(0, 25) + '...'}
                 </TextLink>
               )}
             </P>
