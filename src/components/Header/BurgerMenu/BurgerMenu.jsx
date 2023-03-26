@@ -6,11 +6,11 @@ import {
   StyledUserMenu,
   StyledContainerUserMenu,
 } from './BurgerMenu.styled';
-import {Logo} from '../Logo/Logo';
-import {Nav} from '../Nav/Nav';
-import {AuthNav} from '../AuthNav/AuthNav';
+import { Logo } from '../Logo/Logo';
+import { Nav } from '../Nav/Nav';
+import { AuthNav } from '../AuthNav/AuthNav';
 // import {UserNav} from '../UserNav/UserNav';
-import {CloseBurgerMenuBtn} from '../CloseBurgerMenuBtn/CloseBurgerMenuBtn';
+import { CloseBurgerMenuBtn } from '../CloseBurgerMenuBtn/CloseBurgerMenuBtn';
 
 export const BurgerMenu = ({ onClick }) => {
   const isTablet = useMediaQuery({ minWidth: 768 });
