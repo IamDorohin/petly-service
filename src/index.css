@@ -1,4 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
+@import 'aos/dist/aos.css';
+body[data-aos-duration='3500'] [data-aos],
+[data-aos][data-aos][data-aos-duration='3500'] {
+  transition-duration: 3500ms;
+}
 
 html {
   box-sizing: border-box;
@@ -24,4 +29,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-

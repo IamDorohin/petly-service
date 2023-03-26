@@ -325,42 +325,7 @@ export const StyledModal = styled('div')`
 
 
 
-// export const Text = styled('p')(({ theme }) => ({
-//     margin: 0,
-//     marginBottom: '20px',
-//     fontFamily: theme.customFontFamily.primary,
-//     fontWeight: theme.customFontWeight.normalS,
-//     fontSize: theme.customFontSizes[2],
-//     lineHeight: theme.customLineHeight[4],
-//     color: theme.customColors.primaryFont,
 
-//     [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-//     marginBottom: 0,
-//     },
-
-// }));
-
-// export const Box = styled('div')(({ theme }) => ({
-//     width: '100%',
-//     display: 'flex',
-//     justifyContent: 'space-between',
-    
-//     [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-//     position: 'absolute',
-//     bottom: 0,
-//     left: 0,
-//     },
-    
-// }));
-
-// export const Date = styled('p')(({ theme }) => ({
-//     margin: 0,
-//     fontFamily: theme.customFontFamily.primary,
-//     fontWeight: theme.customFontWeight.normalS,
-//     fontSize: theme.customFontSizes[2],
-//     lineHeight: theme.customLineHeight[4],
-//     color: theme.customColors.translucentBlack,
-// }));
 
 
 
