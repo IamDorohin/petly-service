@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 // import { Form } from 'formik';
 import CircularProgress from '@mui/material/CircularProgress';
-import { InputLabel } from '@mui/material';
+import { InputLabel, OutlinedInput } from '@mui/material';
 // import Button from "@mui/material/Button";
 
 export const LoginSection = styled(Paper)(({ theme }) => ({
@@ -101,6 +101,34 @@ export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
 
 export const LoginInput = styled(TextField)(({ theme }) => ({
   borderColor: theme.customBorders.accent,
+  variant: 'h5',
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalS,
+  fontSize: theme.customFontSizes[1],
+  lineHeight: theme.customLineHeight[3],
+  letterSpacing: theme.customLetterSpacing.m,
+  color: theme.customColors.appBackground,
+  borderColor: theme.customBorders.accent,
+
+  '& fieldset': {
+    borderRadius: '40px',
+  },
+
+  '&:hover': {
+    color: theme.customColors.loginLink,
+  },
+}));
+
+export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
+  borderColor: theme.customBorders.accent,
+  variant: 'h5',
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalS,
+  fontSize: theme.customFontSizes[1],
+  lineHeight: theme.customLineHeight[3],
+  letterSpacing: theme.customLetterSpacing.m,
+  color: theme.customColors.appBackground,
+  borderColor: theme.customBorders.accent,
 
   '& fieldset': {
     borderRadius: '40px',
@@ -125,8 +153,9 @@ export const Button = styled('button')(({ theme }) => ({
   paddingRight: '112.5px',
   paddingLeft: '20px',
   paddingRight: '20px',
+  border: '0',
   borderRadius: theme.customBorderRadius.primary,
-  borderColor: theme.customBorders.secondaryButtons,
+  // borderColor: theme.customBorders.secondaryButtons,
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[4],

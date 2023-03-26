@@ -5,19 +5,27 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useFormik, ErrorMessage } from 'formik';
 
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import authSelectors from 'redux/login-page/auth/auth-selectors';
 import { logIn } from '../../redux/login-page/auth/auth-operations';
 
 import { loginYupSchema } from '../../schemas/validationSchema';
-import { ErrorText } from '../../components/ErrorMessage/ErrorMessage.styled';
+// import { ErrorText } from '../../components/ErrorMessage/ErrorMessage.styled';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
 
 import {
   LoginSection,
   LoginContainer,
   LoginForm,
-  // LoginLabel,
-  LoginLabelName,
   LoginInput,
+  PasswordInput,
   TitleH1,
   TitleH5,
   Button,
@@ -30,9 +38,8 @@ const LoginPage = () => {
   const isRefreshing = useSelector(authSelectors.getIsRefreshing);
 
   const [showPassword, setShowPassword] = useState(false);
-  const handleShowPasswordClick = () => {
-    setShowPassword(prevState => !prevState);
-  };
+
+  const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const formik = useFormik({
     initialValues: {
@@ -40,41 +47,26 @@ const LoginPage = () => {
       password: '',
     },
 
-    FormError: ({ name }) => {
-      return (
-        <ErrorMessage
-          name={name}
-          render={message => <ErrorText>{message}</ErrorText>}
-        />
-      );
-    },
+    //  FormError: ({ name }) => {
+    //     return (
+    //       <ErrorMessage
+    //         name={name}
+    //         render={message => <ErrorText>{message}</ErrorText>}
+    //       />
+    //     );
+    //   },
 
     validationSchema: loginYupSchema,
     onSubmit: ({ email, password }) => {
-      const authData = { email: email, password: password };
+      const authData = { email, password };
       const data = dispatch(logIn(authData));
       if (data.type === 'auth/login/fulfilled') {
-        // resetForm();
-      }
-
-      if (!data.payload) {
-        // errorMUI('Please try again later');
+        formik.resetForm();
       }
     },
   });
 
-  const handleSubmit = ({ email, password }, { resetForm }) => {
-    const authData = { email: email, password: password };
-    const data = dispatch(logIn(authData));
-    if (data.type === 'auth/login/fulfilled') {
-      // resetForm();
-    }
-
-    if (!data.payload) {
-      // errorMUI('Please try again later');
-    }
-    data.error.message && data.error && ErrorText(data.payload.message);
-  };
+  // console.log(formik);
 
   return (
     <LoginSection>
@@ -82,37 +74,47 @@ const LoginPage = () => {
         <TitleH1>Login</TitleH1>
 
         <LoginForm onSubmit={formik.handleSubmit}>
-          {/* <LoginLabel htmlFor="email"> */}
-          <LoginLabelName shrink htmlFor="email">
-            Email
-          </LoginLabelName>
-
           <LoginInput
             fullWidth
+            label="Email"
             type="email"
             name="email"
             id="email"
-            placeholder="Email"
             value={formik.values.email}
             onChange={formik.handleChange}
+            error={Boolean(formik.errors.email)}
+            helperText={formik.errors.email}
           />
           {/* <const FormError name="email"/> */}
-          {/* </LoginLabel> */}
+          <FormControl variant="outlined">
+            <InputLabel htmlFor="password">Password</InputLabel>
+            <PasswordInput
+              label="Password"
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              id="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={Boolean(formik.errors.password)}
+              // helperText={formik.touched.password && formik.errors.password}
 
-          {/* <LoginLabel htmlFor="password"> */}
-          <LoginLabelName shrink htmlFor="password">
-            Password
-          </LoginLabelName>
-          <LoginInput
-            type="password"
-            name="password"
-            id="lg-password"
-            placeholder="Password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            // show={showPassword}
-            // handleClick={handleShowPasswordClick}
-          />
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+
+              // show={showPassword}
+              // handleClick={handleShowPasswordClick}
+            />
+            <FormHelperText>{formik.errors.password}</FormHelperText>
+          </FormControl>
           {/* <const FormError name="password" /> */}
           {/* </LoginLabel> */}
 
