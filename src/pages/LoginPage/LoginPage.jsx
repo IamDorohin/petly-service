@@ -3,19 +3,19 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useFormik } from 'formik';
+import { useFormik, ErrorMessage } from 'formik';
 
 import authSelectors from 'redux/login-page/auth/auth-selectors';
 import { logIn } from '../../redux/login-page/auth/auth-operations';
 
 import { loginYupSchema } from '../../schemas/validationSchema';
-import { errorMUI } from '../../shared/Alert/errorMUI';
+import { ErrorText } from '../../components/ErrorMessage/ErrorMessage.styled';
 
 import {
   LoginSection,
   LoginContainer,
   LoginForm,
-  LoginLabel,
+  // LoginLabel,
   LoginLabelName,
   LoginInput,
   TitleH1,
@@ -24,7 +24,6 @@ import {
   HelperContainer,
   Loader,
 } from './LoginPage.styled';
-// import { Navigate } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -41,6 +40,15 @@ const LoginPage = () => {
       password: '',
     },
 
+    FormError: ({ name }) => {
+      return (
+        <ErrorMessage
+          name={name}
+          render={message => <ErrorText>{message}</ErrorText>}
+        />
+      );
+    },
+
     validationSchema: loginYupSchema,
     onSubmit: ({ email, password }) => {
       const authData = { email: email, password: password };
@@ -50,7 +58,7 @@ const LoginPage = () => {
       }
 
       if (!data.payload) {
-        errorMUI('Please try again later');
+        // errorMUI('Please try again later');
       }
     },
   });
@@ -63,9 +71,9 @@ const LoginPage = () => {
     }
 
     if (!data.payload) {
-      errorMUI('Please try again later');
+      // errorMUI('Please try again later');
     }
-    data.error.message && data.error && errorMUI(data.payload.message);
+    data.error.message && data.error && ErrorText(data.payload.message);
   };
 
   return (
@@ -73,45 +81,50 @@ const LoginPage = () => {
       <LoginContainer>
         <TitleH1>Login</TitleH1>
 
-        <LoginForm onSubmit={handleSubmit.onSubmit}>
-          <LoginLabel htmlFor="email">
-            <LoginLabelName>Email</LoginLabelName>
+        <LoginForm onSubmit={formik.handleSubmit}>
+          {/* <LoginLabel htmlFor="email"> */}
+          <LoginLabelName shrink htmlFor="email">
+            Email
+          </LoginLabelName>
 
-            <LoginInput
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-            />
-            <errorMUI name="email" />
-          </LoginLabel>
+          <LoginInput
+            fullWidth
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+          />
+          {/* <const FormError name="email"/> */}
+          {/* </LoginLabel> */}
 
-          <LoginLabel htmlFor="password">
-            <LoginLabelName>Password</LoginLabelName>
-            <LoginInput
-              type="password"
-              name="password"
-              id="lg-password"
-              placeholder="Password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              show={showPassword}
-              handleClick={handleShowPasswordClick}
-            />
-            {/* <errorMUI name="password" /> */}
-          </LoginLabel>
+          {/* <LoginLabel htmlFor="password"> */}
+          <LoginLabelName shrink htmlFor="password">
+            Password
+          </LoginLabelName>
+          <LoginInput
+            type="password"
+            name="password"
+            id="lg-password"
+            placeholder="Password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            // show={showPassword}
+            // handleClick={handleShowPasswordClick}
+          />
+          {/* <const FormError name="password" /> */}
+          {/* </LoginLabel> */}
 
-          <Button type="submit">
-            {/* <ColorRing
+          {/* <Button type="submit"> */}
+          {/* <ColorRing
               height={200}
               width={200}
               ariaLabel="blocks-loading"
               />
            <Loader /> */}
-            Login
-          </Button>
+          {/* Next */}
+          {/* </Button> */}
 
           {/* <FormControlLabel
               control={
@@ -119,33 +132,37 @@ const LoginPage = () => {
               }
               label="Remember Me"
             /> */}
-          <Loader></Loader>
-          <Button
-            type="submit"
-            isDisabled={formik.isSubmitting}
-            isLoading={isRefreshing}
-            fullWidth
-          >
-            Login
-          </Button>
+        </LoginForm>
 
-          <HelperContainer>
+        <Button
+          type="submit"
+          isDisabled={formik.isSubmitting}
+          isLoading={isRefreshing}
+          fullWidth
+        >
+          Login
+          <Loader></Loader>
+        </Button>
+
+        {/* <HelperContainer>
             <TitleH5>Or use alternative</TitleH5>
-            {/* <GoogleSignIn /> */}
-          </HelperContainer>
-          <HelperContainer>
-            <TitleH5>Don't have an account?</TitleH5>
-          </HelperContainer>
-          <HelperContainer>
+            <GoogleSignIn />
+          </HelperContainer> */}
+        <HelperContainer>
+          <TitleH5>
+            Don't have an account?
             <Link to="/register">Register</Link>
-          </HelperContainer>
-          <HelperContainer>
+          </TitleH5>
+        </HelperContainer>
+        {/* <HelperContainer>
+            <Link to="/register">Register</Link>
+          </HelperContainer> */}
+        {/* <HelperContainer>
             <TitleH5>Forgot your password?</TitleH5>
           </HelperContainer>
           <HelperContainer>
-            {/* <Link to="/recovery">Reset</Link> */}
-          </HelperContainer>
-        </LoginForm>
+            <Link to="/recovery">Reset</Link>
+          </HelperContainer> */}
       </LoginContainer>
     </LoginSection>
   );
