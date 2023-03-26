@@ -1,13 +1,16 @@
 import React from 'react';
 
-import {StyledContainer,Title} from './OurFriends.styled';
+import {Container,Title, FriendsPageContainer} from './OurFriends.styled';
 
 const FriendsContainer = ({ children }) => {
   return (
-    <StyledContainer>
+    <FriendsPageContainer>
+          <Container>
       <Title>Our Friends</Title>
       {children}
-    </StyledContainer>
+    </Container>
+    </FriendsPageContainer>
+
   );
 };
 

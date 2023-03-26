@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NotFound from 'components/NotFound/NotFound';
 import Loader from 'components/Loader';
 import Friend from './OurFriends';
-import { StyledList, Item } from './OurFriends.styled';
+import { List, Item } from './OurFriends.styled';
 import { selectFriends, selectError, selectLoadingStatus } from 'redux/friends/selectors';
 import fetchFriends from 'redux/friends/operations';
 
@@ -22,11 +22,11 @@ const FriendsList = () => {
     dispatch(fetchFriends());
   }, [dispatch]);
 
-    console.log(friends)
+    // console.log(friends)
 
  
   return (
-    <StyledList>
+    <List>
       {error && <NotFound />}
       {isLoading && <Loader />}
       {friends.length > 0 &&
@@ -35,7 +35,7 @@ const FriendsList = () => {
             <Friend friend={friend} />
           </Item>
         ))}
-    </StyledList>
+    </List>
   );
 };
 
