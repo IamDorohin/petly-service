@@ -293,12 +293,37 @@ export const Button = styled('button')(({ theme }) => ({
 
 
 export const TextLink = styled(Link)(({ theme }) => ({
-      textDecorationLine: 'underline',
+
       transition: 'all 100ms linear',
     fontFamily: theme.customFontFamily.primary,
     fontWeight: theme.customFontWeight.normalM,
     fontSize: theme.customFontSizes[0],
     lineHeight: theme.customLineHeight[1],
+    textDecoration:'none',
+  color: theme.customColors.primaryFont,
+  textDecorationLine: 'underline',
+    '&:hover': {
+  color: theme.customColors.accent,
+  },
+
+      [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    fontSize: theme.customFontSizes[1],
+    lineHeight: theme.customLineHeight[3],
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    fontSize: theme.customFontSizes[2],
+    lineHeight: theme.customLineHeight[4],
+  }
+}));
+
+export const Text = styled(Link)(({ theme }) => ({
+
+    transition: 'all 100ms linear',
+    fontFamily: theme.customFontFamily.primary,
+    fontWeight: theme.customFontWeight.normalM,
+    fontSize: theme.customFontSizes[0],
+    lineHeight: theme.customLineHeight[1],
+    textDecoration:'none',
   color: theme.customColors.primaryFont,
     '&:hover': {
   color: theme.customColors.accent,
@@ -313,6 +338,8 @@ export const TextLink = styled(Link)(({ theme }) => ({
     lineHeight: theme.customLineHeight[4],
   }
 }));
+
+
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TimeModal from './FriendsTimeModal';
-import {  StyledFriend, FriendsLink, FriendsBox,IMG, ImgDiv, Adress, ItemAdress, Button, TextLink, P } from './OurFriends.styled';
+import {  StyledFriend, FriendsLink, FriendsBox,IMG, ImgDiv, Adress, ItemAdress, Button, TextLink, P, Text } from './OurFriends.styled';
 
 
 
@@ -26,7 +26,7 @@ const Friend = ({ friend }) => {
         <Adress>
           <ItemAdress>
             <P>Time:</P>
-            <P>
+            <div>
               {!workDays || workDays.length === 0 ? (
                 '--------------------'
               ) : (
@@ -36,7 +36,7 @@ const Friend = ({ friend }) => {
                 </Button>
               )}
               {showModal && <TimeModal timeTable={workDays} />}
-            </P>
+            </div>
           </ItemAdress>
           
           <ItemAdress>
@@ -57,11 +57,11 @@ const Friend = ({ friend }) => {
           </ItemAdress>       
           <ItemAdress>
             <P>Email:</P>
-            <P>{!email ? '--------------------' : <TextLink href={`mailto:${email}`}>{email}</TextLink>}</P>
+            <P>{!email ? '--------------------' : <Text href={`mailto:${email}`}>{email}</Text>}</P>
                </ItemAdress>
        <ItemAdress>
             <P>Phone:</P>
-            <P>{!phone ? '--------------------' : <TextLink href={`tel:${phone}`}>{phone}</TextLink>}</P> 
+            <P>{!phone ? '--------------------' : <Text href={`tel:${phone}`}>{phone}</Text>}</P> 
 
             </ItemAdress>
                

@@ -7,6 +7,7 @@ const LoaderContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
 `;
 
 export default LoaderContainer;
