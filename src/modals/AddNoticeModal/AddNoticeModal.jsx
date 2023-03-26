@@ -5,7 +5,7 @@ import AddNoticeModalFirstStep from './FirstStep';
 import AddNoticetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
 import { useAddNoticeMutation } from '../../redux/notices/noticesSlice';
-// import * as yup from 'yup';
+import * as yup from 'yup';
 
 export const NOTICE_TYPES = {
   LOST_FOUND: 1,
@@ -26,13 +26,13 @@ const initialValues = {
   photo: null,
 };
 
-// let userSchema = yup.object({
-//   namePet: yup.string().required(),
-//   dateOfBirth: yup.number(),
-//   breed: yup.string(),
-//   comment: yup.string(),
-//   photo: yup.string(),
-// });
+let schema = yup.object({
+  namePet: yup.string().required(),
+  dateOfBirth: yup.number(),
+  breed: yup.string(),
+  comment: yup.string(),
+  photo: yup.string(),
+});
 
 const STEPS = {
   FIRST: 1,
@@ -56,6 +56,7 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
     <Modal isOpen={isOpen} onClose={onClose} title="Add notice">
       <Formik
         initialValues={initialValues}
+        validationSchema={schema}
         onSubmit={async (values, actions) => {
           console.log(values);
           await addNotice(values);
