@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
 
 import authSelectors from 'redux/login-page/auth/auth-selectors';
 import { logIn } from '../../redux/login-page/auth/auth-operations';
@@ -12,25 +12,19 @@ import { loginYupSchema } from '../../schemas/validationSchema';
 import { errorMUI } from '../../shared/Alert/errorMUI';
 
 import {
-  Section,
+  LoginSection,
   LoginContainer,
-  Title,
-  Form,
-  Label,
-  Input,
+  LoginForm,
+  LoginLabel,
+  LoginLabelName,
+  LoginInput,
+  TitleH1,
+  TitleH5,
   Button,
   HelperContainer,
   Loader,
 } from './LoginPage.styled';
 // import { Navigate } from "react-router-dom";
-
-// import {
-//   Autocomplete,
-//   TextField,
-//   Select,
-//   Switch,
-//   ToggleButtonGroup,
-// } from 'formik-mui';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -41,13 +35,28 @@ const LoginPage = () => {
     setShowPassword(prevState => !prevState);
   };
 
-  const initialValues = {
-    email: '',
-    password: '',
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
 
-  const handleSubmit = async (values, { resetForm }) => {
-    const authData = { email: values.email, password: values.password };
+    validationSchema: loginYupSchema,
+    onSubmit: ({ email, password }) => {
+      const authData = { email: email, password: password };
+      const data = dispatch(logIn(authData));
+      if (data.type === 'auth/login/fulfilled') {
+        // resetForm();
+      }
+
+      if (!data.payload) {
+        errorMUI('Please try again later');
+      }
+    },
+  });
+
+  const handleSubmit = ({ email, password }, { resetForm }) => {
+    const authData = { email: email, password: password };
     const data = dispatch(logIn(authData));
     if (data.type === 'auth/login/fulfilled') {
       // resetForm();
@@ -60,76 +69,85 @@ const LoginPage = () => {
   };
 
   return (
-    <Section>
+    <LoginSection>
       <LoginContainer>
-        <Title>variant:'h1' Login</Title>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={loginYupSchema}
-          onSubmit={handleSubmit}
-          isSubmitting
-        >
-          {formik => (
-            <Form>
-              <Label>
-                Email
-                <Input
-                  type="email"
-                  name="email"
-                  id="lg-email"
-                  placeholder="Email"
-                />
-              </Label>
+        <TitleH1>Login</TitleH1>
 
-              <Label>
-                Password
-                <Input
-                  type="password"
-                  name="password"
-                  id="lg-password"
-                  placeholder="Password"
-                  show={showPassword}
-                  handleClick={handleShowPasswordClick}
-                />
-              </Label>
-              {/* <FormControlLabel
+        <LoginForm onSubmit={handleSubmit.onSubmit}>
+          <LoginLabel htmlFor="email">
+            <LoginLabelName>Email</LoginLabelName>
+
+            <LoginInput
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+            />
+            <errorMUI name="email" />
+          </LoginLabel>
+
+          <LoginLabel htmlFor="password">
+            <LoginLabelName>Password</LoginLabelName>
+            <LoginInput
+              type="password"
+              name="password"
+              id="lg-password"
+              placeholder="Password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              show={showPassword}
+              handleClick={handleShowPasswordClick}
+            />
+            {/* <errorMUI name="password" /> */}
+          </LoginLabel>
+
+          <Button type="submit">
+            {/* <ColorRing
+              height={200}
+              width={200}
+              ariaLabel="blocks-loading"
+              />
+           <Loader /> */}
+            Login
+          </Button>
+
+          {/* <FormControlLabel
               control={
                 <Field component={Switch} type="checkbox" name="rememberMe" />
               }
               label="Remember Me"
             /> */}
-              <Loader></Loader>
-              <Button
-                type="submit"
-                isDisabled={formik.isSubmitting}
-                isLoading={isRefreshing}
-                fullWidth
-              >
-                Login
-              </Button>
+          <Loader></Loader>
+          <Button
+            type="submit"
+            isDisabled={formik.isSubmitting}
+            isLoading={isRefreshing}
+            fullWidth
+          >
+            Login
+          </Button>
 
-              <HelperContainer>
-                <Title>variant:'h5'; Or use alternative</Title>
-                {/* <GoogleSignIn /> */}
-              </HelperContainer>
-              <HelperContainer>
-                <Title>variant:'h5'; Don't have an account?</Title>
-              </HelperContainer>
-              <HelperContainer>
-                variant:'h5';
-                <Link to="/register">Register</Link>
-              </HelperContainer>
-              <HelperContainer>
-                <Title>variant:'h5'; Forgot your password?</Title>
-              </HelperContainer>
-              <HelperContainer>
-                {/* <Link to="/recovery">Reset</Link> */}
-              </HelperContainer>
-            </Form>
-          )}
-        </Formik>
+          <HelperContainer>
+            <TitleH5>Or use alternative</TitleH5>
+            {/* <GoogleSignIn /> */}
+          </HelperContainer>
+          <HelperContainer>
+            <TitleH5>Don't have an account?</TitleH5>
+          </HelperContainer>
+          <HelperContainer>
+            <Link to="/register">Register</Link>
+          </HelperContainer>
+          <HelperContainer>
+            <TitleH5>Forgot your password?</TitleH5>
+          </HelperContainer>
+          <HelperContainer>
+            {/* <Link to="/recovery">Reset</Link> */}
+          </HelperContainer>
+        </LoginForm>
       </LoginContainer>
-    </Section>
+    </LoginSection>
   );
 };
 
