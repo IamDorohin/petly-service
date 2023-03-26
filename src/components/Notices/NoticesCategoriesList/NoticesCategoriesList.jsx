@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { NoticesCategoriesItem } from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem';
 import { CategoriesList } from './NoticesCategoriesList.styled';
+import NoResult from 'components/Generic/NoResult/NoResult';
 
 import { useState } from 'react';
 import {
@@ -63,7 +64,7 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
             onClick={favNoticesStatusHandler}
           />
         ))}
-      {noticesNotFound && <div>Йди звідси, розбійник!</div>}
+      {noticesNotFound && <NoResult />}
     </CategoriesList>
   );
 };
