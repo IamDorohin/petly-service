@@ -6,7 +6,7 @@ import {
   // fetchCurrentUser,
   updateUser,
   // updateUserAvatar,
-} from './auth/auth-operations';
+} from './auth-operations';
 
 const handlePending = state => {
   state.isRefreshing = true;
@@ -44,8 +44,8 @@ const authSlice = createSlice({
         handlePending(state);
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
+        console.log(payload);
         state.isRefreshing = false;
-        state.user = payload;
         state.token = payload.token;
         state.isLoggedIn = true;
       })
@@ -57,7 +57,6 @@ const authSlice = createSlice({
       })
       .addCase(logOut.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
-        state.user = {};
         state.token = '';
         state.isLoggedIn = false;
       })

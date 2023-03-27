@@ -10,8 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import authSelectors from 'redux/login-page/auth/auth-selectors';
-import { logIn } from '../../redux/login-page/auth/auth-operations';
+import authSelectors from 'redux/auth/auth-selectors';
+import { logIn } from '../../redux/auth/auth-operations';
 
 import { loginYupSchema } from '../../schemas/validationSchema';
 import InputLabel from '@mui/material/InputLabel';
@@ -33,7 +33,7 @@ import {
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(authSelectors.getIsRefreshing);
+  let isRefreshing = useSelector(authSelectors.getIsRefreshing);
 
   const [showPassword, setShowPassword] = useState(false);
 
