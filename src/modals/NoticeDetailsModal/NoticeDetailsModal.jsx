@@ -1,6 +1,11 @@
 // import React, { useState } from 'react';
+import { Box, Button } from '@mui/material';
 import Modal from 'modals/Modal/Modal';
-import { useGetNoticesByIdQuery } from 'redux/notices/noticesSlice';
+import {
+  useGetNoticesByIdQuery,
+  //   useAddFavoriteNoticeMutation,
+} from 'redux/notices/noticesSlice';
+import { ButtonBox, CantBtn } from '../AddPetModal/FirstStep.styled';
 
 export const NoticeDetailsModal = ({
   isOpen,
@@ -9,6 +14,7 @@ export const NoticeDetailsModal = ({
   activeNoticeId,
 }) => {
   const { moreDetails = {} } = useGetNoticesByIdQuery(activeNoticeId);
+  // const [addFavorite] = useAddFavoriteNoticeMutation();
 
   const { breed, category, title, imgUrl, location, price, owner, _id, like } =
     moreDetails;
@@ -27,6 +33,16 @@ export const NoticeDetailsModal = ({
         <div>{owner}owner</div>
         <div>{_id}</div>
         <div>{like}</div>
+        <Box sx={ButtonBox}>
+          <Button sx={CantBtn}>Add to</Button>
+          <Button
+            sx={CantBtn}
+            type="submit"
+            onSubmit={() => onFavButtonClick(moreDetails)}
+          >
+            Contact
+          </Button>
+        </Box>
       </div>
     </Modal>
   );
