@@ -118,7 +118,7 @@ const LoginPage = () => {
             isLoading={isRefreshing}
             fullWidth
           >
-            {isRefreshing ? <Loader size={30} thickness={6} /> : 'Login'}
+            {isRefreshing ? <Loader size={30} thickness={4} /> : 'Login'}
           </Button>
         </LoginForm>
 

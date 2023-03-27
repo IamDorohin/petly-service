@@ -2,24 +2,36 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
-import { InputLabel, OutlinedInput } from '@mui/material';
+import { OutlinedInput } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 // import { Form } from 'formik';
 // import Button from "@mui/material/Button";
 
-// import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
+import {
+  loginBgImage,
+  loginBgTablet,
+  loginBgLaptop,
+  loginBgMobile,
+} from '../../images/';
 
-export const LoginSection = styled(Paper)(({ theme }) => ({
+export const RegisterSection = styled('section')(({ theme, bgImage }) => ({
+  backgroundImage: `url(${bgImage.loginBgMobile})`,
   backgroundColor: theme.customColors.appBackground,
+  backgroundPosition: 'bottom',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
   minHeight: '100vh',
+  position: 'relative',
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    backgroundImage: `url(${bgImage.loginBgTablet})`,
     paddingTop: '272px',
     paddingBottom: '260px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    backgroundImage: `url(${bgImage.loginBgLaptop})`,
     minWidth: '1280px',
     paddingTop: '146px',
     paddingBottom: '124px',
@@ -28,30 +40,9 @@ export const LoginSection = styled(Paper)(({ theme }) => ({
   },
 }));
 
-export const LoginBgImage = styled(Paper)(({ theme }) => ({
-  // backgroundImage: ('LoginBgImage'),
-  backgroundPosition: 'bottom',
-  backgroundSize: 'contain',
-  backgroundRepeat: 'no-repeat',
-  loading: 'lazy',
-
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    backgroundPosition: 'bottom',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-  },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    backgroundPosition: 'bottom',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-  },
-}));
-
-export const LoginContainer = styled(Container)(({ theme }) => ({
-  backgroundColor: theme.customColors.appBackground,
+export const RegisterContainer = styled(Container)(({ theme }) => ({
+  backgroundColor: 'transparent',
   [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {
-    // minWidth: '280px',
-    // minHeight: '100vh',
     paddingTop: '100px',
     paddingBottom: '151px',
     paddingLeft: '20px',
@@ -97,7 +88,6 @@ export const TitleH1 = styled(Typography)(({ theme }) => ({
   justifyContent: 'center',
   paddingLeft: '110px',
   paddingRight: '110px',
-  // paddingBottom: '40px',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.bold,
   fontSize: theme.customFontSizes[5],
@@ -105,7 +95,6 @@ export const TitleH1 = styled(Typography)(({ theme }) => ({
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.primaryFont,
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    // paddingBottom: '40px',
     fontSize: theme.customFontSizes[8],
     lineHeight: theme.customLineHeight[14],
   },
@@ -114,14 +103,13 @@ export const TitleH1 = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const LoginForm = styled('form')(({ theme }) => ({
+export const RegisterForm = styled('form')(({ theme }) => ({
   // width: '100%',
   minHeight: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignContent: 'center',
   paddingTop: '40px',
-  paddingBottom: '40px',
   backgroundColor: theme.customColors.appBackground,
   borderColor: theme.customBorders.secondaryButtons,
 
@@ -130,25 +118,30 @@ export const LoginForm = styled('form')(({ theme }) => ({
   },
 }));
 
-// export const LoginLabel = styled(Field)(({ theme }) => ({
-//   display: 'flex',
-//   flexDirection: 'column',
-//   paddingTop: '40px',
-//   paddingBottom: '40px',
-// }));
-
-export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
-  // variant: 'h5',
+export const RegisterInput = styled(TextField)(({ theme }) => ({
+  variant: 'h5',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[1],
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
-  // color: theme.customColors.appBackground,
-  borderColor: theme.customBorders.accent,
+  color: theme.customColors.appBackground,
+  marginBottom: '24px',
+
+  '& fieldset': {
+    borderRadius: '40px',
+    borderColor: theme.customColors.accent,
+  },
+
+  '&:hover': {
+    color: theme.customColors.loginLink,
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginBottom: '39px',
+  },
 }));
 
-export const LoginInput = styled(TextField)(({ theme }) => ({
+export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
   borderColor: theme.customBorders.accent,
   variant: 'h5',
   fontFamily: theme.customFontFamily.primary,
@@ -167,9 +160,12 @@ export const LoginInput = styled(TextField)(({ theme }) => ({
   '&:hover': {
     color: theme.customColors.loginLink,
   },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginBottom: '39px',
+  },
 }));
 
-export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
+export const PasswordConfirmInputInput = styled(OutlinedInput)(({ theme }) => ({
   borderColor: theme.customBorders.accent,
   variant: 'h5',
   fontFamily: theme.customFontFamily.primary,
@@ -178,7 +174,7 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.appBackground,
-  // borderColor: theme.customBorders.secondaryButtons,
+  marginBottom: '40px',
 
   '& fieldset': {
     borderRadius: '40px',
@@ -192,16 +188,11 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
 
 export const Button = styled('button')(({ theme }) => ({
   width: '100%',
-  minHeight: '100%',
-  display: 'block',
+  height: '48px',
   display: 'flex',
   alignItems: 'center',
   textAlign: 'center',
   justifyContent: 'center',
-  paddingTop: '8.5px',
-  paddingBottom: '8.5px',
-  paddingLeft: '112.5px',
-  paddingRight: '112.5px',
   paddingLeft: '20px',
   paddingRight: '20px',
   border: '0',
@@ -216,10 +207,6 @@ export const Button = styled('button')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     paddingLeft: '75px',
     paddingRight: '75px',
-  },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    paddingTop: '10.5px',
-    paddingBottom: '10.5px',
   },
 }));
 
@@ -255,9 +242,9 @@ export const TitleH5 = styled(Typography)(({ theme }) => ({
 }));
 
 export const Loader = styled(CircularProgress)(({ theme }) => ({
-  // ariaLabel="blocks-loading"
+  color: 'white',
 }));
 
-export const LoginLink = styled(Link)(({ theme }) => ({
+export const RegisterLink = styled(Link)(({ theme }) => ({
   color: theme.customColors.loginLink,
 }));

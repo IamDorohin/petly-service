@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 
 import InputAdornment from '@mui/material/InputAdornment';
@@ -19,17 +19,18 @@ import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 
 import {
-  LoginSection,
-  LoginBgImage,
-  LoginContainer,
-  LoginForm,
-  LoginInput,
+  RegisterSection,
+  RegisterBgImage,
+  RegisterContainer,
+  RegisterForm,
+  RegisterInput,
   PasswordInput,
+  PasswordConfirmInputInput,
   TitleH1,
   TitleH5,
   Button,
   HelperContainer,
-  LoginLink,
+  RegisterLink,
   Loader,
 } from './RegisterPage.styled';
 
@@ -37,7 +38,7 @@ import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(authSelectors.getIsRefreshing);
+  let isRefreshing = useSelector(authSelectors.getIsRefreshing);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -65,18 +66,12 @@ const RegisterPage = () => {
   });
 
   return (
-    <LoginSection>
-      <LoginBgImage
-        srcSet={`${loginBgMobile}, ${loginBgTablet}, ${loginBgLaptop}`}
-        src={loginBgLaptop}
-        // sizes="(min-width: 1280px) 590px, (min-width: 768px) 645px, 300px"
-        alt="login"
-      ></LoginBgImage>
-      <LoginContainer>
+    <RegisterSection bgImage={{ loginBgLaptop, loginBgMobile, loginBgTablet }}>
+      <RegisterContainer>
         <TitleH1>Registration</TitleH1>
 
-        <LoginForm onSubmit={formik.handleSubmit}>
-          <LoginInput
+        <RegisterForm onSubmit={formik.handleSubmit}>
+          <RegisterInput
             fullWidth
             label="Email"
             type="email"
@@ -115,26 +110,55 @@ const RegisterPage = () => {
               {formik.touched.password && formik.errors.password}
             </FormHelperText>
           </FormControl>
-        </LoginForm>
 
-        <Button
-          type="submit"
-          onClick={formik.handleSubmit}
-          isDisabled={formik.isSubmitting}
-          isLoading={isRefreshing}
-          fullWidth
-        >
-          {isRefreshing ? <Loader /> : 'Login'}
-        </Button>
+          <FormControl variant="outlined">
+            <InputLabel htmlFor="password">Confirm Password</InputLabel>
+            <PasswordConfirmInputInput
+              fullWidth
+              name="confirm password"
+              label="Password"
+              type={showPassword ? 'text' : 'password'}
+              id="confirm-password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+            <FormHelperText>
+              {formik.touched.password && formik.errors.password}
+            </FormHelperText>
+          </FormControl>
+
+          <Button
+            type="submit"
+            onClick={formik.handleSubmit}
+            isDisabled={formik.isSubmitting}
+            isLoading={isRefreshing}
+            fullWidth
+          >
+            {isRefreshing ? <Loader size={30} thickness={4} /> : 'Next'}
+          </Button>
+        </RegisterForm>
 
         <HelperContainer>
           <TitleH5>
-            Don't have an account?
-            <LoginLink to="/register">Register</LoginLink>
+            Already have an account?
+            <RegisterLink to="/login">Login</RegisterLink>
           </TitleH5>
         </HelperContainer>
-      </LoginContainer>
-    </LoginSection>
+      </RegisterContainer>
+    </RegisterSection>
   );
 };
 

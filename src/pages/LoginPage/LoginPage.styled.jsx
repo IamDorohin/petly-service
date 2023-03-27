@@ -45,25 +45,6 @@ export const LoginBgImage = styled('img')(({ theme }) => ({
   bottom: '0',
   right: '0',
   position: 'absolute',
-
-  // backgroundPosition: 'bottom',
-  // backgroundSize: 'contain',
-  // backgroundRepeat: 'no-repeat',
-  // height: 'calc(100vh - 74px)',
-  loading: 'lazy',
-
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    //  backgroundImage: 'loginBgTablet',
-    // backgroundPosition: 'bottom',
-    // backgroundSize: 'contain',
-    // backgroundRepeat: 'no-repeat',
-  },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    //    backgroundImage: 'loginBgLaptop',
-    //   backgroundPosition: 'bottom',
-    //   backgroundSize: 'contain',
-    //   backgroundRepeat: 'no-repeat',
-  },
 }));
 
 export const LoginContainer = styled(Container)(({ theme }) => ({
@@ -118,7 +99,7 @@ export const TitleH1 = styled(Typography)(({ theme }) => ({
   paddingRight: '110px',
   // paddingBottom: '40px',
   fontFamily: theme.customFontFamily.primary,
-  fontWeight: theme.customFontWeight.bold,
+  fontWeight: theme.customFontWeight.normalM,
   fontSize: theme.customFontSizes[5],
   lineHeight: theme.customLineHeight[9],
   letterSpacing: theme.customLetterSpacing.m,
