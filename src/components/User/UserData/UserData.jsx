@@ -1,4 +1,3 @@
-import { UserPageTitle } from 'components/Generic/UserPageTitle/UserPageTitle';
 import { UserDataList } from './UserDataList/UserDataList';
 import { TiCamera } from 'react-icons/ti';
 import * as SC from './UserData.styled';
@@ -14,7 +13,7 @@ const UserInfo = {
 export const UserData = () => {
   return (
     <SC.UserDataContainer>
-      <UserPageTitle>My information:</UserPageTitle>
+      <SC.UserInfoTitle>My information:</SC.UserInfoTitle>
       <SC.UserDataContent>
         <SC.UserDataPhotoWrapper>
           <SC.UserDataPhoto></SC.UserDataPhoto>

@@ -24,11 +24,11 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     bottom: '24px',
-    left: '18px',
+    left: '15px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    bottom: '18px',
-    left: '35px',
+    bottom: '20px',
+    left: '15px',
     alignItems: 'center',
   },
 }));
