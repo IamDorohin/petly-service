@@ -18,15 +18,20 @@ import {
 } from '../../images/';
 
 export const LoginSection = styled('section')(({ theme, bgImage }) => ({
-  // backgroundImage: `url=(${bgImage})`,
+  backgroundImage: `url(${bgImage.loginBgMobile})`,
   backgroundColor: theme.customColors.appBackground,
+  backgroundPosition: 'bottom',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
   minHeight: '100vh',
   position: 'relative',
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    backgroundImage: `url(${bgImage.loginBgTablet})`,
     paddingTop: '272px',
     paddingBottom: '260px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    backgroundImage: `url(${bgImage.loginBgLaptop})`,
     minWidth: '1280px',
     paddingTop: '146px',
     paddingBottom: '124px',
@@ -62,7 +67,7 @@ export const LoginBgImage = styled('img')(({ theme }) => ({
 }));
 
 export const LoginContainer = styled(Container)(({ theme }) => ({
-  backgroundColor: theme.customColors.appBackground,
+  backgroundColor: 'transparent',
   [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {
     // minWidth: '280px',
     // minHeight: '100vh',
