@@ -9,7 +9,6 @@ import { ReactComponent as Male } from './img/VectorSexM.svg';
 import { ReactComponent as Female } from './img/Female.svg';
 import { LabelFormic } from '../Modal/Modal.styled';
 
-
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
   width: 16,

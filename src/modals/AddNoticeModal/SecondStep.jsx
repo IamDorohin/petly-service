@@ -1,20 +1,20 @@
-import { Box, Button, FormLabel } from '@mui/material';
+import { Alert, Box, Button, FormLabel } from '@mui/material';
 import React from 'react';
 import {
   AddBtn,
   AddBtnThemeNotice,
   CssTextField,
   CssTextFieldTheme,
-
 } from '../AddPetModal/SecondStep.styled';
 import { ReactComponent as Vector } from '../AddPetModal/icon/Vector.svg';
 import { ButtonBox, CantBtn, Input } from '../AddPetModal/FirstStep.styled';
 import SexRadios from './SexRadios';
-import { NOTICE_TYPES } from './AddNoticeModal';
 import { LabelFormic, LabelFormicAddComment } from '../Modal/Modal.styled';
+import { NOTICE_TYPES } from '../AddNoticeModal/AddNoticeModalІSchems';
 
 const AddNoticeModalSecondStep = ({ formik, onBack }) => {
   const isSellNotice = formik.values.noticeType === NOTICE_TYPES.SELL;
+  const errorMessages = Object.values(formik.errors);
 
   return (
     <div>
@@ -78,6 +78,17 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           onChange={formik.handleChange}
         />
       </FormLabel>
+      <>
+        {errorMessages.length !== 0 &&
+          errorMessages.map(message => {
+            return (
+              <Alert severity="error" autoHideDuration={2000}>
+                {message}
+              </Alert>
+            );
+          })}
+      </>
+
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onBack}>
           Back
