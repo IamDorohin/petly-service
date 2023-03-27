@@ -140,7 +140,6 @@ export const LoginForm = styled('form')(({ theme }) => ({
   flexDirection: 'column',
   alignContent: 'center',
   paddingTop: '40px',
-  paddingBottom: '40px',
   backgroundColor: theme.customColors.appBackground,
   borderColor: theme.customBorders.secondaryButtons,
 
@@ -148,13 +147,6 @@ export const LoginForm = styled('form')(({ theme }) => ({
     backgroundColor: theme.customColors.cardsBackground,
   },
 }));
-
-// export const LoginLabel = styled(Field)(({ theme }) => ({
-//   display: 'flex',
-//   flexDirection: 'column',
-//   paddingTop: '40px',
-//   paddingBottom: '40px',
-// }));
 
 export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
   // variant: 'h5',
@@ -196,6 +188,7 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.appBackground,
+  marginBottom: '40px',
   // borderColor: theme.customBorders.secondaryButtons,
 
   '& fieldset': {
@@ -210,13 +203,11 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
 
 export const Button = styled('button')(({ theme }) => ({
   width: '100%',
-  minHeight: '100%',
+  height: '48px',
   display: 'flex',
   alignItems: 'center',
   textAlign: 'center',
   justifyContent: 'center',
-  paddingTop: '8.5px',
-  paddingBottom: '8.5px',
   paddingLeft: '20px',
   paddingRight: '20px',
   border: '0',
@@ -231,10 +222,6 @@ export const Button = styled('button')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     paddingLeft: '75px',
     paddingRight: '75px',
-  },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    paddingTop: '10.5px',
-    paddingBottom: '10.5px',
   },
 }));
 
@@ -270,7 +257,7 @@ export const TitleH5 = styled(Typography)(({ theme }) => ({
 }));
 
 export const Loader = styled(CircularProgress)(({ theme }) => ({
-  // ariaLabel="blocks-loading"
+  color: 'white',
 }));
 
 export const LoginLink = styled(Link)(({ theme }) => ({

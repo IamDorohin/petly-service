@@ -10,8 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-import authSelectors from 'redux/login-page/auth/auth-selectors';
-import { register } from '../../redux/login-page/auth/auth-operations';
+import authSelectors from 'redux/auth/auth-selectors';
+import { register } from '../../redux/auth/auth-operations';
 import { registerYupSchema } from '../../schemas/validationSchema';
 
 import InputLabel from '@mui/material/InputLabel';
