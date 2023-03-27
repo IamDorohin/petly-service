@@ -14,6 +14,13 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
   letterSpacing: theme.customLetterSpacing.m,
 
   color: theme.customColors.translucentBlack,
+
+  opacity: '1',
+  transirion: 'opacity 250ms ease-out',
+
+  '&:hover': {
+    opacity: '0.5',
+  },
 }));
 
 export const LogOutIconWrapper = styled('div')(({ theme }) => ({
