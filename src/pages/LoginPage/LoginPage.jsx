@@ -20,7 +20,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 import {
   LoginSection,
-  // LoginBgImage,
+  LoginBgImage,
   LoginContainer,
   LoginForm,
   LoginInput,
@@ -32,6 +32,8 @@ import {
   LoginLink,
   Loader,
 } from './LoginPage.styled';
+
+import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -64,7 +66,12 @@ const LoginPage = () => {
 
   return (
     <LoginSection>
-      {/* <LoginBgImage> */}
+      <LoginBgImage
+        srcSet={`${loginBgMobile}, ${loginBgTablet}, ${loginBgLaptop}`}
+        src={loginBgLaptop}
+        // sizes="(min-width: 1280px) 590px, (min-width: 768px) 645px, 300px"
+        alt="login"
+      ></LoginBgImage>
       <LoginContainer>
         <TitleH1>Login</TitleH1>
 
@@ -127,7 +134,6 @@ const LoginPage = () => {
           </TitleH5>
         </HelperContainer>
       </LoginContainer>
-      {/* </LoginBgImage> */}
     </LoginSection>
   );
 };
