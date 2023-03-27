@@ -2,26 +2,24 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import { InputLabel, OutlinedInput } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
+// import { Form } from 'formik';
+// import Button from "@mui/material/Button";
 
-export const LoginSection = styled('section')(({ theme, bgImage }) => ({
-  backgroundImage: `url(${bgImage.loginBgMobile})`,
+// import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
+
+export const LoginSection = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
-  backgroundPosition: 'bottom',
-  backgroundSize: 'contain',
-  backgroundRepeat: 'no-repeat',
   minHeight: '100vh',
-  position: 'relative',
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    backgroundImage: `url(${bgImage.loginBgTablet})`,
     paddingTop: '272px',
     paddingBottom: '260px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    backgroundImage: `url(${bgImage.loginBgLaptop})`,
     minWidth: '1280px',
     paddingTop: '146px',
     paddingBottom: '124px',
@@ -30,20 +28,27 @@ export const LoginSection = styled('section')(({ theme, bgImage }) => ({
   },
 }));
 
-export const LoginBgImage = styled('img')(({ theme }) => ({
-  width: '100%',
-  bottom: '0',
-  right: '0',
-  position: 'absolute',
-
+export const LoginBgImage = styled(Paper)(({ theme }) => ({
+  // backgroundImage: ('LoginBgImage'),
+  backgroundPosition: 'bottom',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
   loading: 'lazy',
 
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    backgroundPosition: 'bottom',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    backgroundPosition: 'bottom',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+  },
 }));
 
 export const LoginContainer = styled(Container)(({ theme }) => ({
-  backgroundColor: 'transparent',
+  backgroundColor: theme.customColors.appBackground,
   [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {
     // minWidth: '280px',
     // minHeight: '100vh',
@@ -116,6 +121,7 @@ export const LoginForm = styled('form')(({ theme }) => ({
   flexDirection: 'column',
   alignContent: 'center',
   paddingTop: '40px',
+  paddingBottom: '40px',
   backgroundColor: theme.customColors.appBackground,
   borderColor: theme.customBorders.secondaryButtons,
 
@@ -123,6 +129,13 @@ export const LoginForm = styled('form')(({ theme }) => ({
     backgroundColor: theme.customColors.cardsBackground,
   },
 }));
+
+// export const LoginLabel = styled(Field)(({ theme }) => ({
+//   display: 'flex',
+//   flexDirection: 'column',
+//   paddingTop: '40px',
+//   paddingBottom: '40px',
+// }));
 
 export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
   // variant: 'h5',
@@ -136,6 +149,7 @@ export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
 }));
 
 export const LoginInput = styled(TextField)(({ theme }) => ({
+  borderColor: theme.customBorders.accent,
   variant: 'h5',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
@@ -164,7 +178,6 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.appBackground,
-  marginBottom: '40px',
   // borderColor: theme.customBorders.secondaryButtons,
 
   '& fieldset': {
@@ -179,13 +192,11 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
 
 export const Button = styled('button')(({ theme }) => ({
   width: '100%',
-  height: '48px',
-  display: 'flex',
+  minHeight: '100%',
+  display: 'block',
   alignItems: 'center',
   textAlign: 'center',
   justifyContent: 'center',
-  paddingLeft: '20px',
-  paddingRight: '20px',
   border: '0',
   borderRadius: theme.customBorderRadius.primary,
   fontFamily: theme.customFontFamily.primary,
@@ -198,6 +209,10 @@ export const Button = styled('button')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     paddingLeft: '75px',
     paddingRight: '75px',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    paddingTop: '10.5px',
+    paddingBottom: '10.5px',
   },
 }));
 
@@ -233,7 +248,7 @@ export const TitleH5 = styled(Typography)(({ theme }) => ({
 }));
 
 export const Loader = styled(CircularProgress)(({ theme }) => ({
-  color: 'white',
+  // ariaLabel="blocks-loading"
 }));
 
 export const LoginLink = styled(Link)(({ theme }) => ({

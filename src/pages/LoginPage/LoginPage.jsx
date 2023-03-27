@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 
 import InputAdornment from '@mui/material/InputAdornment';
@@ -12,8 +11,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import authSelectors from 'redux/auth/auth-selectors';
 import { logIn } from '../../redux/auth/auth-operations';
-
 import { loginYupSchema } from '../../schemas/validationSchema';
+
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -28,8 +27,11 @@ import {
   TitleH5,
   Button,
   HelperContainer,
+  LoginLink,
   Loader,
 } from './LoginPage.styled';
+
+import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -61,7 +63,7 @@ const LoginPage = () => {
   });
 
   return (
-    <LoginSection>
+    <LoginSection bgImage={{ loginBgLaptop, loginBgMobile, loginBgTablet }}>
       <LoginContainer>
         <TitleH1>Login</TitleH1>
 
@@ -113,14 +115,14 @@ const LoginPage = () => {
             isLoading={isRefreshing}
             fullWidth
           >
-            {isRefreshing ? <Loader /> : 'Login'}
+            {isRefreshing ? <Loader size={30} thickness={6} /> : 'Login'}
           </Button>
         </LoginForm>
 
         <HelperContainer>
           <TitleH5>
             Don't have an account?
-            <Link to="/register">Register</Link>
+            <LoginLink to="/register">Register</LoginLink>
           </TitleH5>
         </HelperContainer>
       </LoginContainer>
