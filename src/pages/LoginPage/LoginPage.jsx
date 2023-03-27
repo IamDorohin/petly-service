@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 
 import InputAdornment from '@mui/material/InputAdornment';
@@ -20,7 +19,6 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 import {
   LoginSection,
-  LoginBgImage,
   LoginContainer,
   LoginForm,
   LoginInput,
@@ -34,7 +32,6 @@ import {
 } from './LoginPage.styled';
 
 import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
-// import  loginImage from '../../images/login-bg-auth-mobile-min.png';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -129,7 +126,6 @@ const LoginPage = () => {
           </TitleH5>
         </HelperContainer>
       </LoginContainer>
-      {/* <LoginBgImage src={loginBgMobile} /> */}
     </LoginSection>
   );
 };

@@ -2,20 +2,10 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import { InputLabel, OutlinedInput } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-// import { Form } from 'formik';
-// import Button from "@mui/material/Button";
-
-import {
-  loginBgImage,
-  loginBgTablet,
-  loginBgLaptop,
-  loginBgMobile,
-} from '../../images/';
 
 export const LoginSection = styled('section')(({ theme, bgImage }) => ({
   backgroundImage: `url(${bgImage.loginBgMobile})`,
@@ -46,24 +36,10 @@ export const LoginBgImage = styled('img')(({ theme }) => ({
   right: '0',
   position: 'absolute',
 
-  // backgroundPosition: 'bottom',
-  // backgroundSize: 'contain',
-  // backgroundRepeat: 'no-repeat',
-  // height: 'calc(100vh - 74px)',
   loading: 'lazy',
 
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    //  backgroundImage: 'loginBgTablet',
-    // backgroundPosition: 'bottom',
-    // backgroundSize: 'contain',
-    // backgroundRepeat: 'no-repeat',
-  },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    //    backgroundImage: 'loginBgLaptop',
-    //   backgroundPosition: 'bottom',
-    //   backgroundSize: 'contain',
-    //   backgroundRepeat: 'no-repeat',
-  },
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 
 export const LoginContainer = styled(Container)(({ theme }) => ({
