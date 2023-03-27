@@ -1,51 +1,53 @@
 import { useParams } from 'react-router-dom';
 import { NoticesCategoriesItem } from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem';
 import { CategoriesList } from './NoticesCategoriesList.styled';
+import NoResult from 'components/Generic/NoResult/NoResult';
 
-import { useState } from 'react';
 import {
   useGetNoticesByCategoryQuery,
   useAddFavoriteNoticeMutation,
   useDeleteFavoriteNoticeMutation,
+  useGetFavoriteArrQuery,
 } from 'redux/notices/noticesSlice';
 
-export const NoticesCategoriesList = ({ newSearchNotices }) => {
+export const NoticesCategoriesList = ({ searchParams }) => {
   const { categoryName } = useParams();
-  const [currentFavNotice, setCurrentFavNotice] = useState([]);
 
-  const { currentData: favNotices = [] } =
-    useGetNoticesByCategoryQuery('favorite');
+  const { data: favoriteIdArr } = useGetFavoriteArrQuery();
+
+  const searchQueryState = searchParams?.toString() ?? '';
+
+  const endpoint =
+    searchQueryState === ''
+      ? categoryName
+      : categoryName + '?' + searchQueryState;
 
   const {
     currentData: array,
     error,
     isSuccess,
-  } = useGetNoticesByCategoryQuery(categoryName);
+  } = useGetNoticesByCategoryQuery(endpoint);
 
-  const findedNotices = newSearchNotices
-    ? newSearchNotices
-    : array?.data?.notices;
+  const findedNotices = array?.data?.notices;
 
-  console.log('findedNotices', findedNotices);
+  if (favoriteIdArr?.data.favorite.length !== 0) {
+    findedNotices?.forEach(item => {
+      if (favoriteIdArr?.data.favorite.incudes(item._id)) {
+        item.like = true;
+      }
+    });
+  }
+
   const noticesNotFound =
     error?.data?.message === 'There is no notices in this category';
 
-  const favNoticesStatusHandler = currentArray => {
-    setCurrentFavNotice(favNotices);
-
-    const isArray = currentFavNotice.some(
-      item => item._id === currentArray._id
-    );
-
-    if (!isArray) {
-      addNotice(favNotices);
-      setCurrentFavNotice(prevState => [...prevState, currentArray]);
-    } else if (isArray) {
-      deleteNotice(array);
-      const newArray = currentFavNotice.filter(
-        item => item._id !== currentArray._id
-      );
-      setCurrentFavNotice(newArray);
+  const favNoticesStatusHandler = notice => {
+    if (!favoriteIdArr?.includes(notice._id)) {
+      addNotice(notice._id);
+      notice.like = true;
+    } else if (favoriteIdArr?.includes(notice._id)) {
+      deleteNotice(notice._id);
+      notice.like = false;
     }
   };
 
@@ -58,12 +60,12 @@ export const NoticesCategoriesList = ({ newSearchNotices }) => {
         findedNotices &&
         findedNotices.map(notice => (
           <NoticesCategoriesItem
-            array={notice}
+            notice={notice}
             key={notice._id}
             onClick={favNoticesStatusHandler}
           />
         ))}
-      {noticesNotFound && <div>Йди звідси, розбійник!</div>}
+      {noticesNotFound && <NoResult />}
     </CategoriesList>
   );
 };

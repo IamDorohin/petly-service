@@ -1,35 +1,48 @@
-import {
-  useDeleteNoticeMutation,
-  useGetNoticesByIdQuery,
-} from 'redux/notices/noticesSlice';
+import // useDeleteNoticeMutation,
+// useGetNoticesByIdQuery,
+'redux/notices/noticesSlice';
 import { HiTrash } from 'react-icons/hi';
 // import { AiTwotoneHeart } from 'react-icons/ai';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
+import pets from '../../../img/pets.jpg'
 
-export const NoticesCategoriesItem = ({ array, onClick }) => {
-  const { breed, category, title, imgUrl, location, price, owner, _id } = array;
+export const NoticesCategoriesItem = ({ notice, onClick }) => {
+  const {
+    breed,
+    category,
+    title,
+    imgUrl,
+    location,
+    price,
+    owner,
+    // _id,
+    like,
+  } = notice;
+  console.log(imgUrl);
 
-  const [deleteOwnNotice] = useDeleteNoticeMutation();
+  // const [deleteOwnNotice] = useDeleteNoticeMutation();
 
-  const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
+  // const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
 
-  console.log('moreDetails', moreDetails);
-  console.log('take this id for modal window', _id);
+  // console.log('moreDetails', moreDetails);
+  // console.log('take this id for modal window', _id);
+
   return (
     <SC.NoticeItem>
-      <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+      {imgUrl && <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />}
+      {!imgUrl && <SC.NoticeImage src={pets} alt="фото домашнього улюбленця" />}
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
-      <SC.NoticeLikeBtn className={owner}>
-        {owner ? (
-          <FavoriteIcon onClick={() => onClick(array)} />
+      <SC.NoticeLikeBtn>
+        {like ? (
+          <FavoriteIcon onClick={() => onClick(notice)} />
         ) : (
           <FavoriteTwoToneIcon
             className="forHoverBtn"
             fontSize="inherit"
-            colorPrimary="#000"
-            onClick={() => onClick(array)}
+            color="#000"
+            onClick={() => onClick(notice)}
           />
         )}
       </SC.NoticeLikeBtn>
@@ -53,11 +66,13 @@ export const NoticesCategoriesItem = ({ array, onClick }) => {
             <SC.NoticeListItemDetails>{price}</SC.NoticeListItemDetails>
           </SC.NoticeListItem>
         </SC.NoticeList>
-        <SC.NoticeLearnMoreBtn className={owner} onClick={refetch}>
+        <SC.NoticeLearnMoreBtn className={owner}>
           Learn More
         </SC.NoticeLearnMoreBtn>
         {owner && (
-          <SC.NoticeDeleteBtn onClick={() => deleteOwnNotice(_id)}>
+          <SC.NoticeDeleteBtn
+          // onClick={() => deleteOwnNotice(_id)}
+          >
             <SC.NoticeDeleteBtnText>Delete</SC.NoticeDeleteBtnText>
             <HiTrash size={20} />
           </SC.NoticeDeleteBtn>
