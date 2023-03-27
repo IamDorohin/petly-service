@@ -66,8 +66,7 @@ const LoginPage = () => {
   });
 
   return (
-    <LoginSection>
-      {/* <LoginBgImage src={loginBgMobile} position /> */}
+    <LoginSection style={{ backgroundImage: `url=(${loginBgMobile})` }}>
       <LoginContainer>
         <TitleH1>Login</TitleH1>
 
@@ -130,7 +129,7 @@ const LoginPage = () => {
           </TitleH5>
         </HelperContainer>
       </LoginContainer>
-      <LoginBgImage src={loginBgMobile} />
+      <LoginBgImage src="{loginBgMobile}, {loginBgTablet}, {loginBgLaptop} " />
     </LoginSection>
   );
 };

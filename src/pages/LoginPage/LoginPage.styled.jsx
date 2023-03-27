@@ -17,7 +17,8 @@ import {
   loginBgMobile,
 } from '../../images/';
 
-export const LoginSection = styled(Paper)(({ theme }) => ({
+export const LoginSection = styled('section')(({ theme, bgImage }) => ({
+  // backgroundImage: `url=(${bgImage})`,
   backgroundColor: theme.customColors.appBackground,
   minHeight: '100vh',
   position: 'relative',
