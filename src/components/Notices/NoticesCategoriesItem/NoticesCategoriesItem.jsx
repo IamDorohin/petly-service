@@ -24,7 +24,6 @@ export const NoticesCategoriesItem = ({
     // _id,
     like,
   } = notice;
-  console.log(imgUrl);
 
   // const [deleteOwnNotice] = useDeleteNoticeMutation();
 
