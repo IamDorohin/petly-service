@@ -26,13 +26,6 @@ export const NoticesCategoriesItem = ({
   } = notice;
   console.log(imgUrl);
 
-  // const [deleteOwnNotice] = useDeleteNoticeMutation();
-
-  // const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
-
-  // console.log('moreDetails', moreDetails);
-  // console.log('take this id for modal window', _id);
-
   return (
     <SC.NoticeItem>
       {imgUrl && (
