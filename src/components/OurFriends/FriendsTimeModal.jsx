@@ -25,7 +25,7 @@ const TimeModal = ({ timeTable }) => {
         {timeTable.map((day, idx) => {
           return (
             <Day key={idx}>
-              <span>{daysOfWeek[idx]} </span>
+              <span>{daysOfWeek[idx]}</span>
               <span>
                 {day.from}- {day.to}
               </span>

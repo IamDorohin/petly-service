@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import NotFound from 'components/NotFound/NotFound';
+import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import Loader from 'components/Loader';
 import Friend from './OurFriends';
 import { List, Item } from './OurFriends.styled';
@@ -27,7 +27,7 @@ const FriendsList = () => {
  
   return (
     <List>
-      {error && <NotFound />}
+      {error && <NotFoundPage/>}
       {isLoading && <Loader />}
       {friends.length > 0 &&
         friends.map(friend => (
