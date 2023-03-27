@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button,  TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 export const FontButton = theme => ({
@@ -70,7 +70,7 @@ export const AddBtnThemeNotice = theme => ({
   [theme.breakpoints.up('tablet')]: {
     width: '140px',
     height: '140px',
-       mb: '40px',
+    mb: '40px',
   },
 });
 
@@ -124,7 +124,7 @@ export const CssTextField = styled(TextField)({
   border: '1px solid rgba(245, 146, 86, 0.5)',
   borderRadius: '20px',
   background: '#fdf7f2',
-//   minHeight: '40px',
+  //   minHeight: '40px',
   padding: '15px',
   '& label.Mui-focused': {
     color: '#F59256',
@@ -153,7 +153,7 @@ export const CssTextField = styled(TextField)({
 export const CssTextFieldTheme = theme => ({
   width: '100%',
   height: '100%',
-//   minHeight: '100px',
+  //   minHeight: '100px',
   mt: '8px',
   minHeight: '40px',
   [theme.breakpoints.up('tablet')]: {
@@ -162,4 +162,4 @@ export const CssTextFieldTheme = theme => ({
   },
 });
 
-// 
+//

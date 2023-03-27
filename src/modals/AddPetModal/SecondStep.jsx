@@ -1,4 +1,4 @@
-import { Box, Button, FormLabel, Typography } from '@mui/material';
+import { Alert, Box, Button, FormLabel, Typography } from '@mui/material';
 import React from 'react';
 import {
   AddBtn,
@@ -12,6 +12,8 @@ import { ButtonBox, CantBtn, FormBox, FormBoxTheme } from './FirstStep.styled';
 import { LabelFormicAddComment } from '../Modal/Modal.styled';
 
 const AddPetModalSecondStep = ({ formik, onBack }) => {
+  const errorMessages = Object.values(formik.errors);
+
   return (
     <FormBox sx={FormBoxTheme}>
       <Typography sx={FontButton}>Add photo and some comments</Typography>
@@ -41,6 +43,16 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           onChange={formik.handleChange}
         />
       </FormLabel>
+      <>
+        {errorMessages.length !== 0 &&
+          errorMessages.map(message => {
+            return (
+              <Alert severity="error" autoHideDuration={2000}>
+                {message}
+              </Alert>
+            );
+          })}
+      </>
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onBack}>
           Back
