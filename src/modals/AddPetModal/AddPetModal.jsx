@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import AddPetModalFirstStep from './FirstStep';
 import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
+import { addPetFirstStepSchema, addPetSubmitSchema } from './AddPetModalShema';
 
 const initialValues = {
   namePet: '',
@@ -20,10 +21,22 @@ const STEPS = {
 
 const AddPetModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
+  const [errorMessages, setErrorMessages] = useState([]);
 
-  const onNextStepButtonClick = () => {
-    // validation
-    setStep(STEPS.SECOND);
+  const onNextStepButtonClick = async ({ values, validateForm }) => {
+    try {
+      const errors = await validateForm(values);
+      const errorsArray = Object.values(errors);
+
+      if (errorsArray.length === 0) {
+        setStep(STEPS.SECOND);
+      } else {
+        console.log(errorsArray);
+        setErrorMessages(errorsArray);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const onPrevStepButtonClick = () => {
@@ -34,6 +47,9 @@ const AddPetModal = ({ isOpen, onClose }) => {
     <Modal isOpen={isOpen} onClose={onClose} title="Add pet">
       <Formik
         initialValues={initialValues}
+        validationSchema={
+          step === STEPS.FIRST ? addPetFirstStepSchema : addPetSubmitSchema
+        }
         onSubmit={(values, actions) => {
           console.log(values);
           actions.resetForm();
@@ -45,8 +61,9 @@ const AddPetModal = ({ isOpen, onClose }) => {
             {step === STEPS.FIRST && (
               <AddPetModalFirstStep
                 formik={props}
-                onSubmit={onNextStepButtonClick}
+                onSubmit={() => onNextStepButtonClick(props)}
                 onClose={onClose}
+                errorMessages={errorMessages}
               />
             )}
             {step === STEPS.SECOND && (

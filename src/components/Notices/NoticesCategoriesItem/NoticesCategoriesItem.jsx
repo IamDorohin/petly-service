@@ -8,7 +8,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import pets from '../../../img/pets.jpg';
 
-export const NoticesCategoriesItem = ({ notice, onClick }) => {
+export const NoticesCategoriesItem = ({
+  notice,
+  onFavButtonClick,
+  openNoticeDetailsModal,
+}) => {
   const {
     breed,
     category,
@@ -38,13 +42,13 @@ export const NoticesCategoriesItem = ({ notice, onClick }) => {
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
         {like ? (
-          <FavoriteIcon onClick={() => onClick(notice)} />
+          <FavoriteIcon onClick={() => onFavButtonClick(notice)} />
         ) : (
           <FavoriteTwoToneIcon
             className="forHoverBtn"
             fontSize="inherit"
             color="#000"
-            onClick={() => onClick(notice)}
+            onClick={() => onFavButtonClick(notice)}
           />
         )}
       </SC.NoticeLikeBtn>
@@ -68,7 +72,10 @@ export const NoticesCategoriesItem = ({ notice, onClick }) => {
             <SC.NoticeListItemDetails>{price}</SC.NoticeListItemDetails>
           </SC.NoticeListItem>
         </SC.NoticeList>
-        <SC.NoticeLearnMoreBtn className={owner}>
+        <SC.NoticeLearnMoreBtn
+          className={owner}
+          // onClick={onLearnMoreButtonClick}
+        >
           Learn More
         </SC.NoticeLearnMoreBtn>
         {owner && (

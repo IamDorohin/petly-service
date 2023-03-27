@@ -93,8 +93,8 @@ export const BtnGroupFierst = styled(Button)`
     color: #111111;
     height: 44px;
     :focus,
-    :active,
-    :hover {
+    :hover,
+    &.active {
       background: #f59256;
       color: #ffffff;
     }
