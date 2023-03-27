@@ -4,37 +4,24 @@ axios.defaults.baseURL = 'https://petly-service-backend.onrender.com/api';
 
 export const getCurrentProfile = async token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  const response = await axios.get(`/favorite`);
-  return response.data;
+  const response = await axios.get('/profile');
+  return response.data.data;
 };
 
-// export const getSearchingMovies = async searchQuery => {
-//   const response = await axios.get(
-//     `${BASE_URL}/${SEARCHING}?api_key=${KEY}&query=${searchQuery}`
-//   );
-//   return response.data;
-// };
+export const addUserPet = async (token, body) => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  const response = await axios.post('/profile', body);
+  return response.data.data.petList;
+};
 
-// export const getCurrentMovie = async movieId => {
-//   const response = await axios.get(
-//     `${BASE_URL}/${CURRENT}/${movieId}?api_key=${KEY}`
-//   );
+export const updateUserProfile = async (token, body) => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  const response = await axios.put('/current/update', body);
+  return response.data.data;
+};
 
-//   return response.data;
-// };
-
-// export const getMovieCast = async movieId => {
-//   const response = await axios.get(
-//     `${BASE_URL}/${CURRENT}/${movieId}/credits?api_key=${KEY}`
-//   );
-
-//   return response.data;
-// };
-
-// export const getMovieReviews = async movieId => {
-//   const response = await axios.get(
-//     `${BASE_URL}/${CURRENT}/${movieId}/reviews?api_key=${KEY}`
-//   );
-
-//   return response.data;
-// };
+export const removeUserPet = async (token, id) => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  const response = await axios.delete(`/current/${id}`);
+  return response.data;
+};
