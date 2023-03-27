@@ -24,8 +24,6 @@ export const MainContainer = styled.div`
       width: 1280px;
   padding: 92px 16px 0;
 }
-  
-
 `;
 
 export const HomeSection = styled.section`
@@ -132,5 +130,4 @@ margin: 0;
 export const HomeWrapp = styled.div`
 
 `;
-
 

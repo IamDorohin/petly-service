@@ -1,13 +1,17 @@
-import { StyledNavContainer, StyledNavList, StyledNavItem, StyledLink,
+import {
+  StyledNavContainer,
+  StyledNavList,
+  StyledNavItem,
+  StyledLink,
 } from './Nav.styled';
 
 export const Nav = ({ onClick }) => {
   const items = [
     { text: 'News', href: '/news' },
-    { text: 'Find pet', href: '/notices' },
+    { text: 'Find pet', href: '/notices/sell' },
     { text: 'Our friends', href: '/friends' },
   ];
-  
+
   const elements = items.map(({ text, href }) => {
     return (
       <StyledNavItem key={text} onClick={onClick}>

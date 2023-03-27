@@ -24,6 +24,6 @@ export const StyledLogo = styled.a`
   }
 `;
 
-export const StyledLogoT = styled.a`
+export const StyledLogoT = styled.span`
   color: rgba(245, 146, 86, 1);
 `;
