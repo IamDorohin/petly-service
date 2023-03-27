@@ -7,8 +7,11 @@ import { styled } from '@mui/material/styles';
 
 //! container
 export const UserPageContainer = styled('section')(({ theme }) => ({
-  padding: '0 20px',
-  margin: '0 auto',
+  position: 'relative',
+
+  // padding: '0 20px',
+  // margin: '0 auto',
+
   width: '100%',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
@@ -21,7 +24,15 @@ export const UserPageContainer = styled('section')(({ theme }) => ({
 
 export const UserWrapper = styled('div')(({ theme }) => ({
   position: 'relative',
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
+  display: 'flex',
+  justifyContent: 'center',
+  width: '280px',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  // height: '537px',
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '736px',
+  },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 

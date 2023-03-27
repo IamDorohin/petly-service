@@ -11,7 +11,7 @@ const userInfo = {
 };
 
 export const UserDataList = () => {
-  // const { name, email, birthday, phone, city } = userInfo;
+  // Тут скоріше за все буде йти фетч
 
   return (
     <SC.UserDataListContainer>
