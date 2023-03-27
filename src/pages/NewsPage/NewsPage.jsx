@@ -51,8 +51,8 @@ const NewsPage = () => {
               );
             })}
         </NewsGrid>
-        {visibleNews.length === 0 && 
-          <NoResult match={filter} />
+        {
+          visibleNews.length === 0 && <NoResult match={filter} />
           // <Error>
           //   Sorry, we have no news with this keyword. Please, try another word.
           // </Error>

@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import { store, persistor } from 'redux/store';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from 'theme';
+import AOS from 'aos';
+AOS.init();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

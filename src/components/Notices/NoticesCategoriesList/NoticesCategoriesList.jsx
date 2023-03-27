@@ -9,8 +9,14 @@ import {
   useDeleteFavoriteNoticeMutation,
   useGetFavoriteArrQuery,
 } from 'redux/notices/noticesSlice';
+import { useState } from 'react';
+import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
 
 export const NoticesCategoriesList = ({ searchParams }) => {
+  const [activeNoticeId, setActiveNoticeId] = useState(null);
+  const [isNoticeDetailsModalOpen, setIsNoticeDetailsModalOpen] =
+    useState(false);
+
   const { categoryName } = useParams();
 
   const { data: favoriteIdArr } = useGetFavoriteArrQuery();
@@ -51,6 +57,9 @@ export const NoticesCategoriesList = ({ searchParams }) => {
     }
   };
 
+  const openNoticeDetailsModal = () => setIsNoticeDetailsModalOpen(true);
+  const closeNoticeDetailsModal = () => setIsNoticeDetailsModalOpen(false);
+
   const [addNotice] = useAddFavoriteNoticeMutation(findedNotices);
   const [deleteNotice] = useDeleteFavoriteNoticeMutation(findedNotices);
 
@@ -62,10 +71,18 @@ export const NoticesCategoriesList = ({ searchParams }) => {
           <NoticesCategoriesItem
             notice={notice}
             key={notice._id}
-            onClick={favNoticesStatusHandler}
+            onFavButtonClick={favNoticesStatusHandler}
+            openNoticeDetailsModal={openNoticeDetailsModal}
+            setActiveNoticeId={setActiveNoticeId}
           />
         ))}
       {noticesNotFound && <NoResult />}
+      <NoticeDetailsModal
+        isOpen={isNoticeDetailsModalOpen}
+        onClose={closeNoticeDetailsModal}
+        onFavButtonClick={favNoticesStatusHandler}
+        activeNoticeId={activeNoticeId}
+      />
     </CategoriesList>
   );
 };

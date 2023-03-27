@@ -32,7 +32,7 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const data = await axios.post('/auth/login', credentials);
+      const { data } = await axios.post('/auth/login', credentials);
       return data;
     } catch ({ response }) {
       const error = {
@@ -40,6 +40,7 @@ export const logIn = createAsyncThunk(
         message: response.data.message,
       };
       return rejectWithValue(error);
+      // console.log('Error while user is login', error);
     }
   }
 );
