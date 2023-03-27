@@ -1,16 +1,15 @@
 import React from 'react';
-
-import {Container,Title, FriendsPageContainer} from './OurFriends.styled';
+import Title from 'components/Generic/Title';
+import { Container, FriendsPageContainer } from './OurFriends.styled';
 
 const FriendsContainer = ({ children }) => {
   return (
     <FriendsPageContainer>
-          <Container>
-      <Title>Our Friends</Title>
-      {children}
-    </Container>
+      <Container>
+        <Title>Our Friends</Title>
+        {children}
+      </Container>
     </FriendsPageContainer>
-
   );
 };
 
