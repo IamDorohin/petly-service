@@ -12,8 +12,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import authSelectors from 'redux/login-page/auth/auth-selectors';
 import { logIn } from '../../redux/login-page/auth/auth-operations';
-
 import { loginYupSchema } from '../../schemas/validationSchema';
+
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -34,6 +34,7 @@ import {
 } from './LoginPage.styled';
 
 import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
+// import  loginImage from '../../images/login-bg-auth-mobile-min.png';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -66,12 +67,7 @@ const LoginPage = () => {
 
   return (
     <LoginSection>
-      <LoginBgImage
-        srcSet={`${loginBgMobile}, ${loginBgTablet}, ${loginBgLaptop}`}
-        src={loginBgLaptop}
-        // sizes="(min-width: 1280px) 590px, (min-width: 768px) 645px, 300px"
-        alt="login"
-      ></LoginBgImage>
+      {/* <LoginBgImage src={loginBgMobile} position /> */}
       <LoginContainer>
         <TitleH1>Login</TitleH1>
 
@@ -134,6 +130,7 @@ const LoginPage = () => {
           </TitleH5>
         </HelperContainer>
       </LoginContainer>
+      <LoginBgImage src={loginBgMobile} />
     </LoginSection>
   );
 };

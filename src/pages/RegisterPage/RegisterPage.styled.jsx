@@ -10,17 +10,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 // import { Form } from 'formik';
 // import Button from "@mui/material/Button";
 
-import {
-  loginBgImage,
-  loginBgTablet,
-  loginBgLaptop,
-  loginBgMobile,
-} from '../../images/';
+// import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
 
 export const LoginSection = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
   minHeight: '100vh',
-  position: 'relative',
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     paddingTop: '272px',
     paddingBottom: '260px',
@@ -34,29 +28,22 @@ export const LoginSection = styled(Paper)(({ theme }) => ({
   },
 }));
 
-export const LoginBgImage = styled('img')(({ theme }) => ({
-  width: '100%',
-  bottom: '0',
-  right: '0',
-  position: 'absolute',
-
-  // backgroundPosition: 'bottom',
-  // backgroundSize: 'contain',
-  // backgroundRepeat: 'no-repeat',
-  // height: 'calc(100vh - 74px)',
+export const LoginBgImage = styled(Paper)(({ theme }) => ({
+  // backgroundImage: ('LoginBgImage'),
+  backgroundPosition: 'bottom',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
   loading: 'lazy',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    //  backgroundImage: 'loginBgTablet',
-    // backgroundPosition: 'bottom',
-    // backgroundSize: 'contain',
-    // backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'bottom',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    //    backgroundImage: 'loginBgLaptop',
-    //   backgroundPosition: 'bottom',
-    //   backgroundSize: 'contain',
-    //   backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'bottom',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
   },
 }));
 
