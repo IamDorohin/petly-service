@@ -1,37 +1,35 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
+import NoResult from 'components/Generic/NoResult/NoResult';
 import Loader from 'components/Loader';
 import Friend from './OurFriends';
 import { List, Item } from './OurFriends.styled';
-import { selectFriends, selectError, selectLoadingStatus } from 'redux/friends/selectors';
+import {
+  selectFriends,
+  selectError,
+  selectLoadingStatus,
+} from 'redux/friends/selectors';
 import fetchFriends from 'redux/friends/operations';
 
-
-
-
 const FriendsList = () => {
-  
   const isLoading = useSelector(selectLoadingStatus);
   const friends = useSelector(selectFriends);
   const error = useSelector(selectError);
-    const dispatch = useDispatch();
-    
-    
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchFriends());
   }, [dispatch]);
 
-    // console.log(friends)
+  // console.log(friends)
 
- 
   return (
     <List>
-      {error && <NotFoundPage/>}
+      {error && <NoResult />}
       {isLoading && <Loader />}
       {friends.length > 0 &&
         friends.map(friend => (
-          <Item key={friend._id} >
+          <Item key={friend._id}>
             <Friend friend={friend} />
           </Item>
         ))}
@@ -40,6 +38,5 @@ const FriendsList = () => {
 };
 
 export default FriendsList;
-
 
 // data-aos="zoom-in"
