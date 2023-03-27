@@ -17,11 +17,19 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
   return (
     <FormBox sx={FormBoxTheme}>
       <Typography sx={FontButton}>Add photo and some comments</Typography>
-      <AddBtn sx={AddBtnTheme} variant="contained" component="label">
+      <AddBtn
+        sx={AddBtnTheme}
+        variant="contained"
+        component="label"
+        src="image/*"
+        aria-label="upload picture"
+      >
+        {/* <img src={accept} alt={item.title} /> */}
         <Vector />
         <input
           hidden
           accept="image/*"
+          src="image/*"
           multiple
           type="file"
           name="photo"
