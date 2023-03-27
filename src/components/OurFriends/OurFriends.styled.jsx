@@ -187,7 +187,8 @@ export const FriendsBox = styled('div')({
 export const IMG = styled('img')(({ theme }) => ({
    width: '110px',
     height: '78px',
-    filter: 'none',
+  filter: 'none',
+       objectFit: 'contain',
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
               width: '120px',
       height: '85px',
@@ -199,33 +200,7 @@ export const IMG = styled('img')(({ theme }) => ({
 
 }))
 
-export const NoImg = styled('img')(({ theme }) => ({
-  width: '110px',
-    height: '78px',
-    filter: 'none',
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-              width: '120px',
-      height: '85px',
-    },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-     width: '158px',
-      height: '112px',
-  }
 
-}))
-
-// export const ImgDiv = styled('div')(({ theme }) => ({
-//     position: 'relative',
-//     padding: '39px 55px',
-//     backgroundColor: 'transparent',
-//   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-//   padding: '42px 60px',
-//     },
-//   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-//   padding: '56px 79px',
-//   }
-
-// }))
 
 
 

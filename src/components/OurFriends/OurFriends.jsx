@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TimeModal from './FriendsTimeModal';
-import {  StyledFriend, FriendsLink, FriendsBox,IMG, Adress, ItemAdress, Button, TextLink, P, Text, NoImg } from './OurFriends.styled';
+import {  StyledFriend, FriendsLink, FriendsBox,IMG, Adress, ItemAdress, Button, TextLink, P, Text } from './OurFriends.styled';
 import noImg from '../../img/friends/no-logo2.png'
 
 
@@ -20,7 +20,7 @@ const Friend = ({ friend }) => {
         {/* { title.slice(0, 30)} */}
         </FriendsLink>
            <FriendsBox>
-        {imageUrl ? <IMG src={imageUrl} alt="company logo" /> : <NoImg src={noImg} />}
+        {imageUrl ? <IMG src={imageUrl} alt="company logo" /> : <IMG src={noImg} />}
         
 
         <Adress>
