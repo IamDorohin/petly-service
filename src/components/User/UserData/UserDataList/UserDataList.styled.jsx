@@ -2,7 +2,16 @@ import { styled } from '@mui/material/styles';
 
 export const UserDataListContainer = styled('ul')(({ theme }) => ({
   position: 'relative',
-  padding: '0 14px',
+  padding: '0 12px 0 16px',
+  margin: '0',
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '380px',
+    padding: '40px 0 80px 32px',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    padding: '0',
+  },
 }));
 
 export const UserDataListItem = styled('li')(({ theme }) => ({
@@ -11,10 +20,18 @@ export const UserDataListItem = styled('li')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   position: 'relative',
-  marginBottom: '12px',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[0],
+  color: theme.customColors.primaryFont,
+  lineHeight: theme.customLineHeight[1],
+  '&:not(:last-child)': {
+    marginBottom: '8px',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    fontSize: theme.customFontSizes[3],
+    lineHeight: theme.customLineHeight[6],
+  },
 }));
 
 export const UserDataListWrapper = styled('div')(({ theme }) => ({
@@ -29,6 +46,9 @@ export const UserDataListContent = styled('p')(({ theme }) => ({
   height: '20px',
   margin: '0',
   marginRight: '9px',
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    marginRight: '52px',
+  },
 }));
 
 export const UserDataListInput = styled('input')(({ theme }) => ({
@@ -56,4 +76,11 @@ export const UserDataPencilIcon = styled('button')(({ theme }) => ({
     border: '1px solid',
     borderColor: theme.customColors.accent,
   },
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '32px',
+    height: '32px',
+  },
 }));
+
+// [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
+// [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},

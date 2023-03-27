@@ -6,4 +6,11 @@ export const PetsWrapper = styled('div')(({ theme }) => ({
   marginRight: 'auto',
   marginLeft: 'auto',
   width: '280px',
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '704px',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginTop: '0',
+    width: '100%',
+  },
 }));

@@ -1,13 +1,14 @@
 import { UserPageTitle } from 'components/Generic/UserPageTitle/UserPageTitle';
 import { PetsList } from './PetsLIst/PetsList';
 import { PetsWrapper } from './PetsData.styled';
+import { AddPetButton } from './AddPetsButton/AddPetButton';
 
 export const PetsData = () => {
   return (
     <PetsWrapper>
       <UserPageTitle>My pets:</UserPageTitle>
+      <AddPetButton />
       <PetsList />
-      {/* <AddPetButton /> кнопка додавання тваринки. Назву придумай яку хочеш */}
     </PetsWrapper>
   );
 };

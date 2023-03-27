@@ -3,9 +3,10 @@ import { styled } from '@mui/material/styles';
 export const LogOutContainer = styled('div')(({ theme }) => ({
   position: 'absolute',
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   bottom: '21px',
   right: '12px',
+  width: '100px',
 
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalM,
@@ -20,6 +21,15 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
 
   '&:hover': {
     opacity: '0.5',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    bottom: '24px',
+    left: '18px',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    bottom: '18px',
+    left: '35px',
+    alignItems: 'center',
   },
 }));
 

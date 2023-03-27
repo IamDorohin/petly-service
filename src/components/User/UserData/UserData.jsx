@@ -1,6 +1,6 @@
 import { UserPageTitle } from 'components/Generic/UserPageTitle/UserPageTitle';
 import { UserDataList } from './UserDataList/UserDataList';
-import { HiCamera } from 'react-icons/hi';
+import { TiCamera } from 'react-icons/ti';
 import * as SC from './UserData.styled';
 
 const UserInfo = {
@@ -20,7 +20,7 @@ export const UserData = () => {
           <SC.UserDataPhoto></SC.UserDataPhoto>
           <SC.UserDataEditContainer>
             <SC.UserDataEditIcon>
-              <HiCamera color="F59256" />
+              <TiCamera color="F59256" size={'100%'} />
             </SC.UserDataEditIcon>
             Edit photo
           </SC.UserDataEditContainer>

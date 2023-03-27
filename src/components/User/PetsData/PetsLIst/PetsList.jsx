@@ -22,7 +22,7 @@ export const PetsList = () => {
           </SC.PetsDataInfoIcon>
           {petsDataTitle.map(item => {
             const inputValue = petInfo[item.toLowerCase()];
-            console.log('PREV inputValue', inputValue);
+            // console.log('PREV inputValue', inputValue);
             return (
               <PetsDataItem
                 key={item}
