@@ -6,31 +6,32 @@ import { HiTrash } from 'react-icons/hi';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
+import pets from '../../../img/pets.jpg';
 
 export const NoticesCategoriesItem = ({
   notice,
   onFavButtonClick,
-  setActiveNoticeId,
   openNoticeDetailsModal,
 }) => {
-  const { breed, category, title, imgUrl, location, price, owner, _id, like } =
-    notice;
-
-  const onLearnMoreButtonClick = () => {
-    setActiveNoticeId(_id);
-    openNoticeDetailsModal();
-  };
-
-  // const [deleteOwnNotice] = useDeleteNoticeMutation();
-
-  // const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
-
-  // console.log('moreDetails', moreDetails);
-  // console.log('take this id for modal window', _id);
+  const {
+    breed,
+    category,
+    title,
+    imgUrl,
+    location,
+    price,
+    owner,
+    // _id,
+    like,
+  } = notice;
+  console.log(imgUrl);
 
   return (
     <SC.NoticeItem>
-      <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+      {imgUrl && (
+        <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+      )}
+      {!imgUrl && <SC.NoticeImage src={pets} alt="фото домашнього улюбленця" />}
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
         {like ? (
@@ -66,7 +67,7 @@ export const NoticesCategoriesItem = ({
         </SC.NoticeList>
         <SC.NoticeLearnMoreBtn
           className={owner}
-          onClick={onLearnMoreButtonClick}
+          // onClick={onLearnMoreButtonClick}
         >
           Learn More
         </SC.NoticeLearnMoreBtn>

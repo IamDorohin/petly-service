@@ -44,7 +44,7 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
               <Alert severity="error" autoHideDuration={2000}>
                 {message}
               </Alert>
-            );;
+            );
           })}
       </>
       <Box sx={ButtonBox}>
