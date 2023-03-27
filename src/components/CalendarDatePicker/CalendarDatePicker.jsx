@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DatePicker, DatePickerInput } from './CalendarDatePicker.styled';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -13,7 +12,7 @@ const CalendarDatePicker = ({ onChange, label, value }) => {
     <FormLabel sx={LabelFormic}>
       {label}
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="uk">
-        <DemoItem sx={{mb:'8px'}}>
+        <DemoItem sx={{ mb: '8px' }}>
           <DatePicker
             sx={DatePickerInput}
             id="dateOfBirth"

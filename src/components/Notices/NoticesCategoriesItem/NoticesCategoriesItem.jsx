@@ -20,13 +20,6 @@ export const NoticesCategoriesItem = ({ notice, onClick }) => {
     like,
   } = notice;
 
-  // const [deleteOwnNotice] = useDeleteNoticeMutation();
-
-  // const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
-
-  // console.log('moreDetails', moreDetails);
-  // console.log('take this id for modal window', _id);
-
   return (
     <SC.NoticeItem>
       <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
