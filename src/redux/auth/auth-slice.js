@@ -44,7 +44,6 @@ const authSlice = createSlice({
         handlePending(state);
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.isRefreshing = false;
         state.token = payload.token;
         state.isLoggedIn = true;
