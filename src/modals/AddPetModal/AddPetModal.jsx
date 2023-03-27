@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import AddPetModalFirstStep from './FirstStep';
 import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
+import { useAddNoticeMutation } from '../../redux/notices/noticesSlice';
 import { addPetFirstStepSchema, addPetSubmitSchema } from './AddPetModalShema';
 
 const initialValues = {
@@ -22,6 +23,7 @@ const STEPS = {
 const AddPetModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
   const [errorMessages, setErrorMessages] = useState([]);
+  const [addNotice] = useAddNoticeMutation();
 
   const onNextStepButtonClick = async ({ values, validateForm }) => {
     try {
@@ -50,8 +52,9 @@ const AddPetModal = ({ isOpen, onClose }) => {
         validationSchema={
           step === STEPS.FIRST ? addPetFirstStepSchema : addPetSubmitSchema
         }
-        onSubmit={(values, actions) => {
+        onSubmit={async (values, actions) => {
           console.log(values);
+          await addNotice(values);
           actions.resetForm();
           onClose();
         }}
