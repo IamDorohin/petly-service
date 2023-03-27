@@ -109,7 +109,7 @@ width: 280px;
 `;
 
 export const HomeTitle = styled.h1`
-// font-family: 'Manrope';
+font-family: 'Manrope';
 font-style: normal;
 font-weight: 700;
 font-size: 32px;
