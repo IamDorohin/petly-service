@@ -12,7 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { noticesApi } from './notices/noticesSlice';
 import { NewsAPI } from './news/NewsAPI';
-import { authReducer } from './login-page/auth-slice';
+import { authReducer } from 'redux/auth/auth-slice';
 
 const authPersistConfig = {
   key: 'auth',

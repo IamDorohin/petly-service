@@ -4,8 +4,9 @@ import NewsSearch from '../../components/News/NewsSearch/Search';
 import NewsGrid from '../../components/News/NewsGrid/NewsGrid';
 import NewsCard from '../../components/News/NewsCard/NewsCard';
 import moment from 'moment/moment';
-import { NewsContainer, Section, Error } from './NewsPage.styled';
+import { NewsContainer, Section } from './NewsPage.styled';
 import { useGetNewsQuery } from '../../redux/news/NewsAPI';
+import NoResult from '../../components/Generic/NoResult/NoResult';
 
 const NewsPage = () => {
   const [filter, setFilter] = useState('');
@@ -50,11 +51,12 @@ const NewsPage = () => {
               );
             })}
         </NewsGrid>
-        {visibleNews.length === 0 && (
-          <Error>
-            Sorry, we have no news with this keyword. Please, try another word.
-          </Error>
-        )}
+        {
+          visibleNews.length === 0 && <NoResult match={filter} />
+          // <Error>
+          //   Sorry, we have no news with this keyword. Please, try another word.
+          // </Error>
+        }
       </NewsContainer>
     </Section>
   );

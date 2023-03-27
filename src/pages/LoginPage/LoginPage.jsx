@@ -38,7 +38,7 @@ import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(authSelectors.getIsRefreshing);
+  let isRefreshing = useSelector(authSelectors.getIsRefreshing);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -110,17 +110,17 @@ const LoginPage = () => {
               {formik.touched.password && formik.errors.password}
             </FormHelperText>
           </FormControl>
-        </LoginForm>
 
-        <Button
-          type="submit"
-          onClick={formik.handleSubmit}
-          isDisabled={formik.isSubmitting}
-          isLoading={isRefreshing}
-          fullWidth
-        >
-          {isRefreshing ? <Loader /> : 'Login'}
-        </Button>
+          <Button
+            type="submit"
+            onClick={formik.handleSubmit}
+            isDisabled={formik.isSubmitting}
+            isLoading={isRefreshing}
+            fullWidth
+          >
+            {isRefreshing ? <Loader /> : 'Login'}
+          </Button>
+        </LoginForm>
 
         <HelperContainer>
           <TitleH5>

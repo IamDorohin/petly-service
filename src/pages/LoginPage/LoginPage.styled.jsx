@@ -168,7 +168,6 @@ export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
 }));
 
 export const LoginInput = styled(TextField)(({ theme }) => ({
-  borderColor: theme.customBorders.accent,
   variant: 'h5',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
@@ -212,15 +211,12 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
 export const Button = styled('button')(({ theme }) => ({
   width: '100%',
   minHeight: '100%',
-  display: 'block',
   display: 'flex',
   alignItems: 'center',
   textAlign: 'center',
   justifyContent: 'center',
   paddingTop: '8.5px',
   paddingBottom: '8.5px',
-  paddingLeft: '112.5px',
-  paddingRight: '112.5px',
   paddingLeft: '20px',
   paddingRight: '20px',
   border: '0',
