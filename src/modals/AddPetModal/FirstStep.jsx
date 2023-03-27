@@ -2,10 +2,10 @@ import { ButtonBox, CantBtn, FierstStepDiv, Input } from './FirstStep.styled';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
 import dayjs from 'dayjs';
 import { Box } from '@mui/system';
-import { Button, FormLabel } from '@mui/material';
+import { Alert, Button, FormLabel } from '@mui/material';
 import { LabelFormic } from '../Modal/Modal.styled';
 
-const AddPetModalFirstStep = ({ formik, onSubmit, onClose }) => {
+const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
   return (
     <FierstStepDiv>
       <FormLabel sx={LabelFormic}>
@@ -26,6 +26,7 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose }) => {
           formik.setFieldValue('dateOfBirth', dayjs(value.$d), false);
         }}
       />
+
       <FormLabel sx={LabelFormic}>
         Breed
         <Input
@@ -36,6 +37,16 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose }) => {
           placeholder="Type breed"
         />
       </FormLabel>
+      <>
+        {errorMessages.length !== 0 &&
+          errorMessages.map(message => {
+            return (
+              <Alert severity="error" autoHideDuration={2000}>
+                {message}
+              </Alert>
+            );;
+          })}
+      </>
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onClose} variant="contained">
           Cancel
