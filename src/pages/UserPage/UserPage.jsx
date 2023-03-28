@@ -14,6 +14,7 @@ import { LogOut } from 'components/User/LogOut/LogOut';
 const UserPage = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const token = useSelector(selector.getToken);
+
   console.log('currentUser', currentUser);
   useEffect(() => {
     if (token) {

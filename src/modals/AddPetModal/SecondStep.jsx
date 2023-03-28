@@ -55,7 +55,7 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
         {errorMessages.length !== 0 &&
           errorMessages.map(message => {
             return (
-              <Alert severity="error" autoHideDuration={2000}>
+              <Alert key={message} severity="error" autoHideDuration={2000}>
                 {message}
               </Alert>
             );

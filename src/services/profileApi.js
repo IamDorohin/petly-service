@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3080/api';
+axios.defaults.baseURL = 'https://petly-service-backend.onrender.com/api';
 
 export const getCurrentProfile = async token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

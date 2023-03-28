@@ -38,7 +38,7 @@ export const PetsDataItem = ({ pet }) => {
         </SC.PetsDataInfoContent>
         <SC.PetsDataInfoContent>
           <SC.PetsDataInfoTitle>Comments</SC.PetsDataInfoTitle>
-          {comments.slice(0, 158) + '...'}
+          {/* {comments.slice(0, 158) + '...'} */}
         </SC.PetsDataInfoContent>
       </SC.PetsDataInfoWrapper>
     </SC.PetsDataItem>
