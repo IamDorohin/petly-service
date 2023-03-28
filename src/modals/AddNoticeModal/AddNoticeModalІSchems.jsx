@@ -9,31 +9,31 @@ const regexBreed = /^[A-Za-zА-Яа-яёЁЇїІіЄєҐґ\s\-']+$/;
 const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
 export const NOTICE_TYPES = {
-  LOST_FOUND: 1,
-  GOOD_HANDS: 2,
-  SELL: 3,
+  LOST_FOUND: 'lost-found',
+  GOOD_HANDS: 'in-good-hands',
+  SELL: 'sell',
 };
 
 const FILE_SIZE = 1000000;
 
 const firstStepFieldsShape = {
-  noticeType: yup
-    .number()
+  category: yup
+    .string()
     .oneOf(Object.values(NOTICE_TYPES))
     .required('Category is empty'),
-  noticeTitle: yup
+  title: yup
     .string()
     .min(2)
     .max(48)
     .matches(regexTitle, 'Can contain only two digits')
     .required('Title is empty'),
-  namePet: yup
+  name: yup
     .string()
     .min(2)
     .max(16)
     .matches(regexName, 'Can only contain letters')
     .required('Name is empty'),
-  dateOfBirth: yup.date(),
+  birthdate: yup.date(),
   breed: yup
     .string()
     .min(2)
@@ -55,7 +55,7 @@ const secondStepFieldsShape = {
         .required('Required'),
     otherwise: schema => schema.notRequired(),
   }),
-  photo: yup
+  imgUrl: yup
     .mixed()
     .test(
       'fileSize',
@@ -69,7 +69,7 @@ const secondStepFieldsShape = {
         value === null || (value && SUPPORTED_FORMATS.includes(value.type))
     )
     .nullable(),
-  comment: yup.string().min(8).max(120).required('comment is empty'),
+  comments: yup.string().min(8).max(120).required('comment is empty'),
 };
 
 export const addNoticeFirstStepSchema = yup

@@ -1,9 +1,9 @@
 import { AddPetBtn } from './AddPetButton.styled';
 import { AddPetBtnIcon } from './AddPetButton.styled';
 
-export const AddPetButton = () => {
+export const AddPetButton = ({ onClick }) => {
   return (
-    <AddPetBtn>
+    <AddPetBtn onClick={onClick}>
       Add pet
       <AddPetBtnIcon />
     </AddPetBtn>

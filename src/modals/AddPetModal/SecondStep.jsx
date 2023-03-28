@@ -32,9 +32,9 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           src="image/*"
           multiple
           type="file"
-          name="photo"
+          name="petsImageUrl"
           onChange={event => {
-            formik.setFieldValue('photo', event.currentTarget.files[0]);
+            formik.setFieldValue('petsImageUrl', event.currentTarget.files[0]);
           }}
         />
       </AddBtn>
@@ -44,10 +44,10 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           sx={CssTextFieldTheme}
           id="outlined-multiline-flexible"
           label="Type comments"
-          name="comment"
+          name="comments"
           multiline
           maxRows={4}
-          value={formik.values.comment}
+          value={formik.values.comments}
           onChange={formik.handleChange}
         />
       </FormLabel>
