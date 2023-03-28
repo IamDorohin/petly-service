@@ -1,7 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { LoginForm } from 'components/AuthForm/LoginFom';
 import { RegisterForm } from 'components/AuthForm/RegisterForm';
 
@@ -15,7 +12,7 @@ import {
 } from './LoginPage.styled';
 
 import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // import  loginImage from '../../images/login-bg-auth-mobile-min.png';
 
 const AuthPage = () => {
