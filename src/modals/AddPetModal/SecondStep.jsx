@@ -21,22 +21,28 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
         sx={AddBtnTheme}
         variant="contained"
         component="label"
-        src="image/*"
         aria-label="upload picture"
       >
-        {/* <img src={accept} alt={item.title} /> */}
         <Vector />
         <input
           hidden
-          accept="image/*"
-          src="image/*"
+          accept=".jpg,.png"
           multiple
           type="file"
           name="photo"
           onChange={event => {
             formik.setFieldValue('photo', event.currentTarget.files[0]);
+            // console.log(URL.createObjectURL(event.currentTarget.files[0]));
+            // const x = event.target.files;
+            //   console.log(x);
+            //   console.log(event.target.files);
+
+            //   console.log(URL.createObjectURL(x));
+            // console.log(event.currentTarget.files[0]);
           }}
         />
+       { console.log(formik.values.photo)}
+        {/* <img src={URL.createObjectURL(event.currentTarget.files[0])} alt="" /> */}
       </AddBtn>
       <FormLabel sx={LabelFormicAddComment}>
         Comments
@@ -52,14 +58,14 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
         />
       </FormLabel>
       <>
-        {errorMessages.length !== 0 &&
+        {/* {errorMessages.length !== 0 &&
           errorMessages.map(message => {
             return (
               <Alert severity="error" autoHideDuration={2000}>
                 {message}
               </Alert>
             );
-          })}
+          })} */}
       </>
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onBack}>

@@ -48,14 +48,21 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           <Vector />
           <input
             hidden
-            accept="image/*"
+            accept=".jpg,.png"
             multiple
             type="file"
             name="photo"
             onChange={event => {
               formik.setFieldValue('photo', event.currentTarget.files[0]);
+              console.log(URL.createObjectURL(event.currentTarget.files[0]));
+              //  const x = event.target.files;
+              //  console.log(x);
+              // console.log(URL.createObjectURL(event.target.files.photo));
+            //   console.log(URL.createObjectURL(event.target.files.photo));
+              console.log(event.currentTarget.files[0]);
             }}
-          />
+                  />
+                  <img src="" alt="" />
         </AddBtn>
       </FormLabel>
       <FormLabel sx={LabelFormicAddComment}>
@@ -79,14 +86,14 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
         />
       </FormLabel>
       <>
-        {errorMessages.length !== 0 &&
+        {/* {errorMessages.length !== 0 &&
           errorMessages.map(message => {
             return (
               <Alert severity="error" autoHideDuration={2000}>
                 {message}
               </Alert>
             );
-          })}
+          })} */}
       </>
 
       <Box sx={ButtonBox}>

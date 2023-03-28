@@ -104,14 +104,14 @@ const AddNoticeModalFirstStep = ({
         />
       </FormLabel>
       <>
-        {errorMessages.length !== 0 &&
+        {/* {errorMessages.length !== 0 &&
           errorMessages.map(message => {
             return (
               <Alert severity="error" autoHideDuration={2000}>
                 {message}
               </Alert>
             );
-          })}
+          })} */}
       </>
       {/* <NextBtn sx={FontButton} >
               Next

@@ -63,7 +63,10 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
             : addNoticeSubmitSchema
         }
         onSubmit={async (values, actions) => {
-          console.log(values);
+        //   console.log(values.photo);
+        //   console.log(values.currentTarget.files[0]);
+          // console.log(URL.createObjectURL(values));
+
           await addNotice(values);
           actions.resetForm();
           onClose();

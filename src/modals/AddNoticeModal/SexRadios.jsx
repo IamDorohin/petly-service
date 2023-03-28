@@ -65,19 +65,19 @@ export default function SexRadios({ formik }) {
   const value = formik.values.sex;
   return (
     <FormControl
-      sx={{
-        display: 'flex',
-        '&:hover': {
-          display: 'block',
-          //   backgroundColor: 'red',
-        },
-      }}
+    //   sx={{
+    //     display: 'flex',
+    //     '&:hover': {
+    //     //   display: 'block',
+    //         // backgroundColor: 'red',
+    //     },
+    //   }}
     >
       <FormLabel sx={LabelFormic} id="demo-customized-radios">
         The sex:
       </FormLabel>
       <RadioGroup
-        sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'unset' }}
+        sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'unset', height:'100%'}}
         defaultValue="male"
         aria-labelledby="demo-customized-radios"
         name="customized-radios"

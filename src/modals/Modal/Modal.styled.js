@@ -87,7 +87,8 @@ export const LabelFormic = theme => ({
   mt: '8px',
   [theme.breakpoints.up('tablet')]: {
     fontSize: '24px',
-    mb: '20px',
+      mb: '20px',
+    
   },
 });
 export const LabelFormicAddComment = theme => ({

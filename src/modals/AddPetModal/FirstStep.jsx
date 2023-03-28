@@ -38,14 +38,14 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
         />
       </FormLabel>
       <>
-        {errorMessages.length !== 0 &&
+        {/* {errorMessages.length !== 0 &&
           errorMessages.map(message => {
             return (
               <Alert severity="error" autoHideDuration={2000}>
                 {message}
               </Alert>
             );
-          })}
+          })} */}
       </>
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onClose} variant="contained">
