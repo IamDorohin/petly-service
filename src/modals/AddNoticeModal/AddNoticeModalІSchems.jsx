@@ -47,7 +47,7 @@ const secondStepFieldsShape = {
     .string()
     .matches(regexAdress, 'Must be in format City, Region')
     .required('Required'),
-  price: yup.string().when('categoryName', {
+  price: yup.string().when('category', {
     is: 'sell',
     then: schema =>
       schema

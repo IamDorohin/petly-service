@@ -24,7 +24,7 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     bottom: '24px',
-    left: '15px',
+    left: '30px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     bottom: '20px',

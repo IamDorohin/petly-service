@@ -62,8 +62,33 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
             ? addNoticeFirstStepSchema
             : addNoticeSubmitSchema
         }
-        onSubmit={async (values, actions) => {
-          console.log(values);
+        onSubmit={async (
+          {
+            category,
+            title,
+            name,
+            birthdate,
+            breed,
+            sex,
+            location,
+            price,
+            comments,
+            imgUrl,
+          },
+          actions
+        ) => {
+          const values = {
+            title,
+            name,
+            breed,
+            category,
+            location,
+            imgUrl,
+            sex,
+          };
+          if (birthdate) values.birthdate = birthdate;
+          if (price) values.price = Number(price);
+          if (comments) values.comments = comments;
           await addNotice(values);
           actions.resetForm();
           onClose();

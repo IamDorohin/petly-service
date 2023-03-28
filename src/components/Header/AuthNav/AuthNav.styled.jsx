@@ -91,8 +91,13 @@ export const StyledIcon = styled(RiAccountCircleFill)`
   color: inherit;
   background-color: inherit;
   margin-right: 14px;
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
+
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const StyledButtonNew = styled(Link)`

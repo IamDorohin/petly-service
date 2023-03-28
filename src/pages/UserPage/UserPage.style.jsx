@@ -49,7 +49,7 @@ export const UserWrapper = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     // width: '100%',
-    paddingRight: '40px',
+    // paddingRight: '40px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     // width: '411px',
