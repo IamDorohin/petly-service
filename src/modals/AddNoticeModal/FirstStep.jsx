@@ -30,25 +30,25 @@ const AddNoticeModalFirstStep = ({
           <BtnGroupFierst
             sx={{ width: '50' }}
             className={
-              formik.values.noticeType === NOTICE_TYPES.LOST_FOUND
+              formik.values.category === NOTICE_TYPES.LOST_FOUND
                 ? 'active'
                 : null
             }
             onClick={() =>
-              formik.setFieldValue('noticeType', NOTICE_TYPES.LOST_FOUND)
+              formik.setFieldValue('category', NOTICE_TYPES.LOST_FOUND)
             }
           >
             Lost/found
           </BtnGroupFierst>
           <BtnGroupFierst
             className={
-              formik.values.noticeType === NOTICE_TYPES.GOOD_HANDS
+              formik.values.category === NOTICE_TYPES.GOOD_HANDS
                 ? 'active'
                 : null
             }
             sx={{ width: '65%' }}
             onClick={() =>
-              formik.setFieldValue('noticeType', NOTICE_TYPES.GOOD_HANDS)
+              formik.setFieldValue('category', NOTICE_TYPES.GOOD_HANDS)
             }
           >
             Hands
@@ -56,11 +56,9 @@ const AddNoticeModalFirstStep = ({
           <BtnGroupFierst
             // sx={{ width: '30%' }}
             className={
-              formik.values.noticeType === NOTICE_TYPES.SELL ? 'active' : null
+              formik.values.category === NOTICE_TYPES.SELL ? 'active' : null
             }
-            onClick={() =>
-              formik.setFieldValue('noticeType', NOTICE_TYPES.SELL)
-            }
+            onClick={() => formik.setFieldValue('category', NOTICE_TYPES.SELL)}
           >
             Sell
           </BtnGroupFierst>
@@ -69,28 +67,28 @@ const AddNoticeModalFirstStep = ({
       <FormLabel sx={LabelFormic}>
         Tittle of ad
         <Input
-          value={formik.values.noticeTitle}
+          value={formik.values.title}
           onChange={formik.handleChange}
           type="text"
-          name="noticeTitle"
+          name="title"
           placeholder="Type name pet"
         />
       </FormLabel>
       <FormLabel sx={LabelFormic}>
         Name pet
         <Input
-          value={formik.values.namePet}
+          value={formik.values.name}
           onChange={formik.handleChange}
           type="text"
-          name="namePet"
+          name="name"
           placeholder="Type name pet"
         />
       </FormLabel>
       <CalendarDatePicker
         label="Date of birth"
-        value={formik.values.dateOfBirth}
+        value={formik.values.birthdate}
         onChange={value => {
-          formik.setFieldValue('dateOfBirth', dayjs(value.$d), false);
+          formik.setFieldValue('birthdate', dayjs(value.$d), false);
         }}
       />
       <FormLabel sx={LabelFormic}>

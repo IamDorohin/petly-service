@@ -7,13 +7,13 @@ const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 const FILE_SIZE = 1000000;
 
 const firstStepFieldsShape = {
-  namePet: yup
+  name: yup
     .string()
     .min(2)
     .max(16)
     .matches(regexName, 'Can only contain letters')
     .required('Name is empty'),
-  dateOfBirth: yup.date(),
+  date: yup.date(),
   breed: yup
     .string()
     .min(2)
@@ -22,7 +22,7 @@ const firstStepFieldsShape = {
 };
 
 const secondStepFieldsShape = {
-  photo: yup
+  petsImageUrl: yup
     .mixed()
     .test(
       'fileSize',
@@ -36,7 +36,8 @@ const secondStepFieldsShape = {
         value === null || (value && SUPPORTED_FORMATS.includes(value.type))
     )
     .nullable(),
-  comment: yup.string().min(8).max(120).required('Comment is empty'),
+  comments: yup.string().min(8).max(120),
+  // .required('Comment is empty'),
 };
 
 export const addPetFirstStepSchema = yup.object().shape(firstStepFieldsShape);

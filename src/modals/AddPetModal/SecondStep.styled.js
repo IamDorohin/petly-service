@@ -26,7 +26,7 @@ export const AddBtn = styled(Button)`
     color: #111111;
     box-shadow: none;
 
-    background: #fdf7f2;
+    // background: #fdf7f2;
 
     margin-top: 20px;
     //   margin-right: 0;

@@ -4,13 +4,13 @@ export const noticesApi = createApi({
   reducerPath: 'notices',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://petly-service-backend.onrender.com/api',
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = getState().auth.token;
-    //   if (token) {
-    //     headers.set('authorization', `Bearer ${token}`);
-    //   }
-    //   return headers;
-    // },
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
   tagTypes: [
     'serched',
@@ -30,15 +30,8 @@ export const noticesApi = createApi({
       query: () => `/notices/favorite`,
       providesTags: ['favorite'],
     }),
-    // getNoticesBySearch: builder.query({
-    //   query: args => {
-    //     const { currentCategory, currentSearch } = args;
-    //     return { url: `/notices/category/${currentCategory}?${currentSearch}` };
-    //   },
-    //   providesTags: ['serched'],
-    // }),
     getNoticesById: builder.query({
-      query: id => `/notices/${id}`,
+      query: id => `/notices/notice/${id}`,
       providesTags: ['current'],
     }),
     addFavoriteNotice: builder.mutation({
@@ -77,7 +70,6 @@ export const noticesApi = createApi({
 
 export const {
   useGetFavoriteArrQuery,
-  // useGetNoticesBySearchQuery,
   useGetNoticesByCategoryQuery,
   useGetNoticesByIdQuery,
   useAddFavoriteNoticeMutation,

@@ -25,6 +25,7 @@ export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
 
   const clearSearchBar = () => {
     setSearchQuery('');
+    setCurrentQuery('');
   };
 
   return (

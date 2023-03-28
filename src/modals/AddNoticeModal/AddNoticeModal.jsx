@@ -12,16 +12,16 @@ import {
 } from './AddNoticeModalІSchems';
 
 const initialValues = {
-  noticeType: NOTICE_TYPES.LOST_FOUND,
-  noticeTitle: '',
-  namePet: '',
-  dateOfBirth: dayjs(),
+  category: NOTICE_TYPES.LOST_FOUND,
+  title: '',
+  name: '',
+  birthdate: dayjs(),
   breed: '',
   sex: 'male',
   location: '',
   price: '',
-  comment: '',
-  photo: null,
+  comments: '',
+  imgUrl: null,
 };
 
 const STEPS = {

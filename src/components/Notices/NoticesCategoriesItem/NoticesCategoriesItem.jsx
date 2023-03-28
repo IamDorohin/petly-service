@@ -1,37 +1,40 @@
-import // useDeleteNoticeMutation,
-// useGetNoticesByIdQuery,
-'redux/notices/noticesSlice';
+import { useDeleteNoticeMutation } from 'redux/notices/noticesSlice';
 import { HiTrash } from 'react-icons/hi';
-// import { AiTwotoneHeart } from 'react-icons/ai';
+import { useState, useEffect } from 'react';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import { useGetNoticesByIdQuery } from 'redux/notices/noticesSlice';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import pets from '../../../img/pets.jpg';
+import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
 
-export const NoticesCategoriesItem = ({
-  notice,
-  onFavButtonClick,
-  openNoticeDetailsModal,
-}) => {
-  const {
-    breed,
-    category,
-    title,
-    imgUrl,
-    location,
-    price,
-    owner,
-    // _id,
-    like,
-  } = notice;
-  console.log(imgUrl);
+export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
+  const { breed, category, title, imgUrl, location, price, owner, _id, like } =
+    notice;
 
-  // const [deleteOwnNotice] = useDeleteNoticeMutation();
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isCurrentPet, setIsCurrentPet] = useState(false);
 
-  // const { moreDetails, refetch } = useGetNoticesByIdQuery(_id);
+  const { currentData: moreDetails } = useGetNoticesByIdQuery(_id, {
+    skip: !isOpenModal,
+  });
 
-  // console.log('moreDetails', moreDetails);
-  // console.log('take this id for modal window', _id);
+  const [deleteNotice] = useDeleteNoticeMutation();
+
+  useEffect(() => {
+    if (moreDetails) {
+      setIsCurrentPet(true);
+    }
+  }, [moreDetails]);
+
+  const closeModalHendler = () => {
+    setIsCurrentPet(false);
+    setIsOpenModal(false);
+  };
+
+  console.log('isOpenModal', isOpenModal);
+  console.log('isCurrentPet', isCurrentPet);
+  console.log('moreDetails', moreDetails);
 
   return (
     <SC.NoticeItem>
@@ -74,6 +77,7 @@ export const NoticesCategoriesItem = ({
         </SC.NoticeList>
         <SC.NoticeLearnMoreBtn
           className={owner}
+          onClick={() => setIsOpenModal(true)}
           // onClick={onLearnMoreButtonClick}
         >
           Learn More
@@ -82,9 +86,18 @@ export const NoticesCategoriesItem = ({
           <SC.NoticeDeleteBtn
           // onClick={() => deleteOwnNotice(_id)}
           >
-            <SC.NoticeDeleteBtnText>Delete</SC.NoticeDeleteBtnText>
+            <SC.NoticeDeleteBtnText onClick={() => deleteNotice(_id)}>
+              Delete
+            </SC.NoticeDeleteBtnText>
             <HiTrash size={20} />
           </SC.NoticeDeleteBtn>
+        )}
+        {isCurrentPet && (
+          <NoticeDetailsModal
+            isOpen={isCurrentPet}
+            onClose={closeModalHendler}
+            currentPet={moreDetails.data.notice}
+          />
         )}
       </SC.NoticeDescription>
     </SC.NoticeItem>

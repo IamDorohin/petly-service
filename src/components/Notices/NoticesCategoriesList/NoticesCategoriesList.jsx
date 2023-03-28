@@ -10,12 +10,9 @@ import {
   useGetFavoriteArrQuery,
 } from 'redux/notices/noticesSlice';
 import { useState } from 'react';
-import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
 
 export const NoticesCategoriesList = ({ searchParams }) => {
-  const [activeNoticeId, setActiveNoticeId] = useState(null);
-  const [isNoticeDetailsModalOpen, setIsNoticeDetailsModalOpen] =
-    useState(false);
+  useState(false);
 
   const { categoryName } = useParams();
 
@@ -36,9 +33,10 @@ export const NoticesCategoriesList = ({ searchParams }) => {
 
   const findedNotices = array?.data?.notices;
 
+  console.log('favoriteIdArr', favoriteIdArr);
   if (favoriteIdArr?.data.favorite.length !== 0) {
     findedNotices?.forEach(item => {
-      if (favoriteIdArr?.data.favorite.incudes(item._id)) {
+      if (favoriteIdArr?.data.favorite.includes(item._id)) {
         item.like = true;
       }
     });
@@ -57,9 +55,6 @@ export const NoticesCategoriesList = ({ searchParams }) => {
     }
   };
 
-  const openNoticeDetailsModal = () => setIsNoticeDetailsModalOpen(true);
-  const closeNoticeDetailsModal = () => setIsNoticeDetailsModalOpen(false);
-
   const [addNotice] = useAddFavoriteNoticeMutation(findedNotices);
   const [deleteNotice] = useDeleteFavoriteNoticeMutation(findedNotices);
 
@@ -72,17 +67,15 @@ export const NoticesCategoriesList = ({ searchParams }) => {
             notice={notice}
             key={notice._id}
             onFavButtonClick={favNoticesStatusHandler}
-            openNoticeDetailsModal={openNoticeDetailsModal}
-            setActiveNoticeId={setActiveNoticeId}
           />
         ))}
       {noticesNotFound && <NoResult />}
-      <NoticeDetailsModal
+      {/* <NoticeDetailsModal
         isOpen={isNoticeDetailsModalOpen}
         onClose={closeNoticeDetailsModal}
         onFavButtonClick={favNoticesStatusHandler}
         activeNoticeId={activeNoticeId}
-      />
+      /> */}
     </CategoriesList>
   );
 };

@@ -4,14 +4,17 @@ import { Formik } from 'formik';
 import AddPetModalFirstStep from './FirstStep';
 import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
+import { addUserPet } from 'services/profileApi';
 import { addPetFirstStepSchema, addPetSubmitSchema } from './AddPetModalShema';
+import { useSelector } from 'react-redux';
+import selector from 'redux/auth/auth-selectors';
 
 const initialValues = {
-  namePet: '',
-  dateOfBirth: dayjs(),
+  name: '',
+  date: dayjs(),
   breed: '',
-  comment: '',
-  photo: null,
+  comments: '',
+  petsImageUrl: null,
 };
 
 const STEPS = {
@@ -22,6 +25,7 @@ const STEPS = {
 const AddPetModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
   const [errorMessages, setErrorMessages] = useState([]);
+  const token = useSelector(selector.getToken);
 
   const onNextStepButtonClick = async ({ values, validateForm }) => {
     try {
@@ -50,8 +54,8 @@ const AddPetModal = ({ isOpen, onClose }) => {
         validationSchema={
           step === STEPS.FIRST ? addPetFirstStepSchema : addPetSubmitSchema
         }
-        onSubmit={(values, actions) => {
-          console.log(values);
+        onSubmit={async (values, actions) => {
+          await addUserPet(token, values);
           actions.resetForm();
           onClose();
         }}
