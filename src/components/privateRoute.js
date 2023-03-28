@@ -4,7 +4,7 @@ import selector from 'redux/auth/auth-selectors';
 
 export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
   const isLoggedIn = useSelector(selector.getIsLoggedIn);
-  const isRefreshing = useSelector(selector.getIsRefreshing);
+  // const isRefreshing = useSelector(selector.getIsRefreshing);
 
   // const shouldRedirect = !isLoggedIn && !isRefreshing;
 

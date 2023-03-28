@@ -5,7 +5,13 @@ import * as SC from './PetsList.styled';
 import { HiTrash } from 'react-icons/hi';
 
 export const PetsDataItem = ({ pet }) => {
-  const { _id, name, breed, comments, birthdate = '--/--/--' } = pet;
+  const {
+    _id,
+    name,
+    breed,
+    // comments,
+    birthdate = '--/--/--',
+  } = pet;
   const token = useSelector(selector.getToken);
 
   const deletPetHandler = async id => {
