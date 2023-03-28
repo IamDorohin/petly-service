@@ -3,7 +3,7 @@ import Link from '@mui/material/Link';
 
 export const Card = styled('li')(({ theme }) => ({
   position: 'relative',
-
+  margin: '0 auto',
   textAlign: 'start',
   flexBasis: '100%',
 

@@ -1,35 +1,21 @@
 import { useMediaQuery } from 'react-responsive';
-
-import {
-  StyledContainer,
-  StyledHeader,
-  StyledUserMenu,
-  StyledContainerUserMenu,
-} from './BurgerMenu.styled';
+import { StyledContainer, StyledHeader } from './BurgerMenu.styled';
 import { Logo } from '../Logo/Logo';
 import { Nav } from '../Nav/Nav';
 import { AuthNav } from '../AuthNav/AuthNav';
-// import {UserNav} from '../UserNav/UserNav';
-import { CloseBurgerMenuBtn } from '../CloseBurgerMenuBtn/CloseBurgerMenuBtn';
+import { CloseBurgerMenuBtn } from './Buttons/CloseBurgerMenuBtn';
 
 export const BurgerMenu = ({ onClick }) => {
-  const isTablet = useMediaQuery({ minWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <StyledContainer>
       <StyledHeader>
-        <Logo /> <CloseBurgerMenuBtn onClick={onClick} />
+        <Logo />
+        <CloseBurgerMenuBtn className="button" onClick={() => onClick()} />
       </StyledHeader>
-
-      <StyledContainerUserMenu>
-        {!isTablet && (
-          <StyledUserMenu>
-            <AuthNav onClick={onClick} />
-            {/* <UserNav onClick={onClick} /> */}
-          </StyledUserMenu>
-        )}
-
-        <Nav onClick={onClick} />
-      </StyledContainerUserMenu>
+      {isMobile && <AuthNav onClick={() => onClick()} />}
+      <Nav onClick={onClick} />
     </StyledContainer>
   );
 };

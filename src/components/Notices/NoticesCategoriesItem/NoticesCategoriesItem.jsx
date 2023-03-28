@@ -5,8 +5,8 @@ import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import { useGetNoticesByIdQuery } from 'redux/notices/noticesSlice';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
-import pets from '../../../img/pets.jpg';
 import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
+import pet from 'img/pngwing.png';
 
 export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
   const { breed, category, title, imgUrl, location, price, owner, _id, like } =
@@ -32,16 +32,13 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
     setIsOpenModal(false);
   };
 
-  console.log('isOpenModal', isOpenModal);
-  console.log('isCurrentPet', isCurrentPet);
-  console.log('moreDetails', moreDetails);
-
   return (
     <SC.NoticeItem>
-      {imgUrl && (
+      {imgUrl === 'default/url' ? (
+        <SC.NoticeImage src={pet} />
+      ) : (
         <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
       )}
-      {!imgUrl && <SC.NoticeImage src={pets} alt="фото домашнього улюбленця" />}
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
         {like ? (

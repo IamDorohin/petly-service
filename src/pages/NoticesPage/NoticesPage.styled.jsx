@@ -5,7 +5,7 @@ export const NoticesPageContainer = styled('section')(({ theme }) => ({
 }));
 
 export const Container = styled('div')(({ theme }) => ({
-  paddingTop: '42px',
+  // paddingTop: '42px',
   paddingRight: '20px',
   paddingBottom: '60px',
   paddingLeft: '20px',
@@ -19,7 +19,6 @@ export const Container = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '768px',
-    // paddingTop: '88px',
     paddingRight: '32px',
     paddingBottom: '100px',
     paddingLeft: '32px',
@@ -27,7 +26,6 @@ export const Container = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     width: '1280px',
-    paddingTop: '70px',
     paddingRight: '16px',
     paddingBottom: '200px',
     paddingLeft: '16px',
@@ -40,7 +38,7 @@ export const NoticesPageNavBox = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     display: 'flex',
     alignItems: 'flex-start',
-    // justifyContent: 'space-between',
+    justifyContent: 'space-between',
     marginBottom: '70px',
     width: '100%',
   },
