@@ -33,9 +33,10 @@ export const NoticesCategoriesList = ({ searchParams }) => {
 
   const findedNotices = array?.data?.notices;
 
+  console.log('favoriteIdArr', favoriteIdArr);
   if (favoriteIdArr?.data.favorite.length !== 0) {
     findedNotices?.forEach(item => {
-      if (favoriteIdArr?.data.favorite.incudes(item._id)) {
+      if (favoriteIdArr?.data.favorite.includes(item._id)) {
         item.like = true;
       }
     });

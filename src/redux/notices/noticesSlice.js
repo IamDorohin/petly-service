@@ -4,13 +4,13 @@ export const noticesApi = createApi({
   reducerPath: 'notices',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://petly-service-backend.onrender.com/api',
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = getState().auth.token;
-    //   if (token) {
-    //     headers.set('authorization', `Bearer ${token}`);
-    //   }
-    //   return headers;
-    // },
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
   tagTypes: [
     'serched',

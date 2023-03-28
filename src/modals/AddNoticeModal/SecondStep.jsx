@@ -13,7 +13,7 @@ import { LabelFormic, LabelFormicAddComment } from '../Modal/Modal.styled';
 import { NOTICE_TYPES } from '../AddNoticeModal/AddNoticeModalІSchems';
 
 const AddNoticeModalSecondStep = ({ formik, onBack }) => {
-  const isSellNotice = formik.values.noticeType === NOTICE_TYPES.SELL;
+  const isSellNotice = formik.values.category === NOTICE_TYPES.SELL;
   const errorMessages = Object.values(formik.errors);
 
   return (
@@ -51,9 +51,9 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
             accept="image/*"
             multiple
             type="file"
-            name="photo"
+            name="imgUrl"
             onChange={event => {
-              formik.setFieldValue('photo', event.currentTarget.files[0]);
+              formik.setFieldValue('imgUrl', event.currentTarget.files[0]);
             }}
           />
         </AddBtn>
@@ -71,10 +71,10 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           sx={CssTextFieldTheme}
           id="outlined-multiline-flexible"
           label="Type comments"
-          name="comment"
+          name="comments"
           multiline
           maxRows={4}
-          value={formik.values.comment}
+          value={formik.values.comments}
           onChange={formik.handleChange}
         />
       </FormLabel>
