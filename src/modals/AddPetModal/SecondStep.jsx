@@ -1,18 +1,21 @@
 import { Alert, Box, Button, FormLabel, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AddBtn,
   AddBtnTheme,
   CssTextField,
   CssTextFieldTheme,
   FontButton,
+  Img,
 } from './SecondStep.styled';
 import { ReactComponent as Vector } from './icon/Vector.svg';
 import { ButtonBox, CantBtn, FormBox, FormBoxTheme } from './FirstStep.styled';
 import { LabelFormicAddComment } from '../Modal/Modal.styled';
+import { convertBlobToBase64 } from './AddPetUtils';
 
 const AddPetModalSecondStep = ({ formik, onBack }) => {
-  const errorMessages = Object.values(formik.errors);
+    const errorMessages = Object.values(formik.errors);
+     const [base64Url, setBase64Url] = useState();
 
   return (
     <FormBox sx={FormBoxTheme}>
@@ -30,19 +33,16 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           multiple
           type="file"
           name="photo"
-          onChange={event => {
+          onChange={async event => {
             formik.setFieldValue('photo', event.currentTarget.files[0]);
-            // console.log(URL.createObjectURL(event.currentTarget.files[0]));
-            // const x = event.target.files;
-            //   console.log(x);
-            //   console.log(event.target.files);
-
-            //   console.log(URL.createObjectURL(x));
-            // console.log(event.currentTarget.files[0]);
+            const _Base64Url = await convertBlobToBase64(
+              event.currentTarget.files[0]
+            );
+            setBase64Url(_Base64Url);
+            console.log(event.currentTarget.files[0]);
           }}
         />
-       { console.log(formik.values.photo)}
-        {/* <img src={URL.createObjectURL(event.currentTarget.files[0])} alt="" /> */}
+        {!base64Url ? <Vector /> : <Img src={base64Url} alt="" />}
       </AddBtn>
       <FormLabel sx={LabelFormicAddComment}>
         Comments
@@ -58,14 +58,14 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
         />
       </FormLabel>
       <>
-        {/* {errorMessages.length !== 0 &&
-          errorMessages.map(message => {
+        {errorMessages.length !== 0 &&
+          errorMessages.map((message, index) => {
             return (
-              <Alert severity="error" autoHideDuration={2000}>
+              <Alert key={index} severity="error" >
                 {message}
               </Alert>
             );
-          })} */}
+          })}
       </>
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onBack}>

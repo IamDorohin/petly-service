@@ -104,18 +104,15 @@ const AddNoticeModalFirstStep = ({
         />
       </FormLabel>
       <>
-        {/* {errorMessages.length !== 0 &&
-          errorMessages.map(message => {
+        {errorMessages.length !== 0 &&
+          errorMessages.map((message, index) => {
             return (
-              <Alert severity="error" autoHideDuration={2000}>
+              <Alert key={index} severity="error" >
                 {message}
               </Alert>
             );
-          })} */}
+          })}
       </>
-      {/* <NextBtn sx={FontButton} >
-              Next
-            </NextBtn> */}
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onClose} variant="contained">
           Cancel

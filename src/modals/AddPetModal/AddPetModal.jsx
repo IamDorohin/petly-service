@@ -6,6 +6,7 @@ import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
 import { useAddNoticeMutation } from '../../redux/notices/noticesSlice';
 import { addPetFirstStepSchema, addPetSubmitSchema } from './AddPetModalShema';
+import { modalBox } from '../Modal/Modal.styled';
 
 const initialValues = {
   namePet: '',
@@ -46,8 +47,9 @@ const AddPetModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Add pet">
+    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose} title="Add pet">
       <Formik
+        validateOnChange={false}
         initialValues={initialValues}
         validationSchema={
           step === STEPS.FIRST ? addPetFirstStepSchema : addPetSubmitSchema

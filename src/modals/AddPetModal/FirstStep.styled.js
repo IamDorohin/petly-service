@@ -34,6 +34,41 @@ line-height: 19px;
 }
  
 `;
+export const InputComment = styled.textarea`
+&&{
+  display:inline-block
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  height: 40px;
+  left: 20px;
+  top: 136px;
+  background: #fdf7f2;
+  border: 1px solid rgba(245, 146, 86, 0.5);
+  border-radius: 40px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  padding: 11px 20px 12px 14px;
+  margin-left: 0;
+  :focus, :hover, :active {
+    border: 1px solid #f59256;
+    outline: none;
+  }
+   font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 19px;
+@media only screen and (min-width:768px) {
+ min-height: 113px;
+ height: auto;
+  margin-top: 12px;
+  border-radius: 20px;
+   width: 448px;
+  }
+}
+ 
+`;
 
 // export const InputData = theme =>( {
 //     minHeight: '40px',

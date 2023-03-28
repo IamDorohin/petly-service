@@ -77,7 +77,12 @@ export default function SexRadios({ formik }) {
         The sex:
       </FormLabel>
       <RadioGroup
-        sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'unset', height:'100%'}}
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          flexDirection: 'unset',
+          height: '100%',
+        }}
         defaultValue="male"
         aria-labelledby="demo-customized-radios"
         name="customized-radios"
@@ -92,10 +97,11 @@ export default function SexRadios({ formik }) {
             flexDirection: 'column-reverse',
             justifyItems: 'start',
             margin: '18px 39px 0 0',
+
             // marginLeft: 'unset',
           }}
           value="male"
-          label={<Male />}
+          label={<Male/>}
           control={<BpRadio />}
           checked={value === 'male'}
         />

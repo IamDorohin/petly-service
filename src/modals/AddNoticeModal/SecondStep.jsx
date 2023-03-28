@@ -1,21 +1,28 @@
 import { Alert, Box, Button, FormLabel } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AddBtn,
   AddBtnThemeNotice,
   CssTextField,
   CssTextFieldTheme,
+  Img,
 } from '../AddPetModal/SecondStep.styled';
 import { ReactComponent as Vector } from '../AddPetModal/icon/Vector.svg';
-import { ButtonBox, CantBtn, Input } from '../AddPetModal/FirstStep.styled';
+import {
+  ButtonBox,
+  CantBtn,
+  Input,
+  InputComment,
+} from '../AddPetModal/FirstStep.styled';
 import SexRadios from './SexRadios';
 import { LabelFormic, LabelFormicAddComment } from '../Modal/Modal.styled';
 import { NOTICE_TYPES } from '../AddNoticeModal/AddNoticeModalІSchems';
+import { convertBlobToBase64 } from '../AddPetModal/AddPetUtils';
 
 const AddNoticeModalSecondStep = ({ formik, onBack }) => {
   const isSellNotice = formik.values.noticeType === NOTICE_TYPES.SELL;
   const errorMessages = Object.values(formik.errors);
-
+  const [base64Url, setBase64Url] = useState();
   return (
     <div>
       <SexRadios formik={formik} />
@@ -45,36 +52,35 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
       <FormLabel sx={LabelFormic}>
         Load the pet’s image:
         <AddBtn sx={AddBtnThemeNotice} variant="contained" component="label">
-          <Vector />
           <input
             hidden
             accept=".jpg,.png"
             multiple
             type="file"
             name="photo"
-            onChange={event => {
+            onChange={async event => {
               formik.setFieldValue('photo', event.currentTarget.files[0]);
-              console.log(URL.createObjectURL(event.currentTarget.files[0]));
-              //  const x = event.target.files;
-              //  console.log(x);
-              // console.log(URL.createObjectURL(event.target.files.photo));
-            //   console.log(URL.createObjectURL(event.target.files.photo));
+              const _Base64Url = await convertBlobToBase64(
+                event.currentTarget.files[0]
+              );
+              setBase64Url(_Base64Url);
               console.log(event.currentTarget.files[0]);
             }}
-                  />
-                  <img src="" alt="" />
+          />
+          {!base64Url ? <Vector /> : <Img src={base64Url} alt="" />}
         </AddBtn>
       </FormLabel>
       <FormLabel sx={LabelFormicAddComment}>
         Comments
-        {/* <Input
+        <InputComment
+          rows="4"
           value={formik.values.comment}
           onChange={formik.handleChange}
           type="text"
           name="comment"
           placeholder="Type comments"
-        /> */}
-        <CssTextField
+        />
+        {/* <CssTextField
           sx={CssTextFieldTheme}
           id="outlined-multiline-flexible"
           label="Type comments"
@@ -83,17 +89,17 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           maxRows={4}
           value={formik.values.comment}
           onChange={formik.handleChange}
-        />
+        /> */}
       </FormLabel>
       <>
-        {/* {errorMessages.length !== 0 &&
-          errorMessages.map(message => {
+        {errorMessages.length !== 0 &&
+          errorMessages.map((message, index) => {
             return (
-              <Alert severity="error" autoHideDuration={2000}>
+              <Alert key={index} severity="error" >
                 {message}
               </Alert>
             );
-          })} */}
+          })}
       </>
 
       <Box sx={ButtonBox}>

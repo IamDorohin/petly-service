@@ -10,6 +10,7 @@ import {
   addNoticeFirstStepSchema,
   addNoticeSubmitSchema,
 } from './AddNoticeModalІSchems';
+import { modalBox } from '../Modal/Modal.styled';
 
 const initialValues = {
   noticeType: NOTICE_TYPES.LOST_FOUND,
@@ -54,8 +55,9 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Add notice">
+    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose} title="Add notice">
       <Formik
+        validateOnChange={false}
         initialValues={initialValues}
         validationSchema={
           step === STEPS.FIRST
@@ -63,8 +65,8 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
             : addNoticeSubmitSchema
         }
         onSubmit={async (values, actions) => {
-        //   console.log(values.photo);
-        //   console.log(values.currentTarget.files[0]);
+          //   console.log(values.photo);
+          //   console.log(values.currentTarget.files[0]);
           // console.log(URL.createObjectURL(values));
 
           await addNotice(values);

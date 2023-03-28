@@ -26,7 +26,7 @@ export const AddBtn = styled(Button)`
     color: #111111;
     box-shadow: none;
 
-    // background: #fdf7f2;
+    background: #fdf7f2;
 
     margin-top: 20px;
     //   margin-right: 0;
@@ -162,4 +162,22 @@ export const CssTextFieldTheme = theme => ({
   },
 });
 
-//
+export const Img = styled.img`
+  width: inherit;
+`;
+
+// export const FormControlLabell = theme => ({
+//   width: '100%',
+//   height: '100%',
+//   //   minHeight: '100px',
+//   mt: '8px',
+//   minHeight: '40px',
+//   [theme.breakpoints.up('tablet')]: {
+//     minHeight: '107px',
+//     mt: '12px',
+//   },
+// });Male
+export const Malee = styled.svg`
+ width: 100px,
+  height: 100px,
+`;
