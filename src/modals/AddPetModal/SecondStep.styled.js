@@ -22,15 +22,10 @@ export const FontButton = theme => ({
 export const AddBtn = styled(Button)`
   && {
     display: flex;
-    // justify-content: center;
     color: #111111;
     box-shadow: none;
-
     background: #fdf7f2;
-
     margin-top: 20px;
-    //   margin-right: 0;
-    //   margin-left: 0;
     :focus,
     :focus,
     :active,
@@ -90,41 +85,11 @@ export const ModalBox = styled.div`
   }
 `;
 
-// export const BtnNextModalBox = styled.div`
-//   //   height: 530px;
-//   position: absolute;
-//   //   /* height: max-content; */
-//   width: 280px;
-//   //   width: 100%;
-
-//   padding: 20px;
-//   left: 0;
-//   //   top: 360px;
-// `;
-
-// export const TextFielde = theme => ({
-// fontFamily: 'Manrope',
-// font-style: normal,
-// font-weight: 500,
-// font-size: 16px,
-// line-height: 22px,
-// text-align: center;
-// letter - spacing: -0.01em
-
-//   fontFamily: theme.customFontFamily.primary,
-//   fontStyle: 'normal',
-//   fontWeight: theme.customFontWeight.normalM,
-//   fontSize: '16px',
-//   textTransform: 'none',
-//   color: theme.customColors.primaryFont,
-// });
-
 export const CssTextField = styled(TextField)({
   marginTop: '36px',
   border: '1px solid rgba(245, 146, 86, 0.5)',
   borderRadius: '20px',
   background: '#fdf7f2',
-  //   minHeight: '40px',
   padding: '15px',
   '& label.Mui-focused': {
     color: '#F59256',
@@ -153,7 +118,6 @@ export const CssTextField = styled(TextField)({
 export const CssTextFieldTheme = theme => ({
   width: '100%',
   height: '100%',
-  //   minHeight: '100px',
   mt: '8px',
   minHeight: '40px',
   [theme.breakpoints.up('tablet')]: {
@@ -166,17 +130,7 @@ export const Img = styled.img`
   width: inherit;
 `;
 
-// export const FormControlLabell = theme => ({
-//   width: '100%',
-//   height: '100%',
-//   //   minHeight: '100px',
-//   mt: '8px',
-//   minHeight: '40px',
-//   [theme.breakpoints.up('tablet')]: {
-//     minHeight: '107px',
-//     mt: '12px',
-//   },
-// });Male
+
 export const Malee = styled.svg`
  width: 100px,
   height: 100px,

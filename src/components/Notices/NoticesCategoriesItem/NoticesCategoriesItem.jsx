@@ -13,8 +13,18 @@ export const NoticesCategoriesItem = ({
   setActiveNoticeId,
   openNoticeDetailsModal,
 }) => {
-  const { breed, category, title, imgUrl, location, price, owner, _id, like } =
-    notice;
+    
+  const {
+    breed,
+    category,
+    title,
+    imgUrl,
+    location,
+    price,
+    owner,
+    _id,
+    like,
+  } = notice;
 
   const onLearnMoreButtonClick = () => {
     setActiveNoticeId(_id);

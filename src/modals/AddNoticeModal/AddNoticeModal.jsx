@@ -10,7 +10,8 @@ import {
   addNoticeFirstStepSchema,
   addNoticeSubmitSchema,
 } from './AddNoticeModalІSchems';
-import { modalBox } from '../Modal/Modal.styled';
+import { modalBox, Title } from '../Modal/Modal.styled';
+import { Typography } from '@mui/material';
 
 const initialValues = {
   noticeType: NOTICE_TYPES.LOST_FOUND,
@@ -55,7 +56,8 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose} title="Add notice">
+    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose} >
+      <Typography sx={Title}>Add notice</Typography>
       <Formik
         validateOnChange={false}
         initialValues={initialValues}
@@ -65,10 +67,6 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
             : addNoticeSubmitSchema
         }
         onSubmit={async (values, actions) => {
-          //   console.log(values.photo);
-          //   console.log(values.currentTarget.files[0]);
-          // console.log(URL.createObjectURL(values));
-
           await addNotice(values);
           actions.resetForm();
           onClose();

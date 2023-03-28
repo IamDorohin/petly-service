@@ -6,7 +6,8 @@ import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
 import { useAddNoticeMutation } from '../../redux/notices/noticesSlice';
 import { addPetFirstStepSchema, addPetSubmitSchema } from './AddPetModalShema';
-import { modalBox } from '../Modal/Modal.styled';
+import { modalBox, Title } from '../Modal/Modal.styled';
+import { Typography } from '@mui/material';
 
 const initialValues = {
   namePet: '',
@@ -47,7 +48,8 @@ const AddPetModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose} title="Add pet">
+    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose}>
+      <Typography sx={Title}>Add pet</Typography>
       <Formik
         validateOnChange={false}
         initialValues={initialValues}
