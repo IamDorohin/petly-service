@@ -44,7 +44,7 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
       )}
       <FormLabel sx={LabelFormic}>
         Load the pet’s image:
-        <AddBtn sx={AddBtnThemeNotice} variant="contained" comçonent="label">
+        <AddBtn sx={AddBtnThemeNotice} variant="contained" component="label">
           <Vector />
           <input
             hidden

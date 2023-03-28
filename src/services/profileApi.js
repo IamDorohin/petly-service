@@ -10,10 +10,10 @@ export const getCurrentProfile = async token => {
 
 export const addUserPet = async (token, body) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  axios.defaults.headers.common.Accept = 'multypart/form-data';
+  axios.defaults.headers.common.Accept = 'multipart/form-data';
   const response = await axios.post('/profile', body, {
     headers: {
-      'Content-Type': 'multypart/form-data',
+      'Content-Type': 'multipart/form-data',
     },
   });
   return response.data.data.petList;

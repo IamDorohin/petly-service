@@ -53,24 +53,6 @@ export const App = () => {
         <Route path="/friends" element={<OurFriendsPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices/:categoryName" element={<NoticesPage />} />
-        {/* <Route
-          path="/friends"
-          element={
-            <PrivateRoute component={<OurFriendsPage />} redirectTo="/login" />
-          }
-        />
-        <Route
-          path="/news"
-          element={
-            <PrivateRoute component={<NewsPage />} redirectTo="/login" />
-          }
-        />
-        <Route
-          path="/notices/:categoryName"
-          element={
-            <PrivateRoute component={<NoticesPage />} redirectTo="/login" />
-          }
-        /> */}
         <Route
           path="/user"
           element={
