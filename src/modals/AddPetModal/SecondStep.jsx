@@ -14,8 +14,8 @@ import { LabelFormicAddComment } from '../Modal/Modal.styled';
 import { convertBlobToBase64 } from './AddPetUtils';
 
 const AddPetModalSecondStep = ({ formik, onBack }) => {
-    const errorMessages = Object.values(formik.errors);
-     const [base64Url, setBase64Url] = useState();
+  const errorMessages = Object.values(formik.errors);
+  const [base64Url, setBase64Url] = useState();
 
   return (
     <FormBox sx={FormBoxTheme}>
@@ -61,7 +61,7 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
         {errorMessages.length !== 0 &&
           errorMessages.map((message, index) => {
             return (
-              <Alert key={index} severity="error" >
+              <Alert key={index} severity="error">
                 {message}
               </Alert>
             );

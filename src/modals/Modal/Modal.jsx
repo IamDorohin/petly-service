@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonI, modalBox, Title } from './Modal.styled';
+import { ButtonI, Title } from './Modal.styled';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, Modal as ModalUI, Typography } from '@mui/material';
 

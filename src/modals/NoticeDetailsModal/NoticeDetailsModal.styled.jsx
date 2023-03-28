@@ -1,7 +1,6 @@
 import styled from 'styled-components';
+import {Typography } from '@mui/material';
 
-import { Box, Typography } from '@mui/material';
-import { modalBox } from '../Modal/Modal.styled';
 
 export const ModalBoxNotice = theme => ({
   position: 'absolute',
@@ -17,67 +16,23 @@ export const ModalBoxNotice = theme => ({
   p: 4,
   [theme.breakpoints.up('mobileResponsive')]: {
     blockSize: 'auto',
-    // width: '280px',
     minHeight: '530px',
-    padding: '60px 20px 60px 20  px',
-    // backgroundColor: 'red',
-    //   height: '100%',
+    padding: '60px 20px 60px 20px',
+
   },
-  //   [theme.breakpoints.up('mobileAdaptive')]: {
-  //     // blockSize: 'auto',
-  //     width: '280px',
-  //     minHeight: '530px',
-  //     padding: '40px 20px 28px 20px',
-  //   },
+
   [theme.breakpoints.up('tablet')]: {
     width: '704px',
     minHeight: '570px',
     height: 'auto',
-    // bgcolor: 'yellow',
-    // padding: '40px 80px 40px 80px',
+
   },
   [theme.breakpoints.up('desktop')]: {
-    // backgroundColor: 'green',
+
   },
 });
 
-// export const M = styled(modalBox)(({ theme }) => ({
-//   position: 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: '280px',
-//   height: 'auto',
-//   minHeight: '530px',
-//   bgcolor: '#FFFFFF',
-//   borderRadius: '20px',
-//   boxShadow: '7px 4px 14px rgba(0, 0, 0, 0.11)',
-//   p: 4,
-//   [theme.breakpoints.up('mobileResponsive')]: {
-//     blockSize: 'auto',
-//     // width: '280px',
-//     minHeight: '530px',
-//     padding: '40px 20px 40px 20px',
-//     // backgroundColor: 'red',
-//     //   height: '100%',
-//   },
-//   //   [theme.breakpoints.up('mobileAdaptive')]: {
-//   //     // blockSize: 'auto',
-//   //     width: '280px',
-//   //     minHeight: '530px',
-//   //     padding: '40px 20px 28px 20px',
-//   //   },
-//   [theme.breakpoints.up('tablet')]: {
-//     width: '704px',
-//     minHeight: '570px',
-//     height: 'auto',
-//     // bgcolor: 'yellow',
-//     padding: '40px 80px 40px 80px',
-//   },
-//   [theme.breakpoints.up('desktop')]: {
-//     // backgroundColor: 'green',
-//   },
-// }));
+
 
 export const FontButtonNotice = theme => ({
   fontFamily: theme.customFontFamily.primary,
@@ -112,7 +67,7 @@ export const Ul = styled.ul(({ theme }) => ({
 
 export const L = styled.li(({ theme }) => ({
   display: 'flex',
-  // justifyContent: "space-between"
+
 }));
 
 export const B = theme => ({
@@ -120,7 +75,6 @@ export const B = theme => ({
   height: '240px',
   backgroundColor: 'aqua',
   borderRadius: '0px 0px 40px 40px',
-//   mt: '40px',
   [theme.breakpoints.up('tablet')]: {
     width: '288px',
     height: '328px',

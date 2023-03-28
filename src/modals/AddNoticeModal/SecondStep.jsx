@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import {
   AddBtn,
   AddBtnThemeNotice,
-  CssTextField,
-  CssTextFieldTheme,
   Img,
 } from '../AddPetModal/SecondStep.styled';
 import { ReactComponent as Vector } from '../AddPetModal/icon/Vector.svg';
