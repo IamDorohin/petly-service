@@ -8,8 +8,7 @@ import { RestrictedRoute } from './restrictedRoute';
 import { PrivateRoute } from 'components/privateRoute';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
-const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const AuthPage = lazy(() => import('pages/LoginPage/AuthPage'));
 const OurFriendsPage = lazy(() =>
   import('pages/OurFriendsPage/OurFriendsPage')
 );
@@ -41,15 +40,16 @@ export const App = () => {
         <Route
           path="/register"
           element={
-            <RestrictedRoute component={<RegisterPage />} redirectTo="/user" />
+            <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute component={<LoginPage />} redirectTo="/user" />
+            <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
           }
         />
+
         <Route path="/friends" element={<OurFriendsPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices/:categoryName" element={<NoticesPage />} />

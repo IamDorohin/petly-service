@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { FriendsModal, Day} from './OurFriends.styled';
-
-
+import { FriendsModal, Day } from './OurFriends.styled';
 
 const daysOfWeek = {
   0: 'MN',
@@ -21,22 +19,18 @@ const TimeModal = ({ timeTable }) => {
 
   return (
     <FriendsModal>
-    
-        {timeTable.map((day, idx) => {
-          return (
-            <Day key={idx}>
-              <span>{daysOfWeek[idx]}</span>
-              <span>
-                {day.from}- {day.to}
-              </span>
-            </Day>
-          );
-        })}
-     
+      {timeTable.map((day, idx) => {
+        return (
+          <Day key={idx}>
+            <span>{daysOfWeek[idx]}</span>
+            <span>
+              {day.from}- {day.to}
+            </span>
+          </Day>
+        );
+      })}
     </FriendsModal>
   );
 };
 
 export default TimeModal;
-
-
