@@ -124,7 +124,8 @@ const GenderLabelFemale = theme => ({
   display: 'flex',
   flexDirection: 'column-reverse',
   [theme.breakpoints.up('tablet')]: {
-    ml: '35px',
+      ml: '35px',
+      mb:'35px'
   },
 });
 const GenderLabelMale = theme => ({
@@ -132,5 +133,8 @@ const GenderLabelMale = theme => ({
   flexDirection: 'column-reverse',
   justifyItems: 'start',
   margin: '18px 39px 0 0',
+  [theme.breakpoints.up('tablet')]: {
+    mb: '35px',
+  },
 });
 
