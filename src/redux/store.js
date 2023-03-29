@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -9,32 +9,34 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// ((https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data) ===> link!)
-import { authReducer } from './auth/auth-slice';
-import filterReducer from './filter/filter-slice';
+import storage from 'redux-persist/lib/storage';
+import { noticesApi } from './notices/noticesSlice';
+import { NewsAPI } from './news/NewsAPI';
+import { authReducer } from 'redux/auth/auth-slice';
 
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-];
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
-// Persisting token field from auth-slice to localstorage
-
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
+const persistAuthReducer = persistReducer(authPersistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
-    filter: filterReducer,
+    [noticesApi.reducerPath]: noticesApi.reducer,
+    [NewsAPI.reducerPath]: NewsAPI.reducer,
+    auth: persistAuthReducer,
   },
-  middleware,
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
+      serializableCheck: {
+        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+    noticesApi.middleware,
+    NewsAPI.middleware,
+  ],
 });
 
 export const persistor = persistStore(store);

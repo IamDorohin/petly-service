@@ -18,11 +18,11 @@ export const registerYupSchema = Yup.object({
     .max(32, 'Must be 32 characters or less')
     .matches(regexPassword, 'Must not contain spaces')
     .required('Required'),
-  confirm: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Password must match')
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords do not match')
     .required('Required'),
   name: Yup.string().matches(regexName, 'Name must contain only letters'),
-  address: Yup.string().matches(regexAdress, 'Must be in format City, Region'),
+  city: Yup.string().matches(regexAdress, 'Must be in format City, Region'),
   phone: Yup.string()
     .max(13, 'Must be 12 numbers or less')
     .matches(
@@ -36,9 +36,9 @@ export const loginYupSchema = Yup.object({
   password: Yup.string()
     .min(7, 'Must be 7 characters or more')
     .max(32, 'Must be 32 characters or less')
-    .matches(regexPassword, 'Must not contain spaces')
     .required('Required'),
 });
+// / .matches(regexPassword, 'Must not contain spaces')
 
 export const resetYupSchema = Yup.object({
   email: Yup.string().email('Invalid email adress').required('Required'),

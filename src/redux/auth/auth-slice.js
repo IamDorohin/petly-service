@@ -1,14 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import persistReducer from 'redux-persist/es/persistReducer';
-import storage from 'redux-persist/lib/storage';
-import {
-  register,
-  logIn,
-  logOut,
-  fetchCurrentUser,
-  updateUser,
-  updateUserAvatar,
-} from './auth-operations';
+import { register, logIn, logOut, updateUser } from './auth-operations';
 
 const handlePending = state => {
   state.isRefreshing = true;
@@ -18,12 +9,6 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isRefreshing = false;
   state.error = action.payload;
-};
-
-const authPersistConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['token'],
 };
 
 const initialState = {
@@ -72,38 +57,18 @@ const authSlice = createSlice({
       .addCase(logOut.rejected, (state, action) => {
         handleRejected(state, action);
       })
-      .addCase(fetchCurrentUser.pending, (state, _) => {
-        handlePending(state);
-      })
-      .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
-        state.isRefreshing = false;
-        state.isLoggedIn = true;
-        state.user = payload;
-      })
-      .addCase(fetchCurrentUser.rejected, (state, action) => {
-        handleRejected(state, action);
-      })
       .addCase(updateUser.pending, (state, _) => {
-        handlePending(state);
+        state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
-        state.user = { ...state.user, ...payload };
+        state.user = { ...state.user, ...payload.data.user };
+        state.isLoggedIn = true;
       })
       .addCase(updateUser.rejected, (state, action) => {
-        handleRejected(state, action);
-      })
-      .addCase(updateUserAvatar.pending, (state, _) => {
-        handlePending(state);
-      })
-      .addCase(updateUserAvatar.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
-        state.user = { ...state.user, ...payload };
-      })
-      .addCase(updateUserAvatar.rejected, (state, action) => {
-        handleRejected(state, action);
       });
   },
 });
 
-export const authReducer = persistReducer(authPersistConfig, authSlice.reducer);
+export const authReducer = authSlice.reducer;

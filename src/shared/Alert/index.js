@@ -1,2 +1,2 @@
-export { default as errorMUI } from './errorMUI';
-export { default as successMUI } from './successMUI';
+export { errorMUI } from './errorMUI';
+export { successMUI } from './successMUI';
