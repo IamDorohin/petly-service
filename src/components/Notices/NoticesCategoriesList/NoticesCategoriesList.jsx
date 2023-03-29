@@ -12,8 +12,6 @@ import {
 // import { useState } from 'react';
 
 export const NoticesCategoriesList = ({ searchParams }) => {
-  // useState(false);
-
   const { categoryName } = useParams();
 
   const { data: favoriteIdArr } = useGetFavoriteArrQuery();
