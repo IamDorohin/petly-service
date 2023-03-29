@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as SC from '../Form.styled';
 import { PasswordInput } from '../PasswordInput';
 
-export const FirstStep = ({ formik, isSmall }) => {
+export const FirstStep = ({ formik, isSmall, btnSubmitHandler }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -51,7 +51,7 @@ export const FirstStep = ({ formik, isSmall }) => {
 
       <SC.SubmitButton
         type="submit"
-        onClick={formik.handleSubmit}
+        onClick={btnSubmitHandler}
         isDisabled={formik.isSubmitting}
       >
         Next

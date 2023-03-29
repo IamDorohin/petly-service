@@ -17,7 +17,6 @@ export const RegisterForm = () => {
   let isRefreshing = useSelector(authSelectors.getIsRefreshing);
 
   const { firstStep, secondStep } = currentStep;
-
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -30,11 +29,6 @@ export const RegisterForm = () => {
 
     validationSchema: registerYupSchema,
     onSubmit: async ({ email, password, name, city, phone }) => {
-      if (firstStep) {
-        setCurrentStep({ secondStep: true });
-        return;
-      }
-
       const authData = { email, password, name, city, phone };
       const data = await dispatch(register(authData));
 
@@ -43,10 +37,23 @@ export const RegisterForm = () => {
       }
     },
   });
+  const btnSubmitHandler = () => {
+    if (firstStep) {
+      setCurrentStep({ secondStep: true });
+      return;
+    }
+    formik.handleSubmit();
+  };
   return (
     <>
-      <SC.Form onSubmit={formik.handleSubmit}>
-        {firstStep && <FirstStep formik={formik} isSmall={isSmall} />}
+      <SC.Form onSubmit={btnSubmitHandler}>
+        {firstStep && (
+          <FirstStep
+            btnSubmitHandler={btnSubmitHandler}
+            formik={formik}
+            isSmall={isSmall}
+          />
+        )}
         {secondStep && (
           <SecondStep
             formik={formik}
