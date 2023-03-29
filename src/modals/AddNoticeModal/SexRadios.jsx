@@ -65,7 +65,7 @@ function BpRadio(props) {
 export default function SexRadios({ formik }) {
   const value = formik.values.sex;
   return (
-    <FormControl >
+    <FormControl    >
       <FormLabel sx={LabelFormic} id="demo-customized-radios">
         The sex:
       </FormLabel>

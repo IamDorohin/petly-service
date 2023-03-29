@@ -39,6 +39,9 @@ export const LabelFormic = theme => ({
   lineHeight: '26px',
   color: 'black',
   mt: '8px',
+  '&.Mui-focused ': {
+    color: 'black',
+  },
   [theme.breakpoints.up('tablet')]: {
     fontSize: '24px',
     mb: '20px',
