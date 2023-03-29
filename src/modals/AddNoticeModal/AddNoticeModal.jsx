@@ -86,10 +86,15 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
             imgUrl,
             sex,
           };
+          console.log('values', values);
           if (birthdate) values.birthdate = birthdate;
           if (price) values.price = Number(price);
           if (comments) values.comments = comments;
-          await addNotice(values);
+          let formData = new FormData();
+          for (let value in values) {
+            formData.append(value, values[value]);
+          }
+          await addNotice(formData);
           actions.resetForm();
           onClose();
         }}

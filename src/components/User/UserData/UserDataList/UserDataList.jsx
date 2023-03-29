@@ -4,7 +4,6 @@ import { UserDataItem } from './UserDataItem';
 const userData = ['Name', 'Email', 'Birthday', 'Phone', 'City'];
 
 export const UserDataList = ({ userInfo }) => {
-  console.log('userInfo', userInfo);
   return (
     <SC.UserDataListContainer>
       {userData.map(item => {

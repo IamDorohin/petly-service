@@ -7,6 +7,7 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
   bottom: '21px',
   right: '12px',
   width: '100px',
+  cursor: 'pointer',
 
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalM,

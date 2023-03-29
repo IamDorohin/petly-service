@@ -49,6 +49,7 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           <input
             hidden
             accept="image/*"
+            src="image/*"
             multiple
             type="file"
             name="imgUrl"

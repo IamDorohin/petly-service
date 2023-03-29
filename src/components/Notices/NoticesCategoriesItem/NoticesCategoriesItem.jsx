@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useDeleteNoticeMutation } from 'redux/notices/noticesSlice';
 import { HiTrash } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
@@ -9,6 +10,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
 import pet from 'img/pngwing.png';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
   const { breed, category, title, imgUrl, location, price, owner, _id, like } =
@@ -40,7 +47,9 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
   return (
     <SC.NoticeItem>
       {imgUrl === 'default/url' ? (
-        <SC.NoticeImage src={pet} />
+        <SC.NoticeImageWrapper>
+          <SC.NoticeImage src={pet} />
+        </SC.NoticeImageWrapper>
       ) : (
         <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
       )}
@@ -57,6 +66,12 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
           />
         )}
       </SC.NoticeLikeBtn>
+      {!owner && (
+        <Snackbar autoHideDuration={6000} sx={{ width: '100%' }}>
+          <Alert severity="error">This is an error message!</Alert>
+        </Snackbar>
+      )}
+
       <SC.NoticeDescription className={owner}>
         <SC.NoticeTitle> {title} </SC.NoticeTitle>
         <SC.NoticeList>

@@ -105,12 +105,15 @@ export const UserDataEditForm = styled('form')(({ theme }) => ({
   right: '-24px',
 }));
 
-export const UserDataEditInput = styled('input')(({ theme }) => ({
+export const UserDataEditPhotoSubmit = styled('button')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   border: 'none',
-  width: '90px',
-  paddingLeft: '20px',
+  backgroundColor: 'transparent',
+  width: '70px',
+  height: '20px',
+  // width: '90px',
+  // paddingLeft: '20px',
   // width: '1px',
   // height: '1px',
   // opacity: '0',
