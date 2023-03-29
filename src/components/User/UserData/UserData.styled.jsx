@@ -92,7 +92,6 @@ export const UserDataPhoto = styled('img')(({ theme }) => ({
   width: '233px',
   height: '233px',
   borderRadius: theme.customBorderRadius.round,
-  backgroundColor: theme.customColors.primaryFont,
 
   filter: 'drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11))',
 }));
@@ -110,8 +109,6 @@ export const UserDataEditPhotoSubmit = styled('button')(({ theme }) => ({
   alignItems: 'center',
   border: 'none',
   backgroundColor: 'transparent',
-  width: '70px',
-  height: '20px',
   // width: '90px',
   // paddingLeft: '20px',
   // width: '1px',

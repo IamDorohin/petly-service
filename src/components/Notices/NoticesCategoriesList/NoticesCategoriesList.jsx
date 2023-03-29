@@ -40,11 +40,6 @@ export const NoticesCategoriesList = ({ searchParams }) => {
     });
   }
 
-  // const noticesNotFound =
-  //   error?.data?.message === 'There is no notices in this category' ||
-  //   'Sorry, you do not have favorite notices' ||
-  //   'You do not have any notices';
-
   const favNoticesStatusHandler = notice => {
     if (!favoriteIdArr?.includes(notice._id)) {
       addNotice(notice._id);

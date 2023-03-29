@@ -2,11 +2,18 @@ import * as SC from './PetsList.styled';
 import { HiTrash } from 'react-icons/hi';
 
 export const PetsDataItem = ({ pet, handler }) => {
-  const { _id, name, breed, comments, birthdate = '--/--/--' } = pet;
+  const {
+    _id,
+    name,
+    breed,
+    comments,
+    petsImageUrl,
+    birthdate = '--/--/--',
+  } = pet;
 
   return (
     <SC.PetsDataItem>
-      <SC.PetsDataImage />
+      <SC.PetsDataImage src={petsImageUrl} />
       <SC.PetsDataInfoWrapper>
         <SC.PetsDataInfoIcon onClick={() => handler(_id)}>
           <HiTrash size={'100%'} />

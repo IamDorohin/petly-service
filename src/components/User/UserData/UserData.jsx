@@ -11,32 +11,46 @@ import * as SC from './UserData.styled';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
+const FILE_SIZE = 1000000;
+const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
+
 const inputSchemas = {
-  photoSchema: yup.object({ name: yup.object().required() }),
+  photoSchema: yup
+    .mixed()
+    .test(
+      'fileSize',
+      'Only documents up to 1MB are permitted',
+      value => value === null || (value && value.size <= FILE_SIZE)
+    )
+    .test(
+      'fileFormat',
+      'Unsupported file type',
+      value =>
+        value === null || (value && SUPPORTED_FORMATS.includes(value.type))
+    )
+    .nullable(),
 };
 
 export const UserData = ({ userInfo }) => {
   const token = useSelector(selector.getToken);
-  const [currentValue, setCurrentValue] = useState('');
-  const [photo, setPhoto] = useState('');
+  const [currentPhoto, setCurrentPhoto] = useState('');
+  console.log('userInfo', userInfo);
 
-  // console.log('token', token);
-  // console.log('userInfo', userInfo);
   useEffect(() => {
-    if (!userInfo.photo) setCurrentValue('photo');
+    if (userInfo.photo) {
+      setCurrentPhoto(userInfo.photo);
+    }
   }, [userInfo]);
 
-  console.log('currentValue', currentValue);
   const formik = useFormik({
     initialValues: {
-      photo: photo,
+      photo: {},
     },
-    validationSchema: inputSchemas[currentValue + 'Schema'],
-    onSubmit: values => {
+    validationSchema: inputSchemas.photoSchema,
+    onSubmit: async values => {
       console.log('values', values);
-      setCurrentValue(values[currentValue]);
-      formik.resetForm();
-      updateUserProfile(token, values);
+      const { result } = await updateUserProfile(token, values);
+      setCurrentPhoto(result.photo);
     },
   });
   return (
@@ -44,24 +58,35 @@ export const UserData = ({ userInfo }) => {
       <SC.UserInfoTitle>My information:</SC.UserInfoTitle>
       <SC.UserDataContent>
         <SC.UserDataPhotoWrapper>
-          <SC.UserDataPhoto></SC.UserDataPhoto>
+          <SC.UserDataPhoto src={currentPhoto} />
           <SC.UserDataEditForm onSubmit={formik.handleSubmit}>
             <IconButton
-              color="primary"
-              aria-label="upload picture"
+              variant="contained"
               component="label"
+              src="image/*"
+              aria-label="upload picture"
+              // color="primary"
+              // aria-label="upload picture"
+              // component="label"
             >
               <input
                 hidden
                 accept="image/*"
+                src="image/*"
+                multiple
                 type="file"
-
+                name="photo"
+                onChange={event => {
+                  console.log('event', event);
+                  formik.setFieldValue('photo', event.currentTarget.files[0]);
+                }}
+                // id={currentValue}
                 // hidden
                 // accept="image/*"
                 // type="file"
                 // name={currentValue}
-                // value={formik.values['']}
                 // onChange={formik.handleChange}
+                // value={formik.values[currentValue]}
               />
               <PhotoCamera />
             </IconButton>
