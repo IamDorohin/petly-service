@@ -63,9 +63,6 @@ export const UserData = ({ userInfo }) => {
               component="label"
               src="image/*"
               aria-label="upload picture"
-              // color="primary"
-              // aria-label="upload picture"
-              // component="label"
             >
               <input
                 hidden
@@ -77,13 +74,6 @@ export const UserData = ({ userInfo }) => {
                 onChange={event => {
                   formik.setFieldValue('photo', event.currentTarget.files[0]);
                 }}
-                // id={currentValue}
-                // hidden
-                // accept="image/*"
-                // type="file"
-                // name={currentValue}
-                // onChange={formik.handleChange}
-                // value={formik.values[currentValue]}
               />
               <PhotoCamera />
             </IconButton>

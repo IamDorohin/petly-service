@@ -23,12 +23,9 @@ export const UserDataItem = ({
   setChangeInputName,
 }) => {
   const token = useSelector(selector.getToken);
-  const [currentValue, setCurrentValue] = useState('');
   const currentName = inputName.toLowerCase();
-  const isInput = inputName === changeInputName;
-  useEffect(() => {
-    if (inputValue !== '') setCurrentValue(inputValue);
-  }, [inputValue]);
+  const [currentValue, setCurrentValue] = useState('');
+  const [isActive, setIsActive] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -43,35 +40,60 @@ export const UserDataItem = ({
     },
   });
 
+  useEffect(() => {
+    if (inputValue !== '') setCurrentValue(inputValue);
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (changeInputName === inputName || changeInputName === '') {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }, [changeInputName, inputName]);
+
   const disabledInputsHandler = async () => {
     setChangeInputName(inputName);
+  };
+
+  const inputHandleChange = e => {
+    formik.handleChange(e);
+    setCurrentValue(e.target.value);
+  };
+
+  const btnSubmitHandler = e => {
+    if (formik.isValid) {
+      formik.handleSubmit();
+      setChangeInputName('');
+      setIsActive(false);
+    }
   };
 
   return (
     <SC.UserDataListItem>
       {`${inputName}:`}
-      {!isInput && currentValue !== '' ? (
+      {!isActive || changeInputName === '' ? (
         <SC.UserDataListWrapper>
           <SC.UserDataListContent>{currentValue}</SC.UserDataListContent>
           <SC.UserDataPencilIcon
-            disabled={!isInput}
-            // onClick={disabledInputsHandler}
+            disabled={!isActive}
+            onClick={disabledInputsHandler}
           >
-            <HiPencil onClick={disabledInputsHandler} />
+            <HiPencil />
           </SC.UserDataPencilIcon>
         </SC.UserDataListWrapper>
       ) : (
         <SC.UserDataListWrapper>
           <form onSubmit={formik.handleSubmit}>
             <SC.UserDataListInput
-              id={inputName.toLowerCase()}
-              name={inputName.toLowerCase()}
+              id={currentName}
+              name={currentName}
               type="text"
-              onChange={formik.handleChange}
-              value={formik.values[inputName.toLowerCase()]}
+              onChange={inputHandleChange}
+              value={currentValue}
             />
-            <SC.UserDataPencilIcon type="submit">
-              <MdOutlineDone onClick={formik.handleSubmit} />
+            <SC.UserDataPencilIcon type="submit" onClick={btnSubmitHandler}>
+              <MdOutlineDone />
             </SC.UserDataPencilIcon>
           </form>
         </SC.UserDataListWrapper>
