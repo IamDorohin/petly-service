@@ -3,13 +3,17 @@ import React, { useState } from 'react';
 import {
   AddBtn,
   AddBtnTheme,
-  CssTextField,
-  CssTextFieldTheme,
   FontButton,
   Img,
 } from './SecondStep.styled';
 import { ReactComponent as Vector } from './icon/Vector.svg';
-import { ButtonBox, CantBtn, FormBox, FormBoxTheme } from './FirstStep.styled';
+import {
+  ButtonBox,
+  CantBtn,
+  FormBox,
+  FormBoxTheme,
+  InputComment,
+} from './FirstStep.styled';
 import { LabelFormicAddComment } from '../Modal/Modal.styled';
 import { convertBlobToBase64 } from './AddPetUtils';
 
@@ -46,7 +50,15 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
       </AddBtn>
       <FormLabel sx={LabelFormicAddComment}>
         Comments
-        <CssTextField
+        <InputComment
+          rows="4"
+          value={formik.values.comments}
+          onChange={formik.handleChange}
+          type="text"
+          name="comments"
+          placeholder="Type comments"
+        />
+        {/* <CssTextField
           sx={CssTextFieldTheme}
           id="outlined-multiline-flexible"
           label="Type comments"
@@ -55,7 +67,7 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           maxRows={4}
           value={formik.values.comments}
           onChange={formik.handleChange}
-        />
+        /> */}
       </FormLabel>
       <>
         {errorMessages.length !== 0 &&
