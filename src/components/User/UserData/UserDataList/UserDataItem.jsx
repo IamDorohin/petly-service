@@ -36,6 +36,7 @@ export const UserDataItem = ({
     },
     validationSchema: inputSchemas[currentName + 'Schema'],
     onSubmit: values => {
+      if (values[currentName]) return;
       setChangeInputName('');
       setCurrentValue(values[currentName]);
       formik.resetForm();
@@ -47,6 +48,7 @@ export const UserDataItem = ({
     setChangeInputName(inputName);
   };
 
+  console.log('isInput', { [currentName]: currentValue });
   return (
     <SC.UserDataListItem>
       {`${inputName}:`}
@@ -55,9 +57,9 @@ export const UserDataItem = ({
           <SC.UserDataListContent>{currentValue}</SC.UserDataListContent>
           <SC.UserDataPencilIcon
             disabled={!isInput}
-            // onClick={disabledInputsHandler}
+            onClick={disabledInputsHandler}
           >
-            <HiPencil onClick={disabledInputsHandler} />
+            <HiPencil />
           </SC.UserDataPencilIcon>
         </SC.UserDataListWrapper>
       ) : (
@@ -68,7 +70,7 @@ export const UserDataItem = ({
               name={inputName.toLowerCase()}
               type="text"
               onChange={formik.handleChange}
-              value={formik.values[inputName.toLowerCase()]}
+              value={formik.values[currentName]}
             />
             <SC.UserDataPencilIcon type="submit">
               <MdOutlineDone onClick={formik.handleSubmit} />

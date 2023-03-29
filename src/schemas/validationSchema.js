@@ -14,7 +14,7 @@ export const registerYupSchema = Yup.object({
     .max(63)
     .matches(regexEmail, 'Invalid email adress'),
   password: Yup.string()
-    .min(7, 'Must be 7 characters or more')
+    .min(8, 'Must be 8 characters or more')
     .max(32, 'Must be 32 characters or less')
     .matches(regexPassword, 'Must not contain spaces')
     .required('Required'),
@@ -34,7 +34,7 @@ export const registerYupSchema = Yup.object({
 export const loginYupSchema = Yup.object({
   email: Yup.string().email('Invalid email adress').required('Required'),
   password: Yup.string()
-    .min(7, 'Must be 7 characters or more')
+    .min(8, 'Must be 8 characters or more')
     .max(32, 'Must be 32 characters or less')
     .required('Required'),
 });
