@@ -31,7 +31,7 @@ export const Input = styled('input')(({ theme }) => ({
   backgroundColor: theme.customColors.cardsBackground,
   fontFamily: theme.customFontFamily.searchBar,
   fontWeight: theme.customFontWeight.normalM,
-  paddingLeft: '55px',
+  paddingLeft: '25px',
   paddingRight: '90px',
   color: theme.customColors.searchBarPlaceholder,
   letterSpacing: theme.customLetterSpacing.m,
@@ -84,7 +84,7 @@ export const DeleteButton = styled(IconButton)(({ theme }) => ({
   color: theme.customColors.primaryFont,
   position: 'absolute',
   top: 10,
-  left: 15,
+  right: 55,
   [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {},
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '24px',

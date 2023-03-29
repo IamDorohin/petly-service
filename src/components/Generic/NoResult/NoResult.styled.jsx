@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 export const Card = styled('div')(({ theme }) => ({
   marginLeft: 'auto',
   marginRight: 'auto',
-  borderRadius: theme.customBorderRadius.findPetCard,
+  borderRadius: '20px',
   backgroundColor: theme.customColors.cardsBackground,
   width: '280px',
   padding: '20px',

@@ -42,8 +42,10 @@ export const NoticesCategoriesList = ({ searchParams }) => {
     });
   }
 
-  const noticesNotFound =
-    error?.data?.message === 'There is no notices in this category';
+  // const noticesNotFound =
+  //   error?.data?.message === 'There is no notices in this category' ||
+  //   'Sorry, you do not have favorite notices' ||
+  //   'You do not have any notices';
 
   const favNoticesStatusHandler = notice => {
     if (!favoriteIdArr?.includes(notice._id)) {
@@ -69,13 +71,7 @@ export const NoticesCategoriesList = ({ searchParams }) => {
             onFavButtonClick={favNoticesStatusHandler}
           />
         ))}
-      {noticesNotFound && <NoResult />}
-      {/* <NoticeDetailsModal
-        isOpen={isNoticeDetailsModalOpen}
-        onClose={closeNoticeDetailsModal}
-        onFavButtonClick={favNoticesStatusHandler}
-        activeNoticeId={activeNoticeId}
-      /> */}
+      {error?.data && <NoResult />}
     </CategoriesList>
   );
 };

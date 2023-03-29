@@ -33,9 +33,6 @@ const NewsPage = () => {
       <NewsContainer>
         <Title>News</Title>
         <NewsSearch saveFilter={setFilter} fetch={refetch} />
-
-        {/* {error && Error component} */}
-        {/* {isLoading &&  Loader component} */}
         <NewsGrid>
           {currentData &&
             visibleNews.map(item => {
@@ -51,12 +48,7 @@ const NewsPage = () => {
               );
             })}
         </NewsGrid>
-        {
-          visibleNews.length === 0 && <NoResult match={filter} />
-          // <Error>
-          //   Sorry, we have no news with this keyword. Please, try another word.
-          // </Error>
-        }
+        {visibleNews.length === 0 && <NoResult match={filter} />}
       </NewsContainer>
     </Section>
   );

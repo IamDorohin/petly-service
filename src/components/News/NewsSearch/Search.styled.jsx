@@ -5,7 +5,7 @@ export const SearchInput = styled('input')(({ theme }) => ({
   backgroundColor: theme.customColors.cardsBackground,
   fontFamily: theme.customFontFamily.searchBar,
   fontWeight: theme.customFontWeight.normalM,
-  paddingLeft: '15px',
+  paddingLeft: '25px',
   paddingRight: '90px',
   color: theme.customColors.searchBarPlaceholder,
   letterSpacing: theme.customLetterSpacing.m,
@@ -72,10 +72,9 @@ export const Container = styled('div')(({ theme }) => ({
   position: 'relative',
   marginBottom: '40px',
   color: theme.customColors.searchBarPlaceholder,
-  [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {
-    width: '100%',
-    height: '40px',
-  },
+  width: '280px',
+  height: '40px',
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '608px',
     height: '44px',
