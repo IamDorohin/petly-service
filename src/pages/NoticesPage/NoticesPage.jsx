@@ -13,6 +13,8 @@ import { NoticesSearch } from 'components/Notices/NoticesSearch/NoticesSearch';
 import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
 import { NoticeAddButton } from 'components/Notices/NoticeAddButton/NoticeAddbutton';
+import { toast, ToastContainer } from 'react-toastify';
+
 import AddNoticeModal from '../../modals/AddNoticeModal/AddNoticeModal';
 
 import {
@@ -58,10 +60,26 @@ const NoticesPage = () => {
 
   const onCloseModal = () => {
     setIsAddPetModal(false);
+    notify();
   };
 
+  const notify = () => {
+    toast.error('Oops! Seems like you need login!', {});
+  };
   return (
     <NoticesPageContainer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Container>
         <Title>Find your favorite pet</Title>
         <NoticesSearch

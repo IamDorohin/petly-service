@@ -18,7 +18,7 @@ const UserPage = lazy(() => import('pages/UserPage/UserPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  const isRefreshing = useSelector(selector.getIsRefreshing);
+  // const isRefreshing = useSelector(selector.getIsRefreshing);
 
   const dispatch = useDispatch();
 
@@ -26,9 +26,7 @@ export const App = () => {
     dispatch(updateUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <b>Refreshing user...</b>
-  ) : (
+  return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route
