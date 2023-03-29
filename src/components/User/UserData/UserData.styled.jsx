@@ -23,7 +23,7 @@ export const UserInfoTitle = styled('h2')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     margin: '0 0 40px 0',
-    paddingLeft: '32px',
+    // paddingLeft: '32px',
     fontSize: theme.customFontSizes[6],
     lineHeight: theme.customLineHeight[10],
   },
@@ -49,12 +49,12 @@ export const UserDataContent = styled('div')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row-reverse',
-    width: '736px',
+    width: '704px',
     height: '311px',
     // marginLeft: '-32px',
     paddingLeft: '20px',
     paddingRight: '40px',
-    borderRadius: theme.customBorderRadius.findPetCard,
+    borderRadius: theme.customBorderRadius.primary,
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
@@ -92,17 +92,31 @@ export const UserDataPhoto = styled('img')(({ theme }) => ({
   width: '233px',
   height: '233px',
   borderRadius: theme.customBorderRadius.round,
-  backgroundColor: theme.customColors.primaryFont,
 
   filter: 'drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11))',
 }));
 
-export const UserDataEditContainer = styled('div')(({ theme }) => ({
+export const UserDataEditForm = styled('form')(({ theme }) => ({
   position: 'absolute',
   display: 'flex',
   alignItems: 'center',
   bottom: '0',
   right: '-24px',
+}));
+
+export const UserDataEditPhotoSubmit = styled('button')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  border: 'none',
+  backgroundColor: 'transparent',
+  // width: '90px',
+  // paddingLeft: '20px',
+  // width: '1px',
+  // height: '1px',
+  // opacity: '0',
+  // overflow: 'hidden',
+  // position: 'absolute',
+  // zIndex: '-1',
 
   cursor: 'pointer',
   fontFamily: theme.customFontFamily.primary,
@@ -124,10 +138,13 @@ export const UserDataEditContainer = styled('div')(({ theme }) => ({
 }));
 
 export const UserDataEditIcon = styled('div')(({ theme }) => ({
+  position: 'absolute',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   marginRight: '5px',
   width: '20px',
   height: '20px',
+  top: '2',
+  left: '0',
 }));

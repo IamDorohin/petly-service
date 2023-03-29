@@ -23,6 +23,12 @@ export const NoticeItem = styled('li')(({ theme }) => ({
   },
 }));
 
+export const NoticeImageWrapper = styled('div')(({ theme }) => ({
+  width: '280px',
+  height: '288px',
+  marginBottom: '20px',
+}));
+
 export const NoticeImage = styled('img')(({ theme }) => ({
   width: '100%',
   marginBottom: '20px',

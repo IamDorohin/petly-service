@@ -13,18 +13,18 @@ import { LogOut } from 'components/User/LogOut/LogOut';
 
 const UserPage = () => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [isAddPetModalOpen, setIsAddPetModalOpen] = useState(false);
   const token = useSelector(selector.getToken);
 
-  console.log('currentUser', currentUser);
   useEffect(() => {
-    if (token) {
+    if (token && !isAddPetModalOpen) {
       getCurrentProfile(token)
         .then(data => {
           setCurrentUser(data);
         })
         .catch(e => console.log(e));
     }
-  }, [token]);
+  }, [token, isAddPetModalOpen]);
 
   return (
     <UserPageContainer>
@@ -34,7 +34,11 @@ const UserPage = () => {
             <UserData userInfo={currentUser.user} />
             <LogOut />
           </UserWrapper>
-          <PetsData petInfo={currentUser.yourPets} />
+          <PetsData
+            petInfo={currentUser.yourPets}
+            setIsAddPetModalOpen={setIsAddPetModalOpen}
+            isAddPetModalOpen={isAddPetModalOpen}
+          />
         </UserPageWrapper>
       )}
     </UserPageContainer>

@@ -21,7 +21,11 @@ export const addUserPet = async (token, body) => {
 
 export const updateUserProfile = async (token, body) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  const response = await axios.put('/current/update', body);
+  const response = await axios.put('users/current/update', body, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return response.data.data;
 };
 

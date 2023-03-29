@@ -7,6 +7,7 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
   bottom: '21px',
   right: '12px',
   width: '100px',
+  cursor: 'pointer',
 
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalM,
@@ -24,7 +25,7 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     bottom: '24px',
-    left: '15px',
+    left: '30px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     bottom: '20px',

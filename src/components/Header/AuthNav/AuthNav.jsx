@@ -21,7 +21,7 @@ export const AuthNav = ({ onClick }) => {
 
   return isLoggedIn ? (
     <StyledContainerNew>
-      <StyledButtonNew to="/user" onClick={onClick}>
+      <StyledButtonNew to="/user">
         <StyledIconContainer>
           <StyledIcon />
           Account

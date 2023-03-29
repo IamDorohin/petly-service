@@ -35,7 +35,6 @@ export const PetsDataImage = styled('img')(({ theme }) => ({
   height: '240px',
   marginBottom: '20px',
   borderRadius: theme.customBorderRadius.primary,
-  backgroundColor: theme.customColors.primaryFont,
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     maxWidth: '160px',

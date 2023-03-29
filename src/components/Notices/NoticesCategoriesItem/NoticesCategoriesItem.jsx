@@ -1,17 +1,29 @@
+import * as React from 'react';
 import { useDeleteNoticeMutation } from 'redux/notices/noticesSlice';
 import { HiTrash } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import selectors from 'redux/auth/auth-selectors';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import { useGetNoticesByIdQuery } from 'redux/notices/noticesSlice';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
 import pet from 'img/pngwing.png';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
   const { breed, category, title, imgUrl, location, price, owner, _id, like } =
     notice;
 
+  const currentUser = useSelector(selectors.getUser);
+
+  const isOwnerNotice = currentUser.id === owner;
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCurrentPet, setIsCurrentPet] = useState(false);
 
@@ -31,11 +43,13 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
     setIsCurrentPet(false);
     setIsOpenModal(false);
   };
-
+  console.log('owner', owner);
   return (
     <SC.NoticeItem>
       {imgUrl === 'default/url' ? (
-        <SC.NoticeImage src={pet} />
+        <SC.NoticeImageWrapper>
+          <SC.NoticeImage src={pet} />
+        </SC.NoticeImageWrapper>
       ) : (
         <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
       )}
@@ -52,6 +66,12 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
           />
         )}
       </SC.NoticeLikeBtn>
+      {!owner && (
+        <Snackbar autoHideDuration={6000} sx={{ width: '100%' }}>
+          <Alert severity="error">This is an error message!</Alert>
+        </Snackbar>
+      )}
+
       <SC.NoticeDescription className={owner}>
         <SC.NoticeTitle> {title} </SC.NoticeTitle>
         <SC.NoticeList>
@@ -79,7 +99,7 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
         >
           Learn More
         </SC.NoticeLearnMoreBtn>
-        {owner && (
+        {isOwnerNotice && (
           <SC.NoticeDeleteBtn
           // onClick={() => deleteOwnNotice(_id)}
           >
