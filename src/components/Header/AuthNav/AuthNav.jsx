@@ -1,27 +1,46 @@
+import { useSelector } from 'react-redux';
+import selector from 'redux/auth/auth-selectors';
 import {
   StyledContainer,
   StyledList,
   StyledItem,
   StyledButton,
+  StyledContainerNew,
+  StyledButtonNew,
+  StyledIconContainer,
+  StyledIcon,
 } from './AuthNav.styled';
 
+const items = [
+  { text: 'Login', href: '/login' },
+  { text: 'Registration', href: '/register' },
+];
+
 export const AuthNav = ({ onClick }) => {
-  const items = [
-    { text: 'Login', href: '/login' },
-    { text: 'Registration', href: '/register' },
-  ];
+  const isLoggedIn = useSelector(selector.getIsLoggedIn);
 
-  const elements = items.map(({ text, href }) => {
-    return (
-      <StyledItem key={text} onClick={onClick}>
-        <StyledButton to={href}>{text}</StyledButton>
-      </StyledItem>
-    );
-  });
-
-  return (
+  return isLoggedIn ? (
+    <StyledContainerNew>
+      <StyledButtonNew to="/user">
+        <StyledIconContainer>
+          <StyledIcon />
+          Account
+        </StyledIconContainer>
+      </StyledButtonNew>
+    </StyledContainerNew>
+  ) : (
     <StyledContainer>
-      <StyledList>{elements}</StyledList>
+      <StyledList>
+        {items.map(({ text, href }) => {
+          return (
+            <StyledItem key={text}>
+              <StyledButton to={href}>{text}</StyledButton>
+            </StyledItem>
+          );
+        })}
+      </StyledList>
     </StyledContainer>
   );
 };
+
+// ---------- Sign buttons

@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { updateUserProfile } from 'services/profileApi';
 import { useFormik } from 'formik';
+import selector from 'redux/auth/auth-selectors';
 import * as yup from 'yup';
 import { MdOutlineDone } from 'react-icons/md';
 import { HiPencil } from 'react-icons/hi';
@@ -14,9 +17,9 @@ const inputSchemas = {
 };
 
 export const UserDataItem = ({ inputName, inputValue }) => {
+  const token = useSelector(selector.getToken);
   const [currentValue, setCurrentValue] = useState('');
-  const [isInput, setIsInput] = useState(true);
-
+  const [isInput, setIsInput] = useState(false);
   const currentName = inputName.toLowerCase();
 
   useEffect(() => {
@@ -29,22 +32,29 @@ export const UserDataItem = ({ inputName, inputValue }) => {
     },
     validationSchema: inputSchemas[currentName + 'Schema'],
     onSubmit: values => {
+      console.log('values', values);
       setIsInput(!isInput);
       setCurrentValue(values[currentName]);
       formik.resetForm();
+      updateUserProfile(token, values);
     },
   });
 
-  const disabledInputsHandler = () => {
+  const disabledInputsHandler = async () => {
+    await console.log('NOW', isInput);
     setIsInput(!isInput);
   };
+
   return (
     <SC.UserDataListItem>
       {`${inputName}:`}
-      {isInput && currentValue !== '' ? (
+      {!isInput && currentValue !== '' ? (
         <SC.UserDataListWrapper>
           <SC.UserDataListContent>{currentValue}</SC.UserDataListContent>
-          <SC.UserDataPencilIcon>
+          <SC.UserDataPencilIcon
+            disabled={!isInput}
+            // onClick={disabledInputsHandler}
+          >
             <HiPencil onClick={disabledInputsHandler} />
           </SC.UserDataPencilIcon>
         </SC.UserDataListWrapper>
@@ -59,7 +69,7 @@ export const UserDataItem = ({ inputName, inputValue }) => {
               value={formik.values[inputName.toLowerCase()]}
             />
             <SC.UserDataPencilIcon type="submit">
-              <MdOutlineDone onClick={() => setIsInput(!isInput)} />
+              <MdOutlineDone onClick={formik.handleSubmit} />
             </SC.UserDataPencilIcon>
           </form>
         </SC.UserDataListWrapper>

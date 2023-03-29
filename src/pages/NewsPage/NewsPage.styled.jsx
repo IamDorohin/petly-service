@@ -4,31 +4,29 @@ import Container from '@mui/material/Container';
 export const NewsContainer = styled(Container)(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
   textAlign: 'center',
-
+  width: '280px',
   paddingBottom: '100px',
-  [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {
-    minWidth: '320px',
-    paddingLeft: '20px',
-    paddingRight: '20px',
-    paddingTop: '40px',
-  },
+  padding: '0',
+
   [theme.breakpoints.up(theme.breakpoints.values.mobileAdaptive)]: {
     maxWidth: '480px',
   },
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     minWidth: '768px',
     maxWidth: '768px',
     paddingLeft: '32px',
     paddingRight: '32px',
-    paddingTop: '90px',
+    // paddingTop: '90px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     minWidth: '1200px',
     maxWidth: '1200px',
-    paddingLeft: '16px',
-    paddingRight: '16px',
+    margin: '0',
+    // paddingLeft: '16px',
+    // paddingRight: '16px',
     paddingBottom: '200px',
-    paddingTop: '60px',
+    // paddingTop: '60px',
   },
 }));
 
@@ -36,6 +34,7 @@ export const Section = styled('section')(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
   minHeight: '100vh',
   textAlign: 'center',
+  padding: '0 20px',
 }));
 
 export const Error = styled('h2')(({ theme }) => ({

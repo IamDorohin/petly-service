@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import selector from 'redux/auth/auth-selectors';
 
 import * as SC from './NoticesCategoriesNav.styled';
 
@@ -14,7 +16,7 @@ const privateCategories = [
 ];
 
 export const NoticesCategoriesNav = () => {
-  const token = 'fake token';
+  const isLogedIn = useSelector(selector.getIsLoggedIn);
   const { categoryName } = useParams();
 
   return (
@@ -27,7 +29,7 @@ export const NoticesCategoriesNav = () => {
         </SC.CategoriesItem>
       ))}
 
-      {token !== null &&
+      {isLogedIn &&
         privateCategories.map(({ id, title, endpoint }) => (
           <SC.CategoriesItem className={categoryName === endpoint} key={id}>
             <SC.NavLinkStyled className="forHover" to={`/notices/${endpoint}`}>

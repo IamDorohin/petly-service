@@ -169,8 +169,9 @@ export const CategoryText = styled.div`
   }
 `;
 
-//   @media only screen and (min-width: 768px) {
-//    display: flex
-// justify-content: space-between;
-// }
-// `;
+export const NoticeImg = styled.img`
+  object-fit: cover;
+  border-radius: 0px 0px 40px 40px;
+  width: 100%;
+  height: 100%;
+`;
