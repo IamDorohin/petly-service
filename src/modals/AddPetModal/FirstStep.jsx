@@ -11,19 +11,19 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
       <FormLabel sx={LabelFormic}>
         Name pet
         <Input
-          value={formik.values.namePet}
+          value={formik.values.name}
           onChange={formik.handleChange}
           type="text"
-          name="namePet"
+          name="name"
           placeholder="Type name pet"
         />
       </FormLabel>
 
       <CalendarDatePicker
         label="Date of birth"
-        value={formik.values.dateOfBirth}
+        value={formik.values.date}
         onChange={value => {
-          formik.setFieldValue('dateOfBirth', dayjs(value.$d), false);
+          formik.setFieldValue('date', dayjs(value.$d), false);
         }}
       />
 
@@ -41,7 +41,9 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
         {errorMessages.length !== 0 &&
           errorMessages.map((message, index) => {
             return (
-              <Alert key={index} severity="error" >
+              <Alert
+                key={message.toString()}
+              >
                 {message}
               </Alert>
             );

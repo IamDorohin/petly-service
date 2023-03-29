@@ -4,7 +4,33 @@ export const UserDataContainer = styled('div')(({ theme }) => ({
   position: 'relative',
   padding: '0 20px',
 
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    padding: '0',
+    // height: '541px',
+  },
+}));
+
+export const UserInfoTitle = styled('h2')(({ theme }) => ({
+  width: '280px',
+  display: 'block',
+  margin: '0 0 18px 0',
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalM,
+  fontSize: theme.customFontSizes[4],
+  lineHeight: theme.customLineHeight[8],
+  letterSpacing: theme.customLetterSpacing.m,
+  color: theme.customColors.homeHeroTitleFont,
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    margin: '0 0 40px 0',
+    paddingLeft: '32px',
+    fontSize: theme.customFontSizes[6],
+    lineHeight: theme.customLineHeight[10],
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    paddingLeft: '17px',
+    margin: '0 0 24px 0',
+  },
 }));
 
 export const UserDataContent = styled('div')(({ theme }) => ({
@@ -25,18 +51,23 @@ export const UserDataContent = styled('div')(({ theme }) => ({
     flexDirection: 'row-reverse',
     width: '736px',
     height: '311px',
-    marginLeft: '-32px',
+    // marginLeft: '-32px',
     paddingLeft: '20px',
     paddingRight: '40px',
+    borderRadius: theme.customBorderRadius.findPetCard,
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     width: '411px',
+    height: '541px',
+
     marginRight: '32px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     padding: '20px 16px 64px 16px',
+
+    borderRadius: theme.customBorderRadius.findPetCard,
   },
 }));
 
@@ -84,7 +115,7 @@ export const UserDataEditContainer = styled('div')(({ theme }) => ({
     opacity: '0,5',
   },
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    right: '-12px',
+    right: '0',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     right: '-64px',

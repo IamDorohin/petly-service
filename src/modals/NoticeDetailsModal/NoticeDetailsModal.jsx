@@ -18,15 +18,16 @@ import {
   GGGG,
   CategoryText,
   TextLabel,
+  NoticeImg,
 } from './NoticeDetailsModal.styled';
 
 export const NoticeDetailsModal = ({
   isOpen,
   onClose,
+  currentPet,
   onFavButtonClick,
-  activeNoticeId,
 }) => {
-  const { moreDetails = {} } = useGetNoticesByIdQuery(activeNoticeId);
+  const { moreDetails = {} } = useGetNoticesByIdQuery(currentPet);
   const [toggl, setToggle] = useState(false);
 
   const showHeart = () => {
@@ -45,7 +46,7 @@ export const NoticeDetailsModal = ({
     birthday,
     sex,
     comments,
-  } = moreDetails;
+  } = currentPet;
 
   console.log(moreDetails);
 
@@ -54,7 +55,7 @@ export const NoticeDetailsModal = ({
       <div>
         <DivBox>
           <Box sx={B}>
-            <img src={imgUrl} alt="" />
+            <NoticeImg src={imgUrl} alt="" />
             <CategoryText>
               <Typography sx={TextLabel}>{category}Category</Typography>
             </CategoryText>

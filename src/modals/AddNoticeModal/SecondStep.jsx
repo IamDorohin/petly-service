@@ -18,7 +18,7 @@ import { NOTICE_TYPES } from '../AddNoticeModal/AddNoticeModalІSchems';
 import { convertBlobToBase64 } from '../AddPetModal/AddPetUtils';
 
 const AddNoticeModalSecondStep = ({ formik, onBack }) => {
-  const isSellNotice = formik.values.noticeType === NOTICE_TYPES.SELL;
+  const isSellNotice = formik.values.category === NOTICE_TYPES.SELL;
   const errorMessages = Object.values(formik.errors);
   const [base64Url, setBase64Url] = useState();
   return (
@@ -82,10 +82,10 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           sx={CssTextFieldTheme}
           id="outlined-multiline-flexible"
           label="Type comments"
-          name="comment"
+          name="comments"
           multiline
           maxRows={4}
-          value={formik.values.comment}
+          value={formik.values.comments}
           onChange={formik.handleChange}
         /> */}
       </FormLabel>

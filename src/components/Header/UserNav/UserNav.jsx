@@ -5,7 +5,7 @@ import {
   StyledIcon,
 } from './UserNav.styled';
 
-export default function UserNav({ onClick }) {
+export const UserNav = ({ onClick }) => {
   return (
     <StyledContainer>
       <StyledButton to="/user" onClick={onClick}>
@@ -15,4 +15,4 @@ export default function UserNav({ onClick }) {
       </StyledButton>
     </StyledContainer>
   );
-}
+};

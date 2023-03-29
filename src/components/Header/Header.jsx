@@ -8,7 +8,7 @@ import {
 import { Logo } from './Logo/Logo';
 import { Nav } from './Nav/Nav';
 import { AuthNav } from './AuthNav/AuthNav';
-// import {UserNav} from './UserNav/UserNav';
+import { UserNav } from './UserNav/UserNav';
 import { BurgerButton } from './BurgerButton/BurgerButton';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 
@@ -35,7 +35,7 @@ export const Header = () => {
         {isTablet && (
           <StyledMenuContainer>
             <AuthNav onClick={onClose} />
-            {/* <UserNav onClick={onClose} /> */}
+            <UserNav onClick={onClose} />
           </StyledMenuContainer>
         )}
 

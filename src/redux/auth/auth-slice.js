@@ -58,14 +58,15 @@ const authSlice = createSlice({
         handleRejected(state, action);
       })
       .addCase(updateUser.pending, (state, _) => {
-        handlePending(state);
+        state.isRefreshing = true;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
         state.isRefreshing = false;
-        state.user = { ...state.user, ...payload };
+        state.user = { ...state.user, ...payload.data.user };
+        state.isLoggedIn = true;
       })
       .addCase(updateUser.rejected, (state, action) => {
-        handleRejected(state, action);
+        state.isRefreshing = false;
       });
   },
 });

@@ -6,10 +6,11 @@ export const UserDataListContainer = styled('ul')(({ theme }) => ({
   margin: '0',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    width: '380px',
-    padding: '40px 0 80px 32px',
+    // width: '380px',
+    padding: '40px 0 80px 12px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    width: '380px',
     padding: '0',
   },
 }));
@@ -25,12 +26,17 @@ export const UserDataListItem = styled('li')(({ theme }) => ({
   fontSize: theme.customFontSizes[0],
   color: theme.customColors.primaryFont,
   lineHeight: theme.customLineHeight[1],
+
   '&:not(:last-child)': {
     marginBottom: '8px',
   },
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     fontSize: theme.customFontSizes[3],
     lineHeight: theme.customLineHeight[6],
+    '&:not(:last-child)': {
+      marginBottom: '10px',
+    },
   },
 }));
 
@@ -46,8 +52,13 @@ export const UserDataListContent = styled('p')(({ theme }) => ({
   height: '20px',
   margin: '0',
   marginRight: '9px',
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '160px',
     marginRight: '52px',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    width: '180px',
   },
 }));
 
@@ -58,6 +69,15 @@ export const UserDataListInput = styled('input')(({ theme }) => ({
   border: '1px solid rgba(245, 146, 86, 0.5)',
   borderRadius: theme.customBorderRadius.primary,
   backgroundColor: theme.customColors.appBackground,
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '216px',
+    height: '26px',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    width: '236px',
+    height: '26px',
+  },
 }));
 
 export const UserDataPencilIcon = styled('button')(({ theme }) => ({

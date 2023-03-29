@@ -4,17 +4,17 @@ import { Formik } from 'formik';
 import AddPetModalFirstStep from './FirstStep';
 import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
-import { useAddNoticeMutation } from '../../redux/notices/noticesSlice';
+import { addUserPet } from 'services/profileApi';
 import { addPetFirstStepSchema, addPetSubmitSchema } from './AddPetModalShema';
 import { modalBox, Title } from '../Modal/Modal.styled';
 import { Typography } from '@mui/material';
 
 const initialValues = {
-  namePet: '',
-  dateOfBirth: dayjs(),
+  name: '',
+  date: dayjs(),
   breed: '',
-  comment: '',
-  photo: null,
+  comments: '',
+  petsImageUrl: null,
 };
 
 const STEPS = {
@@ -25,7 +25,7 @@ const STEPS = {
 const AddPetModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
   const [errorMessages, setErrorMessages] = useState([]);
-  const [addNotice] = useAddNoticeMutation();
+//   const token = useSelector(selector.getToken);
 
   const onNextStepButtonClick = async ({ values, validateForm }) => {
     try {
@@ -57,8 +57,7 @@ const AddPetModal = ({ isOpen, onClose }) => {
           step === STEPS.FIRST ? addPetFirstStepSchema : addPetSubmitSchema
         }
         onSubmit={async (values, actions) => {
-          console.log(values);
-          await addNotice(values);
+          await addUserPet( values);
           actions.resetForm();
           onClose();
         }}
