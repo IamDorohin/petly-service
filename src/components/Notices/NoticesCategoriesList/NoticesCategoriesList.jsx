@@ -9,10 +9,10 @@ import {
   useDeleteFavoriteNoticeMutation,
   useGetFavoriteArrQuery,
 } from 'redux/notices/noticesSlice';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export const NoticesCategoriesList = ({ searchParams }) => {
-  useState(false);
+  // useState(false);
 
   const { categoryName } = useParams();
 

@@ -1,6 +1,8 @@
 import { useDeleteNoticeMutation } from 'redux/notices/noticesSlice';
 import { HiTrash } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import selectors from 'redux/auth/auth-selectors';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import { useGetNoticesByIdQuery } from 'redux/notices/noticesSlice';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -12,6 +14,9 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
   const { breed, category, title, imgUrl, location, price, owner, _id, like } =
     notice;
 
+  const currentUser = useSelector(selectors.getUser);
+
+  const isOwnerNotice = currentUser.id === owner;
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCurrentPet, setIsCurrentPet] = useState(false);
 
@@ -31,7 +36,7 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
     setIsCurrentPet(false);
     setIsOpenModal(false);
   };
-
+  console.log('owner', owner);
   return (
     <SC.NoticeItem>
       {imgUrl === 'default/url' ? (
@@ -79,7 +84,7 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
         >
           Learn More
         </SC.NoticeLearnMoreBtn>
-        {owner && (
+        {isOwnerNotice && (
           <SC.NoticeDeleteBtn
           // onClick={() => deleteOwnNotice(_id)}
           >

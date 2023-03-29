@@ -5,11 +5,14 @@ import { AddPetButton } from './AddPetsButton/AddPetButton';
 import { useState } from 'react';
 import AddPetModal from 'modals/AddPetModal/AddPetModal';
 
-export const PetsData = ({ petInfo }) => {
-  const [isAddPetModalOpen, setIsAddPetModalOpen] = useState(false);
-
+export const PetsData = ({
+  petInfo,
+  isAddPetModalOpen,
+  setIsAddPetModalOpen,
+}) => {
   const openAddPetModal = () => setIsAddPetModalOpen(true);
   const closeAddPetModal = () => setIsAddPetModalOpen(false);
+
   return (
     <PetsWrapper>
       <UserPageTitle>My pets:</UserPageTitle>

@@ -23,7 +23,7 @@ const NoticesPage = () => {
   const [isAddPetModal, setIsAddPetModal] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log('isAddPetModal', isAddPetModal);
+
   useEffect(() => {
     if (searchQuery !== '') {
       setSearchParams({ search: searchQuery });
