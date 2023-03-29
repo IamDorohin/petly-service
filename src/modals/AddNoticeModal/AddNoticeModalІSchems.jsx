@@ -26,13 +26,13 @@ const firstStepFieldsShape = {
     .min(2)
     .max(48)
     .matches(regexTitle, 'Can contain only two digits')
-    .required('Title is empty'),
+    .required('Category title is empty'),
   name: yup
     .string()
     .min(2)
     .max(16)
     .matches(regexName, 'Can only contain letters')
-    .required('Name is empty'),
+    .required('Category name is empty'),
   birthdate: yup.date(),
   breed: yup
     .string()
@@ -46,13 +46,13 @@ const secondStepFieldsShape = {
   location: yup
     .string()
     .matches(regexAdress, 'Must be in format City, Region')
-    .required('Required'),
+    .required('Category location is empty'),
   price: yup.string().when('category', {
     is: 'sell',
     then: schema =>
       schema
         .matches(regexPrice, 'Must be a positive integer number')
-        .required('Required'),
+        .required('Category price is empty'),
     otherwise: schema => schema.notRequired(),
   }),
   imgUrl: yup
@@ -69,7 +69,7 @@ const secondStepFieldsShape = {
         value === null || (value && SUPPORTED_FORMATS.includes(value.type))
     )
     .nullable(),
-  comments: yup.string().min(8).max(120).required('comment is empty'),
+  comments: yup.string().min(8).max(120).required('Category comment is empty'),
 };
 
 export const addNoticeFirstStepSchema = yup
