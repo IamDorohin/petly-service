@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import selectors from 'redux/auth/auth-selectors';
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
-import { useGetNoticesByIdQuery } from 'redux/notices/noticesSlice';
+import {
+  useGetNoticesByIdQuery,
+  useAddFavoriteNoticeMutation,
+  useDeleteFavoriteNoticeMutation,
+} from 'redux/notices/noticesSlice';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
@@ -16,23 +20,40 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const NoticesCategoriesItem = ({
-  notice,
-  onFavButtonClick,
-  noticeDeleteHandler,
-}) => {
-  const { breed, category, title, imgUrl, location, price, owner, _id, like } =
-    notice;
-
-  const currentUser = useSelector(selectors.getUser);
-
-  const isOwnerNotice = currentUser.id === owner;
+export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
+  const {
+    breed,
+    category,
+    title,
+    imgUrl,
+    location,
+    price,
+    owner,
+    _id,
+    like = false,
+  } = notice;
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCurrentPet, setIsCurrentPet] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(like);
+  const currentUser = useSelector(selectors.getUser);
+  console.log(notice);
+  const isOwnerNotice = currentUser.id === owner;
+  const [addFavNotice] = useAddFavoriteNoticeMutation();
+  const [deleteFavNotice] = useDeleteFavoriteNoticeMutation();
 
   const { currentData: moreDetails } = useGetNoticesByIdQuery(_id, {
     skip: !isOpenModal,
   });
+
+  const onFavButtonClick = ({ _id }) => {
+    if (!isFavorite) {
+      addFavNotice(_id);
+      setIsFavorite(true);
+    } else if (isFavorite) {
+      deleteFavNotice(_id);
+      setIsFavorite(false);
+    }
+  };
 
   useEffect(() => {
     if (moreDetails) {
@@ -56,13 +77,15 @@ export const NoticesCategoriesItem = ({
       )}
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
-        {like ? (
-          <FavoriteIcon onClick={() => onFavButtonClick(notice)} />
+        {isFavorite ? (
+          <FavoriteIcon
+            sx={{ color: '#F59256' }}
+            onClick={() => onFavButtonClick(notice)}
+          />
         ) : (
           <FavoriteTwoToneIcon
             className="forHoverBtn"
-            fontSize="inherit"
-            color="#000"
+            sx={{ color: '#F59256' }}
             onClick={() => onFavButtonClick(notice)}
           />
         )}
@@ -101,12 +124,8 @@ export const NoticesCategoriesItem = ({
           Learn More
         </SC.NoticeLearnMoreBtn>
         {isOwnerNotice && (
-          <SC.NoticeDeleteBtn
-          // onClick={() => deleteOwnNotice(_id)}
-          >
-            <SC.NoticeDeleteBtnText onClick={() => noticeDeleteHandler(_id)}>
-              Delete
-            </SC.NoticeDeleteBtnText>
+          <SC.NoticeDeleteBtn onClick={() => noticeDeleteHandler(_id)}>
+            <SC.NoticeDeleteBtnText>Delete</SC.NoticeDeleteBtnText>
             <HiTrash size={20} />
           </SC.NoticeDeleteBtn>
         )}
