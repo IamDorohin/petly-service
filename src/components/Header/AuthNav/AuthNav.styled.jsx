@@ -6,6 +6,7 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledList = styled.ul`
+  padding-left: 0;
   display: flex;
   gap: 12px;
   align-items: center;

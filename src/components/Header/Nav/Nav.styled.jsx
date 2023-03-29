@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const StyledNavContainer = styled.div``;
 
 export const StyledNavList = styled.ul`
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
