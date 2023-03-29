@@ -26,6 +26,7 @@ export const AddBtn = styled(Button)`
     box-shadow: none;
     background: #fdf7f2;
     margin-top: 20px;
+    border: 1px solid rgba(245, 146, 86, 0.5);
     :focus,
     :focus,
     :active,
