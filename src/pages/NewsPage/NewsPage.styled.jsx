@@ -7,6 +7,8 @@ export const NewsContainer = styled(Container)(({ theme }) => ({
   width: '280px',
   paddingBottom: '100px',
   padding: '0',
+  marginLeft: 'auto',
+  marginRight: 'auto',
 
   [theme.breakpoints.up(theme.breakpoints.values.mobileAdaptive)]: {
     maxWidth: '480px',
@@ -17,16 +19,13 @@ export const NewsContainer = styled(Container)(({ theme }) => ({
     maxWidth: '768px',
     paddingLeft: '32px',
     paddingRight: '32px',
-    // paddingTop: '90px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     minWidth: '1200px',
     maxWidth: '1200px',
-    margin: '0',
-    // paddingLeft: '16px',
-    // paddingRight: '16px',
+    // marginLeft: 'auto',
+    // marginRight: 'auto',
     paddingBottom: '200px',
-    // paddingTop: '60px',
   },
 }));
 
