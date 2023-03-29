@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 import authSelectors from 'redux/auth/auth-selectors';
 import { register } from '../../redux/auth/auth-operations';
 import { registerYupSchema } from '../../schemas/validationSchema';
@@ -14,10 +14,10 @@ export const RegisterForm = () => {
   const [currentStep, setCurrentStep] = useState({ firstStep: true });
   const isSmall = useMediaQuery({ maxWidth: 768 });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   let isRefreshing = useSelector(authSelectors.getIsRefreshing);
 
   const { firstStep, secondStep } = currentStep;
-
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -30,23 +30,32 @@ export const RegisterForm = () => {
 
     validationSchema: registerYupSchema,
     onSubmit: async ({ email, password, name, city, phone }) => {
-      if (firstStep) {
-        setCurrentStep({ secondStep: true });
-        return;
-      }
-
       const authData = { email, password, name, city, phone };
       const data = await dispatch(register(authData));
 
       if (data.type === 'auth/register/fulfilled') {
         formik.resetForm();
+        navigate('/login');
       }
     },
   });
+  const btnSubmitHandler = () => {
+    if (firstStep) {
+      setCurrentStep({ secondStep: true });
+      return;
+    }
+    formik.handleSubmit();
+  };
   return (
     <>
-      <SC.Form onSubmit={formik.handleSubmit}>
-        {firstStep && <FirstStep formik={formik} isSmall={isSmall} />}
+      <SC.Form onSubmit={btnSubmitHandler}>
+        {firstStep && (
+          <FirstStep
+            btnSubmitHandler={btnSubmitHandler}
+            formik={formik}
+            isSmall={isSmall}
+          />
+        )}
         {secondStep && (
           <SecondStep
             formik={formik}
