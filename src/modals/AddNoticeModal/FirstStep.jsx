@@ -51,7 +51,7 @@ const AddNoticeModalFirstStep = ({
               formik.setFieldValue('category', NOTICE_TYPES.GOOD_HANDS)
             }
           >
-            Hands
+            In good hands
           </BtnGroupFierst>
           <BtnGroupFierst
             // sx={{ width: '30%' }}
