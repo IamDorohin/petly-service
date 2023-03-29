@@ -6,7 +6,7 @@ import {
   HomeSection,
   MainContainer,
 } from './HomePage.styled';
-
+import { Footer } from 'components/Footer';
 import heroDogMob from '../../img/header-hero/hero-dog-mob.png';
 import heroDogTab from '../../img/header-hero/hero-dog-tab.png';
 import heroDogDes from '../../img/header-hero/hero-dog-des.png';
@@ -27,6 +27,7 @@ export default function HomePage() {
           </ImagesWrapper>
         </HomeWrapp>
       </MainContainer>
+      <Footer></Footer>
     </HomeSection>
   );
 }
