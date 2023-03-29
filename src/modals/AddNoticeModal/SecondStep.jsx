@@ -73,10 +73,10 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
         Comments
         <InputComment
           rows="4"
-          value={formik.values.comment}
+          value={formik.values.comments}
           onChange={formik.handleChange}
           type="text"
-          name="comment"
+          name="comments"
           placeholder="Type comments"
         />
         {/* <CssTextField
