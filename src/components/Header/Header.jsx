@@ -12,8 +12,13 @@ import { UserNav } from './UserNav/UserNav';
 import { BurgerButton } from './BurgerButton/BurgerButton';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 
+import { useSelector } from 'react-redux';
+import authSelectors from '../../redux/auth/auth-selectors'; // getIsLoggedIn
+
 export const Header = () => {
   const [showBurgerMenu, setShowBurgetMenu] = useState(false);
+
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768 });
@@ -34,8 +39,9 @@ export const Header = () => {
 
         {isTablet && (
           <StyledMenuContainer>
-            <AuthNav onClick={onClose} />
-            <UserNav onClick={onClose} />
+            {isLoggedIn ? <UserNav onClick={onClose} /> : <AuthNav onClick={onClose} />}
+            {/* <AuthNav onClick={onClose} /> */}
+            {/* <UserNav onClick={onClose} /> */}
           </StyledMenuContainer>
         )}
 

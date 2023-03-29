@@ -9,10 +9,10 @@ import {
 import { Logo } from '../Logo/Logo';
 import { Nav } from '../Nav/Nav';
 import { AuthNav } from '../AuthNav/AuthNav';
-// import {UserNav} from '../UserNav/UserNav';
+import {UserNav} from '../UserNav/UserNav';
 import { CloseBurgerMenuBtn } from '../CloseBurgerMenuBtn/CloseBurgerMenuBtn';
 
-export const BurgerMenu = ({ onClick }) => {
+export const BurgerMenu = ({ isLoggedIn, onClick }) => {
   const isTablet = useMediaQuery({ minWidth: 768 });
   return (
     <StyledContainer>
@@ -23,7 +23,8 @@ export const BurgerMenu = ({ onClick }) => {
       <StyledContainerUserMenu>
         {!isTablet && (
           <StyledUserMenu>
-            <AuthNav onClick={onClick} />
+            {isLoggedIn ? <UserNav onClick={onClick} /> : <AuthNav onClick={onClick} />}
+            {/* <AuthNav onClick={onClick} /> */}
             {/* <UserNav onClick={onClick} /> */}
           </StyledUserMenu>
         )}
