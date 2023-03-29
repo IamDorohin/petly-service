@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-
-
-import heroBg from '../../img/header-hero/heroBg.png'
-import heroBgTab from '../../img/header-hero/heroBgTab.png'
-import heroBgDes from '../../img/header-hero/hero-bg-des.png'
-import heart from '../../img//header-hero/hero-heart-des.png'
+import heroBg from '../../img/header-hero/heroBg.png';
+import heroBgTab from '../../img/header-hero/heroBgTab.png';
+import heroBgDes from '../../img/header-hero/hero-bg-des.png';
+import heart from '../../img//header-hero/hero-heart-des.png';
 // @media(min - width: 768px) {
 
 // }
@@ -27,7 +25,7 @@ export const MainContainer = styled.div`
 `;
 
 export const HomeSection = styled.section`
-  background-color: #FDF7F2;
+  background-color: #fdf7f2;
   position: relative;
   width: 100vw;
   display: flex;
@@ -39,21 +37,20 @@ export const HomeSection = styled.section`
   background-position: bottom -70px left 35%;
   overflow: hidden;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     height: calc(100vh - 83.2px);
-  background-image: url('${heroBgTab}');
-  background-position: bottom -70px left 25%;
-  background-size: cover;
-}
+    background-image: url('${heroBgTab}');
+    background-position: bottom -70px left 25%;
+    background-size: cover;
+  }
 
-  @media(min-width: 1280px) {
+  @media (min-width: 1280px) {
     height: calc(100vh - 79.2px);
-    
-  background-image: url('${heroBgDes}');
-  background-position: bottom;
-  background-size: 1400px;
-}
 
+    background-image: url('${heroBgDes}');
+    background-position: bottom;
+    background-size: 1400px;
+  }
 `;
 
 export const ImagesWrapper = styled.div`
@@ -88,46 +85,37 @@ export const ImagesWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-position: relative;
+  position: relative;
 
-width: 280px;
+  width: 280px;
 
-@media(min-width: 768px) {
-      width: 100%
-}
+  @media (min-width: 768px) {
+    width: 100%;
+  }
 
-@media(min-width: 1280px) {
-  
-  width: 524px;
-
-  
-}
-
-
+  @media (min-width: 1280px) {
+    width: 524px;
+  }
 `;
 
 export const HomeTitle = styled.h1`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 700;
-font-size: 32px;
-line-height: 44px;
-color: #000000;
-margin: 0;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: #000000;
+  margin: 0;
 
-@media(min-width: 768px) {
-  font-size: 68px;
-  line-height: 100px;
-}
+  @media (min-width: 768px) {
+    font-size: 68px;
+    line-height: 100px;
+  }
 
-@media(min-width: 1280px) {
-  display: block;
-  width: 590px;
-}
-
+  @media (min-width: 1280px) {
+    display: block;
+    width: 590px;
+  }
 `;
 
-export const HomeWrapp = styled.div`
-
-`;
-
+export const HomeWrapp = styled.div``;
