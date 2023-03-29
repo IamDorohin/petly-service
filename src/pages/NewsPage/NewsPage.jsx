@@ -1,49 +1,57 @@
-import React, {useState} from 'react'
-import news from '../../data/news'
-import Title from '../../components/Generic/Title'
-import NewsSearch from '../../components/Generic/Search'
-import NewsGrid from '../../components/News/NewsGrid'
-import NewsCard from '../../components/News/NewsCard'
-import moment from 'moment/moment'
-import {NewsContainer} from './NewsPage.styled'
-
+import React, { useState } from 'react';
+import Title from '../../components/Generic/Title';
+import NewsSearch from '../../components/News/NewsSearch/Search';
+import NewsGrid from '../../components/News/NewsGrid/NewsGrid';
+import NewsCard from '../../components/News/NewsCard/NewsCard';
+import moment from 'moment/moment';
+import { NewsContainer, Section } from './NewsPage.styled';
+import { useGetNewsQuery } from '../../redux/news/NewsAPI';
+import NoResult from '../../components/Generic/NoResult/NoResult';
 
 const NewsPage = () => {
-    const [filter, setFilter] = useState('');
-    let visibleNews = {};
-    if (news) {
-    visibleNews = news.filter(item =>
-        item.title.toLowerCase().includes(filter) || item.description.toLowerCase().includes(filter)
-    ).sort((a, b) => moment(b.date, 'DD.MM.YY') - moment(a.date, 'DD.MM.YY'));
-    };
+  const [filter, setFilter] = useState('');
+  const {
+    currentData,
+    refetch,
+    // error, isLoading
+  } = useGetNewsQuery();
 
-    return <NewsContainer>
+  let visibleNews = {};
 
+  if (currentData) {
+    visibleNews = currentData.data.result
+      .filter(
+        item =>
+          item.title.toLowerCase().includes(filter) ||
+          item.description.toLowerCase().includes(filter)
+      )
+      .sort((a, b) => moment(b.date) - moment(a.date));
+  }
+
+  return (
+    <Section>
+      <NewsContainer>
         <Title>News</Title>
-
-        <NewsSearch
-            saveFilter={setFilter}
-            filter = {filter}
-        />
-
+        <NewsSearch saveFilter={setFilter} fetch={refetch} />
         <NewsGrid>
-            {news &&
-        visibleNews.map(item => {
-            return (
+          {currentData &&
+            visibleNews.map(item => {
+              console.log(moment(item.date));
+              return (
                 <NewsCard
-                    key={item.title}
-                    title={item.title}
-                    url={item.url}
-                    description={item.description}
-                    date = {item.date}
-                    
+                  key={item.title}
+                  title={item.title}
+                  url={item.url}
+                  description={item.description}
+                  date={item.date}
                 />
-            );
-        })}
+              );
+            })}
         </NewsGrid>
-
-        
-    </NewsContainer>
+        {visibleNews.length === 0 && <NoResult match={filter} />}
+      </NewsContainer>
+    </Section>
+  );
 };
 
 export default NewsPage;

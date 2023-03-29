@@ -6,7 +6,7 @@ export const theme = createTheme({
       mobileResponsive: 320,
       mobileAdaptive: 480,
       tablet: 768,
-      desktop: 1200,
+      desktop: 1280,
     },
   },
   customColors: {
@@ -36,7 +36,7 @@ export const theme = createTheme({
     round: '50%',
     primary: '40px',
     secondary: '20px',
-    findPetCard: 'border-radius: 0px 0px 40px 40px',
+    findPetCard: '0px 40px 40px 0px',
   },
   customBorders: {
     primaryButtons: '2px solid #F59256',

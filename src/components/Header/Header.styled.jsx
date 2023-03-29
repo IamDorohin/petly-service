@@ -4,21 +4,17 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 16px;
+  margin-bottom: 60px;
+  padding-top: 26px;
+  background-color: #fdf7f2;
+
   @media (min-width: 768px) {
+    width: 700px;
     padding-top: 24px;
     justify-content: baseline;
   }
   @media (min-width: 1280px) {
-    padding-top: 20px;
-  }
-`;
-
-export const StyledMenuContainer = styled.div`
-  margin-left: auto;
-  margin-right: 25px;
-  @media (min-width: 1280px) {
-    margin-right: 0;
+    width: 100%;
   }
 `;
 
@@ -33,5 +29,16 @@ export const MainContainer = styled.div`
   @media (min-width: 1280px) {
     width: 1280px;
     padding: 0 16px;
+  }
+`;
+
+export const Wrapper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-left: 246px;
+  }
+  @media (min-width: 1280px) {
   }
 `;

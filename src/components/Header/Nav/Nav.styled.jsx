@@ -1,24 +1,45 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const StyledNavContainer = styled.div``;
+export const StyledNavContainer = styled.div`
+  width: 100%;
+`;
 
 export const StyledNavList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 40px;
   align-items: center;
-  @media (min-width: 768px) {
-    gap: 60px;
-  }
-  @media (min-width: 1300px) {
+  margin: 0 auto;
+
+  padding-left: 0;
+
+  @media (min-width: 1280px) {
     flex-direction: row;
-    gap: 80px;
   }
 `;
 
 export const StyledNavItem = styled.li`
   list-style: none;
+
+  :not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) {
+    :not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    :not(:last-child) {
+      margin-bottom: 0;
+      margin-right: 80px;
+    }
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -27,18 +48,24 @@ export const StyledLink = styled(NavLink)`
   font-weight: 500;
   color: rgba(24, 28, 39, 1);
   text-decoration: none;
+
   &:hover,
   &:focus {
     color: rgba(245, 146, 86, 1);
   }
+
   &.active {
     color: rgba(245, 146, 86, 1);
-    font-weight: 500;
+    font-weight: 700;
+    text-decoration: underline;
   }
+
   @media (min-width: 768px) {
-    font-size: 500;
+    font-size: 48px;
+    line-height: 65px;
+    letter-spacing: 0.04em;
   }
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     font-size: 20px;
 
     &.active {
