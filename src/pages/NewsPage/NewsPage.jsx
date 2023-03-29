@@ -36,7 +36,6 @@ const NewsPage = () => {
         <NewsGrid>
           {currentData &&
             visibleNews.map(item => {
-              console.log(moment(item.date));
               return (
                 <NewsCard
                   key={item.title}

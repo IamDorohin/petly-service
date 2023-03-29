@@ -34,7 +34,6 @@ const inputSchemas = {
 export const UserData = ({ userInfo }) => {
   const token = useSelector(selector.getToken);
   const [currentPhoto, setCurrentPhoto] = useState('');
-  console.log('userInfo', userInfo);
 
   useEffect(() => {
     if (userInfo.photo) {
@@ -48,7 +47,6 @@ export const UserData = ({ userInfo }) => {
     },
     validationSchema: inputSchemas.photoSchema,
     onSubmit: async values => {
-      console.log('values', values);
       const { result } = await updateUserProfile(token, values);
       setCurrentPhoto(result.photo);
     },
@@ -77,7 +75,6 @@ export const UserData = ({ userInfo }) => {
                 type="file"
                 name="photo"
                 onChange={event => {
-                  console.log('event', event);
                   formik.setFieldValue('photo', event.currentTarget.files[0]);
                 }}
                 // id={currentValue}

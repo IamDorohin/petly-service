@@ -31,7 +31,7 @@ const STEPS = {
   SECOND: 2,
 };
 
-const AddNoticeModal = ({ isOpen, onClose }) => {
+const AddNoticeModal = ({ isOpen, onClose, refetchNotices }) => {
   const [step, setStep] = useState(STEPS.FIRST);
   const [errorMessages, setErrorsMessages] = useState([]);
   const [addNotice] = useAddNoticeMutation();
@@ -90,7 +90,6 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
             imgUrl,
             sex,
           };
-          console.log('values', values);
           if (birthdate) values.birthdate = birthdate;
           if (price) values.price = Number(price);
           if (comments) values.comments = comments;
@@ -100,6 +99,7 @@ const AddNoticeModal = ({ isOpen, onClose }) => {
           }
           await addNotice(formData);
           actions.resetForm();
+          refetchNotices();
           onClose();
         }}
       >

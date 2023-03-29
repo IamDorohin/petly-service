@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { useGetNoticesByCategoryQuery } from 'redux/notices/noticesSlice';
+import {
+  useGetNoticesByCategoryQuery,
+  useGetFavoriteArrQuery,
+} from 'redux/notices/noticesSlice';
 
 import Title from 'components/Generic/Title';
 import { NoticesSearch } from 'components/Notices/NoticesSearch/NoticesSearch';
@@ -17,6 +20,7 @@ import {
   NoticesPageNavBox,
   Container,
 } from 'pages/NoticesPage/NoticesPage.styled';
+import { LoaderCat } from 'components/Generic/LoaderCat';
 
 const NoticesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,11 +39,14 @@ const NoticesPage = () => {
 
   const {
     currentData: array,
+    refetch,
     error,
     isSuccess,
-  } = useGetNoticesByCategoryQuery(endpoint);
-
-  const findedNotices = array?.data?.notices;
+    isFetching,
+  } = useGetNoticesByCategoryQuery(endpoint, {
+    refetchOnMountOrArgChange: true,
+  });
+  const { currentData: favoriteArr } = useGetFavoriteArrQuery();
 
   useEffect(() => {
     if (searchQuery !== '') {
@@ -48,6 +55,10 @@ const NoticesPage = () => {
       setSearchParams();
     }
   }, [searchQuery, setSearchParams]);
+
+  const onCloseModal = () => {
+    setIsAddPetModal(false);
+  };
 
   return (
     <NoticesPageContainer>
@@ -61,16 +72,22 @@ const NoticesPage = () => {
           <NoticesCategoriesNav />
           <NoticeAddButton onClick={() => setIsAddPetModal(true)} />
         </NoticesPageNavBox>
-        <NoticesCategoriesList
-          error={error}
-          isSuccess={isSuccess}
-          findedNotices={findedNotices}
-        />
+        {isFetching ? (
+          <LoaderCat size={120} space={10} />
+        ) : (
+          <NoticesCategoriesList
+            error={error}
+            isSuccess={isSuccess}
+            findedNotices={array?.data?.notices}
+            favoriteArr={favoriteArr}
+          />
+        )}
       </Container>
       {isAddPetModal && (
         <AddNoticeModal
+          refetchNotices={refetch}
           isOpen={isAddPetModal}
-          onClose={() => setIsAddPetModal(false)}
+          onClose={onCloseModal}
         />
       )}
     </NoticesPageContainer>
