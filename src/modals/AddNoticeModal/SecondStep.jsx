@@ -63,7 +63,6 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
                 event.currentTarget.files[0]
               );
               setBase64Url(_Base64Url);
-              console.log(event.currentTarget.files[0]);
             }}
           />
           {!base64Url ? <Vector /> : <Img src={base64Url} alt="" />}
@@ -94,7 +93,7 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
         {errorMessages.length !== 0 &&
           errorMessages.map((message, index) => {
             return (
-              <Alert key={index} severity="error" >
+              <Alert key={index} severity="error">
                 {message}
               </Alert>
             );
