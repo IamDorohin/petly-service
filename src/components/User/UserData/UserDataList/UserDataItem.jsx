@@ -16,12 +16,16 @@ const inputSchemas = {
   citySchema: yup.object({ city: yup.string() }),
 };
 
-export const UserDataItem = ({ inputName, inputValue }) => {
+export const UserDataItem = ({
+  inputName,
+  inputValue,
+  changeInputName,
+  setChangeInputName,
+}) => {
   const token = useSelector(selector.getToken);
   const [currentValue, setCurrentValue] = useState('');
-  const [isInput, setIsInput] = useState(false);
   const currentName = inputName.toLowerCase();
-
+  const isInput = inputName === changeInputName;
   useEffect(() => {
     if (inputValue !== '') setCurrentValue(inputValue);
   }, [inputValue]);
@@ -32,8 +36,7 @@ export const UserDataItem = ({ inputName, inputValue }) => {
     },
     validationSchema: inputSchemas[currentName + 'Schema'],
     onSubmit: values => {
-      console.log('values', values);
-      setIsInput(!isInput);
+      setChangeInputName('');
       setCurrentValue(values[currentName]);
       formik.resetForm();
       updateUserProfile(token, values);
@@ -41,8 +44,7 @@ export const UserDataItem = ({ inputName, inputValue }) => {
   });
 
   const disabledInputsHandler = async () => {
-    await console.log('NOW', isInput);
-    setIsInput(!isInput);
+    setChangeInputName(inputName);
   };
 
   return (
