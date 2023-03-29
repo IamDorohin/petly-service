@@ -43,6 +43,22 @@ export const FontButtonNotice = theme => ({
     lineHeight: '22px',
   },
 });
+
+
+export const TextLabel = theme => ({
+  display: 'flex',
+  justifyContent: 'center',
+  fontWeight: '500',
+  fontFamily: 'Manrope',
+  fontStyle: 'normal',
+  fontSize: '12px',
+  textTransform: 'none',
+  lineHeight: '16px',
+  minWidth: '20px',
+  color: '#111111',
+  width: 'auto',
+});
+
 export const Text = theme => ({
   fontWeight: '600',
   fontFamily: 'Manrope',
@@ -51,24 +67,12 @@ export const Text = theme => ({
   textTransform: 'none',
   lineHeight: '16px',
   mb: '8px',
+  minWidth: '115px',
   [theme.breakpoints.up('tablet')]: {
     fontSize: '16px',
     lineHeight: '22px',
+    miwidth: '115px',
   },
-});
-
-export const TextLabel = theme => ({
-  display: 'flex',
-  justifyContent: 'center',
-  fontWeight: '500',
-  fontFamily: 'Manrope',
-  fontStyle: 'normal',
-  fontSize: '14px',
-  textTransform: 'none',
-  lineHeight: '19px',
-  minWidth: '20px',
-  color: '#111111',
-  width: 'auto',
 });
 
 export const TextT = theme => ({
@@ -77,8 +81,9 @@ export const TextT = theme => ({
   fontStyle: 'normal',
   fontSize: '14px',
   textTransform: 'none',
-  minWidth: '118px',
+//   minWidth: '115px',
   lineHeight: '19px',
+  width: 'auto',
   [theme.breakpoints.up('tablet')]: {
     fontSize: '16px',
     lineHeight: '22px',
@@ -109,10 +114,12 @@ export const Ul = styled.ul(({ theme }) => ({
 }));
 
 export const L = styled.li(({ theme }) => ({
-  display: 'flex',
+    display: 'flex',
+    justifyContent: 'flex-start',
 }));
 
 export const B = theme => ({
+  position: 'relative',
   width: '100',
   height: '240px',
   backgroundColor: 'rgba(245, 146, 86, 0.5)',
@@ -154,12 +161,13 @@ export const GGGG = styled.div`
 `;
 
 export const CategoryText = styled.div`
-  display: 'flex'
-  justify-content: 'center';
-  align-items: 'center';
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  position: absolut;
   background: rgba(255, 255, 255, 0.6);
   width: 158px;
   height: 28px;

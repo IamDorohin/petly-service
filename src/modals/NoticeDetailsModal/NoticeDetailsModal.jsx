@@ -90,13 +90,13 @@ export const NoticeDetailsModal = ({
               <L>
                 <Typography sx={Text}>Phone:</Typography>
                 <Typography sx={TextT}>{owner.phone}</Typography>
-                {price && (
-                  <L>
-                    <Typography sx={Text}>price:</Typography>
-                    <Typography sx={TextT}>{price}</Typography>
-                  </L>
-                )}
               </L>
+              {price && (
+                <L>
+                  <Typography sx={Text}>Price:</Typography>
+                  <Typography sx={TextT}>{price}</Typography>
+                </L>
+              )}
             </Ul>
           </Div>
         </DivBox>
