@@ -12,7 +12,8 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
-import pet from 'img/pngwing.png';
+// import pet from 'img/pngwing.png';
+import noPetPhoto from 'images/nopetphoto.png';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -70,7 +71,7 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
     <SC.NoticeItem>
       {imgUrl === 'default/url' ? (
         <SC.NoticeImageWrapper>
-          <SC.NoticeImage src={pet} />
+          <SC.NoticeImage src={noPetPhoto} />
         </SC.NoticeImageWrapper>
       ) : (
         <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
