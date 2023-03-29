@@ -6,8 +6,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { ReactComponent as Male } from './img/VectorSexM.svg';
-import { ReactComponent as Female } from './img/Female.svg';
+import { ReactComponent as Female } from './img/Femaleee.svg';
 import { LabelFormic } from '../Modal/Modal.styled';
+// import styled from 'styled-components';
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
@@ -64,15 +65,7 @@ function BpRadio(props) {
 export default function SexRadios({ formik }) {
   const value = formik.values.sex;
   return (
-    <FormControl
-    //   sx={{
-    //     display: 'flex',
-    //     '&:hover': {
-    //     //   display: 'block',
-    //         // backgroundColor: 'red',
-    //     },
-    //   }}
-    >
+    <FormControl >
       <FormLabel sx={LabelFormic} id="demo-customized-radios">
         The sex:
       </FormLabel>
@@ -92,23 +85,16 @@ export default function SexRadios({ formik }) {
         }}
       >
         <FormControlLabel
-          sx={{
-            display: 'flex',
-            flexDirection: 'column-reverse',
-            justifyItems: 'start',
-            margin: '18px 39px 0 0',
-
-            // marginLeft: 'unset',
-          }}
+          sx={GenderLabelMale}
           value="male"
-          label={<Male/>}
+          label={<MaleImageStyle />}
           control={<BpRadio />}
           checked={value === 'male'}
         />
         <FormControlLabel
-          sx={{ display: 'flex', flexDirection: 'column-reverse' }}
+          sx={GenderLabelFemale}
           value="female"
-          label={<Female />}
+          label={<FemaleSvgStyle />}
           control={<BpRadio>xcvbxcvb</BpRadio>}
           checked={value === 'female'}
         />
@@ -116,3 +102,35 @@ export default function SexRadios({ formik }) {
     </FormControl>
   );
 }
+const FemaleSvgStyle = styled(Female)`
+  && {
+    color: red;
+    width: 40px;
+    @media only screen and (min-width: 768px) {
+      width: 65px;
+    }
+  }
+`;
+const MaleImageStyle = styled(Male)`
+  && {
+    color: red;
+    width: 36px;
+    @media only screen and (min-width: 768px) {
+      width: 60px;
+    }
+  }
+`;
+const GenderLabelFemale = theme => ({
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  [theme.breakpoints.up('tablet')]: {
+    ml: '35px',
+  },
+});
+const GenderLabelMale = theme => ({
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  justifyItems: 'start',
+  margin: '18px 39px 0 0',
+});
+
