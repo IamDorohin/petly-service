@@ -71,7 +71,7 @@ const AddNoticeModalFirstStep = ({
           onChange={formik.handleChange}
           type="text"
           name="title"
-          placeholder="Type name pet"
+          placeholder="Type of ad"
         />
       </FormLabel>
       <FormLabel sx={LabelFormic}>
@@ -105,7 +105,7 @@ const AddNoticeModalFirstStep = ({
         {errorMessages.length !== 0 &&
           errorMessages.map((message, index) => {
             return (
-              <Alert key={index} severity="error" >
+              <Alert key={index} severity="error">
                 {message}
               </Alert>
             );

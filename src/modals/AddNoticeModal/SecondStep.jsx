@@ -32,7 +32,7 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
           onChange={formik.handleChange}
           type="text"
           name="location"
-          placeholder="Location"
+          placeholder="Сity, Region"
         />
       </FormLabel>
       {isSellNotice && (
