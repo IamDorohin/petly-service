@@ -17,7 +17,7 @@ export const Grid = styled('ul')(({ theme }) => ({
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    width: '1248px',
+    width: '1146px',
     rowGap: '60px',
     columnGap: '30px',
   },

@@ -10,11 +10,7 @@ import NoResult from '../../components/Generic/NoResult/NoResult';
 
 const NewsPage = () => {
   const [filter, setFilter] = useState('');
-  const {
-    currentData,
-    refetch,
-    // error, isLoading
-  } = useGetNewsQuery();
+  const { currentData, refetch } = useGetNewsQuery();
 
   let visibleNews = {};
 

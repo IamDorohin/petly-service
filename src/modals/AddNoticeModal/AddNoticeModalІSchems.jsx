@@ -10,7 +10,7 @@ const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
 export const NOTICE_TYPES = {
   LOST_FOUND: 'lost-found',
-  GOOD_HANDS: 'in-good-hands',
+  GOOD_HANDS: 'for-free',
   SELL: 'sell',
 };
 

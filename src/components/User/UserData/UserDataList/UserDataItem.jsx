@@ -33,6 +33,7 @@ export const UserDataItem = ({
     },
     validationSchema: inputSchemas[currentName + 'Schema'],
     onSubmit: values => {
+      if (values[currentName]) return;
       setChangeInputName('');
       setCurrentValue(values[currentName]);
       formik.resetForm();

@@ -6,6 +6,7 @@ const userData = ['Name', 'Email', 'Birthday', 'Phone', 'City'];
 
 export const UserDataList = ({ userInfo }) => {
   const [changeInputName, setChangeInputName] = useState('');
+  console.log('changeInputName', changeInputName);
 
   return (
     <SC.UserDataListContainer>

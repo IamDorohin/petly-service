@@ -192,7 +192,7 @@ export const ButtonI = styled(IconButton)`
   && {
     color: black;
     background: #fdf7f2;
-    backdropfilter: blur(2px);
+    /* backdropFilter: blur(2px); */
     width: 44px;
     height: 44px;
     position: absolute;
@@ -201,8 +201,8 @@ export const ButtonI = styled(IconButton)`
     :active,
     :hover {
       background: #f59256;
-      bordercolor: #0062cc;
-          boxShadow: 'none
+      /* bordercolor: #0062cc;
+          boxShadow: 'none */
     }
   }
 `;
