@@ -45,6 +45,12 @@ export const NoticesCategoriesItem = ({
     setIsOpenModal(false);
   };
 
+    
+//   const onLearnMoreButtonClick = () => {
+//     setActiveNoticeId(_id);
+//     openNoticeDetailsModal();
+//     };
+    
   console.log('isOpenModal', isOpenModal);
   console.log('isCurrentPet', isCurrentPet);
   console.log('moreDetails', moreDetails);
@@ -119,6 +125,7 @@ export const NoticesCategoriesItem = ({
             isOpen={isCurrentPet}
             onClose={closeModalHendler}
             currentPet={moreDetails.data.notice}
+            onFavButtonClick={onFavButtonClick}
           />
         )}
       </SC.NoticeDescription>

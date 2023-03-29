@@ -26,8 +26,9 @@ export const NoticeDetailsModal = ({
   onClose,
   currentPet,
   onFavButtonClick,
+//   activeNoticeId,
 }) => {
-  const { moreDetails = {} } = useGetNoticesByIdQuery(currentPet);
+  
   const [toggl, setToggle] = useState(false);
 
   const showHeart = () => {
@@ -45,11 +46,13 @@ export const NoticeDetailsModal = ({
     owner,
     birthday,
     sex,
-    comments,
+      comments,
+    _id
   } = currentPet;
 
-  console.log(moreDetails);
-
+  console.log(currentPet);
+    const { moreDetails = {} } = useGetNoticesByIdQuery(_id);
+     console.log(moreDetails);
   return (
     <Modal sx={ModalBoxNotice} isOpen={isOpen} onClose={onClose}>
       <div>
