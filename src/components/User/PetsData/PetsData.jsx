@@ -2,7 +2,6 @@ import { UserPageTitle } from 'components/Generic/UserPageTitle/UserPageTitle';
 import { PetsList } from './PetsLIst/PetsList';
 import { PetsWrapper } from './PetsData.styled';
 import { AddPetButton } from './AddPetsButton/AddPetButton';
-import { useState } from 'react';
 import AddPetModal from 'modals/AddPetModal/AddPetModal';
 
 export const PetsData = ({
