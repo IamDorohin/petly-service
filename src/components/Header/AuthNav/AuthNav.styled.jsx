@@ -78,7 +78,13 @@ export const StyledButton = styled(NavLink)`
 
 export const StyledContainerNew = styled.div`
   display: flex;
-  margin-right: 25px;
+  justify-content: center;
+  margin-bottom: 68px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
 `;
 
 export const StyledIconContainer = styled.span`

@@ -1,9 +1,9 @@
 // import { useLocation } from 'react-router-dom';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-// import { useGetNoticesBySearchQuery } from 'redux/notices/noticesSlice';
+import { useGetNoticesByCategoryQuery } from 'redux/notices/noticesSlice';
 
 import Title from 'components/Generic/Title';
 import { NoticesSearch } from 'components/Notices/NoticesSearch/NoticesSearch';
@@ -23,6 +23,23 @@ const NoticesPage = () => {
   const [isAddPetModal, setIsAddPetModal] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const searchQueryState = searchParams?.toString() ?? '';
+
+  const { categoryName } = useParams();
+
+  const endpoint =
+    searchQueryState === ''
+      ? categoryName
+      : categoryName + '?' + searchQueryState;
+
+  const {
+    currentData: array,
+    error,
+    isSuccess,
+  } = useGetNoticesByCategoryQuery(endpoint);
+
+  const findedNotices = array?.data?.notices;
 
   useEffect(() => {
     if (searchQuery !== '') {
@@ -44,7 +61,11 @@ const NoticesPage = () => {
           <NoticesCategoriesNav />
           <NoticeAddButton onClick={() => setIsAddPetModal(true)} />
         </NoticesPageNavBox>
-        <NoticesCategoriesList searchParams={searchParams} />
+        <NoticesCategoriesList
+          error={error}
+          isSuccess={isSuccess}
+          findedNotices={findedNotices}
+        />
       </Container>
       {isAddPetModal && (
         <AddNoticeModal

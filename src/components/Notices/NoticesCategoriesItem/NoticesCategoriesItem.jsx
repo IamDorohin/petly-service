@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useDeleteNoticeMutation } from 'redux/notices/noticesSlice';
 import { HiTrash } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -17,7 +16,11 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
+export const NoticesCategoriesItem = ({
+  notice,
+  onFavButtonClick,
+  noticeDeleteHandler,
+}) => {
   const { breed, category, title, imgUrl, location, price, owner, _id, like } =
     notice;
 
@@ -31,8 +34,6 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
     skip: !isOpenModal,
   });
 
-  const [deleteNotice] = useDeleteNoticeMutation();
-
   useEffect(() => {
     if (moreDetails) {
       setIsCurrentPet(true);
@@ -43,7 +44,7 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
     setIsCurrentPet(false);
     setIsOpenModal(false);
   };
-  console.log('owner', owner);
+
   return (
     <SC.NoticeItem>
       {imgUrl === 'default/url' ? (
@@ -103,7 +104,7 @@ export const NoticesCategoriesItem = ({ notice, onFavButtonClick }) => {
           <SC.NoticeDeleteBtn
           // onClick={() => deleteOwnNotice(_id)}
           >
-            <SC.NoticeDeleteBtnText onClick={() => deleteNotice(_id)}>
+            <SC.NoticeDeleteBtnText onClick={() => noticeDeleteHandler(_id)}>
               Delete
             </SC.NoticeDeleteBtnText>
             <HiTrash size={20} />
