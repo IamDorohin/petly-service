@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 import authSelectors from 'redux/auth/auth-selectors';
 import { register } from '../../redux/auth/auth-operations';
 import { registerYupSchema } from '../../schemas/validationSchema';
@@ -14,6 +14,7 @@ export const RegisterForm = () => {
   const [currentStep, setCurrentStep] = useState({ firstStep: true });
   const isSmall = useMediaQuery({ maxWidth: 768 });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   let isRefreshing = useSelector(authSelectors.getIsRefreshing);
 
   const { firstStep, secondStep } = currentStep;
@@ -34,6 +35,7 @@ export const RegisterForm = () => {
 
       if (data.type === 'auth/register/fulfilled') {
         formik.resetForm();
+        navigate('/login');
       }
     },
   });
