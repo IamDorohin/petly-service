@@ -6,7 +6,6 @@ export const UserDataContainer = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     padding: '0',
-    // height: '541px',
   },
 }));
 
@@ -23,7 +22,6 @@ export const UserInfoTitle = styled('h2')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     margin: '0 0 40px 0',
-    // paddingLeft: '32px',
     fontSize: theme.customFontSizes[6],
     lineHeight: theme.customLineHeight[10],
   },
@@ -51,7 +49,6 @@ export const UserDataContent = styled('div')(({ theme }) => ({
     flexDirection: 'row-reverse',
     width: '704px',
     height: '311px',
-    // marginLeft: '-32px',
     paddingLeft: '20px',
     paddingRight: '40px',
     borderRadius: theme.customBorderRadius.primary,
@@ -96,55 +93,49 @@ export const UserDataPhoto = styled('img')(({ theme }) => ({
   filter: 'drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11))',
 }));
 
-export const UserDataEditForm = styled('form')(({ theme }) => ({
+export const UserDataEditPhotoButton = styled('button')(({ theme }) => ({
   position: 'absolute',
+  right: '0px',
+  bottom: '255px',
   display: 'flex',
   alignItems: 'center',
-  bottom: '0',
-  right: '-24px',
-}));
-
-export const UserDataEditPhotoSubmit = styled('button')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
+  justifyContent: 'center',
+  width: '150px',
+  padding: '0',
   border: 'none',
   backgroundColor: 'transparent',
-  // width: '90px',
-  // paddingLeft: '20px',
-  // width: '1px',
-  // height: '1px',
-  // opacity: '0',
-  // overflow: 'hidden',
-  // position: 'absolute',
-  // zIndex: '-1',
-
   cursor: 'pointer',
-  fontFamily: theme.customFontFamily.primary,
-  fontWeight: theme.customFontWeight.normalS,
-  fontSize: theme.customFontSizes[0],
-  lineHeight: theme.customLineHeight[4],
-  letterSpacing: theme.customLetterSpacing.m,
+  opacity: '1',
 
   '&:hover': {
     opacity: '0,5',
   },
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    right: '0',
+    bottom: '26px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    right: '-64px',
-    bottom: '-8px',
+    right: '20px',
+    bottom: '280px',
   },
 }));
 
 export const UserDataEditIcon = styled('div')(({ theme }) => ({
-  position: 'absolute',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   marginRight: '5px',
   width: '20px',
   height: '20px',
-  top: '2',
-  left: '0',
+  color: theme.customColors.accent,
+}));
+
+export const UserDataEditText = styled('p')(({ theme }) => ({
+  margin: '0',
+  padding: '0',
+  fontFamily: theme.customFontFamily.primary,
+  fontWeight: theme.customFontWeight.normalS,
+  fontSize: theme.customFontSizes[0],
+  lineHeight: theme.customLineHeight[4],
+  letterSpacing: theme.customLetterSpacing.m,
 }));

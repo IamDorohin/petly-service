@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 export const LogOutContainer = styled('div')(({ theme }) => ({
   position: 'absolute',
   display: 'flex',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   bottom: '21px',
   right: '12px',
   width: '100px',
@@ -23,8 +23,9 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
   '&:hover': {
     opacity: '0.5',
   },
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    bottom: '24px',
+    bottom: '26px',
     left: '30px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
@@ -41,4 +42,9 @@ export const LogOutIconWrapper = styled('div')(({ theme }) => ({
   color: theme.customColors.accent,
   width: '18px',
   height: '18px',
+}));
+
+export const LogOutIconTitle = styled('p')(({ theme }) => ({
+  margin: '0',
+  padding: '0',
 }));
