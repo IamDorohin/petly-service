@@ -2,18 +2,19 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import selector from 'redux/auth/auth-selectors';
 
 import {
   useGetNoticesByCategoryQuery,
   useGetFavoriteArrQuery,
 } from 'redux/notices/noticesSlice';
-
+import { DirectionSnackbar } from 'components/Generic/Notification/notification';
 import Title from 'components/Generic/Title';
 import { NoticesSearch } from 'components/Notices/NoticesSearch/NoticesSearch';
 import { NoticesCategoriesNav } from 'components/Notices/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesCategoriesList } from 'components/Notices/NoticesCategoriesList/NoticesCategoriesList';
 import { NoticeAddButton } from 'components/Notices/NoticeAddButton/NoticeAddbutton';
-import { toast, ToastContainer } from 'react-toastify';
 
 import AddNoticeModal from '../../modals/AddNoticeModal/AddNoticeModal';
 
@@ -21,13 +22,18 @@ import {
   NoticesPageContainer,
   NoticesPageNavBox,
   Container,
+  Notif,
 } from 'pages/NoticesPage/NoticesPage.styled';
 import { LoaderCat } from 'components/Generic/LoaderCat';
+
+// import Snackbar from '@mui/material/Snackbar';
 
 const NoticesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isAddPetModal, setIsAddPetModal] = useState(false);
+  const token = useSelector(selector.getToken);
 
+  console.log('token', token);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchQueryState = searchParams?.toString() ?? '';
@@ -60,26 +66,12 @@ const NoticesPage = () => {
 
   const onCloseModal = () => {
     setIsAddPetModal(false);
-    notify();
   };
 
-  const notify = () => {
-    toast.error('Oops! Seems like you need login!', {});
-  };
+  const forAlertMessage = 'Oops, seems like you are not login!';
+
   return (
     <NoticesPageContainer>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <Container>
         <Title>Find your favorite pet</Title>
         <NoticesSearch
@@ -88,12 +80,17 @@ const NoticesPage = () => {
         />
         <NoticesPageNavBox>
           <NoticesCategoriesNav />
-          <NoticeAddButton onClick={() => setIsAddPetModal(true)} />
+          {!token ? (
+            <DirectionSnackbar message={forAlertMessage} />
+          ) : (
+            <NoticeAddButton onClick={() => setIsAddPetModal(true)} />
+          )}
         </NoticesPageNavBox>
         {isFetching ? (
           <LoaderCat size={120} space={10} />
         ) : (
           <NoticesCategoriesList
+            token={token}
             error={error}
             isSuccess={isSuccess}
             findedNotices={array?.data?.notices}

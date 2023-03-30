@@ -18,8 +18,8 @@ const NewsPage = () => {
     visibleNews = currentData.data.result
       .filter(
         item =>
-          item.title.toLowerCase().includes(filter) ||
-          item.description.toLowerCase().includes(filter)
+          item.title.toLowerCase().includes(filter.toLowerCase()) ||
+          item.description.toLowerCase().includes(filter.toLowerCase())
       )
       .sort((a, b) => moment(b.date) - moment(a.date));
   }

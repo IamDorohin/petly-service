@@ -26,12 +26,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route
-          index
-          element={
-            <RestrictedRoute component={<HomePage />} redirectTo="/user" />
-          }
-        />
+        <Route index element={<HomePage />} />
         <Route
           path="/register"
           element={
@@ -44,7 +39,6 @@ export const App = () => {
             <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
           }
         />
-
         <Route path="/friends" element={<OurFriendsPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices/:categoryName" element={<NoticesPage />} />
