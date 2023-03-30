@@ -6,8 +6,8 @@ import AddPetModalSecondStep from './SecondStep';
 import dayjs from 'dayjs';
 import { addUserPet } from 'services/profileApi';
 import { addPetFirstStepSchema, addPetSubmitSchema } from './AddPetModalShema';
-import { useSelector } from 'react-redux';
-import selector from 'redux/auth/auth-selectors';
+import { modalBox, Title } from '../Modal/Modal.styled';
+import { Typography } from '@mui/material';
 
 const initialValues = {
   name: '',
@@ -25,7 +25,7 @@ const STEPS = {
 const AddPetModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(STEPS.FIRST);
   const [errorMessages, setErrorMessages] = useState([]);
-  const token = useSelector(selector.getToken);
+//   const token = useSelector(selector.getToken);
 
   const onNextStepButtonClick = async ({ values, validateForm }) => {
     try {
@@ -48,15 +48,18 @@ const AddPetModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Add pet">
+    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose}>
+      <Typography sx={Title}>Add pet</Typography>
       <Formik
+        validateOnChange={false}
         initialValues={initialValues}
         validationSchema={
           step === STEPS.FIRST ? addPetFirstStepSchema : addPetSubmitSchema
         }
         onSubmit={async (values, actions) => {
-          await addUserPet(token, values);
-          actions.resetForm();
+            await addUserPet(values);
+            actions.resetForm();
+            console.log(values);
           onClose();
         }}
       >

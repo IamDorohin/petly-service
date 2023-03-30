@@ -1,7 +1,9 @@
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import { Box, Button, Checkbox, Typography } from '@mui/material';
+import dayjs from 'dayjs';
 import Modal from 'modals/Modal/Modal';
 import { useState } from 'react';
+import { useGetNoticesByIdQuery } from 'redux/notices/noticesSlice';
 import { CantBtn } from '../AddPetModal/FirstStep.styled';
 import {
   B,
@@ -43,11 +45,16 @@ export const NoticeDetailsModal = ({
     location,
     price,
     owner,
-    birthday,
+    createdAt,
     sex,
     comments,
+    _id,
+    name,
   } = currentPet;
-
+  console.log(currentPet);
+  
+  const { moreDetails = {} } = useGetNoticesByIdQuery(_id);
+  console.log(moreDetails);
   return (
     <Modal sx={ModalBoxNotice} isOpen={isOpen} onClose={onClose}>
       <div>
@@ -58,19 +65,21 @@ export const NoticeDetailsModal = ({
               alt=""
             />
             <CategoryText>
-              <Typography sx={TextLabel}>{category}Category</Typography>
+              <Typography sx={TextLabel}>{category}</Typography>
             </CategoryText>
           </Box>
           <Div>
-            <Typography sx={TitleNotice}>{title}Title</Typography>
+            <Typography sx={TitleNotice}>{title}</Typography>
             <Ul>
               <L>
                 <Typography sx={Text}>Name:</Typography>
-                <Typography sx={TextT}>name</Typography>
+                <Typography sx={TextT}>{name}</Typography>
               </L>
               <L>
                 <Typography sx={Text}>Birthday:</Typography>
-                <Typography sx={TextT}>{birthday}</Typography>
+                <Typography sx={TextT}>
+                  {dayjs(createdAt).format('DD.MM.YYYY')}
+                </Typography>
               </L>
               <L>
                 <Typography sx={Text}>Breed:</Typography>
@@ -118,7 +127,15 @@ export const NoticeDetailsModal = ({
               <Checkbox
                 checked={toggl}
                 icon={<FavoriteBorder />}
-                checkedIcon={<Favorite />}
+                checkedIcon={
+                  <Favorite
+                    sx={{
+                      '&.Mui-check ': {
+                        color: 'black',
+                      },
+                    }}
+                  />
+                }
               />
             </Button>
           </Box>

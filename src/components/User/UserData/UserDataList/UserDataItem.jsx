@@ -33,9 +33,9 @@ export const UserDataItem = ({
     },
     validationSchema: inputSchemas[currentName + 'Schema'],
     onSubmit: values => {
-      if (values[currentName]) return;
       setChangeInputName('');
       setCurrentValue(values[currentName]);
+      setIsActive(false);
       formik.resetForm();
       updateUserProfile(token, values);
     },
@@ -54,20 +54,9 @@ export const UserDataItem = ({
   }, [changeInputName, inputName]);
 
   const disabledInputsHandler = async () => {
+    formik.setFieldValue(currentName, currentValue);
+
     setChangeInputName(inputName);
-  };
-
-  const inputHandleChange = e => {
-    formik.handleChange(e);
-    setCurrentValue(e.target.value);
-  };
-
-  const btnSubmitHandler = e => {
-    if (formik.isValid) {
-      formik.handleSubmit();
-      setChangeInputName('');
-      setIsActive(false);
-    }
   };
 
   return (
@@ -90,10 +79,10 @@ export const UserDataItem = ({
               id={currentName}
               name={currentName}
               type="text"
-              onChange={inputHandleChange}
-              value={currentValue}
+              onChange={formik.handleChange}
+              value={formik.values[currentName]}
             />
-            <SC.UserDataPencilIcon type="submit" onClick={btnSubmitHandler}>
+            <SC.UserDataPencilIcon type="submit" onClick={formik.handleSubmit}>
               <MdOutlineDone />
             </SC.UserDataPencilIcon>
           </form>
