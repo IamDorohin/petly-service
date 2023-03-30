@@ -93,7 +93,7 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
         {errorMessages.length !== 0 &&
           errorMessages.map((message, index) => {
             return (
-              <Alert key={index} severity="error">
+              <Alert key={message.toString()} severity="error">
                 {message}
               </Alert>
             );

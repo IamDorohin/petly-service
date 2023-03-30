@@ -41,9 +41,7 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
         {errorMessages.length !== 0 &&
           errorMessages.map((message, index) => {
             return (
-              <Alert
-                key={message.toString()}
-              >
+              <Alert key={message.toString()} severity="error">
                 {message}
               </Alert>
             );

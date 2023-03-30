@@ -1,11 +1,6 @@
 import { Alert, Box, Button, FormLabel, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import {
-  AddBtn,
-  AddBtnTheme,
-  FontButton,
-  Img,
-} from './SecondStep.styled';
+import { AddBtn, AddBtnTheme, FontButton, Img } from './SecondStep.styled';
 import { ReactComponent as Vector } from './icon/Vector.svg';
 import {
   ButtonBox,
@@ -30,7 +25,6 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
         component="label"
         aria-label="upload picture"
       >
-        <Vector />
         <input
           hidden
           accept=".jpg,.png"
@@ -73,7 +67,7 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
         {errorMessages.length !== 0 &&
           errorMessages.map((message, index) => {
             return (
-              <Alert key={index} severity="error">
+              <Alert key={message.toString()} severity="error">
                 {message}
               </Alert>
             );
