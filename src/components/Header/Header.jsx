@@ -25,8 +25,8 @@ export const Header = () => {
     setShowBurgetMenu(false);
   };
   return (
-    <MainContainer>
-      <StyledHeader>
+    <StyledHeader>
+      <MainContainer>
         <Logo />
         {isDesktop && <Nav />}
         <Wrapper>
@@ -41,7 +41,7 @@ export const Header = () => {
             <BurgerButton onClick={() => setShowBurgetMenu(true)} />
           )}
         </Wrapper>
-      </StyledHeader>
-    </MainContainer>
+      </MainContainer>
+    </StyledHeader>
   );
 };

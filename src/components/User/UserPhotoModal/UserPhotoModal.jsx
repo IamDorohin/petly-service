@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import { updateUserProfile } from 'services/profileApi';
 import * as SC from './UserPhotoModal.styled';
 import { TfiPlus, TfiClose } from 'react-icons/tfi';
+import CloudUploadTwoToneIcon from '@mui/icons-material/CloudUploadTwoTone';
 
 const FILE_SIZE = 1000000;
 const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
@@ -60,7 +61,7 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
     >
       <SC.FormContainer>
         <SC.FormInputCloseIcon onClick={handleClose}>
-          <TfiClose size={'70%'} />
+          <TfiClose size={'50%'} />
         </SC.FormInputCloseIcon>
         <SC.Form>
           <SC.FormInputWrapper
@@ -85,7 +86,7 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
             </SC.FormInputAddIcon>
           </SC.FormInputWrapper>
           <SC.FormInputSubmit type="submit" onClick={formik.handleSubmit}>
-            Edit Photo
+            Upload
           </SC.FormInputSubmit>
         </SC.Form>
       </SC.FormContainer>

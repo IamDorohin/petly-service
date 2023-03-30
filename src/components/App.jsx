@@ -5,6 +5,9 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { updateUser } from 'redux/auth/auth-operations';
 import { RestrictedRoute } from './restrictedRoute';
 import { PrivateRoute } from 'components/privateRoute';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from 'theme';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const AuthPage = lazy(() => import('pages/LoginPage/AuthPage'));
@@ -24,32 +27,35 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
-          }
-        />
-        <Route path="/friends" element={<OurFriendsPage />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/notices/:categoryName" element={<NoticesPage />} />
-        <Route
-          path="/user"
-          element={
-            <PrivateRoute redirectTo="/login" component={<UserPage />} />
-          }
-        />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
+            }
+          />
+          <Route path="/friends" element={<OurFriendsPage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/notices/:categoryName" element={<NoticesPage />} />
+          <Route
+            path="/user"
+            element={
+              <PrivateRoute redirectTo="/login" component={<UserPage />} />
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 };
