@@ -57,8 +57,9 @@ const AddPetModal = ({ isOpen, onClose }) => {
           step === STEPS.FIRST ? addPetFirstStepSchema : addPetSubmitSchema
         }
         onSubmit={async (values, actions) => {
-          await addUserPet( values);
-          actions.resetForm();
+            await addUserPet(values);
+            actions.resetForm();
+            console.log(values);
           onClose();
         }}
       >
