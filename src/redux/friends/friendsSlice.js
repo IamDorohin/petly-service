@@ -50,5 +50,3 @@ const friendsSlice = createSlice({
 });
 
 export const friendsReducer = friendsSlice.reducer;
-
-//  default friendsReducer;

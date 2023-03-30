@@ -11,6 +11,7 @@ import { AuthNav } from './AuthNav/AuthNav';
 // import {UserNav} from './UserNav/UserNav';
 import { BurgerButton } from './BurgerButton/BurgerButton';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
+import ThemeToggleButton from './ThemeToggleButton/ThemeToggleButton';
 
 export const Header = () => {
   const [showBurgerMenu, setShowBurgetMenu] = useState(false);
@@ -38,13 +39,12 @@ export const Header = () => {
             {/* <UserNav onClick={onClose} /> */}
           </StyledMenuContainer>
         )}
-
         {!isDesktop && <BurgerButton onClick={toggleBurgerMenu} />}
       </StyledHeader>
-
+  <ThemeToggleButton></ThemeToggleButton>
       {!isDesktop && showBurgerMenu && (
         <BurgerMenu onClick={toggleBurgerMenu} />
-      )}
+              )}
     </MainContainer>
   );
 };

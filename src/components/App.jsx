@@ -4,6 +4,12 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Button } from '@mui/material';
 import AddPetModal from '../modals/AddPetModal/AddPetModal';
 import AddNoticeModal from 'modals/AddNoticeModal/AddNoticeModal';
+import { ThemeProvider } from '@mui/system';
+import selectTheme from 'redux/theme/selectors';
+import { useSelector } from 'react-redux';
+
+import themes from '../theme';
+const { lightTheme, darkTheme } = themes;
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
@@ -26,8 +32,15 @@ export const App = () => {
   const openAddNoticeModal = () => setIsAddNoticeModalOpen(true);
   const closeAddNoticeModal = () => setIsAddNoticeModalOpen(false);
 
+    // const dispatch = useDispatch();
+  const selectedTheme = useSelector(selectTheme);
+  const theme = selectedTheme === 'light' ? lightTheme : darkTheme;
+
+
+
   return (
-    <div>
+        <ThemeProvider theme={theme}>
+      <div>
       <Button onClick={openAddPetModal}>add pet</Button>
       <Button onClick={openAddNoticeModal}>add notice</Button>
       <AddPetModal isOpen={isAddPetModalOpen} onClose={closeAddPetModal} />
@@ -48,5 +61,7 @@ export const App = () => {
         </Route>
       </Routes>
     </div>
+        </ThemeProvider>
+    
   );
 };
