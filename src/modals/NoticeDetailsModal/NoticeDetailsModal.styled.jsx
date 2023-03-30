@@ -63,9 +63,9 @@ export const Text = theme => ({
   fontWeight: '600',
   fontFamily: 'Manrope',
   fontStyle: 'normal',
-  fontSize: '12px',
+  fontSize: '14px',
   textTransform: 'none',
-  lineHeight: '16px',
+  lineHeight: '19px',
   mb: '8px',
   minWidth: '115px',
   [theme.breakpoints.up('tablet')]: {
