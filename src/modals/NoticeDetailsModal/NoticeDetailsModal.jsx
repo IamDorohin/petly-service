@@ -127,7 +127,15 @@ export const NoticeDetailsModal = ({
               <Checkbox
                 checked={toggl}
                 icon={<FavoriteBorder />}
-                checkedIcon={<Favorite />}
+                checkedIcon={
+                  <Favorite
+                    sx={{
+                      '&.Mui-check ': {
+                        color: 'black',
+                      },
+                    }}
+                  />
+                }
               />
             </Button>
           </Box>

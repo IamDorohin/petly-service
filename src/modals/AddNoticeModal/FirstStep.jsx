@@ -28,7 +28,7 @@ const AddNoticeModalFirstStep = ({
       <Box>
         <Box sx={BoxBtnGroup}>
           <BtnGroupFierst
-            sx={{ width: '50' }}
+            sx={{ width: '50%' }}
             className={
               formik.values.category === NOTICE_TYPES.LOST_FOUND
                 ? 'active'
@@ -54,7 +54,7 @@ const AddNoticeModalFirstStep = ({
             In good hands
           </BtnGroupFierst>
           <BtnGroupFierst
-            // sx={{ width: '30%' }}
+            sx={{ width: '30%' }}
             className={
               formik.values.category === NOTICE_TYPES.SELL ? 'active' : null
             }

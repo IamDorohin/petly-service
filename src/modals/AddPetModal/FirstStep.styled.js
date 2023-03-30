@@ -91,7 +91,12 @@ export const BtnGroupFierst = styled(Button)`
     letter-spacing: 0.04em;
     text-transform: none;
     color: #111111;
-    height: 44px;
+    height: 40px;
+    @media only screen and (min-width: 768px) {
+      height: 44px;
+      font-size: 20px;
+      line-height: 27px;
+    }
     :focus,
     :hover,
     &.active {
