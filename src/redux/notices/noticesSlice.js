@@ -23,7 +23,7 @@ export const noticesApi = createApi({
   ],
   endpoints: builder => ({
     getNoticesByCategory: builder.query({
-      query: noticesCategory => `/notices/category/${noticesCategory}`,
+      query: ({categoryName, searchQueryState, page}) => `/notices/category/${categoryName}?page=${page}&limit=8${searchQueryState &&'&' + searchQueryState}`,
       providesTags: (result, error, arg) => [arg],
     }),
     getFavoriteArr: builder.query({
