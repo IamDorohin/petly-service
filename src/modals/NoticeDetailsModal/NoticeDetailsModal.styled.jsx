@@ -8,7 +8,7 @@ export const ModalBoxNotice = theme => ({
   transform: 'translate(-50%, -50%)',
   width: '280px',
   height: 'auto',
-  minHeight: '530px',
+  minHeight: '80vh',
   bgcolor: '#FFFFFF',
   borderRadius: '20px',
   boxShadow: '7px 4px 14px rgba(0, 0, 0, 0.11)',
