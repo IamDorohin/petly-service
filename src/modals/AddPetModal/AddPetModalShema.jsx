@@ -9,7 +9,7 @@ const FILE_SIZE = 1000000;
 const firstStepFieldsShape = {
   name: yup
     .string()
-    .min(2)
+    .min(6)
     .max(16)
     .matches(regexName, 'Can only contain letters')
     .required('Category name is empty'),

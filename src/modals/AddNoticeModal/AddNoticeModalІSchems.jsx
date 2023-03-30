@@ -23,7 +23,7 @@ const firstStepFieldsShape = {
     .required('Category is empty'),
   title: yup
     .string()
-    .min(2)
+    .min(6)
     .max(48)
     .matches(regexTitle, 'Can contain only two digits')
     .required('Category title is empty'),
