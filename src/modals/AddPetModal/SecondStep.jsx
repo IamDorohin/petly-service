@@ -30,14 +30,13 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           accept=".jpg,.png"
           multiple
           type="file"
-          name="photo"
+          name="petsImageUrl"
           onChange={async event => {
-            formik.setFieldValue('photo', event.currentTarget.files[0]);
+            formik.setFieldValue('petsImageUrl', event.currentTarget.files[0]);
             const _Base64Url = await convertBlobToBase64(
               event.currentTarget.files[0]
             );
             setBase64Url(_Base64Url);
-            console.log(event.currentTarget.files[0]);
           }}
         />
         {!base64Url ? <Vector /> : <Img src={base64Url} alt="" />}

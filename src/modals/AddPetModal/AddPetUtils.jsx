@@ -10,3 +10,13 @@ const blobToBase64 = blob =>
     reader.onload = () => resolve(reader.result);
     reader.onerror = error => reject(error);
   });
+
+export const prepareFormData = values => {
+  const formData = new FormData();
+
+  /* append input field values to formData */
+  for (let value in values) {
+    formData.append(value, values[value]);
+  }
+  return formData;
+};

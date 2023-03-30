@@ -21,9 +21,9 @@ const AddPetModalFirstStep = ({ formik, onSubmit, onClose, errorMessages }) => {
 
       <CalendarDatePicker
         label="Date of birth"
-        value={formik.values.date}
+        value={formik.values.birthdate}
         onChange={value => {
-          formik.setFieldValue('date', dayjs(value.$d), false);
+          formik.setFieldValue('birthdate', dayjs(value.$d), false);
         }}
       />
 
