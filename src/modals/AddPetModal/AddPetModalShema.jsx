@@ -13,7 +13,7 @@ const firstStepFieldsShape = {
     .max(16)
     .matches(regexName, 'Can only contain letters')
     .required('Category name is empty'),
-  date: yup.date(),
+  birthdate: yup.date(),
   breed: yup
     .string()
     .min(2)

@@ -56,9 +56,9 @@ const AddNoticeModalSecondStep = ({ formik, onBack }) => {
             src="image/*"
             multiple
             type="file"
-            name="photo"
+            name="imgUrl"
             onChange={async event => {
-              formik.setFieldValue('photo', event.currentTarget.files[0]);
+              formik.setFieldValue('imgUrl', event.currentTarget.files[0]);
               const _Base64Url = await convertBlobToBase64(
                 event.currentTarget.files[0]
               );

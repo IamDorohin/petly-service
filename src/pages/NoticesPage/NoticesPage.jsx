@@ -105,6 +105,7 @@ const NoticesPage = () => {
             refetchNotices={refetch}
             isOpen={isAddPetModal}
             onClose={onCloseModal}
+            token={token}
           />
         )}
 
