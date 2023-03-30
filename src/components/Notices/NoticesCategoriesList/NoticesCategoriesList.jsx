@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NoticesCategoriesItem } from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem';
-import { CategoriesList } from './NoticesCategoriesList.styled';
+import { CategoriesList, StackStyled, Pagi } from './NoticesCategoriesList.styled';
 import NoResult from 'components/Generic/NoResult/NoResult';
 
 import {
@@ -15,8 +15,14 @@ export const NoticesCategoriesList = ({
   isSuccess,
   findedNotices,
   favoriteArr,
+  page,
+  setPage
 }) => {
   const [currentNotices, setCurrentNotices] = useState([]);
+
+    const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   const favoriteIdArr = favoriteArr?.data?.favorite;
   useEffect(() => {
@@ -45,9 +51,12 @@ export const NoticesCategoriesList = ({
     const newList = currentNotices.filter(notice => notice._id !== id);
     setCurrentNotices(newList);
   };
+  
+  
 
   return (
-    <CategoriesList>
+    <div>
+      <CategoriesList>
       {isSuccess &&
         currentNotices &&
         currentNotices.map(notice => (
@@ -58,6 +67,13 @@ export const NoticesCategoriesList = ({
           />
         ))}
       {error?.data && <NoResult />}
-    </CategoriesList>
+
+      
+      </CategoriesList>
+      { isSuccess &&
+        currentNotices && page > 1 &&  <StackStyled spacing={2}>
+          <Pagi count={Math.floor(currentNotices.length / 8)} page={page} onChange={handleChange} color='primary'/>
+    </StackStyled>}
+    </div>
   );
 };
