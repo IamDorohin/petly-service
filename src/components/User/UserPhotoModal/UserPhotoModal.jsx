@@ -8,6 +8,7 @@ import { updateUserProfile } from 'services/profileApi';
 import * as SC from './UserPhotoModal.styled';
 import { TfiPlus, TfiClose } from 'react-icons/tfi';
 import CloudUploadTwoToneIcon from '@mui/icons-material/CloudUploadTwoTone';
+import { convertBlobToBase64 } from 'modals/AddPetModal/AddPetUtils';
 
 const FILE_SIZE = 1000000;
 const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
@@ -32,6 +33,7 @@ const inputSchemas = {
 export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
   const token = useSelector(selector.getToken);
   const [currentPhoto, setCurrentPhoto] = useState('');
+  const [base64Url, setBase64Url] = useState();
 
   useEffect(() => {
     if (userInfo.photo) {
@@ -41,7 +43,7 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
 
   const formik = useFormik({
     initialValues: {
-      photo: {},
+      photo: null,
     },
     validationSchema: inputSchemas.photoSchema,
     onSubmit: async values => {
@@ -77,12 +79,21 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
               multiple
               type="file"
               name="photo"
-              onChange={event => {
+              onChange={async event => {
                 formik.setFieldValue('photo', event.currentTarget.files[0]);
+                const _Base64Url = await convertBlobToBase64(
+                  event.currentTarget.files[0]
+                );
+                setBase64Url(_Base64Url);
               }}
             />
+
             <SC.FormInputAddIcon>
-              <TfiPlus size={'20%'} />
+              {formik.values.photo ? (
+                <img src={base64Url} alt="" />
+              ) : (
+                <TfiPlus size={'20%'} />
+              )}
             </SC.FormInputAddIcon>
           </SC.FormInputWrapper>
           <SC.FormInputSubmit type="submit" onClick={formik.handleSubmit}>

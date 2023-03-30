@@ -70,7 +70,7 @@ export const FormInputAddIcon = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '243px',
+  width: '233px',
   height: '233px',
   backgroundColor: 'transparent',
   color: theme.customColors.accent,
