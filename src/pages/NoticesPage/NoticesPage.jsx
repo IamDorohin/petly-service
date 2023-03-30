@@ -22,7 +22,6 @@ import {
   NoticesPageContainer,
   NoticesPageNavBox,
   Container,
-  Notif,
 } from 'pages/NoticesPage/NoticesPage.styled';
 import { LoaderCat } from 'components/Generic/LoaderCat';
 

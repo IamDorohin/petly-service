@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ModalBoxNotice = theme => ({
+  overflow: 'scroll',
   position: 'absolute',
   top: '50%',
   left: '50%',
