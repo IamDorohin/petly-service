@@ -1,37 +1,128 @@
-import { Box, Button } from '@mui/material';
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import { Box, Button, Checkbox, Typography } from '@mui/material';
 import Modal from 'modals/Modal/Modal';
-import //   useAddFavoriteNoticeMutation,
-'redux/notices/noticesSlice';
-import { ButtonBox, CantBtn } from '../AddPetModal/FirstStep.styled';
+import { useState } from 'react';
+import { CantBtn } from '../AddPetModal/FirstStep.styled';
+import {
+  B,
+  Div,
+  L,
+  ModalBoxNotice,
+  Text,
+  TextT,
+  Ul,
+  ButtonBoxNotice,
+  TitleNotice,
+  DivBox,
+  GGGG,
+  CategoryText,
+  TextLabel,
+  NoticeImg,
+} from './NoticeDetailsModal.styled';
 
 export const NoticeDetailsModal = ({
+  noPetPhoto,
   isOpen,
   onClose,
   currentPet,
   onFavButtonClick,
+  //   activeNoticeId,
 }) => {
-  const { breed, category, title, imgUrl, location, price, _id, like } =
-    currentPet;
+  const [toggl, setToggle] = useState(false);
+
+  const showHeart = () => {
+    console.log(toggl);
+    setToggle(!toggl);
+  };
+
+  const {
+    breed,
+    category,
+    title,
+    imgUrl,
+    location,
+    price,
+    owner,
+    birthday,
+    sex,
+    comments,
+  } = currentPet;
 
   return (
-    <Modal isOpen={isOpen} onClose={() => onClose(false)} title="">
+    <Modal sx={ModalBoxNotice} isOpen={isOpen} onClose={onClose}>
       <div>
-        <div>{breed}breed</div>
-        <div>{category}</div>
-        <div>{title}title</div>
-        <div>{imgUrl}photo</div>
-        <div>{location}location</div>
-        <div>{price}price</div>
-        <div>{_id}</div>
-        <div>{like}</div>
-        <Box sx={ButtonBox}>
-          <Button sx={CantBtn} onSubmit={() => onFavButtonClick(currentPet)}>
-            Add to
-          </Button>
-          <Button sx={CantBtn} type="submit">
-            Contact
-          </Button>
-        </Box>
+        <DivBox>
+          <Box sx={B}>
+            <NoticeImg
+              src={imgUrl === 'default/url' ? noPetPhoto : imgUrl}
+              alt=""
+            />
+            <CategoryText>
+              <Typography sx={TextLabel}>{category}Category</Typography>
+            </CategoryText>
+          </Box>
+          <Div>
+            <Typography sx={TitleNotice}>{title}Title</Typography>
+            <Ul>
+              <L>
+                <Typography sx={Text}>Name:</Typography>
+                <Typography sx={TextT}>name</Typography>
+              </L>
+              <L>
+                <Typography sx={Text}>Birthday:</Typography>
+                <Typography sx={TextT}>{birthday}</Typography>
+              </L>
+              <L>
+                <Typography sx={Text}>Breed:</Typography>
+                <Typography sx={TextT}>{breed}</Typography>
+              </L>
+              <L>
+                <Typography sx={Text}>The Sex:</Typography>
+                <Typography sx={TextT}>{sex}</Typography>
+              </L>
+              <L>
+                <Typography sx={Text}>Location:</Typography>
+                <Typography sx={TextT}>{location}</Typography>
+              </L>
+              <L>
+                <Typography sx={Text}>Email:</Typography>
+                <Typography sx={TextT}>{owner.email}</Typography>
+              </L>
+              <L>
+                <Typography sx={Text}>Phone:</Typography>
+                <Typography sx={TextT}>{owner.phone}</Typography>
+              </L>
+              {price && (
+                <L>
+                  <Typography sx={Text}>Price:</Typography>
+                  <Typography sx={TextT}>{price}</Typography>
+                </L>
+              )}
+            </Ul>
+          </Div>
+        </DivBox>
+        <GGGG>
+          <Typography sx={Text}>Comments:</Typography>
+          <Typography sx={TextT}>{comments}</Typography>
+          <Box sx={ButtonBoxNotice}>
+            <Button sx={CantBtn}>Contact</Button>
+            <Button
+              sx={CantBtn}
+              type="submit"
+              onClick={() => {
+                onFavButtonClick(currentPet);
+                showHeart();
+              }}
+            >
+              Add to
+              <Checkbox
+                checked={toggl}
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite />}
+              />
+            </Button>
+          </Box>
+        </GGGG>
       </div>
     </Modal>
   );
