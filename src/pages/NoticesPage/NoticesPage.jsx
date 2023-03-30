@@ -1,4 +1,3 @@
-// import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -25,14 +24,11 @@ import {
 } from 'pages/NoticesPage/NoticesPage.styled';
 import { LoaderCat } from 'components/Generic/LoaderCat';
 
-// import Snackbar from '@mui/material/Snackbar';
-
 const NoticesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isAddPetModal, setIsAddPetModal] = useState(false);
   const token = useSelector(selector.getToken);
 
-  console.log('token', token);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchQueryState = searchParams?.toString() ?? '';
@@ -70,41 +66,44 @@ const NoticesPage = () => {
   const forAlertMessage = 'Oops, seems like you are not login!';
 
   return (
-    <NoticesPageContainer>
-      <Container>
-        <Title>Find your favorite pet</Title>
-        <NoticesSearch
-          setSearchQuery={setSearchQuery}
-          searchQuery={searchQuery}
-        />
-        <NoticesPageNavBox>
-          <NoticesCategoriesNav />
-          {!token ? (
-            <DirectionSnackbar message={forAlertMessage} />
+    <>
+      {' '}
+      <NoticesPageContainer>
+        <Container>
+          <Title>Find your favorite pet</Title>
+          <NoticesSearch
+            setSearchQuery={setSearchQuery}
+            searchQuery={searchQuery}
+          />
+          <NoticesPageNavBox>
+            <NoticesCategoriesNav />
+            {!token ? (
+              <DirectionSnackbar message={forAlertMessage} />
+            ) : (
+              <NoticeAddButton onClick={() => setIsAddPetModal(true)} />
+            )}
+          </NoticesPageNavBox>
+          {isFetching ? (
+            <LoaderCat size={120} space={10} />
           ) : (
-            <NoticeAddButton onClick={() => setIsAddPetModal(true)} />
+            <NoticesCategoriesList
+              token={token}
+              error={error}
+              isSuccess={isSuccess}
+              findedNotices={array?.data?.notices}
+              favoriteArr={favoriteArr}
+            />
           )}
-        </NoticesPageNavBox>
-        {isFetching ? (
-          <LoaderCat size={120} space={10} />
-        ) : (
-          <NoticesCategoriesList
-            token={token}
-            error={error}
-            isSuccess={isSuccess}
-            findedNotices={array?.data?.notices}
-            favoriteArr={favoriteArr}
+        </Container>
+        {isAddPetModal && (
+          <AddNoticeModal
+            refetchNotices={refetch}
+            isOpen={isAddPetModal}
+            onClose={onCloseModal}
           />
         )}
-      </Container>
-      {isAddPetModal && (
-        <AddNoticeModal
-          refetchNotices={refetch}
-          isOpen={isAddPetModal}
-          onClose={onCloseModal}
-        />
-      )}
-    </NoticesPageContainer>
+      </NoticesPageContainer>
+    </>
   );
 };
 

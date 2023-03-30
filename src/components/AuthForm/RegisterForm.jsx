@@ -9,6 +9,7 @@ import { useMediaQuery } from 'react-responsive';
 import * as SC from './Form.styled';
 import { FirstStep } from './registerStep/FirstStep';
 import { SecondStep } from './registerStep/SecondStep';
+import { LoaderCat } from 'components/Generic/LoaderCat';
 
 export const RegisterForm = () => {
   const [currentStep, setCurrentStep] = useState({ firstStep: true });
@@ -74,6 +75,7 @@ export const RegisterForm = () => {
           Back
         </SC.BackButton>
       )}
+      {isRefreshing && <LoaderCat />}
     </>
   );
 };

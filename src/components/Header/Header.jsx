@@ -24,7 +24,6 @@ export const Header = () => {
   const responsiveToggleHandler = value => {
     setShowBurgetMenu(false);
   };
-  console.log('showBurgerMenu', showBurgerMenu);
   return (
     <MainContainer>
       <StyledHeader>

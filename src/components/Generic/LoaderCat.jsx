@@ -10,6 +10,7 @@ export const LoaderCat = ({ size, space = 0 }) => {
         width: '100%',
         height: '100%',
         display: 'flex',
+        marginTop: '60px',
         alignItems: 'center',
         justifyContent: 'center',
       }}

@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import Grow from '@mui/material/Grow';
-import { HiPlus } from 'react-icons/hi';
-import * as SC from './notification.styled';
+import * as SC from 'components/Generic/Notification/notification.styled';
 
 function GrowTransition(props) {
   return <Grow {...props} />;
 }
 
-export const DirectionSnackbar = ({ message }) => {
+export const DirectionSnackbarLogin = ({ message }) => {
   const [open, setOpen] = useState(false);
   const [transition, setTransition] = useState(undefined);
 
-  const handleClick = Transition => () => {
-    setTransition(() => Transition);
+  if (!open) {
+    setTransition(() => GrowTransition);
     setOpen(true);
-  };
+  }
 
   const handleClose = () => {
     setOpen(false);
@@ -22,13 +21,6 @@ export const DirectionSnackbar = ({ message }) => {
 
   return (
     <>
-      <SC.ContainerAddBtnAlert>
-        <SC.TitleAddBtnAlert> Add pet </SC.TitleAddBtnAlert>
-        <SC.AddButtonAlert onClick={handleClick(GrowTransition)}>
-          <HiPlus size={'50%'} className=".forHover" color="#fff" />
-        </SC.AddButtonAlert>
-      </SC.ContainerAddBtnAlert>
-
       <SC.AddButtonAlertSnackbar
         open={open}
         onClose={handleClose}
@@ -37,7 +29,6 @@ export const DirectionSnackbar = ({ message }) => {
         message={message}
         color={'#fff'}
         key={transition ? transition.name : ''}
-        // anchorOrigin={{ vertical, horizontal }}
       />
     </>
   );
