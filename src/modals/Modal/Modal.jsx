@@ -1,9 +1,9 @@
 import React from 'react';
-import { ButtonI, modalBox, Title } from './Modal.styled';
+import { ButtonI } from './Modal.styled';
 import CloseIcon from '@mui/icons-material/Close';
-import { Box, Modal as ModalUI, Typography } from '@mui/material';
+import { Box, Modal as ModalUI } from '@mui/material';
 
-const Modal = ({ isOpen, onClose, children, title }) => {
+const Modal = ({ isOpen, onClose, children, title, sx }) => {
   return (
     <ModalUI
       open={isOpen}
@@ -11,8 +11,8 @@ const Modal = ({ isOpen, onClose, children, title }) => {
       aria-labelledby="parent-modal-title"
       aria-describedby="parent-modal-description"
     >
-      <Box sx={modalBox}>
-        <Typography sx={Title}>{title}</Typography>
+      <Box sx={sx}>
+        {/* <Typography sx={Title}>{title}</Typography> */}
 
         {children}
 

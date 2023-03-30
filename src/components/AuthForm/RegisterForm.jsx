@@ -40,7 +40,7 @@ export const RegisterForm = () => {
     },
   });
   const btnSubmitHandler = () => {
-    if (firstStep) {
+    if (firstStep && formik.isValid) {
       setCurrentStep({ secondStep: true });
       return;
     }

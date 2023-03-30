@@ -37,7 +37,7 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
   const [isCurrentPet, setIsCurrentPet] = useState(false);
   const [isFavorite, setIsFavorite] = useState(like);
   const currentUser = useSelector(selectors.getUser);
-  console.log(notice);
+
   const isOwnerNotice = currentUser.id === owner;
   const [addFavNotice] = useAddFavoriteNoticeMutation();
   const [deleteFavNotice] = useDeleteFavoriteNoticeMutation();
@@ -74,7 +74,9 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
           <SC.NoticeImage src={noPetPhoto} />
         </SC.NoticeImageWrapper>
       ) : (
-        <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+        <SC.NoticeImageWrapper>
+          <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+        </SC.NoticeImageWrapper>
       )}
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
@@ -132,9 +134,11 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
         )}
         {isCurrentPet && (
           <NoticeDetailsModal
+            noPetPhoto={noPetPhoto}
             isOpen={isCurrentPet}
             onClose={closeModalHendler}
             currentPet={moreDetails.data.notice}
+            onFavButtonClick={onFavButtonClick}
           />
         )}
       </SC.NoticeDescription>
