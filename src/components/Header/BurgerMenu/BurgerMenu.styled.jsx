@@ -1,50 +1,63 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 
-export const StyledContainer = styled.div`
-  background-color: rgba(253, 247, 242, 1);
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 0 20px;
+export const qwe = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: 320,
+  margin: '0 auto',
+  padding: '26px 20px 60px 20px',
 
-  @media (min-width: 768px) {
-    width: 440;
-    padding: 24px 32px;
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
 
-export const StyledHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 46px;
-  padding-top: 26px;
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
+}));
 
-  @media (min-width: 768px) {
-    width: 768px;
-    padding-top: 38px;
-    padding-left: 42px;
-    padding-right: 42px;
-    margin-bottom: 88px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-`;
+export const StyledContainer = styled('div')(({ theme }) => ({
+  backgroundColor: 'rgba(253, 247, 242, 1)',
+  position: 'fixed',
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  top: 0,
+  left: 0,
+  zIndex: 1000,
+  padding: '0 20px',
 
-export const StyledContainerUserMenu = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: 440,
+    padding: '24px 32px',
+  },
+}));
 
-export const StyledUserMenu = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 60px;
-`;
+export const StyledHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: 46,
+  paddingTop: 26,
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: 768,
+    paddingTop: 38,
+    paddingLeft: 42,
+    paddingRight: 42,
+    marginBottom: 88,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+}));
+
+export const StyledContainerUserMenu = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
+}));
+
+export const StyledUserMenu = styled('div')(({ theme }) => ({
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  marginBottom: 60,
+}));

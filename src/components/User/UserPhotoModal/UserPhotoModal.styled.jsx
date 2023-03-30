@@ -75,7 +75,7 @@ export const FormInputAddIcon = styled('div')(({ theme }) => ({
   backgroundColor: 'transparent',
   color: theme.customColors.accent,
   borderRadius: theme.customBorderRadius.round,
-
+  overflow: 'hidden',
   // '&:hover': {
   //   backgroundColor: theme.customColors.accent,
   //   opacity: 0.9,

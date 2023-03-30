@@ -8,12 +8,34 @@ import { MdOutlineDone } from 'react-icons/md';
 import { HiPencil } from 'react-icons/hi';
 import * as SC from 'components/User/UserData/UserDataList/UserDataList.styled';
 
+const regexPhoneNumber = /^\+380\d{3}\d{2}\d{2}\d{2}$/;
+const regexAdress = /^(?:(?:\w+-\w+)+|(?:\w+)+),\s(?:(?:\w+-\w+)+|(?:\w+)+)$/;
+const regexEmail = /^[^-][a-zA-Z0-9_.-]{1,64}@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+const regexName = /^([a-zA-Zа-яА-ЯёЁ]+)$/;
+
 const inputSchemas = {
-  nameSchema: yup.object({ name: yup.string().min(3).required() }),
-  emailSchema: yup.object({ email: yup.string().min(6).max(30) }),
-  birthdaySchema: yup.object({ birthday: yup.string() }),
-  phoneSchema: yup.object({ phone: yup.string() }),
-  citySchema: yup.object({ city: yup.string() }),
+  nameSchema: yup.object({
+    name: yup.string().matches(regexName, 'Name must contain only letters'),
+  }),
+  emailSchema: yup.object({
+    email: yup
+      .string()
+      .email('Invalid email adress')
+      .required('Required')
+      .min(10)
+      .max(63)
+      .matches(regexEmail, 'Invalid email adress'),
+  }),
+  birthdaySchema: yup.object({ birthday: yup.date() }),
+  phoneSchema: yup.object({
+    phone: yup
+      .string()
+      .max(13, 'Must be 12 numbers or less')
+      .matches(regexPhoneNumber, 'Mobile phone format +380xxxxxxxxx'),
+  }),
+  citySchema: yup.object({
+    city: yup.string().matches(regexAdress, 'Must be in format City, Region'),
+  }),
 };
 
 export const UserDataItem = ({
@@ -26,6 +48,7 @@ export const UserDataItem = ({
   const currentName = inputName.toLowerCase();
   const [currentValue, setCurrentValue] = useState('');
   const [isActive, setIsActive] = useState(false);
+  // const errorMessages = Object.values(formik.errors);
 
   const formik = useFormik({
     initialValues: {
@@ -85,6 +108,9 @@ export const UserDataItem = ({
             <SC.UserDataPencilIcon type="submit" onClick={formik.handleSubmit}>
               <MdOutlineDone />
             </SC.UserDataPencilIcon>
+            {formik.errors[currentName] && (
+              <SC.UserDataError>{formik.errors[currentName]}</SC.UserDataError>
+            )}
           </form>
         </SC.UserDataListWrapper>
       )}

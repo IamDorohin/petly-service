@@ -1,75 +1,76 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 import { NavLink } from 'react-router-dom';
 
-export const StyledNavContainer = styled.div`
-  width: 100%;
-`;
+export const StyledNavContainer = styled('div')(({ theme }) => ({
+  width: '100%',
+}));
 
-export const StyledNavList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+export const StyledNavList = styled('ul')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  margin: '0 auto',
 
-  padding-left: 0;
+  paddingLeft: 0,
 
-  @media (min-width: 1280px) {
-    flex-direction: row;
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    flexDirection: 'row',
+  },
+}));
 
-export const StyledNavItem = styled.li`
-  list-style: none;
+export const StyledNavItem = styled('li')(({ theme }) => ({
+  listStyle: 'none',
 
-  :not(:last-child) {
-    margin-bottom: 40px;
-  }
+  '&:not(:last-child)': {
+    marginBottom: 40,
+  },
 
-  @media (min-width: 768px) {
-    :not(:last-child) {
-      margin-bottom: 40px;
-    }
-  }
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    '&:not(:last-child)': {
+      marginBottom: 40,
+    },
+  },
 
-  @media (min-width: 1280px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    :not(:last-child) {
-      margin-bottom: 0;
-      margin-right: 80px;
-    }
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
 
-export const StyledLink = styled(NavLink)`
-  font-size: 32px;
-  line-height: 1.36;
-  font-weight: 500;
-  color: rgba(24, 28, 39, 1);
-  text-decoration: none;
+    '&:not(:last-child)': {
+      marginBottom: 0,
+      marginRight: 80,
+    },
+  },
+}));
 
-  &:hover,
-  &:focus {
-    color: rgba(245, 146, 86, 1);
-  }
+export const StyledLink = styled(NavLink)(({ theme }) => ({
+  fontSize: theme.customFontSizes[7],
+  lineHeight: 1.36,
+  fontWeight: theme.customFontWeight.normalM,
+  color: 'rgba(24, 28, 39, 1)',
+  textDecoration: 'none',
 
-  &.active {
-    color: rgba(245, 146, 86, 1);
-    font-weight: 700;
-    text-decoration: underline;
-  }
+  '&:hover': {
+    color: 'rgba(245, 146, 86, 1)',
+  },
 
-  @media (min-width: 768px) {
-    font-size: 48px;
-    line-height: 65px;
-    letter-spacing: 0.04em;
-  }
-  @media (min-width: 1280px) {
-    font-size: 20px;
+  '&.active': {
+    color: 'rgba(245, 146, 86, 1)',
+    fontWeight: theme.customFontWeight.bold,
+    textDecoration: 'underline',
+  },
 
-    &.active {
-      text-decoration: underline;
-    }
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    fontSize: 48,
+    lineHeight: theme.customLineHeight[8],
+    letterSpacing: theme.customLetterSpacing.m,
+  },
+
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    fontSize: theme.customFontSizes[4],
+
+    '&.active': {
+      textDecoration: 'underline',
+    },
+  },
+}));

@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as yup from 'yup';
 import { useSelector } from 'react-redux';
 import selector from 'redux/auth/auth-selectors';
@@ -7,7 +7,6 @@ import Modal from '@mui/material/Modal';
 import { updateUserProfile } from 'services/profileApi';
 import * as SC from './UserPhotoModal.styled';
 import { TfiPlus, TfiClose } from 'react-icons/tfi';
-import CloudUploadTwoToneIcon from '@mui/icons-material/CloudUploadTwoTone';
 import { convertBlobToBase64 } from 'modals/AddPetModal/AddPetUtils';
 
 const FILE_SIZE = 1000000;
@@ -32,14 +31,14 @@ const inputSchemas = {
 
 export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
   const token = useSelector(selector.getToken);
-  const [currentPhoto, setCurrentPhoto] = useState('');
+  // const [currentPhoto, setCurrentPhoto] = useState('');
   const [base64Url, setBase64Url] = useState();
 
-  useEffect(() => {
-    if (userInfo.photo) {
-      setCurrentPhoto(userInfo.photo);
-    }
-  }, [handler, userInfo]);
+  // useEffect(() => {
+  //   if (userInfo.photo) {
+  //     setCurrentPhoto(userInfo.photo);
+  //   }
+  // }, [handler, userInfo]);
 
   const formik = useFormik({
     initialValues: {
@@ -48,8 +47,8 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
     validationSchema: inputSchemas.photoSchema,
     onSubmit: async values => {
       const { result } = await updateUserProfile(token, values);
-      setCurrentPhoto(result.photo);
-      handler(currentPhoto);
+      // setCurrentPhoto(result.photo);
+      handler(result.photo);
       handleClose();
     },
   });
@@ -90,7 +89,7 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
 
             <SC.FormInputAddIcon>
               {formik.values.photo ? (
-                <img src={base64Url} alt="" />
+                <img src={base64Url} alt="" style={{ width: '100%' }} />
               ) : (
                 <TfiPlus size={'20%'} />
               )}
