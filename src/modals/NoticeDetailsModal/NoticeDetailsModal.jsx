@@ -22,13 +22,13 @@ import {
 } from './NoticeDetailsModal.styled';
 
 export const NoticeDetailsModal = ({
+  noPetPhoto,
   isOpen,
   onClose,
   currentPet,
   onFavButtonClick,
-//   activeNoticeId,
+  //   activeNoticeId,
 }) => {
-  
   const [toggl, setToggle] = useState(false);
 
   const showHeart = () => {
@@ -46,19 +46,22 @@ export const NoticeDetailsModal = ({
     owner,
     birthday,
     sex,
-      comments,
-    _id
+    comments,
+    _id,
   } = currentPet;
 
   console.log(currentPet);
-    const { moreDetails = {} } = useGetNoticesByIdQuery(_id);
-     console.log(moreDetails);
+  const { moreDetails = {} } = useGetNoticesByIdQuery(_id);
+  console.log(moreDetails);
   return (
     <Modal sx={ModalBoxNotice} isOpen={isOpen} onClose={onClose}>
       <div>
         <DivBox>
           <Box sx={B}>
-            <NoticeImg src={imgUrl} alt="" />
+            <NoticeImg
+              src={imgUrl === 'default/url' ? noPetPhoto : imgUrl}
+              alt=""
+            />
             <CategoryText>
               <Typography sx={TextLabel}>{category}Category</Typography>
             </CategoryText>
@@ -112,7 +115,7 @@ export const NoticeDetailsModal = ({
               sx={CantBtn}
               type="submit"
               onClick={() => {
-                onFavButtonClick(moreDetails);
+                onFavButtonClick(currentPet);
                 showHeart();
               }}
             >

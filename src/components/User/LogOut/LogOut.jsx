@@ -11,8 +11,8 @@ export const LogOut = () => {
   };
 
   return (
-    <SC.LogOutContainer>
-      <SC.LogOutIconWrapper onClick={logOutHandler}>
+    <SC.LogOutContainer onClick={logOutHandler}>
+      <SC.LogOutIconWrapper>
         <IoLogOutOutline size={'100%'} />
       </SC.LogOutIconWrapper>
       Log Out

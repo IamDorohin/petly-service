@@ -10,11 +10,7 @@ import NoResult from '../../components/Generic/NoResult/NoResult';
 
 const NewsPage = () => {
   const [filter, setFilter] = useState('');
-  const {
-    currentData,
-    refetch,
-    // error, isLoading
-  } = useGetNewsQuery();
+  const { currentData, refetch } = useGetNewsQuery();
 
   let visibleNews = {};
 
@@ -22,8 +18,8 @@ const NewsPage = () => {
     visibleNews = currentData.data.result
       .filter(
         item =>
-          item.title.toLowerCase().includes(filter) ||
-          item.description.toLowerCase().includes(filter)
+          item.title.toLowerCase().includes(filter.toLowerCase()) ||
+          item.description.toLowerCase().includes(filter.toLowerCase())
       )
       .sort((a, b) => moment(b.date) - moment(a.date));
   }

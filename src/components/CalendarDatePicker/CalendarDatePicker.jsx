@@ -11,7 +11,7 @@ const CalendarDatePicker = ({ onChange, label, value }) => {
   return (
     <FormLabel sx={LabelFormic}>
       {label}
-      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="uk">
+      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en">
         <DemoItem sx={{ mb: '8px' }}>
           <DatePicker
             sx={DatePickerInput}

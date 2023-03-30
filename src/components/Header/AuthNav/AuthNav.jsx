@@ -21,7 +21,7 @@ export const AuthNav = ({ onClick }) => {
 
   return isLoggedIn ? (
     <StyledContainerNew>
-      <StyledButtonNew to="/user">
+      <StyledButtonNew to="/user" onClick={onClick}>
         <StyledIconContainer>
           <StyledIcon />
           Account
@@ -34,7 +34,9 @@ export const AuthNav = ({ onClick }) => {
         {items.map(({ text, href }) => {
           return (
             <StyledItem key={text}>
-              <StyledButton to={href}>{text}</StyledButton>
+              <StyledButton to={href} onClick={onClick}>
+                {text}
+              </StyledButton>
             </StyledItem>
           );
         })}
@@ -42,5 +44,3 @@ export const AuthNav = ({ onClick }) => {
     </StyledContainer>
   );
 };
-
-// ---------- Sign buttons

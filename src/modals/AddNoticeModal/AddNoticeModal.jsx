@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import { Formik } from 'formik';
 import AddNoticeModalFirstStep from './FirstStep';
@@ -32,6 +33,7 @@ const STEPS = {
 };
 
 const AddNoticeModal = ({ isOpen, onClose, refetchNotices }) => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(STEPS.FIRST);
   const [errorMessages, setErrorsMessages] = useState([]);
   const [addNotice] = useAddNoticeMutation();
@@ -56,7 +58,7 @@ const AddNoticeModal = ({ isOpen, onClose, refetchNotices }) => {
   };
 
   return (
-    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose} >
+    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose}>
       <Typography sx={Title}>Add notice</Typography>
       <Formik
         validateOnChange={false}
@@ -101,6 +103,7 @@ const AddNoticeModal = ({ isOpen, onClose, refetchNotices }) => {
           actions.resetForm();
           refetchNotices();
           onClose();
+          navigate('/notices/own', { replace: true });
         }}
       >
         {props => (

@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import Snackbar from '@mui/material/Snackbar';
 
 export const NoticesPageContainer = styled('section')(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
@@ -46,5 +47,14 @@ export const NoticesPageNavBox = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     alignItems: 'center',
     marginBottom: '60px',
+  },
+}));
+
+export const Notif = styled(Snackbar)(({ theme }) => ({
+  width: '280px',
+
+  '& div': {
+    backgroundColor: theme.customColors.errorNotif,
+    color: theme.customColors.primaryFont,
   },
 }));

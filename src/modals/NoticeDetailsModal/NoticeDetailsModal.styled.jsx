@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const ModalBoxNotice = theme => ({
+  overflow: 'scroll',
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '280px',
   height: 'auto',
-  minHeight: '530px',
+  minHeight: '80vh',
   bgcolor: '#FFFFFF',
   borderRadius: '20px',
   boxShadow: '7px 4px 14px rgba(0, 0, 0, 0.11)',
@@ -43,7 +44,6 @@ export const FontButtonNotice = theme => ({
     lineHeight: '22px',
   },
 });
-
 
 export const TextLabel = theme => ({
   display: 'flex',
@@ -81,7 +81,7 @@ export const TextT = theme => ({
   fontStyle: 'normal',
   fontSize: '14px',
   textTransform: 'none',
-//   minWidth: '115px',
+  //   minWidth: '115px',
   lineHeight: '19px',
   width: 'auto',
   [theme.breakpoints.up('tablet')]: {
@@ -114,8 +114,8 @@ export const Ul = styled.ul(({ theme }) => ({
 }));
 
 export const L = styled.li(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'flex-start',
+  display: 'flex',
+  justifyContent: 'flex-start',
 }));
 
 export const B = theme => ({

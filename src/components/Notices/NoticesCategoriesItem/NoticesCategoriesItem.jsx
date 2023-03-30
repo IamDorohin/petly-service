@@ -12,7 +12,8 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
-import pet from 'img/pngwing.png';
+// import pet from 'img/pngwing.png';
+import noPetPhoto from 'images/nopetphoto.png';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -36,7 +37,7 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
   const [isCurrentPet, setIsCurrentPet] = useState(false);
   const [isFavorite, setIsFavorite] = useState(like);
   const currentUser = useSelector(selectors.getUser);
-  console.log(notice);
+
   const isOwnerNotice = currentUser.id === owner;
   const [addFavNotice] = useAddFavoriteNoticeMutation();
   const [deleteFavNotice] = useDeleteFavoriteNoticeMutation();
@@ -66,12 +67,11 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
     setIsOpenModal(false);
   };
 
-    
-//   const onLearnMoreButtonClick = () => {
-//     setActiveNoticeId(_id);
-//     openNoticeDetailsModal();
-//     };
-    
+  //   const onLearnMoreButtonClick = () => {
+  //     setActiveNoticeId(_id);
+  //     openNoticeDetailsModal();
+  //     };
+
   console.log('isOpenModal', isOpenModal);
   console.log('isCurrentPet', isCurrentPet);
   console.log('moreDetails', moreDetails);
@@ -80,10 +80,12 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
     <SC.NoticeItem>
       {imgUrl === 'default/url' ? (
         <SC.NoticeImageWrapper>
-          <SC.NoticeImage src={pet} />
+          <SC.NoticeImage src={noPetPhoto} />
         </SC.NoticeImageWrapper>
       ) : (
-        <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+        <SC.NoticeImageWrapper>
+          <SC.NoticeImage src={imgUrl} alt="фото домашнього улюбленця" />
+        </SC.NoticeImageWrapper>
       )}
       <SC.NoticeCategory> {category} </SC.NoticeCategory>
       <SC.NoticeLikeBtn>
@@ -141,6 +143,7 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
         )}
         {isCurrentPet && (
           <NoticeDetailsModal
+            noPetPhoto={noPetPhoto}
             isOpen={isCurrentPet}
             onClose={closeModalHendler}
             currentPet={moreDetails.data.notice}

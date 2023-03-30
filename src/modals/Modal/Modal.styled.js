@@ -67,25 +67,24 @@ export const ButtonI = styled(IconButton)`
   && {
     color: black;
     background: #fdf7f2;
-    backdropfilter: blur(2px);
+    backdrop-filter: blur(2px);
     width: 34px;
     height: 34px;
     position: absolute;
     right: 20px;
     top: 20px;
-    @media only screen and (min-width:768px) {
-    width: 44px;
-    height: 44px;
-    right: 24px;
-    top: 24px;
+    @media only screen and (min-width: 768px) {
+      width: 44px;
+      height: 44px;
+      right: 24px;
+      top: 24px;
     }
     :active,
     :hover {
       background: #f59256;
-      bordercolor: #0062cc;
-    boxShadow: 'none
+      border-color: #0062cc;
+      box-shadow: 'none';
     }
-
   }
 `;
 

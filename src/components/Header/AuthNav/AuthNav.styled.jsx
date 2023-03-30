@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { RiAccountCircleFill } from 'react-icons/ri';
-import { NavLink } from 'react-router-dom';
 
 export const StyledContainer = styled.div`
   margin-bottom: 60px;

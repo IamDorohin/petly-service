@@ -1,6 +1,8 @@
 import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 
-export const ContainerAddBtn = styled('div')(({ theme }) => ({
+export const ContainerAddBtnAlert = styled('div')(({ theme }) => ({
   position: 'relative',
   margin: '0',
   padding: '0',
@@ -11,7 +13,7 @@ export const ContainerAddBtn = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: '95px',
+    marginLeft: '0',
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
@@ -19,7 +21,7 @@ export const ContainerAddBtn = styled('div')(({ theme }) => ({
   },
 }));
 
-export const TitleAddBtn = styled('p')(({ theme }) => ({
+export const TitleAddBtnAlert = styled('p')(({ theme }) => ({
   zIndex: '101',
   position: 'fixed',
   bottom: '105px',
@@ -48,12 +50,24 @@ export const TitleAddBtn = styled('p')(({ theme }) => ({
   },
 }));
 
-export const AddButton = styled('button')(({ theme }) => ({
+export const AddButtonAlertSnackbar = styled(Snackbar)(({ theme }) => ({
+  width: '280px',
+
+  '& > div': {
+    backgroundColor: theme.customColors.errorNotif,
+    border: '1px solid',
+    paddingLeft: '30px',
+    borderRadius: theme.customBorderRadius.secondary,
+    borderColor: theme.customColors.accentFont,
+  },
+}));
+
+export const AddButtonAlert = styled(Button)(({ theme }) => ({
   zIndex: '100',
   position: 'fixed',
   bottom: '100px',
   right: '20px',
-  paddingTop: '15px',
+  paddingBottom: '25px',
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: theme.customColors.accent,
@@ -77,13 +91,14 @@ export const AddButton = styled('button')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0',
+    minWidth: '44px',
     width: '44px',
     height: '44px',
     transition: 'all 250ms ease 0s',
   },
 }));
 
-export const AddButtonThumb = styled('div')(({ theme }) => ({
+export const AddButtonThumbAlert = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   backgroundColor: theme.customColors.accent,

@@ -10,6 +10,7 @@ import {
 // import { useState } from 'react';
 
 export const NoticesCategoriesList = ({
+  token,
   error,
   isSuccess,
   findedNotices,
@@ -19,17 +20,23 @@ export const NoticesCategoriesList = ({
 
   const favoriteIdArr = favoriteArr?.data?.favorite;
   useEffect(() => {
-    if (findedNotices && favoriteIdArr) {
-      const newListWhitFav = findedNotices?.map(item => {
-        if (favoriteIdArr?.includes(item._id)) {
-          return { ...item, like: true };
-        }
-        return item;
-      });
-      setCurrentNotices(newListWhitFav);
-      return;
+    if (token) {
+      if (findedNotices && favoriteIdArr) {
+        const newListWhitFav = findedNotices?.map(item => {
+          if (favoriteIdArr?.includes(item._id)) {
+            return { ...item, like: true };
+          }
+          return item;
+        });
+        setCurrentNotices(newListWhitFav);
+        return;
+      }
+    } else {
+      if (findedNotices) {
+        setCurrentNotices(findedNotices);
+      }
     }
-  }, [favoriteIdArr, findedNotices]);
+  }, [token, favoriteIdArr, findedNotices]);
 
   const [deleteNotice] = useDeleteNoticeMutation();
 

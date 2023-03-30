@@ -14,14 +14,16 @@ export const Header = () => {
   const isTablet = useMediaQuery({ minWidth: 768 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
 
-  const toggleBurgerMenuHandler = () => {
+  const toggleBurgerMenuHandler = e => {
     setShowBurgetMenu(!showBurgerMenu);
+    if ((e.type === 'click') & !showBurgerMenu) {
+      setShowBurgetMenu(false);
+    }
   };
 
   const responsiveToggleHandler = value => {
     setShowBurgetMenu(false);
   };
-  console.log('showBurgerMenu', showBurgerMenu);
   return (
     <MainContainer>
       <StyledHeader>
@@ -36,7 +38,7 @@ export const Header = () => {
             />
           )}
           {!showBurgerMenu && !isDesktop && (
-            <BurgerButton onClick={toggleBurgerMenuHandler} />
+            <BurgerButton onClick={() => setShowBurgetMenu(true)} />
           )}
         </Wrapper>
       </StyledHeader>

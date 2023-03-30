@@ -1,9 +1,8 @@
 import { lazy, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { updateUser } from 'redux/auth/auth-operations';
-import selector from 'redux/auth/auth-selectors';
 import { RestrictedRoute } from './restrictedRoute';
 import { PrivateRoute } from 'components/privateRoute';
 
@@ -18,25 +17,16 @@ const UserPage = lazy(() => import('pages/UserPage/UserPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  const isRefreshing = useSelector(selector.getIsRefreshing);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(updateUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <b>Refreshing user...</b>
-  ) : (
+  return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route
-          index
-          element={
-            <RestrictedRoute component={<HomePage />} redirectTo="/user" />
-          }
-        />
+        <Route index element={<HomePage />} />
         <Route
           path="/register"
           element={
@@ -49,7 +39,6 @@ export const App = () => {
             <RestrictedRoute component={<AuthPage />} redirectTo="/user" />
           }
         />
-
         <Route path="/friends" element={<OurFriendsPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices/:categoryName" element={<NoticesPage />} />
