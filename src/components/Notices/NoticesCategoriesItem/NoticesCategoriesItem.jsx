@@ -67,6 +67,15 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
     setIsOpenModal(false);
   };
 
+  //   const onLearnMoreButtonClick = () => {
+  //     setActiveNoticeId(_id);
+  //     openNoticeDetailsModal();
+  //     };
+
+  console.log('isOpenModal', isOpenModal);
+  console.log('isCurrentPet', isCurrentPet);
+  console.log('moreDetails', moreDetails);
+
   return (
     <SC.NoticeItem>
       {imgUrl === 'default/url' ? (

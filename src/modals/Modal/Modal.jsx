@@ -1,9 +1,9 @@
 import React from 'react';
-import { ButtonI } from './Modal.styled';
+import { ButtonI} from './Modal.styled';
 import CloseIcon from '@mui/icons-material/Close';
-import { Box, Modal as ModalUI } from '@mui/material';
+import { Box, Modal as ModalUI} from '@mui/material';
 
-const Modal = ({ isOpen, onClose, children, title, sx }) => {
+const Modal = ({ isOpen, onClose, children, title , sx}) => {
   return (
     <ModalUI
       open={isOpen}

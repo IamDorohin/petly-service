@@ -11,6 +11,8 @@ import {
   addNoticeFirstStepSchema,
   addNoticeSubmitSchema,
 } from './AddNoticeModalІSchems';
+import { modalBox, Title } from '../Modal/Modal.styled';
+import { Typography } from '@mui/material';
 
 const initialValues = {
   category: NOTICE_TYPES.LOST_FOUND,
@@ -56,8 +58,10 @@ const AddNoticeModal = ({ isOpen, onClose, refetchNotices }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Add notice">
+    <Modal sx={modalBox} isOpen={isOpen} onClose={onClose}>
+      <Typography sx={Title}>Add notice</Typography>
       <Formik
+        validateOnChange={false}
         initialValues={initialValues}
         validationSchema={
           step === STEPS.FIRST

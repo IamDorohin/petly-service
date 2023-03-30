@@ -28,7 +28,7 @@ const AddNoticeModalFirstStep = ({
       <Box>
         <Box sx={BoxBtnGroup}>
           <BtnGroupFierst
-            sx={{ width: '50' }}
+            sx={{ width: '50%' }}
             className={
               formik.values.category === NOTICE_TYPES.LOST_FOUND
                 ? 'active'
@@ -54,7 +54,7 @@ const AddNoticeModalFirstStep = ({
             In good hands
           </BtnGroupFierst>
           <BtnGroupFierst
-            // sx={{ width: '30%' }}
+            sx={{ width: '30%' }}
             className={
               formik.values.category === NOTICE_TYPES.SELL ? 'active' : null
             }
@@ -71,7 +71,7 @@ const AddNoticeModalFirstStep = ({
           onChange={formik.handleChange}
           type="text"
           name="title"
-          placeholder="Type name pet"
+          placeholder="Type of ad"
         />
       </FormLabel>
       <FormLabel sx={LabelFormic}>
@@ -103,17 +103,14 @@ const AddNoticeModalFirstStep = ({
       </FormLabel>
       <>
         {errorMessages.length !== 0 &&
-          errorMessages.map(message => {
+          errorMessages.map((message, index) => {
             return (
-              <Alert severity="error" autoHideDuration={2000}>
+              <Alert key={message.toString()} severity="error">
                 {message}
               </Alert>
             );
           })}
       </>
-      {/* <NextBtn sx={FontButton} >
-              Next
-            </NextBtn> */}
       <Box sx={ButtonBox}>
         <Button sx={CantBtn} onClick={onClose} variant="contained">
           Cancel
