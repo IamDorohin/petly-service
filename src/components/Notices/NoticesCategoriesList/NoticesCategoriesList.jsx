@@ -14,6 +14,7 @@ export const NoticesCategoriesList = ({
   error,
   isSuccess,
   findedNotices,
+  allItem,
   favoriteArr,
   page,
   setPage,
@@ -52,7 +53,7 @@ export const NoticesCategoriesList = ({
     const newList = currentNotices.filter(notice => notice._id !== id);
     setCurrentNotices(newList);
   };
-
+  console.log(allItem);
   return (
     <div>
       <CategoriesList>
@@ -67,10 +68,10 @@ export const NoticesCategoriesList = ({
           ))}
         {error?.data && <NoResult />}
       </CategoriesList>
-      {isSuccess && currentNotices && page > 1 && (
+      {isSuccess && allItem && allItem > 8 && (
         <StackStyled spacing={2}>
           <Pagi
-            count={Math.ceil(currentNotices.length / 8)}
+            count={Math.ceil(allItem / 8)}
             page={page}
             onChange={handleChange}
             color="primary"
