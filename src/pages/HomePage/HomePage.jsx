@@ -1,16 +1,10 @@
 import {
-  ImagesWrapper,
-  Image,
   HomeWrapp,
   HomeTitle,
   HomeSection,
   MainContainer,
 } from './HomePage.styled';
-import TeamModal from '../../components/TeamModal/TeamModal'
-
-import heroDogMob from '../../img/header-hero/hero-dog-mob.png';
-import heroDogTab from '../../img/header-hero/hero-dog-tab.png';
-import heroDogDes from '../../img/header-hero/hero-dog-des.png';
+import TeamModal from '../../components/TeamModal/TeamModal';
 
 export default function HomePage() {
   return (
