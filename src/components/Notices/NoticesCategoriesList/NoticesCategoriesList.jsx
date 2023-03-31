@@ -14,6 +14,7 @@ export const NoticesCategoriesList = ({
   error,
   isSuccess,
   findedNotices,
+  allItem,
   favoriteArr,
   page,
   setPage,
@@ -67,10 +68,10 @@ export const NoticesCategoriesList = ({
           ))}
         {error?.data && <NoResult />}
       </CategoriesList>
-      {isSuccess && currentNotices && page > 1 && (
+      {isSuccess && allItem && page > 1 && (
         <StackStyled spacing={2}>
           <Pagi
-            count={Math.ceil(currentNotices.length / 8)}
+            count={Math.ceil(allItem / 8)}
             page={page}
             onChange={handleChange}
             color="primary"
