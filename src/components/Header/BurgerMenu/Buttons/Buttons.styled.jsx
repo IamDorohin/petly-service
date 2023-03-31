@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 
-export const BurgerMenuButtonWrapper = styled.button`
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
+export const BurgerMenuButtonWrapper = styled('button')(({ theme }) => ({
+  padding: 0,
+  border: 'none',
+  backgroundColor: 'transparent',
+  width: 25,
+  height: 25,
+  cursor: 'pointer',
 
-  @media (min-width: 768px) {
-    width: 30px;
-    height: 30px;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: 30,
+    height: 30,
 
-    &.button {
-      color: teal;
-    }
-  }
-`;
+    '&.button': {
+      // color: 'teal',
+    },
+  },
+}));

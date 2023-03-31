@@ -1,29 +1,31 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
-export const StyledLogoContainer = styled.div`
-  width: 82px;
+export const StyledLogoContainer = styled('div')(({ theme }) => ({
+  width: 82,
 
-  @media (min-width: 768px) {
-    width: 94px;
-  }
-  @media (min-width: 1280px) {
-    margin-right: 80px;
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: 94,
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginRight: 80,
+  },
+}));
 
-export const StyledLogo = styled.a`
-  color: rgba(17, 17, 17, 1);
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  letter-spacing: 0.07em;
-  text-decoration: none;
-  @media screen and (min-width: 768px) {
-    font-size: 32px;
-  }
-`;
+export const StyledLogo = styled(Link)(({ theme }) => ({
+  color: 'rgba(17, 17, 17, 1)',
+  fontFamily: theme.customFontFamily.logo,
+  fontStyle: 'normal',
+  fontWeight: theme.customFontWeight.bold,
+  fontSize: theme.customFontSizes[6],
+  letterSpacing: theme.customLetterSpacing.l,
+  textDecoration: 'none',
 
-export const StyledLogoT = styled.span`
-  color: rgba(245, 146, 86, 1);
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    fontSize: theme.customFontSizes[7],
+  },
+}));
+
+export const StyledLogoT = styled('span')(({ theme }) => ({
+  color: 'rgba(245, 146, 86, 1)',
+}));

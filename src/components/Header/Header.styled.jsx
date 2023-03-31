@@ -1,44 +1,33 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 
-export const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px;
-  padding-top: 26px;
-  background-color: #fdf7f2;
+export const StyledHeader = styled('header')(({ theme }) => ({
+  backgroundColor: theme.customColors.appBackground,
+}));
 
-  @media (min-width: 768px) {
-    width: 700px;
-    padding-top: 24px;
-    justify-content: baseline;
-  }
-  @media (min-width: 1280px) {
-    width: 100%;
-  }
-`;
+export const MainContainer = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: 320,
+  margin: '0 auto',
+  padding: '26px 20px 60px 20px',
 
-export const MainContainer = styled.div`
-  width: 320px;
-  margin: 0 auto;
-  padding: 0 20px;
-  @media (min-width: 768px) {
-    width: 768px;
-    padding: 0 32px;
-  }
-  @media (min-width: 1280px) {
-    width: 1280px;
-    padding: 0 16px;
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: 768,
+    padding: '26px 32px 60px 32px',
+  },
 
-export const Wrapper = styled.div`
-  @media (min-width: 768px) {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-left: 246px;
-  }
-  @media (min-width: 1280px) {
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    width: 1280,
+    padding: '26px 16px 60px 16px',
+  },
+}));
+
+export const Wrapper = styled('div')(({ theme }) => ({
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    display: 'flex',
+    justifyContent: 'end',
+    alignItems: 'center',
+    marginLeft: 246,
+  },
+}));

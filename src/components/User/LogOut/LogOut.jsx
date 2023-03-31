@@ -15,7 +15,7 @@ export const LogOut = () => {
       <SC.LogOutIconWrapper>
         <IoLogOutOutline size={'100%'} />
       </SC.LogOutIconWrapper>
-      Log Out
+      <SC.LogOutIconTitle> Log Out</SC.LogOutIconTitle>
     </SC.LogOutContainer>
   );
 };
