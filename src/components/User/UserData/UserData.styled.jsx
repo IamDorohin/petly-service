@@ -64,7 +64,7 @@ export const UserDataContent = styled('div')(({ theme }) => ({
     alignItems: 'center',
     padding: '20px 16px 64px 16px',
 
-    borderRadius: theme.customBorderRadius.findPetCard,
+    borderRadius: theme.customBorderRadius.primary,
   },
 }));
 
