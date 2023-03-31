@@ -6,6 +6,7 @@ import {
   HomeSection,
   MainContainer,
 } from './HomePage.styled';
+import TeamModal from '../../components/TeamModal/TeamModal'
 
 import heroDogMob from '../../img/header-hero/hero-dog-mob.png';
 import heroDogTab from '../../img/header-hero/hero-dog-tab.png';
@@ -26,6 +27,7 @@ export default function HomePage() {
             ></Image>
           </ImagesWrapper>
         </HomeWrapp>
+        <TeamModal></TeamModal>
       </MainContainer>
     </HomeSection>
   );
