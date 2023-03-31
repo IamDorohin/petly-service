@@ -31,7 +31,6 @@ export const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <CssBaseline /> */}
       {isRefreshing ? (
         <LoaderCat size={'150px'} space={10} />
       ) : (
