@@ -1,7 +1,8 @@
 import React from 'react';
 import { LoginForm } from 'components/AuthForm/LoginFom';
 import { RegisterForm } from 'components/AuthForm/RegisterForm';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import selector from 'redux/auth/auth-selectors';
 import {
   LoginSection,
   LoginContainer,
@@ -17,17 +18,13 @@ import { useLocation } from 'react-router-dom';
 
 const AuthPage = () => {
   const { pathname } = useLocation();
-  const [alert, setAlert] = useState('');
-
-  const statusHandler = status => {
-    setAlert(status);
-  };
+  const getError = useSelector(selector.getError);
 
   let title = '';
   if (pathname === '/login') title = 'Login';
   if (pathname === '/register') title = 'Registration';
 
-  const forAlertMessage = 'Looks like incorrect login data. Please try again!';
+  const forAlertMessage = 'Wrong email or password!';
 
   console.log('alert', alert);
 
@@ -35,7 +32,7 @@ const AuthPage = () => {
     <LoginSection bgImage={{ loginBgLaptop, loginBgMobile, loginBgTablet }}>
       <LoginContainer>
         <TitleH1>{title}</TitleH1>
-        {pathname === '/login' && <LoginForm handler={statusHandler} />}
+        {pathname === '/login' && <LoginForm />}
         {pathname === '/register' && <RegisterForm />}
         <HelperContainer>
           {pathname === '/login' && (
@@ -52,7 +49,7 @@ const AuthPage = () => {
           )}
         </HelperContainer>
       </LoginContainer>
-      {alert === 'auth/login/rejected' && (
+      {getError?.status === 401 && (
         <DirectionSnackbarLogin message={forAlertMessage} />
       )}
     </LoginSection>

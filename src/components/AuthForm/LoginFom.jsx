@@ -30,6 +30,7 @@ export const LoginForm = ({ handler }) => {
       const authData = { email, password };
       const data = await dispatch(logIn(authData));
 
+      console.log(data.type);
       if (data.type === 'auth/login/rejected') {
         handler(isSuccessLogin);
         setIsSuccessLogin(false);
