@@ -12,10 +12,11 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import * as SC from 'components/Notices/NoticesCategoriesItem/NoticesCategoriesItem.styled';
 import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal';
-// import pet from 'img/pngwing.png';
 import noPetPhoto from 'images/nopetphoto.png';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { ToWords } from 'to-words';
+import { currentPetAge } from '../date';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -30,9 +31,18 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
     location,
     price,
     owner,
+    birthdate,
     _id,
     like = false,
   } = notice;
+  const toWords = new ToWords({ localeCode: 'en-US' });
+
+  const month = currentPetAge(birthdate).months;
+  const years = currentPetAge(birthdate).years;
+
+  const outputYears = toWords.convert(years);
+  const outputMonths = toWords.convert(month);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCurrentPet, setIsCurrentPet] = useState(false);
   const [isFavorite, setIsFavorite] = useState(like);
@@ -66,15 +76,6 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
     setIsCurrentPet(false);
     setIsOpenModal(false);
   };
-
-  //   const onLearnMoreButtonClick = () => {
-  //     setActiveNoticeId(_id);
-  //     openNoticeDetailsModal();
-  //     };
-
-  console.log('isOpenModal', isOpenModal);
-  console.log('isCurrentPet', isCurrentPet);
-  console.log('moreDetails', moreDetails);
 
   return (
     <SC.NoticeItem>
@@ -121,11 +122,17 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
           </SC.NoticeListItem>
           <SC.NoticeListItem>
             <SC.NoticeListItemtitle>Age:</SC.NoticeListItemtitle>
-            <SC.NoticeListItemDetails>{location}</SC.NoticeListItemDetails>
+            <SC.NoticeListItemDetails>
+              {years <= 1 ? `${outputMonths} month` : `${outputYears} years`}
+            </SC.NoticeListItemDetails>
           </SC.NoticeListItem>
           <SC.NoticeListItem>
-            <SC.NoticeListItemtitle>Price: </SC.NoticeListItemtitle>
-            <SC.NoticeListItemDetails>{price}</SC.NoticeListItemDetails>
+            {price && (
+              <>
+                <SC.NoticeListItemtitle>Price: </SC.NoticeListItemtitle>
+                <SC.NoticeListItemDetails>{price}</SC.NoticeListItemDetails>
+              </>
+            )}
           </SC.NoticeListItem>
         </SC.NoticeList>
         <SC.NoticeLearnMoreBtn

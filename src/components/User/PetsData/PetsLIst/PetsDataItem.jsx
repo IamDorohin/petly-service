@@ -1,5 +1,6 @@
 import * as SC from './PetsList.styled';
 import { HiTrash } from 'react-icons/hi';
+import dayjs from 'dayjs';
 
 export const PetsDataItem = ({ pet, handler }) => {
   const {
@@ -11,6 +12,7 @@ export const PetsDataItem = ({ pet, handler }) => {
     birthdate = '--/--/--',
   } = pet;
 
+  const formatDate = dayjs(birthdate).format('DD.MM.YYYY');
   return (
     <SC.PetsDataItem>
       <SC.PetsDataImage src={petsImageUrl} />
@@ -24,7 +26,7 @@ export const PetsDataItem = ({ pet, handler }) => {
         </SC.PetsDataInfoContent>
         <SC.PetsDataInfoContent>
           <SC.PetsDataInfoTitle>Date of birth:</SC.PetsDataInfoTitle>
-          {birthdate}
+          {formatDate}
         </SC.PetsDataInfoContent>
         <SC.PetsDataInfoContent>
           <SC.PetsDataInfoTitle>Breed:</SC.PetsDataInfoTitle>

@@ -71,7 +71,7 @@ export const StyledButton = styled(NavLink)(({ theme }) => ({
   lineHeight: 1.36,
 
   color: 'rgba(17, 17, 17, 1)',
-  padding: ' 8px 28px',
+  padding: '8px 28px',
   textDecoration: 'none',
   maxWidth: 144,
 
@@ -121,7 +121,7 @@ export const StyledButtonNew = styled(Link)(({ theme }) => ({
   lineHeight: 1.36,
   color: 'rgba(17, 17, 17, 1)',
   padding: '8px 28px',
-  border: '1 solid rgba(245, 146, 86, 1)',
+  border: '1px solid rgba(245, 146, 86, 1)',
   borderRadius: 40,
   backgroundColor: 'rgba(245, 146, 86, 1)',
   textDecoration: 'none',

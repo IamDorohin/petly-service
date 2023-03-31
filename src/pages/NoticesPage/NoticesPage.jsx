@@ -4,7 +4,6 @@ import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import selector from 'redux/auth/auth-selectors';
 
-
 import {
   useGetNoticesByCategoryQuery,
   useGetFavoriteArrQuery,
@@ -31,7 +30,6 @@ const NoticesPage = () => {
   const token = useSelector(selector.getToken);
   const [page, setPage] = useState(1);
 
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchQueryState = searchParams?.toString() ?? '';
@@ -49,9 +47,12 @@ const NoticesPage = () => {
     error,
     isSuccess,
     isFetching,
-  } = useGetNoticesByCategoryQuery({categoryName, searchQueryState, page}, {
-    refetchOnMountOrArgChange: true,
-  });
+  } = useGetNoticesByCategoryQuery(
+    { categoryName, searchQueryState, page },
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
   const { currentData: favoriteArr } = useGetFavoriteArrQuery();
 
   useEffect(() => {
@@ -70,7 +71,6 @@ const NoticesPage = () => {
 
   return (
     <>
-      {' '}
       <NoticesPageContainer>
         <Container>
           <Title>Find your favorite pet</Title>
@@ -94,9 +94,9 @@ const NoticesPage = () => {
               error={error}
               isSuccess={isSuccess}
               findedNotices={array?.data?.notices}
-                favoriteArr={favoriteArr}
-                page={page}
-                setPage={setPage}
+              favoriteArr={favoriteArr}
+              page={page}
+              setPage={setPage}
             />
           )}
         </Container>
@@ -108,8 +108,6 @@ const NoticesPage = () => {
             token={token}
           />
         )}
-
-        
       </NoticesPageContainer>
     </>
   );
