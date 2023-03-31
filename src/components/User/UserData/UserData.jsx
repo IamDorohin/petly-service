@@ -14,7 +14,6 @@ export const UserData = ({ userInfo }) => {
     setIsModalOpen(false);
   };
 
-  console.log('isModalOpen', isModalOpen);
   return (
     <SC.UserDataContainer>
       <SC.UserInfoTitle>My information:</SC.UserInfoTitle>

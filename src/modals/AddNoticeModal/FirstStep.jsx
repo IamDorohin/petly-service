@@ -8,7 +8,6 @@ import {
 
 import { Alert, Box, Button, FormLabel, Typography } from '@mui/material';
 import CalendarDatePicker from '../../components/CalendarDatePicker/CalendarDatePicker';
-import dayjs from 'dayjs';
 import { LabelFormic } from '../Modal/Modal.styled';
 import { FontButton } from '../AddPetModal/SecondStep.styled';
 import { NOTICE_TYPES } from './AddNoticeModalІSchems';
