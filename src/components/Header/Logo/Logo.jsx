@@ -3,7 +3,7 @@ import { StyledLogoContainer, StyledLogo, StyledLogoT } from './Logo.styled';
 export const Logo = () => {
   return (
     <StyledLogoContainer>
-      <StyledLogo href="/petly-service">
+      <StyledLogo to="/">
         pe<StyledLogoT>t</StyledLogoT>ly
       </StyledLogo>
     </StyledLogoContainer>

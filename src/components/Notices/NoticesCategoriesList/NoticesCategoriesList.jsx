@@ -43,6 +43,7 @@ export const NoticesCategoriesList = ({
       }
     }
   }, [token, favoriteIdArr, findedNotices]);
+  console.log(findedNotices);
 
   const [deleteNotice] = useDeleteNoticeMutation();
 
@@ -69,7 +70,7 @@ export const NoticesCategoriesList = ({
       {isSuccess && currentNotices && page > 1 && (
         <StackStyled spacing={2}>
           <Pagi
-            count={Math.floor(currentNotices.length / 8)}
+            count={Math.ceil(currentNotices.length / 8)}
             page={page}
             onChange={handleChange}
             color="primary"
