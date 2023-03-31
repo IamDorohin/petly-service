@@ -21,6 +21,7 @@ export const FontButton = theme => ({
 
 export const AddBtn = styled(Button)`
   && {
+    overflow: 'hidden';
     display: flex;
     color: #111111;
     box-shadow: none;
@@ -56,6 +57,7 @@ export const AddBtnTheme = theme => ({
 });
 export const AddBtnThemeNotice = theme => ({
   borderRadius: '20px',
+  overflow: 'hidden',
   width: '116px',
   height: '116px',
   mb: '20px',
@@ -130,7 +132,6 @@ export const CssTextFieldTheme = theme => ({
 export const Img = styled.img`
   width: inherit;
 `;
-
 
 export const Malee = styled.svg`
  width: 100px,
