@@ -66,6 +66,7 @@ const authSlice = createSlice({
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.isRefreshing = false;
+        state.token = '';
       });
   },
 });

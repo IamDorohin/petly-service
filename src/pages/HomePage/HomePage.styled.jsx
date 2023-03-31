@@ -4,52 +4,57 @@ import heroBg from '../../img/header-hero/heroBg.png';
 import heroBgTab from '../../img/header-hero/heroBgTab.png';
 import heroBgDes from '../../img/header-hero/hero-bg-des.png';
 import heart from '../../img//header-hero/hero-heart-des.png';
+import heroDogMob from '../../img/header-hero/hero-dog-mob.png';
+import heroDogTab from '../../img/header-hero/hero-dog-tab.png';
+import heroDogDes from '../../img/header-hero/hero-dog-des.png';
 // @media(min - width: 768px) {
 
 // }
 export const MainContainer = styled.div`
-
   width: 320px;
-  height: 100%
+  height: 100%;
   margin: 0 auto;
-  padding: 60px 20px 0;
+  padding: 0px 20px 0;
 
-  @media(min-width: 768px) {
-  width: 768px;
-  padding: 88px 32px 0;
-}
-    @media(min-width: 1280px) {
-      width: 1280px;
-  padding: 92px 16px 0;
-}
+  @media (min-width: 768px) {
+    width: 768px;
+    padding: 40px 32px 0;
+  }
+  @media (min-width: 1280px) {
+    width: 1280px;
+    padding: 46px 16px 0;
+  }
 `;
 
 export const HomeSection = styled.section`
   background-color: #fdf7f2;
   position: relative;
-  width: 100vw;
   display: flex;
   justify-content: center;
+  min-height: 512px;
   height: calc(100vh - 56px);
-  background-image: url('${heroBg}');
+
+  background-image: url('${heroDogMob}'), url('${heroBg}');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom -70px left 35%;
+  background-size: 280px, cover;
+  background-position: center bottom -10px, bottom -40px left 35%;
   overflow: hidden;
 
   @media (min-width: 768px) {
-    height: calc(100vh - 83.2px);
-    background-image: url('${heroBgTab}');
-    background-position: bottom -70px left 25%;
-    background-size: cover;
+    min-height: 942px;
+    height: calc(100vh - 130px);
+    background-image: url('${heroDogTab}'), url('${heroBgTab}');
+    background-position: center bottom -100px, bottom -70px left 25%;
+    background-size: 636px, cover;
   }
 
   @media (min-width: 1280px) {
-    height: calc(100vh - 79.2px);
+    min-height: 688px;
+    height: calc(100vh - 130px);
 
-    background-image: url('${heroBgDes}');
-    background-position: bottom;
-    background-size: 1400px;
+    background-image: url('${heroDogDes}'), url('${heroBgDes}');
+    background-position: right 100px bottom, bottom;
+    background-size: 524px, contain;
   }
 `;
 
@@ -57,31 +62,30 @@ export const ImagesWrapper = styled.div`
   position: absolute;
   bottom: -4px;
 
-    @media(min-width: 768px) {
-      width: 704px;
-      padding-left: 13px;
-    }
-
-    @media(min-width: 1280px) {
-        width: 1240px;
-        text-align: right;
-        padding-left: 0;
-        
-        &::after {
-    content: '';
-    display block;
-    position: absolute;
-    width: 95px;
-    height: 95px;
-      background-image: url('${heart}');
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  top: -20px;
-  left: 670px;
-
+  @media (min-width: 768px) {
+    width: 704px;
+    padding-left: 13px;
   }
+
+  @media (min-width: 1280px) {
+    width: 1240px;
+    text-align: right;
+    padding-left: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 95px;
+      height: 95px;
+      background-image: url('${heart}');
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      top: -20px;
+      left: 670px;
     }
+  }
 `;
 
 export const Image = styled.img`
