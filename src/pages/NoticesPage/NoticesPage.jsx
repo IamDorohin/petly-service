@@ -94,7 +94,7 @@ const NoticesPage = () => {
               error={error}
               isSuccess={isSuccess}
               findedNotices={array?.data?.notices}
-              allItem={array?.data?.allItem}
+              allItem={array?.data?.allItems}
               favoriteArr={favoriteArr}
               page={page}
               setPage={setPage}
