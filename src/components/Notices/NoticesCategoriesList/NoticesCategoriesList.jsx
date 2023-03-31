@@ -68,19 +68,16 @@ export const NoticesCategoriesList = ({
           ))}
         {error?.data && <NoResult />}
       </CategoriesList>
-      {isSuccess &&
-        allItem &&
-        allItem >
-          8(
-            <StackStyled spacing={2}>
-              <Pagi
-                count={Math.ceil(allItem / 8)}
-                page={page}
-                onChange={handleChange}
-                color="primary"
-              />
-            </StackStyled>
-          )}
+      {isSuccess && allItem && allItem > 8 && (
+        <StackStyled spacing={2}>
+          <Pagi
+            count={Math.ceil(allItem / 8)}
+            page={page}
+            onChange={handleChange}
+            color="primary"
+          />
+        </StackStyled>
+      )}
     </div>
   );
 };
