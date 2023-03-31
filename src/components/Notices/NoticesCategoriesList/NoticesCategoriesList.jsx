@@ -53,7 +53,7 @@ export const NoticesCategoriesList = ({
     const newList = currentNotices.filter(notice => notice._id !== id);
     setCurrentNotices(newList);
   };
-
+  console.log(allItem);
   return (
     <div>
       <CategoriesList>
@@ -68,16 +68,19 @@ export const NoticesCategoriesList = ({
           ))}
         {error?.data && <NoResult />}
       </CategoriesList>
-      {isSuccess && allItem && page > 1 && (
-        <StackStyled spacing={2}>
-          <Pagi
-            count={Math.ceil(allItem / 8)}
-            page={page}
-            onChange={handleChange}
-            color="primary"
-          />
-        </StackStyled>
-      )}
+      {isSuccess &&
+        allItem &&
+        allItem >
+          8(
+            <StackStyled spacing={2}>
+              <Pagi
+                count={Math.ceil(allItem / 8)}
+                page={page}
+                onChange={handleChange}
+                color="primary"
+              />
+            </StackStyled>
+          )}
     </div>
   );
 };
