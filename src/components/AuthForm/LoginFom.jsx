@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { DirectionSnackbarLogin } from './notification';
+// import { DirectionSnackbarLogin } from './notification';
 
 import authSelectors from 'redux/auth/auth-selectors';
 import { logIn } from '../../redux/auth/auth-operations';
@@ -11,7 +11,7 @@ import { loginYupSchema } from '../../schemas/validationSchema';
 import * as SC from './Form.styled';
 import { PasswordInput } from './PasswordInput';
 
-export const LoginForm = () => {
+export const LoginForm = ({ handler }) => {
   const dispatch = useDispatch();
   let isRefreshing = useSelector(authSelectors.getIsRefreshing);
   const isSmall = useMediaQuery({ maxWidth: 768 });
@@ -31,6 +31,7 @@ export const LoginForm = () => {
       const data = await dispatch(logIn(authData));
 
       if (data.type === 'auth/login/rejected') {
+        handler(data.type);
         setIsSuccessLogin(false);
       }
 
@@ -40,12 +41,8 @@ export const LoginForm = () => {
     },
   });
 
-  const forAlertMessage =
-    'Looks like incorrect login details. Please try again!';
-
   return (
     <>
-      {!isSuccessLogin && <DirectionSnackbarLogin message={forAlertMessage} />}
       <SC.Form onSubmit={formik.handleSubmit}>
         <SC.Input
           fullWidth
