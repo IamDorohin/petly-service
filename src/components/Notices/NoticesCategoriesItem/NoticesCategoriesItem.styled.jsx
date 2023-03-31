@@ -9,6 +9,11 @@ export const NoticeItem = styled('li')(({ theme }) => ({
   borderRadius: '0px 0px 40px 40px',
   boxShadow: theme.customShadow.secondary,
 
+  '&:hover': {
+    transform: 'scale(1.05)',
+    transition: 'transform 250ms ease-in-out',
+  },
+
   [theme.breakpoints.between(
     theme.breakpoints.values.tablet,
     theme.breakpoints.values.desktop

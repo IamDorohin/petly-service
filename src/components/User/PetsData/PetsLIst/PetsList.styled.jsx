@@ -17,6 +17,11 @@ export const PetsDataItem = styled('li')(({ theme }) => ({
   borderRadius: theme.customBorderRadius.primary,
   backgroundColor: theme.customColors.cardsBackground,
 
+  '&:hover': {
+    transform: 'scale(1.05)',
+    transition: 'transform 250ms ease-in-out',
+  },
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '704px',
     height: '100%',
