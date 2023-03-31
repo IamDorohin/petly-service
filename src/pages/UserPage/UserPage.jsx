@@ -31,7 +31,11 @@ const UserPage = () => {
       {currentUser && (
         <UserPageWrapper>
           <UserWrapper>
-            <UserData userInfo={currentUser.user} />
+            <UserData
+              userInfo={currentUser.user}
+              setIsAddPetModalOpen={setIsAddPetModalOpen}
+              isAddPetModalOpen={isAddPetModalOpen}
+            />
             <LogOut />
           </UserWrapper>
           <PetsData

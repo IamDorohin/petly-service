@@ -43,6 +43,7 @@ export const UserDataListItem = styled('li')(({ theme }) => ({
 export const UserDataListWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
+  position: 'relative',
 }));
 
 export const UserDataListContent = styled('p')(({ theme }) => ({
@@ -113,5 +114,17 @@ export const UserDataPencilIcon = styled('button')(({ theme }) => ({
   },
 }));
 
-// [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
-// [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
+export const UserDataError = styled('p')(({ theme }) => ({
+  position: 'absolute',
+  top: '19px',
+  padding: '0',
+  margin: '0',
+  fontSize: '9px',
+  color: theme.customColors.errorNotif,
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    top: '30px',
+    left: '12px',
+    fontSize: '11px',
+  },
+}));

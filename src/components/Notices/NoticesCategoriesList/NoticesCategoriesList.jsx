@@ -7,11 +7,7 @@ import {
 } from './NoticesCategoriesList.styled';
 import NoResult from 'components/Generic/NoResult/NoResult';
 
-import {
-  // useGetNoticesByCategoryQuery,
-  useDeleteNoticeMutation,
-} from 'redux/notices/noticesSlice';
-// import { useState } from 'react';
+import { useDeleteNoticeMutation } from 'redux/notices/noticesSlice';
 
 export const NoticesCategoriesList = ({
   token,

@@ -79,6 +79,7 @@ export const HelperContainer = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   paddingTop: '40px',
+
   [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {},
 
   [theme.breakpoints.up(theme.breakpoints.values.mobileAdaptive)]: {},
@@ -92,6 +93,7 @@ export const TitleH5 = styled(Typography)(({ theme }) => ({
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.primaryFont,
   inlineSize: 'max-content',
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
 }));
 

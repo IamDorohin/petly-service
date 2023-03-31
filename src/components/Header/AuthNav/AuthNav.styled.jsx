@@ -1,131 +1,142 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 import { Link, NavLink } from 'react-router-dom';
 import { RiAccountCircleFill } from 'react-icons/ri';
 
-export const StyledContainer = styled.div`
-  margin-bottom: 60px;
+export const StyledContainer = styled('div')(({ theme }) => ({
+  marginBottom: 60,
 
-  @media (min-width: 768px) {
-    width: 100%;
-    margin-right: 25px;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '100%',
+    marginRight: 25,
+    marginBottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+}));
 
-export const StyledList = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding-left: 0;
-  width: 251px;
+export const StyledList = styled('ul')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: '0 auto',
+  paddingLeft: 0,
+  width: 251,
 
-  @media (min-width: 768px) {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+}));
 
-export const StyledItem = styled.li`
-  list-style: none;
-  height: 35px;
-  width: 100%;
-  border: 2px solid rgba(245, 146, 86, 1);
-  border-radius: 40px;
-  background-color: rgba(255, 255, 255, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const StyledItem = styled('li')(({ theme }) => ({
+  listStyle: 'none',
+  height: 35,
+  width: '100%',
+  border: '2px solid rgba(245, 146, 86, 1)',
+  borderRadius: 40,
+  backgroundColor: 'rgba(255, 255, 255, 1)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 
-  :not(:last-child) {
-    margin-right: 12px;
-  }
-  &.active,
-  &:hover,
-  &:focus {
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(245, 146, 86, 1);
-  }
-  @media (min-width: 768px) {
-    height: 44px;
-  }
-`;
+  '&:not(:last-child)': {
+    marginRight: 12,
+  },
 
-export const StyledButton = styled(NavLink)`
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.36;
+  '&.active': {
+    color: 'rgba(255, 255, 255, 1)',
+    backgroundColor: 'rgba(245, 146, 86, 1)',
+  },
 
-  color: rgba(17, 17, 17, 1);
-  padding: 8px 28px;
-  text-decoration: none;
-  max-width: 144px;
+  '&:hover': {
+    color: 'rgba(255, 255, 255, 1)',
+    backgroundColor: 'rgba(245, 146, 86, 1)',
+  },
 
-  @media (min-width: 768px) {
-    font-size: 20px;
-    max-width: 181px;
-  }
-  @media (min-width: 1280px) {
-    padding: 10px 28px;
-  }
-`;
+  '&:focus': {
+    color: 'rgba(255, 255, 255, 1)',
+    backgroundColor: 'rgba(245, 146, 86, 1)',
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    height: 44,
+  },
+}));
 
-export const StyledContainerNew = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 68px;
+export const StyledButton = styled(NavLink)(({ theme }) => ({
+  fontSize: theme.customFontSizes[1],
+  fontWeight: theme.customFontWeight.normalM,
+  lineHeight: 1.36,
 
-  @media (min-width: 768px) {
-    margin-bottom: 0;
-    margin-right: 20px;
-  }
-`;
+  color: 'rgba(17, 17, 17, 1)',
+  padding: ' 8px 28px',
+  textDecoration: 'none',
+  maxWidth: 144,
 
-export const StyledIconContainer = styled.span`
-  display: flex;
-  align-items: center;
-  color: #fff;
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    fontSize: 20,
+    maxWidth: 181,
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    padding: '10px 28px',
+  },
+}));
 
-export const StyledIcon = styled(RiAccountCircleFill)`
-  color: inherit;
-  background-color: inherit;
-  margin-right: 14px;
-  width: 17px;
-  height: 17px;
+export const StyledContainerNew = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: 68,
 
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-`;
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    marginBottom: 0,
+    marginRight: 20,
+  },
+}));
 
-export const StyledButtonNew = styled(Link)`
-  display: flex;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.36;
-  color: rgba(17, 17, 17, 1);
-  padding: 8px 28px;
-  border: 1px solid rgba(245, 146, 86, 1);
-  border-radius: 40px;
-  background-color: rgba(245, 146, 86, 1);
-  text-decoration: none;
-  max-width: 144px;
-  &:hover,
-  &:focus {
-    background-color: #f7853f;
-  }
-  @media (min-width: 768px) {
-    font-size: 20px;
-    max-width: 181px;
-  }
-  @media (min-width: 1280px) {
-    padding: 10px 28px;
-  }
-`;
+export const StyledIconContainer = styled('span')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  color: theme.customColors.cardsBackground,
+}));
+
+export const StyledIcon = styled(RiAccountCircleFill)(({ theme }) => ({
+  color: 'inherit',
+  backgroundColor: 'inherit',
+  marginRight: 14,
+  width: 17,
+  height: 17,
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: 24,
+    height: 24,
+  },
+}));
+
+export const StyledButtonNew = styled(Link)(({ theme }) => ({
+  display: 'flex',
+  fontSize: 14,
+  fontWeight: 500,
+  lineHeight: 1.36,
+  color: 'rgba(17, 17, 17, 1)',
+  padding: '8px 28px',
+  border: '1 solid rgba(245, 146, 86, 1)',
+  borderRadius: 40,
+  backgroundColor: 'rgba(245, 146, 86, 1)',
+  textDecoration: 'none',
+  maxWidth: 144,
+
+  '&:hover': { backgroundColor: theme.customColors.accent },
+
+  '&:focus': {
+    backgroundColor: theme.customColors.accent,
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    fontSize: 20,
+    maxWidth: 181,
+  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    padding: '10px 28px',
+  },
+}));

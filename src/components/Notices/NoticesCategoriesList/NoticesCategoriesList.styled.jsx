@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 export const CategoriesList = styled('ul')(({ theme }) => ({
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   padding: '0',
   flexWrap: 'wrap',
   marginBottom: '-32px',
@@ -12,7 +12,6 @@ export const CategoriesList = styled('ul')(({ theme }) => ({
     marginRight: '-32px',
   },
 }));
-
 
 export const StackStyled = styled(Stack)(({ theme }) => ({
   marginTop: '30px',
