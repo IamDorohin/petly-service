@@ -7,9 +7,7 @@ import heart from '../../img//header-hero/hero-heart-des.png';
 import heroDogMob from '../../img/header-hero/hero-dog-mob.png';
 import heroDogTab from '../../img/header-hero/hero-dog-tab.png';
 import heroDogDes from '../../img/header-hero/hero-dog-des.png';
-// @media(min - width: 768px) {
 
-// }
 export const MainContainer = styled.div`
   width: 320px;
   height: 100%;

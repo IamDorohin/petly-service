@@ -37,7 +37,6 @@ export const DirectionSnackbar = ({ message }) => {
         message={message}
         color={'#fff'}
         key={transition ? transition.name : ''}
-        // anchorOrigin={{ vertical, horizontal }}
       />
     </>
   );

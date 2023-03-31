@@ -1,5 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
-/* @import 'aos/dist/aos.css'; */
+@import-normalize;
 body[data-aos-duration='3500'] [data-aos],
 [data-aos][data-aos][data-aos-duration='3500'] {
   transition-duration: 3500ms;

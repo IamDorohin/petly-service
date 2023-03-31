@@ -138,7 +138,6 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
         <SC.NoticeLearnMoreBtn
           className={owner}
           onClick={() => setIsOpenModal(true)}
-          // onClick={onLearnMoreButtonClick}
         >
           Learn More
         </SC.NoticeLearnMoreBtn>

@@ -7,7 +7,6 @@ export const UserDataListContainer = styled('ul')(({ theme }) => ({
   width: '100%',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    // width: '380px',
     padding: '40px 52px 80px 12px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {

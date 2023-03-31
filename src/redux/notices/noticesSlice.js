@@ -23,7 +23,10 @@ export const noticesApi = createApi({
   ],
   endpoints: builder => ({
     getNoticesByCategory: builder.query({
-      query: ({categoryName, searchQueryState, page}) => `/notices/category/${categoryName}?page=${page}&limit=8${searchQueryState &&'&' + searchQueryState}`,
+      query: ({ categoryName, searchQueryState, page }) =>
+        `/notices/category/${categoryName}?page=${page}&limit=8${
+          searchQueryState && '&' + searchQueryState
+        }`,
       providesTags: (result, error, arg) => [arg],
     }),
     getFavoriteArr: builder.query({
@@ -38,7 +41,6 @@ export const noticesApi = createApi({
       query: id => ({
         url: `notices/favorite/${id}`,
         method: 'POST',
-        // body: notice,
       }),
       invalidatesTags: ['favorite'],
     }),

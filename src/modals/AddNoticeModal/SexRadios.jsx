@@ -8,7 +8,6 @@ import FormLabel from '@mui/material/FormLabel';
 import { ReactComponent as Male } from './img/VectorSexM.svg';
 import { ReactComponent as Female } from './img/Femaleee.svg';
 import { LabelFormic } from '../Modal/Modal.styled';
-// import styled from 'styled-components';
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
@@ -49,7 +48,6 @@ const BpCheckedIcon = styled(BpIcon)({
   },
 });
 
-// Inspired by blueprintjs
 function BpRadio(props) {
   return (
     <Radio
@@ -65,7 +63,7 @@ function BpRadio(props) {
 export default function SexRadios({ formik }) {
   const value = formik.values.sex;
   return (
-    <FormControl    >
+    <FormControl>
       <FormLabel sx={LabelFormic} id="demo-customized-radios">
         The sex:
       </FormLabel>
@@ -124,8 +122,8 @@ const GenderLabelFemale = theme => ({
   display: 'flex',
   flexDirection: 'column-reverse',
   [theme.breakpoints.up('tablet')]: {
-      ml: '35px',
-      mb:'35px'
+    ml: '35px',
+    mb: '35px',
   },
 });
 const GenderLabelMale = theme => ({
@@ -137,4 +135,3 @@ const GenderLabelMale = theme => ({
     mb: '35px',
   },
 });
-

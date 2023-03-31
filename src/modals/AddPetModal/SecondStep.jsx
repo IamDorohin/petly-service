@@ -51,16 +51,6 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
           name="comments"
           placeholder="Type comments"
         />
-        {/* <CssTextField
-          sx={CssTextFieldTheme}
-          id="outlined-multiline-flexible"
-          label="Type comments"
-          name="comments"
-          multiline
-          maxRows={4}
-          value={formik.values.comments}
-          onChange={formik.handleChange}
-        /> */}
       </FormLabel>
       <>
         {errorMessages.length !== 0 &&

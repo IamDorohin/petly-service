@@ -7,10 +7,6 @@ import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import { InputLabel, OutlinedInput } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-// import { Form } from 'formik';
-// import Button from "@mui/material/Button";
-
-// import { loginBgLaptop, loginBgMobile, loginBgTablet } from 'images';
 
 export const LoginSection = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
@@ -29,7 +25,6 @@ export const LoginSection = styled(Paper)(({ theme }) => ({
 }));
 
 export const LoginBgImage = styled(Paper)(({ theme }) => ({
-  // backgroundImage: ('LoginBgImage'),
   backgroundPosition: 'bottom',
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
@@ -50,8 +45,6 @@ export const LoginBgImage = styled(Paper)(({ theme }) => ({
 export const LoginContainer = styled(Container)(({ theme }) => ({
   backgroundColor: theme.customColors.appBackground,
   [theme.breakpoints.up(theme.breakpoints.values.mobileResponsive)]: {
-    // minWidth: '280px',
-    // minHeight: '100vh',
     paddingTop: '100px',
     paddingBottom: '151px',
     paddingLeft: '20px',
@@ -80,10 +73,6 @@ export const LoginContainer = styled(Container)(({ theme }) => ({
     boxShadow: theme.customShadow.primary,
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    // minWidth: '1280px',
-    // maxWidth: '1280px',
-    // paddingLeft: '331px',
-    // paddingRight: '331px',
     paddingBottom: '60px',
     paddingTop: '60px',
   },
@@ -97,7 +86,6 @@ export const TitleH1 = styled(Typography)(({ theme }) => ({
   justifyContent: 'center',
   paddingLeft: '110px',
   paddingRight: '110px',
-  // paddingBottom: '40px',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.bold,
   fontSize: theme.customFontSizes[5],
@@ -105,7 +93,6 @@ export const TitleH1 = styled(Typography)(({ theme }) => ({
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.primaryFont,
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    // paddingBottom: '40px',
     fontSize: theme.customFontSizes[8],
     lineHeight: theme.customLineHeight[14],
   },
@@ -115,7 +102,6 @@ export const TitleH1 = styled(Typography)(({ theme }) => ({
 }));
 
 export const LoginForm = styled('form')(({ theme }) => ({
-  // width: '100%',
   minHeight: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -130,21 +116,12 @@ export const LoginForm = styled('form')(({ theme }) => ({
   },
 }));
 
-// export const LoginLabel = styled(Field)(({ theme }) => ({
-//   display: 'flex',
-//   flexDirection: 'column',
-//   paddingTop: '40px',
-//   paddingBottom: '40px',
-// }));
-
 export const LoginLabelName = styled(InputLabel)(({ theme }) => ({
-  // variant: 'h5',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[1],
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
-  // color: theme.customColors.appBackground,
   borderColor: theme.customBorders.accent,
 }));
 
@@ -178,7 +155,6 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.appBackground,
-  // borderColor: theme.customBorders.secondaryButtons,
 
   '& fieldset': {
     borderRadius: '40px',
@@ -247,9 +223,7 @@ export const TitleH5 = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const Loader = styled(CircularProgress)(({ theme }) => ({
-  // ariaLabel="blocks-loading"
-}));
+export const Loader = styled(CircularProgress)(({ theme }) => ({}));
 
 export const LoginLink = styled(Link)(({ theme }) => ({
   color: theme.customColors.loginLink,

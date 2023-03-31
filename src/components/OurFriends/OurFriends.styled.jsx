@@ -1,4 +1,3 @@
-// import { styled } from '@mui/system';
 import Link from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
 
@@ -36,7 +35,6 @@ export const Container = styled('div')(({ theme }) => ({
 export const Title = styled('h2')(({ theme }) => ({
   margin: 0,
   marginBottom: '28px',
-  //   marginTop: '42px',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.bold,
   fontSize: theme.customFontSizes[5],
@@ -46,12 +44,10 @@ export const Title = styled('h2')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     marginBottom: '40px',
-    //   marginTop: '88px',
     fontSize: theme.customFontSizes[9],
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     marginBottom: '60px',
-    //   marginTop: '72px',
   },
 }));
 
@@ -65,7 +61,7 @@ export const List = styled('ul')(({ theme }) => ({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
-  // paddingBottom: '100px',
+
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     gap: '32px',
   },
@@ -80,7 +76,6 @@ export const Item = styled('li')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignSelf: 'stretch',
-  // textAlign: 'start',
   flexBasis: '100%',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
@@ -99,9 +94,6 @@ export const StyledFriend = styled('div')(({ theme }) => ({
 
   overflow: 'hidden',
   fontFamily: theme.customFontFamily.primary,
-  // fontSize: theme.customFontSizes[5],
-  // lineHeight: theme.customLineHeight[9],
-  // fontWeight: theme.customFontWeight.normalM,
   color: theme.customColors.primaryFont,
   backgroundColor: theme.customColors.cardsBackground,
   borderRadius: theme.customBorderRadius.secondary,
@@ -110,7 +102,6 @@ export const StyledFriend = styled('div')(({ theme }) => ({
     maxWidth: '336px',
     padding: ' 16px 4px',
     height: '246px',
-    // fontSize: theme.customFontSizes[8],
     lineHeight: theme.customLineHeight[9],
     borderRadius: theme.customBorderRadius.primary,
   },
@@ -145,7 +136,6 @@ export const FriendsBox = styled('div')({
   gap: '12px',
   height: '100 %',
   marginTop: '10px',
-  // marginTop: '12px',
 });
 
 export const IMG = styled('img')(({ theme }) => ({
@@ -169,8 +159,6 @@ export const Adress = styled('ul')(({ theme }) => ({
   flexWrap: 'wrap',
   gap: '12px',
   flexDirection: 'row',
-  // justifyContent: 'space-between',
-  // alignItems: 'center',
 
   textAlign: 'left',
   fontSize: theme.customFontSizes[0],
@@ -296,7 +284,4 @@ export const Day = styled('li')(({ theme }) => ({
   listStyle: 'none',
   marginBottom: '4px',
   justifyContent: 'space-between',
-
-  // :not(:last-child) {
-  //     marginBottom: '4px';
 }));

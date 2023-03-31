@@ -1,4 +1,3 @@
-// import AddIcon from '@mui/icons-material/Add';
 import { HiPlus } from 'react-icons/hi';
 import * as SC from 'components/Notices/NoticeAddButton/NoticeAddButton.styled';
 

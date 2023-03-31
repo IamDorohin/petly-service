@@ -4,7 +4,6 @@ import {
   HomeSection,
   MainContainer,
 } from './HomePage.styled';
-import TeamModal from '../../components/TeamModal/TeamModal';
 
 export default function HomePage() {
   return (
@@ -12,16 +11,7 @@ export default function HomePage() {
       <MainContainer>
         <HomeWrapp>
           <HomeTitle>Take good care of your small pets</HomeTitle>
-          {/* <ImagesWrapper>
-            <Image
-              srcSet={`${heroDogMob} 300w, ${heroDogTab} 768w, ${heroDogDes} 1280w`}
-              src={heroDogDes}
-              sizes="(min-width: 1280px) 590px, (min-width: 768px) 645px, 300px"
-              alt="dog"
-            ></Image>
-          </ImagesWrapper> */}
         </HomeWrapp>
-        <TeamModal></TeamModal>
       </MainContainer>
     </HomeSection>
   );

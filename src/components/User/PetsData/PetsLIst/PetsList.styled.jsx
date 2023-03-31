@@ -106,6 +106,3 @@ export const PetsDataInfoContent = styled('p')(({ theme }) => ({
   color: theme.customColors.homeHeroTitleFont,
   transition: 'opacity 250ms linear',
 }));
-
-// [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
-// [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},

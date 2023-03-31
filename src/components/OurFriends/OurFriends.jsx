@@ -27,7 +27,6 @@ const Friend = ({ friend }) => {
     <StyledFriend>
       <FriendsLink href={url} target="_blank" rel="noreferrer" title={title}>
         {title.length < 30 ? title : title.slice(0, 30) + '...'}
-        {/* { title.slice(0, 30)} */}
       </FriendsLink>
       <FriendsBox>
         {imageUrl ? (

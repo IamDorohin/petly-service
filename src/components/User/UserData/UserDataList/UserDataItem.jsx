@@ -48,7 +48,6 @@ export const UserDataItem = ({
   const currentName = inputName.toLowerCase();
   const [currentValue, setCurrentValue] = useState('');
   const [isActive, setIsActive] = useState(false);
-  // const errorMessages = Object.values(formik.errors);
 
   const formik = useFormik({
     initialValues: {

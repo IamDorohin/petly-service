@@ -4,13 +4,6 @@ export const NewsAPI = createApi({
   reducerPath: 'NewsAPI',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://petly-service-backend.onrender.com/api',
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = getState().auth.token;
-    //   if (token) {
-    //     headers.set('authorization', `Bearer ${token}`);
-    //   }
-    //   return headers;
-    // },
   }),
   tagTypes: ['News'],
   endpoints: builder => ({

@@ -13,19 +13,10 @@ export const FormContainer = styled(Box)(({ theme }) => ({
   width: 278,
   height: 400,
   padding: '0px 16px 20px 16px',
-  // backgroundColor: theme.customColors.cardsBackground,
-  // backgroundColor: 'transparent',
   backgroundColor: 'rgba(0, 0, 0, 0.7)',
   border: '1px solid',
   borderColor: theme.customColors.accent,
   borderRadius: theme.customBorderRadius.primary,
-  // pt: 2,
-  // px: 4,
-  // pb: 3,
-
-  // [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-  //   padding: '0',
-  // },
 }));
 
 export const Form = styled('form')(({ theme }) => ({
@@ -41,16 +32,11 @@ export const FormInput = styled('input')(({ theme }) => ({
   backgroundColor: theme.customColors.cardsBackground,
   border: '1px solid black',
   borderRadius: theme.customBorderRadius.primary,
-
-  // [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-  //   padding: '0',
-  // },
 }));
 
 export const FormInputWrapper = styled(IconButton)(({ theme }) => ({
   width: '233px',
   height: '233px',
-  // backgroundColor: theme.customColors.appBackground,
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
   border: '1px solid ',
   borderColor: theme.customColors.accent,
@@ -61,9 +47,6 @@ export const FormInputWrapper = styled(IconButton)(({ theme }) => ({
   '&:hover': {
     backgroundColor: theme.customColors.appBackground,
   },
-  // [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-  //   padding: '0',
-  // },
 }));
 
 export const FormInputAddIcon = styled('div')(({ theme }) => ({
@@ -76,13 +59,6 @@ export const FormInputAddIcon = styled('div')(({ theme }) => ({
   color: theme.customColors.accent,
   borderRadius: theme.customBorderRadius.round,
   overflow: 'hidden',
-  // '&:hover': {
-  //   backgroundColor: theme.customColors.accent,
-  //   opacity: 0.9,
-  //   color: theme.customColors.cardsBackground,
-  // },
-  // [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-  // },
 }));
 
 export const FormInputCloseIcon = styled('div')(({ theme }) => ({
@@ -104,8 +80,6 @@ export const FormInputCloseIcon = styled('div')(({ theme }) => ({
   '&:hover': {
     backgroundColor: theme.customColors.appBackground,
   },
-  // [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-  // },
 }));
 
 export const FormInputSubmit = styled(Button)(({ theme }) => ({
@@ -113,25 +87,15 @@ export const FormInputSubmit = styled(Button)(({ theme }) => ({
   height: 40,
   marginLeft: 'auto',
   marginRight: 'auto',
-  // backgroundColor: theme.customColors.appBackground,
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
 
   border: '1px solid',
   borderColor: theme.customColors.accent,
   borderRadius: theme.customBorderRadius.primary,
   color: theme.customColors.accent,
-
   cursor: 'pointer',
-
-  // '&:hover': {
-  //   backgroundColor: theme.customColors.accent,
-  //   color: theme.customColors.cardsBackground,
-  // },
 
   '&:hover': {
     backgroundColor: theme.customColors.appBackground,
   },
-  // [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-  //   padding: '0',
-  // },
 }));

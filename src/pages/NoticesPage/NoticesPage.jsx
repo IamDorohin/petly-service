@@ -36,11 +36,6 @@ const NoticesPage = () => {
 
   const { categoryName } = useParams();
 
-  // const endpoint =
-  //   searchQueryState === ''
-  //     ? categoryName
-  //     : categoryName + '?' + searchQueryState;
-
   const {
     currentData: array,
     refetch,

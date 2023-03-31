@@ -1,5 +1,4 @@
 export const convertBlobToBase64 = async blob => {
-  // blob data
   return await blobToBase64(blob);
 };
 
@@ -14,7 +13,6 @@ const blobToBase64 = blob =>
 export const prepareFormData = values => {
   const formData = new FormData();
 
-  /* append input field values to formData */
   for (let value in values) {
     formData.append(value, values[value]);
   }

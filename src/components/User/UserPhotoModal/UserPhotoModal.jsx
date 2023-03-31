@@ -31,14 +31,7 @@ const inputSchemas = {
 
 export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
   const token = useSelector(selector.getToken);
-  // const [currentPhoto, setCurrentPhoto] = useState('');
   const [base64Url, setBase64Url] = useState();
-
-  // useEffect(() => {
-  //   if (userInfo.photo) {
-  //     setCurrentPhoto(userInfo.photo);
-  //   }
-  // }, [handler, userInfo]);
 
   const formik = useFormik({
     initialValues: {
@@ -47,7 +40,6 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
     validationSchema: inputSchemas.photoSchema,
     onSubmit: async values => {
       const { result } = await updateUserProfile(token, values);
-      // setCurrentPhoto(result.photo);
       handler(result.photo);
       handleClose();
     },

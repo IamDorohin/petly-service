@@ -2,7 +2,6 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-// import { DirectionSnackbarLogin } from './notification';
 
 import authSelectors from 'redux/auth/auth-selectors';
 import { logIn } from '../../redux/auth/auth-operations';

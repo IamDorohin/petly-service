@@ -38,7 +38,6 @@ export const loginYupSchema = Yup.object({
     .max(32, 'Must be 32 characters or less')
     .required('Required'),
 });
-// / .matches(regexPassword, 'Must not contain spaces')
 
 export const resetYupSchema = Yup.object({
   email: Yup.string().email('Invalid email adress').required('Required'),

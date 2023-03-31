@@ -6,7 +6,6 @@ export const NoticesPageContainer = styled('section')(({ theme }) => ({
 }));
 
 export const Container = styled('div')(({ theme }) => ({
-  // paddingTop: '42px',
   paddingRight: '20px',
   paddingBottom: '60px',
   paddingLeft: '20px',

@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-//! ниже добавить токен, авторизацию
-// import { setToken } from 'redux/auth';
-
 axios.defaults.baseURL = 'https://petly-service-backend.onrender.com/api';
 
 export const jsonInstance = axios.create({
@@ -59,9 +56,6 @@ export const patchContact = createAsyncThunk(
   'user/updateContact',
   async (data, thunkApi) => {
     try {
-      //! const state = thunkApi.getState();
-      //! const token = state.auth.token;
-      //! setToken(token);
       const { result } = await axios.put(`/users/current/update`, data);
       return result;
     } catch (error) {

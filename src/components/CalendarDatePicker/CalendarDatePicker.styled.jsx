@@ -19,11 +19,6 @@ export const DatePicker = styled(MobileDatePicker)({
     '& fieldset': {
       border: ' 1px solid rgba(245, 146, 86, 0.5)',
     },
-    // '& label': {
-    //   color: '#fdf7f2',
-    //   position: 'absolut',
-    //   top: '7px',
-    // },
     '&:hover fieldset': {
       border: ' 1px solid rgb(245, 146, 86)',
     },

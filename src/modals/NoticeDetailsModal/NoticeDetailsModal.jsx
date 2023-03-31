@@ -28,7 +28,6 @@ export const NoticeDetailsModal = ({
   onClose,
   currentPet,
   onFavButtonClick,
-  //   activeNoticeId,
 }) => {
   const [toggl, setToggle] = useState(false);
 
@@ -51,8 +50,7 @@ export const NoticeDetailsModal = ({
     _id,
     name,
   } = currentPet;
-  console.log(currentPet);
-  
+
   const { moreDetails = {} } = useGetNoticesByIdQuery(_id);
   console.log(moreDetails);
   return (
@@ -95,11 +93,15 @@ export const NoticeDetailsModal = ({
               </L>
               <L>
                 <Typography sx={Text}>Email:</Typography>
-                <Typography sx={TextT}>{owner.email}</Typography>
+                <Typography sx={TextT}>
+                  {owner?.email ? owner?.email : '--/--/--'}
+                </Typography>
               </L>
               <L>
                 <Typography sx={Text}>Phone:</Typography>
-                <Typography sx={TextT}>{owner.phone}</Typography>
+                <Typography sx={TextT}>
+                  {owner?.phone ? owner.phone : '--/--/--'}
+                </Typography>
               </L>
               {price && (
                 <L>

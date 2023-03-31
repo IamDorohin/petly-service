@@ -68,7 +68,6 @@ const RegisterPage = () => {
       <LoginBgImage
         srcSet={`${loginBgMobile}, ${loginBgTablet}, ${loginBgLaptop}`}
         src={loginBgLaptop}
-        // sizes="(min-width: 1280px) 590px, (min-width: 768px) 645px, 300px"
         alt="login"
       ></LoginBgImage>
       <LoginContainer>

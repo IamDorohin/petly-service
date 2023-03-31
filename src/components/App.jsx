@@ -7,8 +7,6 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { updateUser } from 'redux/auth/auth-operations';
 import { RestrictedRoute } from './restrictedRoute';
 import { PrivateRoute } from 'components/privateRoute';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from 'theme';
 import { LoaderCat } from './Generic/LoaderCat';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
@@ -30,7 +28,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       {isRefreshing ? (
         <LoaderCat size={'150px'} space={10} />
       ) : (
@@ -62,6 +60,6 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-    </ThemeProvider>
+    </>
   );
 };

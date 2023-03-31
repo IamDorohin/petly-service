@@ -45,25 +45,6 @@ export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
         <SC.FindButton component="button" type="submit" onClick={handleSubmit}>
           <SearchIcon />
         </SC.FindButton>
-        {/* <SC.Button type="submit">
-          {searchQuery === '' ? (
-            <SearchIcon
-              sx={{
-                width: 24,
-                height: 24,
-                color: '#111111',
-              }}
-            />
-          ) : (
-            <HighlightOffIcon
-              sx={{
-                width: 24,
-                height: 24,
-                color: '#111111',
-              }}
-            />
-          )}
-        </SC.Button> */}
       </SC.Form>
     </SC.SearchContainer>
   );

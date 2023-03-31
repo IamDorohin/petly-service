@@ -44,7 +44,6 @@ export const NoticesCategoriesList = ({
       }
     }
   }, [token, favoriteIdArr, findedNotices]);
-  console.log(findedNotices);
 
   const [deleteNotice] = useDeleteNoticeMutation();
 
@@ -53,7 +52,7 @@ export const NoticesCategoriesList = ({
     const newList = currentNotices.filter(notice => notice._id !== id);
     setCurrentNotices(newList);
   };
-  console.log(allItem);
+
   return (
     <div>
       <CategoriesList>
