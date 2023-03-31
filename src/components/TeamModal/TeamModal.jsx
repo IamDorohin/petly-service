@@ -153,7 +153,7 @@ function TestersModal() {
             </Item>
             <Item>
               <Photo alt="team" src={alina} />
-              <Name>Аліна Пристишко</Name>
+              <Name>Аліна Приступко</Name>
             </Item>
             <Item>
               <Photo alt="team" src={maria} />
