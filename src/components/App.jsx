@@ -9,7 +9,6 @@ import { RestrictedRoute } from './restrictedRoute';
 import { PrivateRoute } from 'components/privateRoute';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from 'theme';
-import CssBaseline from '@mui/material/CssBaseline';
 import { LoaderCat } from './Generic/LoaderCat';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));

@@ -1,18 +1,5 @@
 import { styled } from '@mui/material/styles';
 
-export const qwe = styled('div')(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: 320,
-  margin: '0 auto',
-  padding: '26px 20px 60px 20px',
-
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
-
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
-}));
-
 export const StyledContainer = styled('div')(({ theme }) => ({
   backgroundColor: 'rgba(253, 247, 242, 1)',
   position: 'fixed',
@@ -26,8 +13,8 @@ export const StyledContainer = styled('div')(({ theme }) => ({
   padding: '0 20px',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    width: 440,
-    padding: '24px 32px',
+    width: '100%',
+    padding: '0',
   },
 }));
 
@@ -35,17 +22,20 @@ export const StyledHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  width: 280,
+  marginLeft: 'auto',
+  marginRight: 'auto',
   marginBottom: 46,
   paddingTop: 26,
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: 768,
-    paddingTop: 38,
-    paddingLeft: 42,
-    paddingRight: 42,
+    paddingTop: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
     marginBottom: 88,
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    // marginLeft: 'auto',
+    // marginRight: 'auto',
   },
 }));
 

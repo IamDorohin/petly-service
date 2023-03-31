@@ -16,6 +16,7 @@ import { NoticeDetailsModal } from 'modals/NoticeDetailsModal/NoticeDetailsModal
 import noPetPhoto from 'images/nopetphoto.png';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import dayjs from 'dayjs';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -30,9 +31,19 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
     location,
     price,
     owner,
+    birthdate,
     _id,
     like = false,
   } = notice;
+
+  const nowDate = new Date();
+  const age = nowDate.getTime() - birthdate;
+  const formatDate = dayjs(birthdate).format('DD.MM.YYYY');
+
+  console.log('birthdate', birthdate.$d);
+  console.log('nowDate', nowDate.getTime());
+  console.log('age', age);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCurrentPet, setIsCurrentPet] = useState(false);
   const [isFavorite, setIsFavorite] = useState(like);

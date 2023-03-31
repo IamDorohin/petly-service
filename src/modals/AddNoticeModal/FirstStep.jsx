@@ -22,8 +22,8 @@ const AddNoticeModalFirstStep = ({
   return (
     <div>
       <Typography sx={FontButton}>
-        Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
-        consectetur
+        Don't wait any longer, give your furry friend the care and love they
+        deserve by adding them to our family today!
       </Typography>
       <Box>
         <Box sx={BoxBtnGroup}>
@@ -88,7 +88,7 @@ const AddNoticeModalFirstStep = ({
         label="Date of birth"
         value={formik.values.birthdate}
         onChange={value => {
-          formik.setFieldValue('birthdate', dayjs(value.$d), false);
+          formik.setFieldValue('birthdate', value, false);
         }}
       />
       <FormLabel sx={LabelFormic}>

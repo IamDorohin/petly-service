@@ -13,7 +13,7 @@ export const StyledNavList = styled('ul')(({ theme }) => ({
 
   paddingLeft: 0,
 
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     flexDirection: 'row',
   },
 }));
