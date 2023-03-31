@@ -16,7 +16,7 @@ export const Header = () => {
 
   const toggleBurgerMenuHandler = e => {
     setShowBurgetMenu(!showBurgerMenu);
-    if ((e.type === 'click') & !showBurgerMenu) {
+    if (!showBurgerMenu) {
       setShowBurgetMenu(false);
     }
   };
