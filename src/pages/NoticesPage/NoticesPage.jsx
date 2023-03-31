@@ -71,7 +71,6 @@ const NoticesPage = () => {
 
   return (
     <>
-      {' '}
       <NoticesPageContainer>
         <Container>
           <Title>Find your favorite pet</Title>
