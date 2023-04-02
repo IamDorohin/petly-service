@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { RiAccountCircleFill } from 'react-icons/ri';
 
 export const StyledContainer = styled('div')(({ theme }) => ({
-  marginBottom: 60,
+  marginBottom: 59,
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: '100%',
