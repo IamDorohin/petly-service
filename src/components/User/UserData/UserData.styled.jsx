@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export const UserDataContainer = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -33,6 +34,7 @@ export const UserInfoTitle = styled('h2')(({ theme }) => ({
 
 export const UserDataContent = styled('div')(({ theme }) => ({
   backgroundColor: theme.customColors.cardsBackground,
+  paddingTop: '20px',
   width: '280px',
   height: '537px',
 
@@ -73,7 +75,6 @@ export const UserDataPhotoWrapper = styled('div')(({ theme }) => ({
   paddingRight: '24px',
   paddingLeft: '24px',
   paddingTop: '20px',
-  width: '233px',
   height: '285px',
   marginBottom: '35px',
 
@@ -93,10 +94,19 @@ export const UserDataPhoto = styled('img')(({ theme }) => ({
   filter: 'drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11))',
 }));
 
+export const UserDataPhotoDefault = styled(AccountCircleIcon)(({ theme }) => ({
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '233px',
+  height: '233px',
+  color: theme.customColors.accent,
+  opacity: 0.9,
+}));
+
 export const UserDataEditPhotoButton = styled('div')(({ theme }) => ({
   position: 'absolute',
   right: '0px',
-  bottom: '255px',
+  bottom: '235px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

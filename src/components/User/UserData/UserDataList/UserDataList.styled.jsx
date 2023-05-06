@@ -20,6 +20,7 @@ export const UserDataListItem = styled('li')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   position: 'relative',
+  width: '100%',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[0],
@@ -37,6 +38,11 @@ export const UserDataListItem = styled('li')(({ theme }) => ({
       marginBottom: '10px',
     },
   },
+}));
+
+export const UserDataListItemName = styled('p')(({ theme }) => ({
+  padding: 0,
+  margin: 0,
 }));
 
 export const UserDataListWrapper = styled('div')(({ theme }) => ({

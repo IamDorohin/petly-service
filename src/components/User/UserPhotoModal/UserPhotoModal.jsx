@@ -3,10 +3,9 @@ import { useState } from 'react';
 import * as yup from 'yup';
 import { useSelector } from 'react-redux';
 import selector from 'redux/auth/auth-selectors';
-import Modal from '@mui/material/Modal';
 import { updateUserProfile } from 'services/profileApi';
 import * as SC from './UserPhotoModal.styled';
-import { TfiPlus, TfiClose } from 'react-icons/tfi';
+import { TfiClose } from 'react-icons/tfi';
 import { convertBlobToBase64 } from 'modals/AddPetModal/AddPetUtils';
 
 const FILE_SIZE = 1000000;
@@ -39,59 +38,67 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
     },
     validationSchema: inputSchemas.photoSchema,
     onSubmit: async values => {
+      console.log('values', values);
       const { result } = await updateUserProfile(token, values);
       handler(result.photo);
-      handleClose();
     },
   });
 
-  return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <SC.FormContainer>
-        <SC.FormInputCloseIcon onClick={handleClose}>
-          <TfiClose size={'50%'} />
-        </SC.FormInputCloseIcon>
-        <SC.Form>
-          <SC.FormInputWrapper
-            variant="contained"
-            component="label"
-            src="image/*"
-            aria-label="upload picture"
-          >
-            <SC.FormInput
-              hidden
-              accept="image/*"
-              src="image/*"
-              multiple
-              type="file"
-              name="photo"
-              onChange={async event => {
-                formik.setFieldValue('photo', event.currentTarget.files[0]);
-                const _Base64Url = await convertBlobToBase64(
-                  event.currentTarget.files[0]
-                );
-                setBase64Url(_Base64Url);
-              }}
-            />
+  const DeletePhotoHandler = async () => {
+    const test = { photo: { photo: null } };
+    const { result } = await updateUserProfile(token, test);
+    console.log('result', result);
+  };
 
-            <SC.FormInputAddIcon>
-              {formik.values.photo ? (
-                <img src={base64Url} alt="" style={{ width: '100%' }} />
-              ) : (
-                <TfiPlus size={'20%'} />
-              )}
-            </SC.FormInputAddIcon>
-          </SC.FormInputWrapper>
+  return (
+    <SC.FormContainer>
+      <SC.FormInputCloseIcon onClick={handleClose}>
+        <TfiClose size={'50%'} />
+      </SC.FormInputCloseIcon>
+      <SC.Form>
+        <SC.FormInputWrapper
+          variant="contained"
+          component="label"
+          src="image/*"
+          aria-label="upload picture"
+        >
+          <SC.FormInput
+            hidden
+            accept="image/*"
+            src="image/*"
+            multiple
+            type="file"
+            name="photo"
+            onChange={async event => {
+              formik.setFieldValue('photo', event.currentTarget.files[0]);
+              const _Base64Url = await convertBlobToBase64(
+                event.currentTarget.files[0]
+              );
+              setBase64Url(_Base64Url);
+            }}
+          />
+
+          <SC.FormInputAddIcon>
+            {formik.values.photo ? (
+              <img src={base64Url} alt="" style={{ width: '100%' }} />
+            ) : (
+              <SC.AddIcon className="forHover" />
+            )}
+          </SC.FormInputAddIcon>
+        </SC.FormInputWrapper>
+        <SC.FormButtonsWrapper>
           <SC.FormInputSubmit type="submit" onClick={formik.handleSubmit}>
-            Upload
+            Upload new photo
           </SC.FormInputSubmit>
-        </SC.Form>
-      </SC.FormContainer>
-    </Modal>
+          <SC.FormInputSubmit
+            type="button"
+            onClick={() => DeletePhotoHandler()}
+          >
+            Delete photo
+          </SC.FormInputSubmit>
+        </SC.FormButtonsWrapper>
+      </SC.Form>
+    </SC.FormContainer>
+    // </Modal>
   );
 };
