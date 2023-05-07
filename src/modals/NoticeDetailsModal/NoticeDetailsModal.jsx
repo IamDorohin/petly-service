@@ -93,8 +93,11 @@ export const NoticeDetailsModal = ({
               </L>
               <L>
                 <Typography sx={Text}>Email:</Typography>
-                <Typography sx={TextT}>
-                  {owner?.email ? owner?.email : '--/--/--'}
+                <Typography sx={TextT} title={owner.email}>
+                  {/* {owner?.email ? owner?.email : '--/--/--'} */}
+                  {owner?.email.length >= 18
+                    ? owner?.email.slice(0, 18) + '...'
+                    : owner?.email}
                 </Typography>
               </L>
               <L>
