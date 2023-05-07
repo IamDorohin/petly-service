@@ -39,9 +39,11 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
 
   const month = currentPetAge(birthdate).months;
   const years = currentPetAge(birthdate).years;
+  const days = currentPetAge(birthdate).days;
 
   const outputYears = toWords.convert(years);
   const outputMonths = toWords.convert(month);
+  const outputDays = toWords.convert(days);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCurrentPet, setIsCurrentPet] = useState(false);
@@ -110,7 +112,9 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
       )}
 
       <SC.NoticeDescription className={owner}>
-        <SC.NoticeTitle> {title} </SC.NoticeTitle>
+        <SC.NoticeTitle>
+          {title.length >= 27 ? title.slice(0, 27) + '...' : title}
+        </SC.NoticeTitle>
         <SC.NoticeList>
           <SC.NoticeListItem>
             <SC.NoticeListItemtitle>Breed:</SC.NoticeListItemtitle>
@@ -122,9 +126,15 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
           </SC.NoticeListItem>
           <SC.NoticeListItem>
             <SC.NoticeListItemtitle>Age:</SC.NoticeListItemtitle>
-            <SC.NoticeListItemDetails>
-              {years <= 1 ? `${outputMonths} month` : `${outputYears} years`}
-            </SC.NoticeListItemDetails>
+            {month === 0 ? (
+              <SC.NoticeListItemDetails>
+                {`${outputDays} days`}
+              </SC.NoticeListItemDetails>
+            ) : (
+              <SC.NoticeListItemDetails>
+                {years <= 1 ? `${outputMonths} month` : `${outputYears} years`}
+              </SC.NoticeListItemDetails>
+            )}
           </SC.NoticeListItem>
           <SC.NoticeListItem>
             {price && (

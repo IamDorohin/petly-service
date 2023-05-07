@@ -2,7 +2,6 @@ import { styled } from '@mui/material/styles';
 
 export const UserPageContainer = styled('section')(({ theme }) => ({
   position: 'relative',
-  paddingTop: '60px',
   marginLeft: 'auto',
   marginRight: 'auto',
 

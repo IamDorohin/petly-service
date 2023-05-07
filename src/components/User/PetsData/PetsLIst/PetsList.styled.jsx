@@ -10,7 +10,8 @@ export const PetsDataItem = styled('li')(({ theme }) => ({
   listStyle: 'none',
   marginBottom: '20px',
   padding: '16px 20px 40px 20px',
-  width: '280px',
+  // width: '280px',
+  width: '100%',
   height: '540px',
 
   boxShadow: theme.customShadow.addButton,
@@ -23,7 +24,7 @@ export const PetsDataItem = styled('li')(({ theme }) => ({
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    width: '704px',
+    // width: '704px',
     height: '100%',
     display: 'flex',
     alignItems: 'flex-start',
@@ -31,7 +32,7 @@ export const PetsDataItem = styled('li')(({ theme }) => ({
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     marginBottom: '22px',
-    width: '821px',
+    // width: '821px',
   },
 }));
 
@@ -105,4 +106,5 @@ export const PetsDataInfoContent = styled('p')(({ theme }) => ({
   letterSpacing: theme.customLetterSpacing.m,
   color: theme.customColors.homeHeroTitleFont,
   transition: 'opacity 250ms linear',
+  wordWrap: 'break-word',
 }));

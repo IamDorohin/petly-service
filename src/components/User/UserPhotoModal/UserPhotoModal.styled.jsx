@@ -25,6 +25,7 @@ export const FormContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     width: '411px',
     height: '541px',
+    marginRight: '32px',
 
     borderRadius: theme.customBorderRadius.primary,
   },
@@ -49,6 +50,23 @@ export const Form = styled('form')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     paddingTop: 20,
+  },
+}));
+
+export const UserDataPhoto = styled('img')(({ theme }) => ({
+  width: '233px',
+  height: '233px',
+  marginBottom: 65,
+  borderRadius: theme.customBorderRadius.round,
+
+  filter: 'drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11))',
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    marginBottom: 0,
+  },
+
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+    marginBottom: 65,
   },
 }));
 
@@ -141,7 +159,7 @@ export const FormInputCloseIcon = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     top: 85,
-    right: 25,
+    right: 52,
   },
 }));
 

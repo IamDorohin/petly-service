@@ -50,42 +50,47 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
     console.log('result', result);
   };
 
+  console.log('userInfo.photo', userInfo.photo);
   return (
     <SC.FormContainer>
       <SC.FormInputCloseIcon onClick={handleClose}>
         <TfiClose size={'50%'} />
       </SC.FormInputCloseIcon>
       <SC.Form>
-        <SC.FormInputWrapper
-          variant="contained"
-          component="label"
-          src="image/*"
-          aria-label="upload picture"
-        >
-          <SC.FormInput
-            hidden
-            accept="image/*"
+        {userInfo.photo ? (
+          <SC.UserDataPhoto src={userInfo.photo} />
+        ) : (
+          <SC.FormInputWrapper
+            variant="contained"
+            component="label"
             src="image/*"
-            multiple
-            type="file"
-            name="photo"
-            onChange={async event => {
-              formik.setFieldValue('photo', event.currentTarget.files[0]);
-              const _Base64Url = await convertBlobToBase64(
-                event.currentTarget.files[0]
-              );
-              setBase64Url(_Base64Url);
-            }}
-          />
+            aria-label="upload picture"
+          >
+            <SC.FormInput
+              hidden
+              accept="image/*"
+              src="image/*"
+              multiple
+              type="file"
+              name="photo"
+              onChange={async event => {
+                formik.setFieldValue('photo', event.currentTarget.files[0]);
+                const _Base64Url = await convertBlobToBase64(
+                  event.currentTarget.files[0]
+                );
+                setBase64Url(_Base64Url);
+              }}
+            />
 
-          <SC.FormInputAddIcon>
-            {formik.values.photo ? (
-              <img src={base64Url} alt="" style={{ width: '100%' }} />
-            ) : (
-              <SC.AddIcon className="forHover" />
-            )}
-          </SC.FormInputAddIcon>
-        </SC.FormInputWrapper>
+            <SC.FormInputAddIcon>
+              {formik.values.photo ? (
+                <img src={base64Url} alt="" style={{ width: '100%' }} />
+              ) : (
+                <SC.AddIcon className="forHover" />
+              )}
+            </SC.FormInputAddIcon>
+          </SC.FormInputWrapper>
+        )}
         <SC.FormButtonsWrapper>
           <SC.FormInputSubmit type="submit" onClick={formik.handleSubmit}>
             Upload new photo

@@ -104,6 +104,7 @@ export const NoticeTitle = styled('p')(({ theme }) => ({
   fontSize: theme.customFontSizes[6],
   lineHeight: theme.customLineHeight[10],
   letterSpacing: theme.customLetterSpacing.s,
+  wordBreak: 'break-all',
   color: theme.customColors.primaryFont,
 }));
 
