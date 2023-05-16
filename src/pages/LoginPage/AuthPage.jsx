@@ -38,13 +38,13 @@ const AuthPage = () => {
           {pathname === '/login' && (
             <TitleH5>
               Don't have an account?
-              <LoginLink to="/register">Register</LoginLink>
+              <LoginLink to="/register"> Register</LoginLink>
             </TitleH5>
           )}
           {pathname === '/register' && (
             <TitleH5>
               Already have an account?
-              <LoginLink to="/login">Login</LoginLink>
+              <LoginLink to="/login"> Login</LoginLink>
             </TitleH5>
           )}
         </HelperContainer>
