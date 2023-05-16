@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/petly-service/static/css/main.1ccbd8c9.css",
-    "main.js": "/petly-service/static/js/main.fd4f2250.js",
-    "static/js/812.1ea413e2.chunk.js": "/petly-service/static/js/812.1ea413e2.chunk.js",
-    "static/js/605.51bf7e64.chunk.js": "/petly-service/static/js/605.51bf7e64.chunk.js",
+    "main.js": "/petly-service/static/js/main.219b0a2a.js",
+    "static/js/812.be8f0947.chunk.js": "/petly-service/static/js/812.be8f0947.chunk.js",
+    "static/js/605.c6716a01.chunk.js": "/petly-service/static/js/605.c6716a01.chunk.js",
     "static/js/445.5bf1a9dc.chunk.js": "/petly-service/static/js/445.5bf1a9dc.chunk.js",
     "static/js/895.3862fc83.chunk.js": "/petly-service/static/js/895.3862fc83.chunk.js",
     "static/js/216.9284d915.chunk.js": "/petly-service/static/js/216.9284d915.chunk.js",
@@ -50,9 +50,9 @@
     "static/media/plus.svg": "/petly-service/static/media/plus.deec2b9327a6f7e779ae3cbb9fa31798.svg",
     "static/media/Vector.svg": "/petly-service/static/media/Vector.dbd5474fcafe422f89d37b828ada791e.svg",
     "main.1ccbd8c9.css.map": "/petly-service/static/css/main.1ccbd8c9.css.map",
-    "main.fd4f2250.js.map": "/petly-service/static/js/main.fd4f2250.js.map",
-    "812.1ea413e2.chunk.js.map": "/petly-service/static/js/812.1ea413e2.chunk.js.map",
-    "605.51bf7e64.chunk.js.map": "/petly-service/static/js/605.51bf7e64.chunk.js.map",
+    "main.219b0a2a.js.map": "/petly-service/static/js/main.219b0a2a.js.map",
+    "812.be8f0947.chunk.js.map": "/petly-service/static/js/812.be8f0947.chunk.js.map",
+    "605.c6716a01.chunk.js.map": "/petly-service/static/js/605.c6716a01.chunk.js.map",
     "445.5bf1a9dc.chunk.js.map": "/petly-service/static/js/445.5bf1a9dc.chunk.js.map",
     "895.3862fc83.chunk.js.map": "/petly-service/static/js/895.3862fc83.chunk.js.map",
     "216.9284d915.chunk.js.map": "/petly-service/static/js/216.9284d915.chunk.js.map",
@@ -70,6 +70,6 @@
   },
   "entrypoints": [
     "static/css/main.1ccbd8c9.css",
-    "static/js/main.fd4f2250.js"
+    "static/js/main.219b0a2a.js"
   ]
 }
