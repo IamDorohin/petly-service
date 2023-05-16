@@ -36,7 +36,7 @@ export const Form = styled('form')(({ theme }) => ({
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
-  paddingTop: 40,
+  paddingTop: 31,
 
   [theme.breakpoints.between(
     theme.breakpoints.values.tablet,

@@ -31,6 +31,7 @@ export const UserPageWrapper = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     display: 'flex',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     width: '1280px',
     padding: '0 16px',

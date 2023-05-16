@@ -122,7 +122,7 @@ export const UserDataEditPhotoButton = styled('div')(({ theme }) => ({
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    bottom: '26px',
+    bottom: '25px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     right: '20px',
