@@ -12,7 +12,7 @@ export const MainContainer = styled.div`
   width: 320px;
   height: 100%;
   margin: 0 auto;
-  padding: 0px 20px 0;
+  padding: 26px 20px;
 
   @media (min-width: 768px) {
     width: 768px;
@@ -20,7 +20,7 @@ export const MainContainer = styled.div`
   }
   @media (min-width: 1280px) {
     width: 1280px;
-    padding: 46px 16px 0;
+    padding: 70px 16px 0;
   }
 `;
 
@@ -30,7 +30,7 @@ export const HomeSection = styled.section`
   display: flex;
   justify-content: center;
   min-height: 512px;
-  height: calc(100vh - 56px);
+  height: calc(100vh - 74px);
 
   background-image: url('${heroDogMob}'), url('${heroBg}');
   background-repeat: no-repeat;
@@ -40,7 +40,7 @@ export const HomeSection = styled.section`
 
   @media (min-width: 768px) {
     min-height: 942px;
-    height: calc(100vh - 130px);
+    height: calc(100vh - 96px);
     background-image: url('${heroDogTab}'), url('${heroBgTab}');
     background-position: center bottom -100px, bottom -70px left 25%;
     background-size: 636px, cover;
@@ -48,11 +48,11 @@ export const HomeSection = styled.section`
 
   @media (min-width: 1280px) {
     min-height: 688px;
-    height: calc(100vh - 130px);
+    height: calc(100vh - 88px);
 
     background-image: url('${heroDogDes}'), url('${heroBgDes}');
     background-position: right 100px bottom, bottom;
-    background-size: 524px, contain;
+    background-size: 40%, contain;
   }
 `;
 

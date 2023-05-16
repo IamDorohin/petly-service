@@ -38,6 +38,11 @@ export const Input = styled(TextField)(({ theme }) => ({
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
 
+  '& input:-webkit-autofill': {
+    backgroundColor: '#fff',
+    WebkitBoxShadow: '0 0 0 1000px white inset',
+  },
+
   '& fieldset': {
     borderRadius: '40px',
     borderColor: theme.customColors.accent,
