@@ -17,19 +17,24 @@ export const UserData = ({ userInfo }) => {
   return (
     <SC.UserDataContainer>
       <SC.UserInfoTitle>My information:</SC.UserInfoTitle>
-      <SC.UserDataContent>
-        <SC.UserDataPhotoWrapper>
-          <SC.UserDataPhoto src={currentPhoto} />
-        </SC.UserDataPhotoWrapper>
-        <SC.UserDataEditPhotoButton onClick={() => setIsModalOpen(true)}>
-          <SC.UserDataEditIcon>
-            <PhotoCamera />
-          </SC.UserDataEditIcon>
-          <SC.UserDataEditText>Edit photo</SC.UserDataEditText>
-        </SC.UserDataEditPhotoButton>
-        <UserDataList userInfo={userInfo} />
-      </SC.UserDataContent>
-      {isModalOpen && (
+      {!isModalOpen ? (
+        <SC.UserDataContent>
+          <SC.UserDataPhotoWrapper>
+            {currentPhoto ? (
+              <SC.UserDataPhoto src={currentPhoto} />
+            ) : (
+              <SC.UserDataPhotoDefault />
+            )}
+          </SC.UserDataPhotoWrapper>
+          <SC.UserDataEditPhotoButton onClick={() => setIsModalOpen(true)}>
+            <SC.UserDataEditIcon>
+              <PhotoCamera />
+            </SC.UserDataEditIcon>
+            <SC.UserDataEditText>Edit photo</SC.UserDataEditText>
+          </SC.UserDataEditPhotoButton>
+          <UserDataList userInfo={userInfo} />
+        </SC.UserDataContent>
+      ) : (
         <UserPhotoModal
           userInfo={userInfo}
           handler={getCurrentPhotoHandler}

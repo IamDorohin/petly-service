@@ -21,7 +21,8 @@ export const FontButton = theme => ({
 
 export const AddBtn = styled(Button)`
   && {
-    overflow: 'hidden';
+    width: 200;
+    height: 200;
     display: flex;
     color: #111111;
     box-shadow: none;
@@ -41,8 +42,9 @@ export const AddBtn = styled(Button)`
 `;
 export const AddBtnTheme = theme => ({
   borderRadius: '20px',
-  width: '208px',
-  height: '208px',
+  overflow: 'hidden',
+  width: 208,
+  height: 208,
   mb: '20px',
   '&.Mui-active ': {
     borderColor: '#F59256',
@@ -129,11 +131,12 @@ export const CssTextFieldTheme = theme => ({
   },
 });
 
-export const Img = styled.img`
-  width: inherit;
-`;
+export const Img = styled('img')(({ theme }) => ({
+  width: 200,
+  // height: 200,
+}));
 
-export const Malee = styled.svg`
- width: 100px,
-  height: 100px,
-`;
+// export const Malee = styled.svg`
+//  width: 100,
+//   height: 100,
+// `;
