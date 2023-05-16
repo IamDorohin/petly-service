@@ -45,7 +45,7 @@ export const UserPhotoModal = ({ userInfo, handler, open, handleClose }) => {
   });
 
   const DeletePhotoHandler = async () => {
-    const test = { photo: { photo: null } };
+    const test = { photo: { photo: '' } };
     const { result } = await updateUserProfile(token, test);
     console.log('result', result);
   };

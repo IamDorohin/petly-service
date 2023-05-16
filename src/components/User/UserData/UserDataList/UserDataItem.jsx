@@ -104,7 +104,7 @@ export const UserDataItem = ({
           <form onSubmit={formik.handleSubmit}>
             {inputName === 'Birthday' ? (
               <CalendarDatePicker
-                value={formik.values[currentName]}
+                // value={formik.values[currentName]}
                 onChange={value => {
                   console.log('value', value);
                   formik.setFieldValue('birthday', value, false);
