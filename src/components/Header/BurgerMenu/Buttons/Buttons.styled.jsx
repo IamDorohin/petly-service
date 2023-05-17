@@ -11,9 +11,5 @@ export const BurgerMenuButtonWrapper = styled('button')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
     width: 30,
     height: 30,
-
-    '&.button': {
-      // color: 'teal',
-    },
   },
 }));

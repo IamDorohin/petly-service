@@ -1,17 +1,31 @@
 import { styled } from '@mui/material/styles';
 
-export const UserDataListContainer = styled('ul')(({ theme }) => ({
-  position: 'relative',
+export const Wrapper = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'start',
   padding: '0 12px 0 16px',
-  margin: '0',
-  width: '100%',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    padding: '40px 52px 80px 12px',
+    padding: '0 52px 0 12px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     padding: '0',
   },
+}));
+
+export const UserDataListContainer = styled('ul')(({ theme }) => ({
+  position: 'relative',
+  paddingLeft: 0,
+  margin: 0,
+  width: '100%',
+
+  // [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+  //   padding: '40px 52px 80px 12px',
+  // },
+  // [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
+  //   padding: '0',
+  // },
 }));
 
 export const UserDataListItem = styled('li')(({ theme }) => ({
@@ -20,6 +34,7 @@ export const UserDataListItem = styled('li')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   position: 'relative',
+  width: '100%',
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalS,
   fontSize: theme.customFontSizes[0],
@@ -37,6 +52,11 @@ export const UserDataListItem = styled('li')(({ theme }) => ({
       marginBottom: '10px',
     },
   },
+}));
+
+export const UserDataListItemName = styled('p')(({ theme }) => ({
+  padding: 0,
+  margin: 0,
 }));
 
 export const UserDataListWrapper = styled('div')(({ theme }) => ({

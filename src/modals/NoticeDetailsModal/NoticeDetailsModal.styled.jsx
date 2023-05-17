@@ -119,14 +119,12 @@ export const L = styled.li(({ theme }) => ({
 
 export const B = theme => ({
   position: 'relative',
-  width: '100',
-  height: '240px',
-  backgroundColor: 'rgba(245, 146, 86, 0.5)',
-  borderRadius: '0px 0px 40px 40px',
+  width: 240,
+  height: 240,
+  borderRadius: 40,
   [theme.breakpoints.up('tablet')]: {
     width: '288px',
     height: '328px',
-    backgroundColor: 'rgba(245, 146, 86, 0.5)',
     marginRight: '20px',
     mb: '28px',
   },
@@ -161,13 +159,13 @@ export const GGGG = styled.div`
 
 export const CategoryText = styled.div`
   position: absolute;
-  top: 20px;
+  top: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
   width: 158px;
   height: 28px;
   padding: 6px 0px 6px 0px;
@@ -178,7 +176,7 @@ export const CategoryText = styled.div`
 
 export const NoticeImg = styled.img`
   object-fit: cover;
-  border-radius: 0px 0px 40px 40px;
-  width: 100%;
-  height: 100%;
+  border-radius: 40px;
+  width: 240px;
+  height: 240px;
 `;

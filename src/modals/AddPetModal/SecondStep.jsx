@@ -39,7 +39,7 @@ const AddPetModalSecondStep = ({ formik, onBack }) => {
             setBase64Url(_Base64Url);
           }}
         />
-        {!base64Url ? <Vector /> : <Img src={base64Url} alt="" />}
+        {!base64Url ? <Vector /> : <Img src={base64Url} alt="" width={200} />}
       </AddBtn>
       <FormLabel sx={LabelFormicAddComment}>
         Comments

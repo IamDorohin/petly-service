@@ -1,4 +1,24 @@
 import { styled } from '@mui/material/styles';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { keyframes } from '@mui/system';
+
+const open = keyframes`
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
+
+const close = keyframes`
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+  }
+`;
 
 export const UserDataContainer = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -35,18 +55,41 @@ export const UserDataContent = styled('div')(({ theme }) => ({
   backgroundColor: theme.customColors.cardsBackground,
   width: '280px',
   height: '537px',
+  display: 'flex',
+  flexWrap: 'wrap',
 
   borderRadius: theme.customBorderRadius.primary,
   boxShadow: theme.customShadow.primary,
+
+  '&.entering': {
+    animation: `${open} 500ms ease`,
+  },
+
+  '&.entered': {
+    animation: `${open} 500ms ease`,
+  },
+
+  '&.exiting': {
+    animation: `${close} 500ms ease`,
+  },
+
+  '&.exited': {
+    animation: `${close} 500ms ease`,
+  },
+
+  '&:hover': {
+    transform: 'scale(1.05)',
+    transition: 'transform 250ms ease-in-out',
+  },
 
   [theme.breakpoints.between(
     theme.breakpoints.values.tablet,
     theme.breakpoints.values.desktop
   )]: {
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row-reverse',
+    flexWrap: 'nowrap',
     width: '704px',
     height: '311px',
     paddingLeft: '20px',
@@ -58,14 +101,22 @@ export const UserDataContent = styled('div')(({ theme }) => ({
     width: '411px',
     height: '541px',
 
-    marginRight: '32px',
     display: 'flex',
+    alignItems: 'flex-end',
     flexDirection: 'column',
-    alignItems: 'center',
+    flexWrap: 'nowrap',
+
     padding: '20px 16px 64px 16px',
 
     borderRadius: theme.customBorderRadius.primary,
   },
+}));
+
+export const Wrapper = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'end',
+  width: '100%',
 }));
 
 export const UserDataPhotoWrapper = styled('div')(({ theme }) => ({
@@ -73,8 +124,7 @@ export const UserDataPhotoWrapper = styled('div')(({ theme }) => ({
   paddingRight: '24px',
   paddingLeft: '24px',
   paddingTop: '20px',
-  width: '233px',
-  height: '285px',
+  width: '100%',
   marginBottom: '35px',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
@@ -93,29 +143,37 @@ export const UserDataPhoto = styled('img')(({ theme }) => ({
   filter: 'drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.11))',
 }));
 
+export const UserDataPhotoDefault = styled(AccountCircleIcon)(({ theme }) => ({
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '233px',
+  height: '233px',
+  color: theme.customColors.accent,
+  opacity: 0.9,
+}));
+
 export const UserDataEditPhotoButton = styled('div')(({ theme }) => ({
   position: 'absolute',
-  right: '0px',
-  bottom: '255px',
+  bottom: '235px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '150px',
   padding: '0',
+  paddingRight: 12,
   border: 'none',
   backgroundColor: 'transparent',
   cursor: 'pointer',
   opacity: '1',
+  width: 105,
 
   '&:hover': {
-    opacity: '0,5',
+    opacity: 0.5,
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    bottom: '26px',
+    bottom: '25px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    right: '20px',
     bottom: '280px',
   },
 }));

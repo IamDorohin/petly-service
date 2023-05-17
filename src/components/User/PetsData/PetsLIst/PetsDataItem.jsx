@@ -34,7 +34,7 @@ export const PetsDataItem = ({ pet, handler }) => {
         </SC.PetsDataInfoContent>
         <SC.PetsDataInfoContent>
           <SC.PetsDataInfoTitle>Comments</SC.PetsDataInfoTitle>
-          {comments.slice(0, 158) + '...'}
+          {comments.length > 158 ? comments.slice(0, 158) + '...' : comments}
         </SC.PetsDataInfoContent>
       </SC.PetsDataInfoWrapper>
     </SC.PetsDataItem>

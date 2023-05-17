@@ -6,7 +6,9 @@ import selector from 'redux/auth/auth-selectors';
 import * as yup from 'yup';
 import { MdOutlineDone } from 'react-icons/md';
 import { HiPencil } from 'react-icons/hi';
+import CalendarDatePicker from 'components/CalendarDatePicker/CalendarDatePicker';
 import * as SC from 'components/User/UserData/UserDataList/UserDataList.styled';
+import dayjs from 'dayjs';
 
 const regexPhoneNumber = /^\+380\d{3}\d{2}\d{2}\d{2}$/;
 const regexAdress = /^(?:(?:\w+-\w+)+|(?:\w+)+),\s(?:(?:\w+-\w+)+|(?:\w+)+)$/;
@@ -83,10 +85,14 @@ export const UserDataItem = ({
 
   return (
     <SC.UserDataListItem>
-      {`${inputName}:`}
+      <SC.UserDataListItemName>{`${inputName}:`}</SC.UserDataListItemName>
       {!isActive || changeInputName === '' ? (
         <SC.UserDataListWrapper>
-          <SC.UserDataListContent>{currentValue}</SC.UserDataListContent>
+          <SC.UserDataListContent title={currentValue}>
+            {currentValue?.length > 20
+              ? currentValue.slice(0, 20) + '...'
+              : currentValue}
+          </SC.UserDataListContent>
           <SC.UserDataPencilIcon
             disabled={!isActive}
             onClick={disabledInputsHandler}
@@ -97,13 +103,22 @@ export const UserDataItem = ({
       ) : (
         <SC.UserDataListWrapper>
           <form onSubmit={formik.handleSubmit}>
-            <SC.UserDataListInput
-              id={currentName}
-              name={currentName}
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values[currentName]}
-            />
+            {inputName === 'Birthday' ? (
+              <CalendarDatePicker
+                onChange={value => {
+                  const finishResult = dayjs(value.$d).format('DD.MM.YYYY');
+                  formik.setFieldValue('birthday', finishResult, false);
+                }}
+              />
+            ) : (
+              <SC.UserDataListInput
+                id={currentName}
+                name={currentName}
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values[currentName]}
+              />
+            )}
             <SC.UserDataPencilIcon type="submit" onClick={formik.handleSubmit}>
               <MdOutlineDone />
             </SC.UserDataPencilIcon>
