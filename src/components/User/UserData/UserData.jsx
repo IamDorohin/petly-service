@@ -9,7 +9,6 @@ export const UserData = ({ userInfo }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getCurrentPhotoHandler = file => {
-    console.log('newPhoto', file);
     setCurrentPhoto(file);
     setIsModalOpen(false);
   };

@@ -16,13 +16,13 @@ export const NoticesCategoriesList = ({
   findedNotices,
   allItem,
   favoriteArr,
-  page,
-  setPage,
+  searchParamsQuery,
+  setSearchParamsQuery,
 }) => {
   const [currentNotices, setCurrentNotices] = useState([]);
 
   const handleChange = (event, value) => {
-    setPage(value);
+    setSearchParamsQuery({ ...searchParamsQuery, page: value });
   };
 
   const favoriteIdArr = favoriteArr?.data?.favorite;
@@ -71,7 +71,7 @@ export const NoticesCategoriesList = ({
         <StackStyled spacing={2}>
           <Pagi
             count={Math.ceil(allItem / 8)}
-            page={page}
+            page={Number(searchParamsQuery.page)}
             onChange={handleChange}
             color="primary"
           />

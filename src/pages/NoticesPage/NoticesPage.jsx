@@ -25,12 +25,12 @@ import {
 import { LoaderCat } from 'components/Generic/LoaderCat';
 
 const NoticesPage = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { page = 1, search = '' } = Object.fromEntries([...searchParams]);
+
+  const [searchParamsQuery, setSearchParamsQuery] = useState({ page, search });
   const [isAddPetModal, setIsAddPetModal] = useState(false);
   const token = useSelector(selector.getToken);
-  const [page, setPage] = useState(1);
-
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const searchQueryState = searchParams?.toString() ?? '';
 
@@ -51,12 +51,13 @@ const NoticesPage = () => {
   const { currentData: favoriteArr } = useGetFavoriteArrQuery();
 
   useEffect(() => {
-    if (searchQuery !== '') {
-      setSearchParams({ search: searchQuery });
+    const { page, search } = searchParamsQuery;
+    if (search !== '') {
+      setSearchParams({ page, search });
     } else {
-      setSearchParams();
+      setSearchParams({ page });
     }
-  }, [searchQuery, setSearchParams]);
+  }, [searchParamsQuery, setSearchParams]);
 
   const onCloseModal = () => {
     setIsAddPetModal(false);
@@ -70,11 +71,14 @@ const NoticesPage = () => {
         <Container>
           <Title>Find your favorite pet</Title>
           <NoticesSearch
-            setSearchQuery={setSearchQuery}
-            searchQuery={searchQuery}
+            setSearchParamsQuery={setSearchParamsQuery}
+            searchParamsQuery={searchParamsQuery}
           />
           <NoticesPageNavBox>
-            <NoticesCategoriesNav />
+            <NoticesCategoriesNav
+              searchParamsQuery={searchParamsQuery}
+              setSearchParamsQuery={setSearchParamsQuery}
+            />
             {!token ? (
               <DirectionSnackbar message={forAlertMessage} />
             ) : (
@@ -91,8 +95,8 @@ const NoticesPage = () => {
               findedNotices={array?.data?.notices}
               allItem={array?.data?.allItems}
               favoriteArr={favoriteArr}
-              page={page}
-              setPage={setPage}
+              searchParamsQuery={searchParamsQuery}
+              setSearchParamsQuery={setSearchParamsQuery}
             />
           )}
         </Container>

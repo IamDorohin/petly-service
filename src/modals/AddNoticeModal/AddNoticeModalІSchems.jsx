@@ -68,7 +68,8 @@ const secondStepFieldsShape = {
       value =>
         value === null || (value && SUPPORTED_FORMATS.includes(value.type))
     )
-    .nullable(),
+    .nullable()
+    .required('Pet image is empty'),
   comments: yup.string().min(8).max(120).required('Category comment is empty'),
 };
 
