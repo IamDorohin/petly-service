@@ -16,7 +16,10 @@ const RadioLabel = ({ text, img }) => {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        gap: '20px',
+        gap: {
+          zero: '12px',
+          tablet: '20px',
+        },
       }}
     >
       <SC.LabelImg src={img} alt="" />
@@ -50,7 +53,10 @@ export default function SexRadios({ formik }) {
           flexWrap: 'wrap',
           flexDirection: 'unset',
           height: '100%',
-          gap: '80px',
+          gap: {
+            zero: '40px',
+            tablet: '80px',
+          },
         }}
         defaultValue="male"
         aria-labelledby="demo-customized-radios"

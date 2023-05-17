@@ -32,10 +32,15 @@ export const FormControlLabel = styled(props => <FCL {...props} />)(
   })
 );
 
-export const LabelImg = styled('img')({
-  width: '60px',
-  height: '60px',
-});
+export const LabelImg = styled('img')(({ theme }) => ({
+  width: '40px',
+  height: '40px',
+
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    width: '60px',
+    height: '60px',
+  },
+}));
 
 export const LabelText = styled('p')({
   fontFamily: 'Manrope',

@@ -42,6 +42,7 @@ export const LabelFormic = theme => ({
   fontSize: '18px',
   lineHeight: '26px',
   color: 'black',
+  mb: '16px',
   mt: '8px',
   '&.Mui-focused ': {
     color: 'black',
