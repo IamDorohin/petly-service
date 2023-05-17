@@ -77,11 +77,15 @@ export const UserDataContent = styled('div')(({ theme }) => ({
     animation: `${close} 500ms ease`,
   },
 
+  '&:hover': {
+    transform: 'scale(1.05)',
+    transition: 'transform 250ms ease-in-out',
+  },
+
   [theme.breakpoints.between(
     theme.breakpoints.values.tablet,
     theme.breakpoints.values.desktop
   )]: {
-    // display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row-reverse',

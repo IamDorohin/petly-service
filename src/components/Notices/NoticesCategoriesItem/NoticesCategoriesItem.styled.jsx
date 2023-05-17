@@ -95,7 +95,7 @@ export const NoticeInformation = styled('div')(({ theme }) => ({
 export const NoticeButtonsWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
-  alignItems: 'flex-end',
+  alignItems: 'center',
   height: 100,
 }));
 

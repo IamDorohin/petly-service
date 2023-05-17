@@ -73,8 +73,6 @@ export const PasswordInput = styled(OutlinedInput)(({ theme }) => ({
   lineHeight: theme.customLineHeight[3],
   letterSpacing: theme.customLetterSpacing.m,
 
-  // borderColor: theme.customBorders.secondaryButtons,
-
   '& fieldset': {
     borderRadius: '40px',
     borderColor: theme.customColors.accent,

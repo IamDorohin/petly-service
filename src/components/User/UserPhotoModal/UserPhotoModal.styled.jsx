@@ -80,6 +80,7 @@ export const Form = styled('form')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row-reverse',
+    paddingTop: 0,
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
@@ -177,13 +178,16 @@ export const FormInputCloseIcon = styled('div')(({ theme }) => ({
   borderColor: theme.customColors.accent,
   borderRadius: theme.customBorderRadius.round,
   cursor: 'pointer',
+  transform: 'translate(232px, 24px)',
 
   '&:hover': {
     backgroundColor: theme.customColors.appBackground,
     color: theme.customColors.primaryFont,
   },
 
-  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {},
+  [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
+    transform: 'translate(534px, 24px)',
+  },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     transform: 'translate(360px, 24px)',

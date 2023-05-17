@@ -3,15 +3,12 @@ import { styled } from '@mui/material/styles';
 export const PetsDataList = styled('ul')(({ theme }) => ({
   padding: '0',
   margin: '0',
-  // width: '100%',
 }));
 
 export const PetsDataItem = styled('li')(({ theme }) => ({
   listStyle: 'none',
   marginBottom: '20px',
   padding: '16px 20px 40px 20px',
-  // width: '280px',
-  // width: '100%',
   height: '540px',
 
   boxShadow: theme.customShadow.addButton,
@@ -24,7 +21,6 @@ export const PetsDataItem = styled('li')(({ theme }) => ({
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    // width: '704px',
     height: '100%',
     display: 'flex',
     alignItems: 'flex-start',
@@ -32,7 +28,6 @@ export const PetsDataItem = styled('li')(({ theme }) => ({
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     marginBottom: '22px',
-    // width: '821px',
   },
 }));
 
@@ -55,9 +50,7 @@ export const PetsDataInfoWrapper = styled('div')(({ theme }) => ({
     marginLeft: '32px',
     width: '471px',
   },
-  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    // width: '100%',
-  },
+  [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {},
 }));
 
 export const PetsDataInfoIcon = styled('button')(({ theme }) => ({
