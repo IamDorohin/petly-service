@@ -2,17 +2,16 @@ import { styled } from '@mui/material/styles';
 
 export const UserPageContainer = styled('section')(({ theme }) => ({
   position: 'relative',
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  // marginLeft: 'auto',
+  // marginRight: 'auto',
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    display: 'flex',
+    // display: 'flex',
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '40px',
+    // justifyContent: 'center',
+    paddingBottom: '40px',
   },
 }));
 
@@ -32,7 +31,7 @@ export const UserPageWrapper = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     display: 'flex',
     alignItems: 'flex-start',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     width: '1280px',
     padding: '0 16px',
   },

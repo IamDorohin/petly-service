@@ -1,14 +1,24 @@
 import { styled } from '@mui/material/styles';
+import { keyframes } from '@mui/system';
 
+const positionsElements = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 export const LogOutContainer = styled('div')(({ theme }) => ({
-  position: 'absolute',
+  // position: 'absolute',
   display: 'flex',
   alignItems: 'center',
-  bottom: '21px',
-  right: '12px',
-  width: '100px',
-  height: '20px',
+  // bottom: 21,
+  // left: 32,
+  width: 100,
+  height: 20,
   cursor: 'pointer',
+  marginTop: 10,
 
   fontFamily: theme.customFontFamily.primary,
   fontWeight: theme.customFontWeight.normalM,
@@ -18,19 +28,22 @@ export const LogOutContainer = styled('div')(({ theme }) => ({
 
   color: theme.customColors.translucentBlack,
 
-  opacity: '1',
-  transirion: 'opacity 250ms ease-out',
-
   '&:hover': {
-    opacity: '0.5',
+    opacity: 0.5,
+  },
+
+  '&.entering': {
+    animation: `${positionsElements} 1500ms ease`,
+  },
+
+  '&.entered': {
+    animation: `${positionsElements} 1500ms ease`,
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    bottom: 25,
-    left: '30px',
+    marginTop: 20,
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    left: '15px',
     alignItems: 'center',
   },
 }));

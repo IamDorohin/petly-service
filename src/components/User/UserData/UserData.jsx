@@ -3,6 +3,7 @@ import { UserPhotoModal } from '../UserPhotoModal/UserPhotoModal';
 import { UserDataList } from './UserDataList/UserDataList';
 import * as SC from './UserData.styled';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import { Transition } from 'react-transition-group';
 
 export const UserData = ({ userInfo }) => {
   const [currentPhoto, setCurrentPhoto] = useState(userInfo.photo);
@@ -18,22 +19,31 @@ export const UserData = ({ userInfo }) => {
     <SC.UserDataContainer>
       <SC.UserInfoTitle>My information:</SC.UserInfoTitle>
       {!isModalOpen ? (
-        <SC.UserDataContent>
-          <SC.UserDataPhotoWrapper>
-            {currentPhoto ? (
-              <SC.UserDataPhoto src={currentPhoto} />
-            ) : (
-              <SC.UserDataPhotoDefault />
-            )}
-          </SC.UserDataPhotoWrapper>
-          <SC.UserDataEditPhotoButton onClick={() => setIsModalOpen(true)}>
-            <SC.UserDataEditIcon>
-              <PhotoCamera />
-            </SC.UserDataEditIcon>
-            <SC.UserDataEditText>Edit photo</SC.UserDataEditText>
-          </SC.UserDataEditPhotoButton>
-          <UserDataList userInfo={userInfo} />
-        </SC.UserDataContent>
+        <Transition in={!isModalOpen}>
+          {state => (
+            <SC.UserDataContent className={state}>
+              <SC.Wrapper>
+                <SC.UserDataPhotoWrapper>
+                  {currentPhoto ? (
+                    <SC.UserDataPhoto src={currentPhoto} />
+                  ) : (
+                    <SC.UserDataPhotoDefault />
+                  )}
+                </SC.UserDataPhotoWrapper>
+                <SC.UserDataEditPhotoButton
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <SC.UserDataEditIcon>
+                    <PhotoCamera />
+                  </SC.UserDataEditIcon>
+                  <SC.UserDataEditText>Edit photo</SC.UserDataEditText>
+                </SC.UserDataEditPhotoButton>
+              </SC.Wrapper>
+
+              <UserDataList userInfo={userInfo} />
+            </SC.UserDataContent>
+          )}
+        </Transition>
       ) : (
         <UserPhotoModal
           userInfo={userInfo}

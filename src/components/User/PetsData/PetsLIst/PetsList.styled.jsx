@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 export const PetsDataList = styled('ul')(({ theme }) => ({
   padding: '0',
   margin: '0',
-  width: '100%',
+  // width: '100%',
 }));
 
 export const PetsDataItem = styled('li')(({ theme }) => ({
@@ -11,7 +11,7 @@ export const PetsDataItem = styled('li')(({ theme }) => ({
   marginBottom: '20px',
   padding: '16px 20px 40px 20px',
   // width: '280px',
-  width: '100%',
+  // width: '100%',
   height: '540px',
 
   boxShadow: theme.customShadow.addButton,
@@ -56,7 +56,7 @@ export const PetsDataInfoWrapper = styled('div')(({ theme }) => ({
     width: '471px',
   },
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    width: '100%',
+    // width: '100%',
   },
 }));
 

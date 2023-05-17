@@ -29,12 +29,11 @@ export const NoticeItem = styled('li')(({ theme }) => ({
 }));
 
 export const NoticeImageWrapper = styled('div')(({ theme }) => ({
-  marginBottom: '20px',
+  marginBottom: 10,
 }));
 
 export const NoticeImage = styled('img')(({ theme }) => ({
   width: '100%',
-  marginBottom: '20px',
 }));
 
 export const NoticeCategory = styled('p')(({ theme }) => ({
@@ -85,6 +84,21 @@ export const NoticeLikeBtn = styled('button', {
   }),
 }));
 
+export const NoticeInformation = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  height: 200,
+}));
+
+export const NoticeButtonsWrapper = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'flex-end',
+  height: 100,
+}));
+
 export const NoticeDescription = styled('div')(({ theme }) => ({
   position: 'relative',
   width: '100%',
@@ -92,10 +106,14 @@ export const NoticeDescription = styled('div')(({ theme }) => ({
   paddingRight: '20px',
   paddingLeft: '20px',
   paddingBottom: '12px',
+
+  display: 'flex',
+  flexWrap: 'wrap',
 }));
 
 export const NoticeTitle = styled('p')(({ theme }) => ({
   margin: '0',
+  height: 40,
   marginBottom: '20px',
   textAlign: 'start',
   fontStyle: 'normal',
@@ -111,7 +129,6 @@ export const NoticeTitle = styled('p')(({ theme }) => ({
 export const NoticeList = styled('ul')(({ theme }) => ({
   listStyle: 'none',
   paddingLeft: '0',
-  marginBottom: '20px',
 }));
 
 export const NoticeListItem = styled('li')(({ theme }) => ({

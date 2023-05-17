@@ -106,8 +106,8 @@ export const UserDataItem = ({
             {inputName === 'Birthday' ? (
               <CalendarDatePicker
                 onChange={value => {
-                  console.log('value', value);
-                  formik.setFieldValue('birthday', dayjs(value.$d), false);
+                  const finishResult = dayjs(value.$d).format('DD.MM.YYYY');
+                  formik.setFieldValue('birthday', finishResult, false);
                 }}
               />
             ) : (

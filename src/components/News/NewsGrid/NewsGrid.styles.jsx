@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 export const Grid = styled('ul')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   listStyle: 'none',
   width: '280px',
   padding: '0',

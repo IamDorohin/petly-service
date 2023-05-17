@@ -27,7 +27,7 @@ export const Container = styled('div')(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     width: '1280px',
     paddingRight: '16px',
-    paddingBottom: '200px',
+    paddingBottom: '40px',
     paddingLeft: '16px',
   },
 }));
