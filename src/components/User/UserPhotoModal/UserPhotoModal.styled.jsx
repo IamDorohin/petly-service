@@ -3,6 +3,25 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { TfiPlus } from 'react-icons/tfi';
+import { keyframes } from '@mui/system';
+
+const open = keyframes`
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
+
+const close = keyframes`
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+  }
+`;
 
 export const FormContainer = styled(Box)(({ theme }) => ({
   width: '280px',
@@ -11,6 +30,22 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
   borderRadius: theme.customBorderRadius.primary,
   boxShadow: theme.customShadow.primary,
+
+  '&.entering': {
+    animation: `${open} 500ms ease`,
+  },
+
+  '&.entered': {
+    animation: `${open} 500ms ease`,
+  },
+
+  '&.exiting': {
+    animation: `${close} 500ms ease`,
+  },
+
+  '&.exited': {
+    animation: `${close} 500ms ease`,
+  },
 
   [theme.breakpoints.between(
     theme.breakpoints.values.tablet,
@@ -25,7 +60,6 @@ export const FormContainer = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     width: '411px',
     height: '541px',
-    marginRight: '32px',
 
     borderRadius: theme.customBorderRadius.primary,
   },
@@ -36,7 +70,7 @@ export const Form = styled('form')(({ theme }) => ({
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
-  paddingTop: 40,
+  paddingTop: 31,
 
   [theme.breakpoints.between(
     theme.breakpoints.values.tablet,
@@ -46,6 +80,7 @@ export const Form = styled('form')(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row-reverse',
+    paddingTop: 0,
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
@@ -132,9 +167,6 @@ export const AddIcon = styled(TfiPlus)(({ theme }) => ({
 }));
 
 export const FormInputCloseIcon = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  top: 65,
-  right: 40,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -146,6 +178,7 @@ export const FormInputCloseIcon = styled('div')(({ theme }) => ({
   borderColor: theme.customColors.accent,
   borderRadius: theme.customBorderRadius.round,
   cursor: 'pointer',
+  transform: 'translate(232px, 24px)',
 
   '&:hover': {
     backgroundColor: theme.customColors.appBackground,
@@ -153,13 +186,11 @@ export const FormInputCloseIcon = styled('div')(({ theme }) => ({
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.tablet)]: {
-    top: 100,
-    right: 40,
+    transform: 'translate(534px, 24px)',
   },
 
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
-    top: 85,
-    right: 52,
+    transform: 'translate(360px, 24px)',
   },
 }));
 

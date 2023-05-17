@@ -9,7 +9,7 @@ import {
 } from './UserPage.style';
 import { UserData } from 'components/User/UserData/UserData';
 import { PetsData } from 'components/User/PetsData/PetsData';
-import { LogOut } from 'components/User/LogOut/LogOut';
+// import { LogOut } from 'components/User/LogOut/LogOut';
 
 const UserPage = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -36,7 +36,7 @@ const UserPage = () => {
               setIsAddPetModalOpen={setIsAddPetModalOpen}
               isAddPetModalOpen={isAddPetModalOpen}
             />
-            <LogOut />
+            {/* <LogOut /> */}
           </UserWrapper>
           <PetsData
             petInfo={currentUser.yourPets}

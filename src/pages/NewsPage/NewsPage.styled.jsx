@@ -23,7 +23,7 @@ export const NewsContainer = styled(Container)(({ theme }) => ({
   [theme.breakpoints.up(theme.breakpoints.values.desktop)]: {
     minWidth: '1200px',
     maxWidth: '1200px',
-    paddingBottom: '200px',
+    paddingBottom: '40px',
   },
 }));
 

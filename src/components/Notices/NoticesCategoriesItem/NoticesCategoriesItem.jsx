@@ -112,51 +112,59 @@ export const NoticesCategoriesItem = ({ notice, noticeDeleteHandler }) => {
       )}
 
       <SC.NoticeDescription className={owner}>
-        <SC.NoticeTitle>
-          {title.length >= 27 ? title.slice(0, 27) + '...' : title}
-        </SC.NoticeTitle>
-        <SC.NoticeList>
-          <SC.NoticeListItem>
-            <SC.NoticeListItemtitle>Breed:</SC.NoticeListItemtitle>
-            <SC.NoticeListItemDetails>{breed}</SC.NoticeListItemDetails>
-          </SC.NoticeListItem>
-          <SC.NoticeListItem>
-            <SC.NoticeListItemtitle>Place:</SC.NoticeListItemtitle>
-            <SC.NoticeListItemDetails>{location}</SC.NoticeListItemDetails>
-          </SC.NoticeListItem>
-          <SC.NoticeListItem>
-            <SC.NoticeListItemtitle>Age:</SC.NoticeListItemtitle>
-            {month === 0 ? (
-              <SC.NoticeListItemDetails>
-                {`${outputDays} days`}
-              </SC.NoticeListItemDetails>
-            ) : (
-              <SC.NoticeListItemDetails>
-                {years <= 1 ? `${outputMonths} month` : `${outputYears} years`}
-              </SC.NoticeListItemDetails>
-            )}
-          </SC.NoticeListItem>
-          <SC.NoticeListItem>
-            {price && (
-              <>
-                <SC.NoticeListItemtitle>Price: </SC.NoticeListItemtitle>
-                <SC.NoticeListItemDetails>{price}</SC.NoticeListItemDetails>
-              </>
-            )}
-          </SC.NoticeListItem>
-        </SC.NoticeList>
-        <SC.NoticeLearnMoreBtn
-          className={owner}
-          onClick={() => setIsOpenModal(true)}
-        >
-          Learn More
-        </SC.NoticeLearnMoreBtn>
-        {isOwnerNotice && (
-          <SC.NoticeDeleteBtn onClick={() => noticeDeleteHandler(_id)}>
-            <SC.NoticeDeleteBtnText>Delete</SC.NoticeDeleteBtnText>
-            <HiTrash size={20} />
-          </SC.NoticeDeleteBtn>
-        )}
+        <SC.NoticeInformation>
+          <SC.NoticeTitle>
+            {title.length >= 27 ? title.slice(0, 27) + '...' : title}
+          </SC.NoticeTitle>
+          <SC.NoticeList>
+            <SC.NoticeListItem>
+              <SC.NoticeListItemtitle>Breed:</SC.NoticeListItemtitle>
+              <SC.NoticeListItemDetails>{breed}</SC.NoticeListItemDetails>
+            </SC.NoticeListItem>
+            <SC.NoticeListItem>
+              <SC.NoticeListItemtitle>Place:</SC.NoticeListItemtitle>
+              <SC.NoticeListItemDetails>{location}</SC.NoticeListItemDetails>
+            </SC.NoticeListItem>
+            <SC.NoticeListItem>
+              <SC.NoticeListItemtitle>Age:</SC.NoticeListItemtitle>
+              {month === 0 ? (
+                <SC.NoticeListItemDetails>
+                  {`${outputDays} days`}
+                </SC.NoticeListItemDetails>
+              ) : (
+                <SC.NoticeListItemDetails>
+                  {years <= 1
+                    ? `${outputMonths} month`
+                    : `${outputYears} years`}
+                </SC.NoticeListItemDetails>
+              )}
+            </SC.NoticeListItem>
+            <SC.NoticeListItem>
+              {price && (
+                <>
+                  <SC.NoticeListItemtitle>Price: </SC.NoticeListItemtitle>
+                  <SC.NoticeListItemDetails>{price}</SC.NoticeListItemDetails>
+                </>
+              )}
+            </SC.NoticeListItem>
+          </SC.NoticeList>
+        </SC.NoticeInformation>
+
+        <SC.NoticeButtonsWrapper>
+          <SC.NoticeLearnMoreBtn
+            className={owner}
+            onClick={() => setIsOpenModal(true)}
+          >
+            Learn More
+          </SC.NoticeLearnMoreBtn>
+          {isOwnerNotice && (
+            <SC.NoticeDeleteBtn onClick={() => noticeDeleteHandler(_id)}>
+              <SC.NoticeDeleteBtnText>Delete</SC.NoticeDeleteBtnText>
+              <HiTrash size={20} />
+            </SC.NoticeDeleteBtn>
+          )}
+        </SC.NoticeButtonsWrapper>
+
         {isCurrentPet && (
           <NoticeDetailsModal
             noPetPhoto={noPetPhoto}

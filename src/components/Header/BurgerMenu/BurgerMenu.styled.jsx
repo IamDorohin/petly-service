@@ -34,8 +34,6 @@ export const StyledHeader = styled('div')(({ theme }) => ({
     paddingLeft: 30,
     paddingRight: 30,
     marginBottom: 88,
-    // marginLeft: 'auto',
-    // marginRight: 'auto',
   },
 }));
 

@@ -8,6 +8,7 @@ import { MdOutlineDone } from 'react-icons/md';
 import { HiPencil } from 'react-icons/hi';
 import CalendarDatePicker from 'components/CalendarDatePicker/CalendarDatePicker';
 import * as SC from 'components/User/UserData/UserDataList/UserDataList.styled';
+import dayjs from 'dayjs';
 
 const regexPhoneNumber = /^\+380\d{3}\d{2}\d{2}\d{2}$/;
 const regexAdress = /^(?:(?:\w+-\w+)+|(?:\w+)+),\s(?:(?:\w+-\w+)+|(?:\w+)+)$/;
@@ -104,13 +105,10 @@ export const UserDataItem = ({
           <form onSubmit={formik.handleSubmit}>
             {inputName === 'Birthday' ? (
               <CalendarDatePicker
-                // value={formik.values[currentName]}
                 onChange={value => {
-                  console.log('value', value);
-                  formik.setFieldValue('birthday', value, false);
+                  const finishResult = dayjs(value.$d).format('DD.MM.YYYY');
+                  formik.setFieldValue('birthday', finishResult, false);
                 }}
-                // onChange={formik.handleChange}
-                // value={formik.values[currentName]}
               />
             ) : (
               <SC.UserDataListInput
