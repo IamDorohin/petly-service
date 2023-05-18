@@ -3,12 +3,12 @@ import * as SC from './NoticesSearch.styled';
 import SearchIcon from '@mui/icons-material/Search';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
+export const NoticesSearch = ({ searchParamsQuery, setSearchParamsQuery }) => {
   const [currentQuery, setCurrentQuery] = useState('');
 
   const handleSearchQueryChange = event => {
     if (event.currentTarget.value === '') {
-      setSearchQuery('');
+      setSearchParamsQuery({ ...searchParamsQuery, search: '' });
     }
     setCurrentQuery(event.currentTarget.value.toLowerCase());
   };
@@ -20,11 +20,12 @@ export const NoticesSearch = ({ searchQuery, setSearchQuery }) => {
       return;
     }
 
-    setSearchQuery(currentQuery);
+    setSearchParamsQuery({ ...searchParamsQuery, page: 1 });
+    setSearchParamsQuery({ ...searchParamsQuery, search: currentQuery });
   };
 
   const clearSearchBar = () => {
-    setSearchQuery('');
+    setSearchParamsQuery({ ...searchParamsQuery, search: '' });
     setCurrentQuery('');
   };
 

@@ -15,15 +15,28 @@ const privateCategories = [
   { id: '5', title: 'my ads', endpoint: 'own' },
 ];
 
-export const NoticesCategoriesNav = () => {
+export const NoticesCategoriesNav = ({
+  setSearchParamsQuery,
+  searchParamsQuery,
+}) => {
   const isLogedIn = useSelector(selector.getIsLoggedIn);
   const { categoryName } = useParams();
+
+  const handleClick = endpoint => {
+    if (endpoint !== categoryName) {
+      setSearchParamsQuery({ ...searchParamsQuery, page: 1 });
+    }
+  };
 
   return (
     <SC.CategoriesList>
       {publicCategories.map(({ id, title, endpoint }) => (
         <SC.CategoriesItem className={categoryName === endpoint} key={id}>
-          <SC.NavLinkStyled className="forHover" to={`/notices/${endpoint}`}>
+          <SC.NavLinkStyled
+            onClick={() => handleClick(endpoint)}
+            className="forHover"
+            to={`/notices/${endpoint}`}
+          >
             {title}
           </SC.NavLinkStyled>
         </SC.CategoriesItem>
@@ -32,7 +45,11 @@ export const NoticesCategoriesNav = () => {
       {isLogedIn &&
         privateCategories.map(({ id, title, endpoint }) => (
           <SC.CategoriesItem className={categoryName === endpoint} key={id}>
-            <SC.NavLinkStyled className="forHover" to={`/notices/${endpoint}`}>
+            <SC.NavLinkStyled
+              onClick={() => handleClick(endpoint)}
+              className="forHover"
+              to={`/notices/${endpoint}`}
+            >
               {title}
             </SC.NavLinkStyled>
           </SC.CategoriesItem>

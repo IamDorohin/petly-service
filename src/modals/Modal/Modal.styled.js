@@ -1,7 +1,8 @@
-import { IconButton } from '@mui/material';
+import { IconButton, Modal } from '@mui/material';
 import styled from 'styled-components';
 
 export const modalBox = theme => ({
+  marginTop: '100px',
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -20,12 +21,15 @@ export const modalBox = theme => ({
   },
 
   [theme.breakpoints.up('tablet')]: {
+    marginTop: '150px',
     width: '608px',
     minHeight: '570px',
     height: 'auto',
     padding: '40px 80px 40px 80px',
   },
-  [theme.breakpoints.up('desktop')]: {},
+  [theme.breakpoints.up('desktop')]: {
+    marginTop: '150px',
+  },
 });
 
 export const LabelFormic = theme => ({
@@ -38,6 +42,7 @@ export const LabelFormic = theme => ({
   fontSize: '18px',
   lineHeight: '26px',
   color: 'black',
+  mb: '16px',
   mt: '8px',
   '&.Mui-focused ': {
     color: 'black',
@@ -104,3 +109,7 @@ export const Title = theme => ({
     height: '52px',
   },
 });
+
+export const ModalUI = styled(Modal)`
+  overflow: scroll;
+`;
